@@ -31,13 +31,13 @@
             margin-top: -1px;
         }
 
-        #scrollable-div {
-            max-height: 280px;
+        .scrollable-div {
+            max-height: 380px;
             min-width: 300px;
             overflow-y: auto;
             overflow-x: hidden;
             border: 1px solid gainsboro;
-            padding: 10px 10px 0;
+            padding: 10px 10px 10px;
         }
 
         .form-check-input {
@@ -55,9 +55,32 @@
             visibility: hidden;
         }
 
+        .dropdown-item:hover .drag-btn {
+            visibility: visible;
+        }
+
         .margin-horizontal-5 {
             margin: 0 5px;
         }
+
+        .parent-item {
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            padding-top: 0.25rem;
+            padding-left: .2rem;
+            clear: both;
+            font-weight: 400;
+            color: #212529;
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+        }
+
+    .sub-item {
+      padding-left: 20px;
+    }
     </style>
 </head>
 
@@ -163,8 +186,8 @@
                             </div>
 
                             <div class="card-body">
-
-                                <div class="dropdown">
+   
+                                <!-- <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Dropdown
                                     </button>
@@ -186,11 +209,141 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="row float-right mb-3">
 
                                     <input type="text" class="form-control globe-search mr-2" placeholder="Type and press enter to search..." style="width:300px;">
+
+                                    <div class="btn-group" style="margin-right: 8px">
+                                    
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-columns"></i> &nbsp;Columns
+                                        </button>
+                                        
+                                        <div class="dropdown-menu dropdown-menu-right scrollable-div" aria-labelledby="dropdownMenuButton">
+                                        
+                                            <a href="javascript:;" class="dropdown-item">
+    
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+    
+                                                <span class="column-label"> &nbsp;Ticket Number</span>
+    
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+    
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+    
+                                            <a href="javascript:;" class="dropdown-item">
+    
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+    
+                                                <span class="column-label"> &nbsp;Subject</span>
+    
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+    
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <span class="parent-item">
+                                        
+                                                <b>Custom :: Select</b>
+                                    
+                                                <span class="parent-item">
+                                        
+                                                    <img src="../../dist/img/enterarrow.png" width="16" height="16">
+                                                    
+                                                    <b>Radio Field</b>
+                                        
+                                                    <span class="parent-item">
+                                        
+                                                        <img src="../../dist/img/enterarrow.png" width="16" height="16">
+                                                        
+                                                        <b>Select Field</b>
+                                            
+                                                        <a href="javascript:;" class="dropdown-item ml-3">
+    
+                                                            <input type="checkbox" class="form-check-input" value="ticket_number">
+            
+                                                            <span class="column-label"> &nbsp;Multi Line</span>
+            
+                                                            <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+            
+                                                                <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
+                                                    </span>
+                                                </span>
+                                            </span>
+    
+                                            <a href="javascript:;" class="dropdown-item">
+    
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+    
+                                                <span class="column-label"> &nbsp;Status</span>
+    
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+    
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                        
+                                            <span class="parent-item">
+                                        
+                                                <b>Department :: Support</b>
+                                    
+                                                <span class="parent-item">
+                                        
+                                                    <img src="../../dist/img/enterarrow.png" width="16" height="16">
+                                                    
+                                                    <b>Select</b>
+                                        
+                                                    <span class="parent-item">
+                                        
+                                                        <img src="../../dist/img/enterarrow.png" width="16" height="16">
+                                                        
+                                                        <b>Radio</b>
+                                            
+                                                        <a href="javascript:;" class="dropdown-item ml-3">
+    
+                                                            <input type="checkbox" class="form-check-input" value="ticket_number">
+            
+                                                            <span class="column-label"> &nbsp;Single Line</span>
+            
+                                                            <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+            
+                                                                <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
+                                                    </span>
+                                                </span>
+                                            </span>
+    
+                                            <a href="javascript:;" class="dropdown-item">
+    
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+    
+                                                <span class="column-label"> &nbsp;Helptopic</span>
+    
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+    
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+    
+                                            <div class="mt-2">
+                                                <button type="button" class="btn btn-sm btn-primary mb-1 mr-1">
+                                                    <i class="fas fa-sync"></i> Apply
+                                                </button>
+                                                
+                                                <button class="btn btn-sm btn-primary mb-1">
+                                                    <i class="fas fa-plus"></i> Add Custom Column
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="btn-group" style="margin-right: 8px">
 
@@ -198,7 +351,7 @@
                                             <i class="fas fa-columns"></i> &nbsp;Columns
                                         </button>
 
-                                        <div class="dropdown-menu dropdown-menu-right" id="scrollable-div">
+                                        <div class="dropdown-menu dropdown-menu-right scrollable-div">
 
                                             <a href="javascript:;" class="dropdown-item">
 
@@ -206,13 +359,117 @@
 
                                                 <span class="column-label"> &nbsp;Ticket Number</span>
 
-                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column">
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
 
                                                     <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
                                                 </span>
                                             </a>
 
-                                            <a class="dropdown-item" href="#">Dropdown link</a>
+                                            <a href="javascript:;" class="dropdown-item">
+
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+
+                                                <span class="column-label"> &nbsp;Subject</span>
+
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="javascript:;" class="dropdown-item">
+
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+
+                                                <span class="column-label"> &nbsp;Status</span>
+
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="javascript:;" class="dropdown-item">
+
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+
+                                                <span class="column-label"> &nbsp;<b title="Custom" data-toggle="tooltip" data-placement="top"><i class="fas fa-plus-square"></i></b> &nbsp;<b>Select</b> > <b>Radio</b> > <b>Select</b> > Number</span>
+
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="javascript:;" class="dropdown-item">
+
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+
+                                                <span class="column-label"> &nbsp;Helptopic</span>
+
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="javascript:;" class="dropdown-item">
+
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+
+                                                <span class="column-label"> &nbsp;Department</span>
+
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="javascript:;" class="dropdown-item">
+
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+
+                                                <span class="column-label"> &nbsp;<b title="Helptopic" data-toggle="tooltip" data-placement="top"><i class="fas fa-life-ring"></i></b> &nbsp;<b>Sales Query</b> > Single Line</span>
+
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="javascript:;" class="dropdown-item">
+
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+
+                                                <span class="column-label"> &nbsp;<b title="Department" data-toggle="tooltip" data-placement="top"><i class="fas fa-sitemap"></i></b> &nbsp;<b>Support</b> > Single Line</span>
+
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="javascript:;" class="dropdown-item">
+
+                                                <input type="checkbox" class="form-check-input" value="ticket_number">
+
+                                                <span class="column-label"> &nbsp;<b title="Custom" data-toggle="tooltip" data-placement="top"><i class="fas fa-plus-square"></i></b> &nbsp;<b>Checkbox</b> > <b>Select</b> > Single Line</span>
+
+                                                <span class="float-right margin-horizontal-5 drag-btn" title="Move this column" data-toggle="tooltip" data-placement="top">
+
+                                                    <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+
+                                            <div class="mt-2">
+                                                <button type="button" class="btn btn-sm btn-primary mb-1 mr-1">
+                                                    <i class="fas fa-sync"></i> Apply
+                                                </button>
+                                                
+                                                <button class="btn btn-sm btn-primary mb-1">
+                                                    <i class="fas fa-plus"></i> Add Custom Column
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -291,6 +548,16 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 
 <script>
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+
     $(document).ready(function() {
         $('.dropdown-submenu .dropdown-toggle').on('click', function(e) {
             e.preventDefault();
