@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Faveo | EditTicketModal</title>
+
+  <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <style>
+    .navbar-search {
+      position: absolute;
+      padding: 0rem;
+      left: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #fff;
+      margin-right: 10px;
+    }
+    .dropdown-menu {
+      width:360px;
+      margin-right: 10px;
+    }
+
+    .select-filter{
+      padding: 4px 8px;
+    }
+
+    .card{
+      margin-bottom: 0rem;
+    }
+
+    .second-card{
+      padding:15px;
+    }
+
+    .scrollable-ul { max-height: 280px; overflow-y: auto;overflow-x: auto; }
+
+.scrollable-ul::-webkit-scrollbar-track
+{
+  background-color: #f1f1f1;
+  border-radius:10px;
+}
+
+.scrollable-ul::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: #f1f1f1;
+}
+
+.scrollable-ul::-webkit-scrollbar-thumb
+{
+  background-color: #c1c1c1;
+  border-radius: 10px;
+}
+
+
+    .toggle-container:focus {
+      box-shadow:none;
+      outline: none;
+    }
+
+
+    .toggle-container input[type="checkbox"] {
+      display: none;
+    }
+
+    .toggle-container label{
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+      border-radius: 15px;
+      background-color: #f57373;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .toggle-container label::after {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      transition: left 0.5s;
+    }
+
+    .toggle-container input[type="checkbox"]:checked + label[for="toggle"] {
+      background-color: #4caf50;
+    }
+
+    .toggle-container input[type="checkbox"]:checked + label[for="toggle"]::after {
+      left: calc(100% - 18px);
+    }
+
+    .toggle-container{
+      padding-right:10px;
+    }
+
+    .ml-auto, .mx-auto {
+      margin-top: 5px;
+    }
+
+
+   .form-inline .input-group{
+      width:360px;
+      margin-top: 20px;
+  }
+
+  .card{
+      margin-bottom: 0rem;
+    }
+
+  img {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .header{
+    font-size: 1.3rem;
+  }
+
+  .text-gray{
+    font-family: Source Sans Pro;
+    font-size: 14px;
+  }
+
+  .text-primary{
+    color:rgb(60,141,188) !important;
+  }
+
+  .btn-primary{
+
+    padding-top:3px;
+    padding-bottom:3px;
+
+    margin:-2px;
+    
+  }
+
+  .btn-outline-primary{
+
+    padding-top:3px;
+    padding-bottom:3px;
+
+    margin:-2px;
+
+  }
+
+ .dropdown-item {
+
+  padding: 0;
+ }
+
+ .dropdown-menu-xl .dropdown-item{
+  padding: 0;
+ }
+
+ .media{
+  cursor: pointer;
+  padding-right:10px;
+  padding-left:10px;
+  padding-top:10px;
+  padding-bottom:8px;
+ }
+
+ .header{
+  padding-left:20px;
+ }
+
+ .media-body{
+  padding-left: 10px;
+ }
+
+ .col-sm{
+  padding:5px;
+ }
+
+ .modal-dialog{
+    min-width: 600px !important;
+    max-width: 1100px !important;
+    max-height: 800px !important;
+ }
+
+ .ticket-list{
+  max-height: 580px;
+  min-height: 580px;
+  overflow-y: auto;
+  overflow-x: hidden;
+ }
+
+ .modal-2-ticket-list{
+  max-height: 100px;
+  min-height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+ }
+
+ .forms-list{
+  max-height: 465px;
+  overflow-y: auto;
+  overflow-x: hidden;
+ }
+
+ .is-danger {
+    margin-left: 2px;
+    color: #d73925;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.required-field {
+        border-color: red;
+    }
+    
+  </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link text-center">
+      <span class="brand-text font-weight-light">Faveo Help Desk</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Faveo</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Simple Link
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Starter Page</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Starter Page</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card mb-2">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the card's
+                  content.
+                </p>
+
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+
+            <div class="card card-primary card-outline mb-2">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the card's
+                  content.
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div><!-- /.card -->
+          </div>
+          <!-- /.col-md-6 -->
+          <div class="col-sm-12">
+            <div class="card mb-2">
+              <div class="card-header">
+                <h5 class="m-0">Featured</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Special title treatment</h6>
+
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <button id="faOn" data-bs-toggle="modal" data-bs-target="#faModal-1" class="btn btn-primary">
+                  Display Edit Modal -2
+              </button>
+              </div>
+            </div>
+
+            <div class="modal fade" id="faModal-1" tabindex="-1" aria-labelledby="faModal-1Label" aria-hidden="true">
+
+              <div class="modal-dialog">
+
+                  <div class="modal-content">
+
+                      <div class="modal-header">
+
+                          <h3 class="modal-title fs-5" id="faModalLiveLabel">Close tickets</h1>
+
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+
+                              <span aria-hidden="true" id="modal_close">&times;</span>
+                
+                            </button>
+                      </div>
+
+                      <div class="modal-body text-start">
+
+                        <div class="alert alert-warning mb-3"><i class="fas fa-warning"></i>&nbsp;7 of 10 tickets weren't closed. Please fill required fields to proceed.</div>
+
+                      
+                          <div class="col-sm-12">
+                            <div class="card">
+
+                              <div class="card-header">
+                                <h5>Selected Tickets List</h4>
+                              </div>
+
+                              <div class="card-body modal-2-ticket-list">
+                                  <div class="row pb-3">
+                                    <div class="col-sm-2">
+                                      <div class="btn btn-block  btn-primary select-filter2">
+                                        #HDSK-AAAA-0021
+                                      </div> 
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                      <div class="btn btn-block  btn-outline-primary select-filter2">
+                                        #HDSK-AAAA-0021
+                                      </div> 
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                      <div class="btn btn-block  btn-outline-primary select-filter2">
+                                        #HDSK-AAAA-0021
+                                      </div> 
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                      <div class="btn btn-block  btn-outline-primary select-filter2">
+                                        #HDSK-AAAA-0021
+                                      </div> 
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                      <div class="btn btn-block  btn-outline-primary select-filter2">
+                                        #HDSK-AAAA-0021
+                                      </div> 
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                      <div class="btn btn-block  btn-outline-primary select-filter2">
+                                        #HDSK-AAAA-0021
+                                      </div> 
+                                    </div>  
+                                  </div>
+
+                                  <div class="row pb-5">
+                                    <div class="col-sm-2">
+                                      <div class="btn btn-block btn-outline-primary select-filter2">
+                                        #HDSK-AAAA-0021
+                                      </div> 
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                      <div class="btn btn-block btn-outline-primary select-filter2">
+                                        #HDSK-AAAA-0021
+                                      </div> 
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-12 pt-2">
+
+                            <form>
+
+                              <div class="form-group"> 
+                                  <select class="form-control">
+                                      <option>form 1</option>
+                                      <option>form 2</option>
+                                      <option>form 3</option>
+                                  </select>
+                              </div>
+                      
+                      </form>
+                  
+                      <div class="card card-light">
+                          <div class="card-header card-light">
+                              <h4>Ticket Properties</h4>
+                          </div>
+                          <div class="card-body forms-list">
+
+                              <form>
+                          
+                                  <div class="col-sm-12">
+  
+                                      <div class="form-group">
+                                          <label>Subject</label>
+                                          <input type="text" value="sample text" class="form-control" placeholder="Enter ...">
+  
+                                          <label class="mt-2">Department</label>
+                                          <select class="form-control">
+                                              <option>support</option>
+                                              <option>Operation</option>
+                                              <option>Sales</option>
+                                              <option>Marketing</option>
+                                              <option>Developer</option>
+                                          </select>
+
+                                          <label class="mt-2">description<span class="is-danger">*</span></label>
+                                          <input type="text" class="form-control required-field" placeholder="Enter ...">
+                                          <small class="text-danger">This field is required.</small><br>
+                                          
+                                          <label class="mt-2">Team<span class="is-danger">*</span></label>
+                                          <select class="form-control">
+                                              <option>Batch 1</option>
+                                              <option>Batch </option>
+                                              <option>Sales</option>
+                                              <option>Marketing</option>
+                                              <option>Developer</option>
+                                          </select>
+
+                                          <label class="mt-2">Number<span class="is-danger">*</span></label>
+                                          <input type="number" class="form-control" value="12345" placeholder="Enter ...">
+
+                                          <label class="mt-2">Single Line</label>
+                                          <input type="number" class="form-control" value="12345" placeholder="Enter ...">
+
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                          </div>
+                          
+                      </div>
+
+                      <div class="modal-footer justify-content-between">
+
+                          <button type="button" class="btn btn-light border" data-bs-dismiss="modal">
+
+                              <i class="fas fa-times"></i> Close
+                          </button>
+
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#setupModal">
+
+                              <i class="fas fa-sync"></i> Update
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <div class="card card-primary card-outline mb-2">
+              <div class="card-header">
+                <h5 class="m-0">Featured</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Special title treatment</h6>
+
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <button id="faOn" data-bs-toggle="modal" data-bs-target="#faModal" class="btn btn-primary">
+                    Display Edit Modal -1
+                </button>
+              </div>
+            </div>
+
+            <div class="modal fade" id="faModal" tabindex="-1" aria-labelledby="faModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h3 class="modal-title fs-5" id="faModalLiveLabel">Close tickets</h3>
+                          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true" id="modal_close">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body text-start">
+                          <div class="alert alert-warning mb-3">
+                              <i class="fas fa-warning"></i>&nbsp;<span id="ticket-warning">7 of 10 tickets weren't closed. Please fill required fields to proceed.</span>
+                          </div>
+                          <div class="row">
+                              <div class="col-sm-4">
+                                  <div class="card">
+                                      <div class="card-body ticket-list cursor-pointer" id="ticket-list">
+                                          <!-- Tickets will be dynamically populated here -->
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-8">
+                                  <form>
+                                    <div class="form-group">
+                                      <select class="form-control">
+                                        <option>Form-1</option>
+                                        <option>Form-2</option>
+                                        <option>Form-3</option>
+                                      </select>
+                                    </div>
+                                  </form>
+
+                                  <div class="card">
+                                    <div class="card-header card-light">
+                                      <h4>Ticket Properties</h4>
+                                    </div>
+                                    <div class="card-body forms-list">
+                                      <form>
+                                        <div class="col-sm-12">
+                                          <div class="form-group">
+                                            <div id="form-container">
+                                              <!-- Dynamic form fields will be populated here -->
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                
+                                  
+                              </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer justify-content-between">
+                          <button type="button" class="btn btn-light border" data-bs-dismiss="modal">
+                              <i class="fas fa-times"></i> Close
+                          </button>
+                          <button type="button" class="btn btn-primary" id="update-button">
+                              <i class="fas fa-sync"></i> Update
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Version 2.0.0
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2024-2025 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+
+
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+
+<script type="text/javascript" src="assets/app/js/jquery.min.js"></script>
+
+<script type="text/javascript" src="assets/app/js/popper.min.js"></script>
+
+<script type="text/javascript" src="assets/app/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="assets/app/js/custom.js"></script>
+<script type="text/javascript" src="assets/app/js/superfish.js"></script>
+<script type="text/javascript" src="assets/app/js/jquery.mobilemenu.js"></script>
+<script type="text/javascript" src="assets/app/js/autocomplete.js"></script>
+<script type="text/javascript" src="assets/app/js/app.js"></script>
+
+
+<script>
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const tickets = [
+        '#HDSK-AAAA-0021', '#HDSK-AAAA-0022', '#HDSK-AAAA-0023',
+        '#HDSK-AAAA-0024', '#HDSK-AAAA-0025', '#HDSK-AAAA-0026',
+        '#HDSK-AAAA-0027'
+    ];
+
+    let currentTicketIndex = 0;
+
+    const ticketForms = {
+        '#HDSK-AAAA-0021': [
+            { label: 'Subject', type: 'text', id: 'subject', value: 'Subject-content1', required: true },
+            { label: 'Department', type: 'select', id: 'department', value: 'support', options: ['support', 'Operation', 'Sales', 'Marketing', 'Developer'], required: false },
+            { label: 'Description', type: 'text', id: 'description', value: 'Description content', required: true },
+            { label: 'Team', type: 'select', id: 'team', value: 'Batch 1', options: ['Batch 1', 'Batch 2', 'Sales', 'Marketing', 'Developer'], required: true },
+            { label: 'TextField', type: 'text', id: 'number', value: "", required: true }
+        ],
+        '#HDSK-AAAA-0022': [
+            { label: 'Subject', type: 'text', id: 'subject', value: 'Subject-content2', required: true },
+            { label: 'Department', type: 'select', id: 'department', value: 'Operation', options: ['support', 'Operation', 'Sales', 'Marketing', 'Developer'], required: false },
+            { label: 'Description', type: 'text', id: 'description', value: 'Description content', required: true },
+            { label: 'Team', type: 'select', id: 'team', value: 'Batch 2', options: ['Batch 1', 'Batch 2', 'Sales', 'Marketing', 'Developer'], required: true },
+            { label: 'Number', type: 'number', id: 'number', value: '', required: true }
+        ],
+        '#HDSK-AAAA-0023': [
+            { label: 'Subject', type: 'text', id: 'subject', value: 'Subject-content3', required: true },
+            { label: 'Department', type: 'select', id: 'department', value: 'Sales', options: ['support', 'Operation', 'Sales', 'Marketing', 'Developer'], required: false },
+            { label: 'Description', type: 'text', id: 'description', value: 'Description content', required: true },
+            { label: 'Team', type: 'select', id: 'team', value: 'Sales', options: ['Batch 1', 'Batch 2', 'Sales', 'Marketing', 'Developer'], required: true },
+            { label: 'Number', type: 'number', id: 'number', value: '', required: true }
+        ],
+        '#HDSK-AAAA-0024': [
+            { label: 'Subject', type: 'text', id: 'subject', value: 'Subject-content4', required: true },
+            { label: 'Department', type: 'select', id: 'department', value: 'Marketing', options: ['support', 'Operation', 'Sales', 'Marketing', 'Developer'], required: false },
+            { label: 'Description', type: 'text', id: 'description', value: 'Description content', required: true },
+            { label: 'Team', type: 'select', id: 'team', value: 'Marketing', options: ['Batch 1', 'Batch 2', 'Sales', 'Marketing', 'Developer'], required: true },
+            { label: 'Number', type: 'number', id: 'number', value: '', required: true }
+        ]
+    };
+
+    const ticketList = document.getElementById('ticket-list');
+    const formContainer = document.getElementById('form-container');
+    const alertMessage = document.getElementById('ticket-warning');
+
+    function updateAlertMessage() {
+        const remainingTickets = tickets.length - currentTicketIndex;
+        alertMessage.innerHTML = `<i class="fas fa-warning"></i>&nbsp;${remainingTickets} of ${tickets.length} tickets weren't closed. Please fill required fields to proceed.`;
+    }
+
+    function populateFormFields(ticket) {
+        formContainer.innerHTML = ''; // Clear previous fields
+
+        const fields = ticketForms[ticket] || [];
+
+        fields.forEach(field => {
+            const formGroup = document.createElement('div');
+            formGroup.className = 'form-group';
+
+            const label = document.createElement('label');
+            label.textContent = field.label;
+            formGroup.appendChild(label);
+
+            if (field.required) {
+                const requiredSymbol = document.createElement('span');
+                requiredSymbol.textContent = ' *';
+                requiredSymbol.style.color = 'red';
+                label.appendChild(requiredSymbol);
+            }
+
+            let input;
+            if (field.type === 'select') {
+                input = document.createElement('select');
+                input.className = 'form-control';
+                input.id = field.id;
+                field.options.forEach(option => {
+                    const opt = document.createElement('option');
+                    opt.value = option;
+                    opt.textContent = option;
+                    if (option === field.value) {
+                        opt.selected = true;
+                    }
+                    input.appendChild(opt);
+                });
+            } else {
+                input = document.createElement('input');
+                input.type = field.type;
+                input.className = 'form-control';
+                input.id = field.id;
+                input.value = field.value || '';
+                input.placeholder = field.placeholder || '';
+            }
+
+            formGroup.appendChild(input);
+
+            if (field.required) {
+                const error = document.createElement('small');
+                error.className = 'text-danger';
+                error.id = `${field.id}-error`;
+                error.textContent = 'This field is required.';
+                error.style.display = 'none';
+                formGroup.appendChild(error);
+
+                // Add an 'input' event listener to remove validation styles when the field is filled
+                input.addEventListener('input', function() {
+                    if (this.value.trim() !== '') {
+                        this.classList.remove('is-invalid');
+                        this.style.borderColor = '';
+                        error.style.display = 'none';
+                    } else {
+                        this.classList.add('is-invalid');
+                        this.style.borderColor = 'red';
+                        error.style.display = 'block';
+                    }
+                });
+
+                // Initial validation
+                if (input.value.trim() === '') {
+                    input.classList.add('is-invalid');
+                    input.style.borderColor = 'red';
+                    error.style.display = 'block';
+                }
+            }
+
+            formContainer.appendChild(formGroup);
+        });
+    }
+
+    function loadNextTicket() {
+        if (currentTicketIndex < tickets.length - 1) {
+            currentTicketIndex++;
+            populateFormFields(tickets[currentTicketIndex]);
+            updateAlertMessage();
+        } else {
+            alert('All tickets have been processed.');
+        }
+    }
+
+    tickets.forEach(ticket => {
+        const ticketCard = document.createElement('div');
+        ticketCard.className = 'card p-3 mb-2';
+        ticketCard.textContent = ticket;
+        ticketCard.addEventListener('click', () => populateFormFields(ticket));
+        ticketList.appendChild(ticketCard);
+    });
+
+    document.getElementById('update-button').addEventListener('click', function() {
+        // Remove the current ticket and its form
+        const currentTicket = tickets[currentTicketIndex];
+        const ticketCard = Array.from(document.querySelectorAll('.card')).find(card => card.textContent === currentTicket);
+        if (ticketCard) {
+            ticketCard.remove();
+        }
+
+        // Load the next ticket and its form
+        loadNextTicket();
+    });
+
+    const modal = document.getElementById('faModal-1');
+
+    modal.addEventListener('show.bs.modal', function() {
+        const requiredFields = document.querySelectorAll('.form-control');
+
+        requiredFields.forEach(field => {
+            const error = document.getElementById(`${field.id}-error`);
+            if (field.value.trim() === '' && field.classList.contains('required-field')) {
+                field.classList.add('is-invalid');
+                field.style.borderColor = 'red';
+                error.style.display = 'block';
+            } else {
+                field.classList.remove('is-invalid');
+                field.style.borderColor = '';
+                error.style.display = 'none';
+            }
+
+            // Add input event listener to monitor changes
+            field.addEventListener('input', function() {
+                if (this.value.trim() === '') {
+                    this.classList.add('is-invalid');
+                    this.style.borderColor = 'red';
+                    error.style.display = 'block';
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.style.borderColor = '';
+                    error.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Initial load
+    populateFormFields(tickets[currentTicketIndex]);
+    updateAlertMessage();
+});
+</script>
+
+</body>
+</html>
