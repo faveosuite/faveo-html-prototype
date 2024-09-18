@@ -231,7 +231,50 @@
 .required-field {
         border-color: red;
     }
-    
+
+.dropdown-menu {
+  max-width: 250px;
+  min-width: 250px;
+  max-height: 300px; /* Adjust the height as needed */
+  overflow-y: auto; /* Add vertical scrollbar */
+  border: 1px solid #ffffff; /* Optional: Add border for better visibility */
+  border-radius: 4px; /* Optional: Add border radius for rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  z-index: 1;
+  left: 455px;
+  top: 40px;
+  padding: 10px;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1efef;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+.dropdown-menu .active {
+  background-color: #f1efef;
+  color: white;
+}
+
   </style>
 
 </head>
@@ -557,24 +600,50 @@
                               <div class="col-sm-4">
                                   <div class="card">
                                       <div class="card-body ticket-list cursor-pointer" id="ticket-list">
-                                          <!-- Tickets will be dynamically populated here -->
+                                         
                                       </div>
                                   </div>
                               </div>
                               <div class="col-sm-8">
-                                  <form>
-                                    <div class="form-group">
-                                      <select class="form-control">
-                                        <option>Form-1</option>
-                                        <option>Form-2</option>
-                                        <option>Form-3</option>
-                                      </select>
-                                    </div>
-                                  </form>
+                                <!-- <form id="form-select" style="display: none;">
+                                  <div class="form-group">
+                                    <select class="form-control">
+                                      <option>Form-1</option>
+                                      <option>Form-2</option>
+                                      <option>Form-3</option>
+                                    </select>
+                                  </div>
+                                </form> -->
 
                                   <div class="card">
                                     <div class="card-header card-light">
-                                      <h4>Ticket Properties</h4>
+                                      <h4 class="card-title">Ticket Properties</h4>
+                                      <div class=" card-tools"> 
+                                        <!-- <button type="button" class="btn btn-tool" onclick="myFunction()" id="form-select-button">
+                                          <i class="fas fa-cog" data-toggle="tooltip" data-placement="top" title="click here to view all the selectForms"></i>
+                                        </button> -->
+
+
+
+                                        <!-- second option -->
+
+                                        <button type="button" class="btn btn-tool" id="form-dropdown-button">
+                                          <i class="fas fa-cog" data-toggle="tooltip" data-placement="top" title="click here to view all the selectForms"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-xl" id="form-dropdown" style="display: none;">
+                                          <ul>
+                                            <li class="active"><a class="dropdown-item">Form 1</a></li>
+                                            <li><a class="dropdown-item">Form 2</a></li>
+                                            <li><a class="dropdown-item">Form 3</a></li>
+                                            <li><a class="dropdown-item">Form 4</a></li>
+                                            <li><a class="dropdown-item">Form 5</a></li>
+                                            <li><a class="dropdown-item">Form 6</a></li>
+                                            <li><a class="dropdown-item">Form 7</a></li>
+                                            <li><a class="dropdown-item">Form 8</a></li>
+                                            <li><a class="dropdown-item">Form 9</a></li>
+                                          </ul>
+                                        </div>
+                                      </div>
                                     </div>
                                     <div class="card-body forms-list">
                                       <form>
@@ -859,7 +928,26 @@ document.addEventListener('DOMContentLoaded', function() {
     populateFormFields(tickets[currentTicketIndex]);
     updateAlertMessage();
 });
+
+document.getElementById('form-dropdown-button').addEventListener('click', function() {
+  const dropdown = document.getElementById('form-dropdown');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+  function myFunction() {
+  var x = document.getElementById("form-select");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 </script>
 
 </body>
 </html>
+activate: function(createElement, row) {
+   return this.h(PluginActions, {
+       data: row,
+   })
+},
