@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Faveo | GlobalSearch</title>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+  <!-- Add Select2 CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+
+     <!-- Select2 -->
+     <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+     <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+<style>
+body{
+     font-size: 0.87rem;
+    }
+    .text-primary{
+      color: #17a2b8 !important;
+    }
+    .btn-primary{
+      background-color: #17a2b8 !important;}
+ .btn-act{
+    background: #dcdcdc !important;
+}
+th{
+  min-width: 180px;
+}
+table{
+  overflow-x: scroll;
+}
+.buttons-excel{
+  background: #f3f3f3;;
+    color: #000;
+    border: 1px solid lightgrey;
+}
+.buttons-print{
+  background: #f3f3f3;;
+    color: #000;
+    border: 1px solid lightgrey;
+}
+.buttons-pdf{
+  background: #f3f3f3;;
+    color: #000;
+    border: 1px solid lightgrey;
+}
+.card-header{
+    background-color: #ebebeb;
+}
+.nav-link{
+    color: #000;
+}
+.nav-sidebar .nav-item>.nav-link {
+    padding: .4rem .8rem !important;
+}
+/* .info-row{
+    border-top: 1px solid #f4f4f4;
+    padding: 10px;
+} */
+/* .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+color: #000;
+} */
+ 
+</style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" role="button"><i
+                   class="fas fa-bars"></i>
+                </a>
+            </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#"
+               class="nav-link">Home</a></li>
+    </ul>
+  
+    <ul   class="navbar-nav ml-auto">
+      <li   class="nav-item"><!----></li>
+      <li class="nav-item"><a class="nav-link v-popper--has-tooltip"
+          href="https://helpdesk.productdemourl.com/sales/poojac/public/admin/home"><i
+            class="fa-solid fas fa-user-gear m-auto"></i></a>
+      </li>
+            <a   class="nav-link" href="javascript:;">
+        <div  ><i   class="fas fa-search"></i></div>
+      </a><!----><!---->
+      <li     class="nav-item dropdown"><a   class="nav-link font-1"
+          data-toggle="dropdown" href="javascript:;">
+          <div  ><i   class="far fa-bell"></i>
+            <div   class="indicator" style="border-color: rgb(248, 249, 250);"></div>
+          </div>
+        </a>
+        <div   class="dropdown-menu dropdown-menu-xl dropdown-menu-right inapp-notify-drop"><span
+              class="dropdown-header">You have 10 unread notification(s)</span>
+          <div   class="dropdown-header notify-actions row">
+            <div   class="row">
+              <div   class="col-sm-6 read"><a   href="javascript:;"><span
+                     ><i   class="fas fa-circle"></i></span>&nbsp;Mark all as read</a>
+              </div>
+              <div   class="col-sm-6 delete"><a   href="javascript:;" class="right"><span
+                     ><i   class="fas fa-trash-alt"></i></span>&nbsp;Delete all</a></div>
+            </div>
+          </div>
+          <div   class="scrollable-ul" id="activity_scroll">
+            <div  >
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">New release release 1 has been
+                      created in the system</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:41 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/system.png"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">Reminder: Your approval is
+                      pending for a change #CHN-1</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:38 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/system.png"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">Reminder: Your approval is
+                      pending for a change #CHN-1</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:37 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/system.png"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">Your approval requested for a
+                      change #CHN-1</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:37 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">Change change 1 has been
+                      submitted for CAB approval.</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:36 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">Change change 1 has been
+                      assigned to you.</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:35 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">New change change 1 has been
+                      created in the system</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:35 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">Problem problem 1 has been
+                      assigned to Demo Agent</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:33 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">New problem problem 1 has been
+                      created in the system</p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 26, 2024 12:33 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div   class="dropdown-divider"></div><a   href="javascript:;"
+                class="dropdown-item bg-light">
+                <div   class="media"><img   id="size-30"
+                    src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/system.png"
+                    class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                  <div   class="media-body">
+                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                    <p   class="text-gray break-word v-popper--has-tooltip">Invalid login attempt detected.
+                    </p>
+                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                         >August 21, 2024 06:35 pm</i></p>
+                  </div>
+                </div>
+              </a>
+              <div data-v-9d82030b=""  ><!--v-if--><!--v-if--><!--v-if--></div>
+            </div>
+          </div><!---->
+        </div><!---->
+      </li>
+      <li   id="nav-id" class="nav-item">
+        <div id="pending-invoices" data-v-app=""><!----></div>
+      </li>
+      <li data-v-9d3ffd8e=""   class="nav-item dropdown"><a data-v-9d3ffd8e="" class="nav-link"
+          data-toggle="dropdown" href="javascript:;"><img data-v-9d3ffd8e=""
+            src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/en.png"></a>
+        <div data-v-9d3ffd8e="" class="dropdown-menu dropdown-menu-sm dropdown-menu-right p-0" id="lang_div"><a
+            data-v-9d3ffd8e="" href="javascript:;" class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/ar.png"
+              class="mr-2"> &nbsp; Arabic &nbsp;‏(العربية)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/bsn.png"
+              class="mr-2"> &nbsp; Bosnian &nbsp;‏(босански)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/zh-hans.png"
+              class="mr-2"> &nbsp; Chinese &nbsp;‏(中文 [Simplified])‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/zh-hant.png"
+              class="mr-2"> &nbsp; Chinese &nbsp;‏(中文 [Traditional])‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/nl.png"
+              class="mr-2"> &nbsp; Dutch &nbsp;‏(Vlaams)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/en.png"
+              class="mr-2"> &nbsp; English - United States &nbsp;‏(English)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/en-gb.png"
+              class="mr-2"> &nbsp; English - United Kingdom &nbsp;‏(English)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/fr.png"
+              class="mr-2"> &nbsp; French &nbsp;‏(français)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/de.png"
+              class="mr-2"> &nbsp; German &nbsp;‏(Deutsch)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/id.png"
+              class="mr-2"> &nbsp; Indonesian &nbsp;‏(Bahasa Indonesia)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/it.png"
+              class="mr-2"> &nbsp; Italian &nbsp;‏(Italiano)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/kr.png"
+              class="mr-2"> &nbsp; Korean &nbsp;‏(한국어)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/mt.png"
+              class="mr-2"> &nbsp; Maltese &nbsp;‏(Malti)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/no.png"
+              class="mr-2"> &nbsp; Norwegian &nbsp;‏(Norsk)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/pt.png"
+              class="mr-2"> &nbsp; Portuguese &nbsp;‏(Português)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/ru.png"
+              class="mr-2"> &nbsp; Russian &nbsp;‏(Русский)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/es.png"
+              class="mr-2"> &nbsp; Spanish &nbsp;‏(Español)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+            class="dropdown-item"><img data-v-9d3ffd8e=""
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/vi.png"
+              class="mr-2"> &nbsp; Vietnamese &nbsp;‏(Tiếng Việt)‏ </a><!----></div>
+      </li>
+      <li   class="nav-item dropdown user-menu"><a   href="javascript:;"
+          class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span  
+            class="d-none d-md-inline mr-1 v-popper--has-tooltip" dir="auto">Manju <img  
+              src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+              class="user-image img-circle elevation-2 d-none d-md-inline" alt="User Image"></span><img  
+            id="nav-image" src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+            class="user-image img-circle elevation-2 d-md-none" alt="User Image" width="0" height="0"></a>
+        <ul  
+          class="dropdown-menu dropdown-menu-sm dropdown-menu-right rounded model-box rounded text-light dropdown-menu-arrow mt-2 rounded">
+          <li  ><a   href="/sales/poojac/public/panel/profile"
+              class="dropdown-item dp-data"><i   class="fa fa-user pr-2"></i>Profile</a></li>
+          <li  ><a   href="javascript:;" class="dropdown-item dp-data mb-4 mt-1"><i
+                  class="fas fa-sign-out-alt pr-2"></i>Sign Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+    <!-- /.navbar -->
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link text-center">
+        <!-- <img src="Uploads/faveo.png" alt="AdminLTE Logo" class="brand-image  " style="opacity: .8" /> -->
+        <span class="brand-text  ">Faveo</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../Promotional-content/uploads/download (4).jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">Ladybird Administrator</a>
+          </div>
+        </div>
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item ">
+              <a href="" class="nav-link">
+                <p>
+                  HELPDESK
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-solid fa-ticket-alt"></i>
+                  <p>
+                    Tickets
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>New Version</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>All Versions</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-users"></i>
+                <p>
+                  Contacts
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Contact</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Contacts</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-wrench"></i>
+                <p>
+                  Tools
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New License</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Licenses</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-chart-line"></i>
+                <p>
+                  Reports
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Installation</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Installations</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-user"></i>
+                <p>
+                  Switch to Admin Panel
+                </p>
+              </a>
+            </li>
+
+             <li class="nav-item">
+              <a href="#" class="nav-link">
+                <!-- <i class="nav-icon fas fa-solid fa-chart-column"></i> -->
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                  Go to Home
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-sign-out-alt"></i>
+                <p>
+                  Sign Out
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Server Notifications</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Server Notifications</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item mt-4">
+              <a href="#" class="nav-link">
+                <!-- <i class="nav-icon fas fa-solid fa-gears"></i> -->
+                <p>
+                  PROJECT MANAGEMENT
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-project-diagram"></i>
+                <p>
+                  Projects
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/projects.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Projects & Categories</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/alltasks.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tasks</p>
+                  </a>
+                </li>
+                
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-file"></i>
+                <p>
+                  Templates
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/project-templates.html#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Project Templates</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/task-templates.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Task Templates</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+           
+
+            <li class="nav-item mt-4">
+              <a href="#" class="nav-link">
+                <!-- <i class="nav-icon fas fa-solid fa-gears"></i> -->
+                <p>
+                  SERVICE DESK
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-bug"></i>
+                <p>
+                  Problems
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Problem</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Problems</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Open Problems</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-sync-alt"></i>
+                <p>
+                 Changes
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Change</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Chnages</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Awaiting for Approval Chan...</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-newspaper"></i>
+                <p>
+                 Releases
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Release</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Releases</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-server"></i>
+                <p>
+                 Assets
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Asset</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Assets</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Deployed Assets</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-paperclip"></i>
+                <p>
+                 Contracts
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Create Contract</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Contracts</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Active Contracts</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-clipboard-list"></i>
+                <p>
+                 Software License
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Software License</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Software License</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Create Project Template</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a class="text-primary" href="#">Admin Panel</a></li>
+                <li class="breadcrumb-item"><a class="text-primary" href="#">plugins</a></li>
+                <li class="breadcrumb-item active">Create Project Template</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+
+
+          <div class="col-md-12">
+          <div class="change-details">
+
+            <div class="col-lg-12">
+        <div class="card card-light">
+            <div class="card-header">
+                <h3 class="card-title">New Project Template</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div   class="col-sm-12 form-group form-field-template"
+                        id="Task Template Name">
+                        <div  class=""><label  for="Task Template Name"
+                                class="v-popper--has-tooltip">Project Template Name</label><label 
+                                class="is-danger">*</label><!----><!----><!----><!----></div>
+                        <div  class="">
+                            <div  class="slot-container"><input  autocomplete="off"
+                                    id="task_name" name="name" class="form-control" type="text"
+                                    placeholder="Enter a value"><!----><!----><!----></div><!----><!---->
+                        </div>
+                    </div>
+                  
+                    <!-- <div   class="col-sm-12 form-group form-field-template"
+                    id="Task Template Name">
+                    <div  class=""><label  for="Task Template Name"
+                            class="v-popper--has-tooltip">Description</label><label 
+                            class="is-danger">*</label></div>
+                    <div  class="">
+                        <div  class="slot-container"><input  autocomplete="off"
+                                id="task_name" name="name" class="form-control" type="text"
+                                placeholder="Enter a value"></div>
+                    </div>
+                </div> -->
+                    <div   class="col-sm-12 form-group form-field-template"
+                        id="Task Template Description">
+                        <div  class=""><label  for="Task Template Description"
+                                class="v-popper--has-tooltip">Project Template Description</label><label 
+                                class="is-danger">*</label><!----><!----><!----><!----></div>
+                        <div  class="">
+                            <div  class="slot-container">
+                                <div ><!----><textarea  id="task_description"
+                                        name="description" class="form-control" maxlength="2000" type="textarea"
+                                        placeholder="Enter a value"></textarea></div><!----><!----><!---->
+                            </div><!----><!---->
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-6 form-group ">
+                      <label for="type" class="required">Category</label>
+                      <select class="form-control" id="type" name="type">
+                          <option >Search or Select</option>
+                          <option >Business Project</option>
+                        <option >Software Project</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label for="type" class="required">Tasks Template</label>
+                        <select class="form-control" id="dropdown-with-links" name="type">
+                            <option value="">Search or Select</option>
+                            <option value="blank">Blank Project</option>
+                            <option value="template-1">Task Template-1</option>
+                            <option value="template-2">Task Template-2</option>
+                            <option value="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/create-task.html">Create New Task Template</option>
+                        </select>
+                    </div>
+                    
+                    <!-- <div class="col-md-1 form-group ">
+                        <a class="btn btn-default mt-4"><i class="fa fa-plus"></i></a>
+                      </div> -->
+
+              <div   class="col-sm-6 form-group form-field-template"
+                  id="Task Template Name">
+              <div class="form-group">
+                <label>Start Date:</label>
+                  <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                      <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="DD/MM/YYYY"/>
+                      <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+
+              <!-- Date and time -->
+              <div   class="col-sm-6 form-group form-field-template"
+              id="Task Template Name">
+             
+              <div class="form-group">
+                <label>End Date:</label>
+                  <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                      <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="DD/MM/YYYY"/>
+                      <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+
+                </div>
+
+                <div class="row">
+
+                <div class="col-md-6 form-group ">
+                    <label for="type" class="required">Project Manager</label></label><label 
+                    class="is-danger">*</label><!----><!----><!----><!---->
+                    <select class="form-control" id="type" name="type">
+                        <option >Search or Select</option>
+                            <option >Business Project</option>
+                            <option >Software Project</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6 form-group ">
+                    <label for="type" class="required">Visibility</label></label><label 
+                    class="is-danger">*</label><!----><!----><!----><!---->
+                    <div class="d-flex">
+                    <div class="form-check px-4 py-2">
+                        <input class="form-check-input" type="radio" name="optionsRadios" id="option1" value="option1" checked>
+                        <label class="form-check-label" for="option1">
+                          Private <i class="fa fa-lock text-gray"></i>
+                        </label>
+                      </div>
+                      <div class="form-check px-3 py-2">
+                        <input class="form-check-input" type="radio" name="optionsRadios" id="option2" value="option2">
+                        <label class="form-check-label" for="option2">
+                         Public <i class="fa fa-lock-open text-gray" ></i>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 form-group ">
+                      <label for="type" class="required">Status</label>
+                      <select class="form-control" id="type" name="type">
+                          <option >Search or Select</option>
+                              <option >To Do</option>
+                              <option >In Progress</option>
+                              <option >Done</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 form-group ">
+                      <label for="type" class="required">Agents</label>
+                      <select class="form-control" id="type" name="type">
+                          <option >Search or Select</option>
+                              <option>rani < rani@gmail.com >  </option>
+                              <option >rajat < rajati@gmail.com > </option>
+                              <option >raman < raman@gmail.com > </option>
+                      </select>
+                    </div>
+              </div>
+  
+              <div class="row">
+                  <div class="col-md-6 form-group ">
+                      <label for="type" class="required">Notify Agents</label>
+                      <select class="form-control" id="type" name="type">
+                          <option >Search or Select</option>
+                              <option>rani < rani@gmail.com >  </option>
+                              <option >rajat < rajati@gmail.com ></option>
+                              <option >raman < raman@gmail.com ></option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 form-group ">
+                      <label for="type" class="required">Notify Department</label>
+                      <select class="form-control" id="type" name="type">
+                          <option >Search or Select</option>
+                              <option>Developer</option>
+                              <option >DevOps</option>
+                              <option >Sales</option>
+                              <option >Support</option>
+                      </select>
+                    </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 form-group ">
+                      <label for="type" class="required">Notify Team(s)</label>
+                      <select class="form-control" id="type" name="type" >
+                          <option >Search or Select</option>
+                              <option>Developer team 1  </option>
+                              <option >Developer team 2</option>
+                              <option >Developer team 3</option>
+                      </select>
+                    </div>
+                 
+  
+              </div>
+
+
+                <div><button class="btn btn-primary"><i class="fas fa-save"></i> Save</button></div>
+            </div>
+        </div>
+
+
+        </div>
+
+          </div> 
+        </div>
+
+
+       
+
+          <!-- /.col -->
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+      <div class="p-3">
+        <h5>Title</h5>
+        <p>Sidebar content</p>
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Version 1.0.0
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights
+      reserved.
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <!-- <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> -->
+  <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="../../plugins/jszip/jszip.min.js"></script>
+  <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+  <!-- date-range-picker -->
+<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+
+  <!-- Add Select2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js"></script>
+
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+
+    //Date and time picker
+    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+
+
+
+  $(document).ready(function() {
+    $('.select2').select2();
+  });
+</script>
+<script>
+ document.getElementById('dropdown-with-links').onchange = function() {
+    var selectedValue = this.value; // Get the value of the selected option
+
+    // Check if the selected option is the hyperlink one
+    if (selectedValue === "file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/create-task.html") {
+        window.location.href = selectedValue; // Redirect to the specified link
+    }
+};
+
+</script>
+</body>
+
+</html>
