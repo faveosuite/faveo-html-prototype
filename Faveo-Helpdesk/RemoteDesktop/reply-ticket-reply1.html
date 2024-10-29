@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Faveo | GlobalSearch</title>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+  <!-- Add Select2 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+  <style>
+    body {
+      font-size: 0.87rem;
+    }
+
+    .text-primary {
+      /* color: #17a2b8 !important; */
+      color: #3c8dbc !important;
+    }
+
+    .btn-primary {
+      background-color: #17a2b8 !important;
+    }
+
+    .btn-act {
+      background: #dcdcdc !important;
+    }
+#example2 td{
+    border: none !important;
+}
+    /* td{
+  width: 600px !important;
+  border: none !important;
+} */
+.checkboxx{
+width: 720px;
+}
+table{
+  overflow-x: scroll;
+  border: none !important;
+  width: 100% !important;
+}
+
+#example3 th{
+  min-width: 150px;
+}
+
+    .buttons-excel {
+      background: #f3f3f3;
+      ;
+      color: #000;
+      border: 1px solid lightgrey;
+    }
+
+    .buttons-print {
+      background: #f3f3f3;
+      ;
+      color: #000;
+      border: 1px solid lightgrey;
+    }
+
+    .buttons-pdf {
+      background: #f3f3f3;
+      ;
+      color: #000;
+      border: 1px solid lightgrey;
+    }
+
+    .card-header {
+      background-color: #ebebeb;
+    }
+
+    .nav-link {
+      color: #000;
+    }
+
+    .nav-sidebar .nav-item>.nav-link {
+      padding: .4rem .8rem !important;
+    }
+
+    /* .info-row{
+    border-top: 1px solid #f4f4f4;
+    padding: 10px;
+} */
+    /* .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+color: #000;
+} */
+    .timeline-actions-span {
+      display: inline-flex;
+    }
+    .timeline-actions-span button{
+      margin-left: 2px;
+    }
+    .border-container {
+    display: inline-block;
+    border: 1px solid #dfdfdf; /* Customize the border color */
+    border-radius: 4px; /* Optional: Add rounded corners */
+    /* padding: 5px; */
+}
+.active-btn {
+    background-color: #dddddd; /* Change this to your desired active color */
+    color: #020202; /* Optional: Change text color */
+    border: 1px solid #dfdfdf;
+}
+
+ .dataTables_filter{
+    text-align: center !important;
+    margin-left: 110px;
+}
+.dropdownn{
+    text-align: right;
+    bottom: -30px;
+    z-index: 1;
+    margin-left: -10px;
+
+}
+.dropdownn-menu{
+  height: 300px;
+  overflow-y: scroll;
+}
+.dropdownn-item{
+  position: sticky;
+    bottom: -16px;
+    width: 135px;
+    background-color: #ffffff;
+    padding: 7px;
+    margin-left: -4px;
+}
+@media (max-width: 480px) {
+    .dataTables_length {
+    margin-left: -150px;
+  }
+}
+  </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i>
+          </a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Home</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"></li>
+        <li class="nav-item"><a class="nav-link v-popper--has-tooltip"
+            href="https://helpdesk.productdemourl.com/sales/poojac/public/admin/home"><i
+              class="fa-solid fas fa-user-gear m-auto"></i></a>
+        </li>
+        <a class="nav-link" href="javascript:;">
+          <div><i class="fas fa-search"></i></div>
+        </a>
+        <li class="nav-item dropdown"><a class="nav-link font-1" data-toggle="dropdown" href="javascript:;">
+            <div><i class="far fa-bell"></i>
+              <div class="indicator" style="border-color: rgb(248, 249, 250);"></div>
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right inapp-notify-drop"><span
+              class="dropdown-header">You have 10 unread notification(s)</span>
+            <div class="dropdown-header notify-actions row">
+              <div class="row">
+                <div class="col-sm-6 read"><a href="javascript:;"><span><i class="fas fa-circle"></i></span>&nbsp;Mark
+                    all as read</a>
+                </div>
+                <div class="col-sm-6 delete"><a href="javascript:;" class="right"><span><i
+                        class="fas fa-trash-alt"></i></span>&nbsp;Delete all</a></div>
+              </div>
+            </div>
+            <div class="scrollable-ul" id="activity_scroll">
+              <div>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">New release release 1 has been
+                        created in the system</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:41 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/system.png"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">Reminder: Your approval is
+                        pending for a change #CHN-1</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:38 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/system.png"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">Reminder: Your approval is
+                        pending for a change #CHN-1</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:37 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/system.png"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">Your approval requested for a
+                        change #CHN-1</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:37 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">Change change 1 has been
+                        submitted for CAB approval.</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:36 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">Change change 1 has been
+                        assigned to you.</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:35 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">New change change 1 has been
+                        created in the system</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:35 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">Problem problem 1 has been
+                        assigned to Demo Agent</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:33 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">New problem problem 1 has been
+                        created in the system</p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 26, 2024 12:33 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item bg-light">
+                  <div class="media"><img id="size-30"
+                      src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/system.png"
+                      class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                      <p class="text-gray break-word v-popper--has-tooltip">Invalid login attempt detected.
+                      </p>
+                      <p class="text-xs text-muted"><i class="far fa-clock mr-1"></i> <i>August 21, 2024 06:35 pm</i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+                <div ><!--v-if--><!--v-if--><!--v-if--></div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li id="nav-id" class="nav-item">
+          <div id="pending-invoices" ></div>
+        </li>
+        <li  class="nav-item dropdown"><a  class="nav-link" data-toggle="dropdown"
+            href="javascript:;"><img 
+              src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/en.png"></a>
+          <div  class="dropdown-menu dropdown-menu-sm dropdown-menu-right p-0" id="lang_div"><a
+               href="javascript:;" class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/ar.png"
+                class="mr-2"> &nbsp; Arabic &nbsp;‏(العربية)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/bsn.png"
+                class="mr-2"> &nbsp; Bosnian &nbsp;‏(босански)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/zh-hans.png"
+                class="mr-2"> &nbsp; Chinese &nbsp;‏(中文 [Simplified])‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/zh-hant.png"
+                class="mr-2"> &nbsp; Chinese &nbsp;‏(中文 [Traditional])‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/nl.png"
+                class="mr-2"> &nbsp; Dutch &nbsp;‏(Vlaams)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/en.png"
+                class="mr-2"> &nbsp; English - United States &nbsp;‏(English)‏ </a><a 
+              href="javascript:;" class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/en-gb.png"
+                class="mr-2"> &nbsp; English - United Kingdom &nbsp;‏(English)‏ </a><a 
+              href="javascript:;" class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/fr.png"
+                class="mr-2"> &nbsp; French &nbsp;‏(français)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/de.png"
+                class="mr-2"> &nbsp; German &nbsp;‏(Deutsch)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/id.png"
+                class="mr-2"> &nbsp; Indonesian &nbsp;‏(Bahasa Indonesia)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/it.png"
+                class="mr-2"> &nbsp; Italian &nbsp;‏(Italiano)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/kr.png"
+                class="mr-2"> &nbsp; Korean &nbsp;‏(한국어)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/mt.png"
+                class="mr-2"> &nbsp; Maltese &nbsp;‏(Malti)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/no.png"
+                class="mr-2"> &nbsp; Norwegian &nbsp;‏(Norsk)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/pt.png"
+                class="mr-2"> &nbsp; Portuguese &nbsp;‏(Português)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/ru.png"
+                class="mr-2"> &nbsp; Russian &nbsp;‏(Русский)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/es.png"
+                class="mr-2"> &nbsp; Spanish &nbsp;‏(Español)‏ </a><a  href="javascript:;"
+              class="dropdown-item"><img 
+                src="https://helpdesk.productdemourl.com/sales/poojac/public/v9.1.0/themes/default/common/images/flags/vi.png"
+                class="mr-2"> &nbsp; Vietnamese &nbsp;‏(Tiếng Việt)‏ </a></div>
+        </li>
+        <li class="nav-item dropdown user-menu"><a href="javascript:;" class="nav-link dropdown-toggle"
+            data-toggle="dropdown" aria-expanded="false"><span class="d-none d-md-inline mr-1 v-popper--has-tooltip"
+              dir="auto">Manju <img
+                src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                class="user-image img-circle elevation-2 d-none d-md-inline" alt="User Image"></span><img id="nav-image"
+              src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+              class="user-image img-circle elevation-2 d-md-none" alt="User Image" width="0" height="0"></a>
+          <ul
+            class="dropdown-menu dropdown-menu-sm dropdown-menu-right rounded model-box rounded text-light dropdown-menu-arrow mt-2 rounded">
+            <li><a href="/sales/poojac/public/panel/profile" class="dropdown-item dp-data"><i
+                  class="fa fa-user pr-2"></i>Profile</a></li>
+            <li><a href="javascript:;" class="dropdown-item dp-data mb-4 mt-1"><i
+                  class="fas fa-sign-out-alt pr-2"></i>Sign Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link text-center">
+        <!-- <img src="Uploads/faveo.png" alt="AdminLTE Logo" class="brand-image  " style="opacity: .8" /> -->
+        <span class="brand-text  ">Faveo</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../Promotional-content/uploads/download (4).jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">Ladybird Administrator</a>
+          </div>
+        </div>
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item ">
+              <a href="" class="nav-link">
+                <p>
+                  HELPDESK
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-ticket-alt"></i>
+                <p>
+                  Tickets
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Version</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Versions</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-users"></i>
+                <p>
+                  Contacts
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Contact</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Contacts</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-wrench"></i>
+                <p>
+                  Tools
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New License</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Licenses</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-chart-line"></i>
+                <p>
+                  Reports
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Installation</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Installations</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-user"></i>
+                <p>
+                  Switch to Admin Panel
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <!-- <i class="nav-icon fas fa-solid fa-chart-column"></i> -->
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                  Go to Home
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-sign-out-alt"></i>
+                <p>
+                  Sign Out
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Server Notifications</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Server Notifications</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item mt-4">
+              <a href="#" class="nav-link">
+                <!-- <i class="nav-icon fas fa-solid fa-gears"></i> -->
+                <p>
+                  PROJECT MANAGEMENT
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-project-diagram"></i>
+                <p>
+                  Projects
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/projects1.html"
+                    class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Projects</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/tasks1.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tasks</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/category.html#"
+                    class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Categories</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-bug"></i>
+                <p>
+                  Templates
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/project-templates.html#"
+                    class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Project Templates</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Task-management/task-templates.html"
+                    class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Task Templates</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+            <li class="nav-item mt-4">
+              <a href="#" class="nav-link">
+                <!-- <i class="nav-icon fas fa-solid fa-gears"></i> -->
+                <p>
+                  SERVICE DESK
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-bug"></i>
+                <p>
+                  Problems
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Problem</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Problems</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Open Problems</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-sync-alt"></i>
+                <p>
+                  Changes
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Change</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Chnages</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Awaiting for Approval Chan...</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-newspaper"></i>
+                <p>
+                  Releases
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Release</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Releases</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-server"></i>
+                <p>
+                  Assets
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Asset</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Assets</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Deployed Assets</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-paperclip"></i>
+                <p>
+                  Contracts
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Create Contract</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Contracts</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Active Contracts</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-clipboard-list"></i>
+                <p>
+                  Software License
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Software License</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Software License</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Filter</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a class="text-primary" href="#">Admin Panel</a></li>
+                <li class="breadcrumb-item"><a class="text-primary" href="#">plugins</a></li>
+                <li class="breadcrumb-item active">Tickets</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+
+
+          <div class="col-md-12">
+            <div class="change-details">
+
+              <div class="col-lg-12">
+                <div class="card card-light">
+                  <div class="card-header">
+                    <h3 class="card-title">Tickets</h3>
+
+                    <div class="card-tools">
+                        
+               
+                        <div class="float-left mx-1">
+                            <a href="#" id="div3" style="display:none;" class="content-div flags" title="export"> <button type="button" class="btn btn-default btn-sm " >
+                              <i class="fa fa-paper-plane"></i></button></a>
+                         
+                            <div class="btn-group border-container">
+                                <button type="button" class="btn btn-default btn-sm border-0 active-btn" id="btn1" title="Table">
+                                    <i class="fa fa-columns"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm border-0" id="btn2" title="Calendar">
+                                    <i class="fa fa-table"></i>
+                                </button>
+                                <!-- <button type="button" class="btn btn-default btn-sm border-0" id="btn3" title="Board">
+                                    <i class="fa fa-columns"></i>
+                                </button> -->
+                            </div> 
+                          <!-- <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Project-management/create-task.html" title="Add New Task"> <button type="button" class="btn btn-default btn-sm">
+                            <i class="fa fa-plus"></i></button></a> -->
+        
+                            <a href="#"> <button type="button" class="btn btn-default btn-sm">
+                              <i class="fa fa-filter"></i></button></a>
+                              <a href="#"> <button type="button" class="btn btn-default btn-sm">
+                                <i class="fa fa-sync-alt"></i></button></a>
+                        </div>
+                      
+                      </div>
+                  </div>
+                  <div class="card-body">
+
+                    <div id="div1" class="content-div" style="display:none;">
+                        <table id="example2" class="table table-bordered table-striped table-responsive">
+                            <thead hidden>
+                            <tr>
+                              <th >Title</th>
+                              <th>Description</th>
+                              <th>Actions</th>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                             <tr>
+                              <td >
+                                <div class="user-image"><img id="user_img_192"
+                                    src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                    class="img-circle" alt="User" width="40" height="40">
+                                     </div>
+                            <!-- <td> <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Project-management/edit-project-template.html" class="text-primary">Project Template-1</a></td></td> -->
+                                <td class="checkboxx">
+                                    
+                                    <div class="ticket_subject">
+                                        <!-- <p class="ticket-description-tip overdue_ticket break-word"> -->
+                                            <div class="inbox-pop d-flex "><a href="javascript:;" class="v-popper--has-tooltip "><span
+                                                class="ticket-no text-gray"
+                                                data-pjax="192">[#HDSK-AAAA-0192]&nbsp;‏</span><span class="text-primary">faveo&nbsp;‏(‎1) </span> </a>
+                                            <div class="inline-block"
+                                              style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                              <div><a class="tic-pop mr-1 v-popper--has-tooltip" href="javascript:;"><i
+                                                    class="fas fa-question-circle tic-pop-i text-primary"></i></a></div>
+                                              <div class="popper fade-leave-active fade-leave-to" style="display: none;">
+                                                <div class="row" id="load_margin">
+                                                  <div class="fulfilling-bouncing-circle-spinner"
+                                                    style="height: 30px; width: 30px; animation-duration: 4000ms;">
+                                                    <div class="circle"
+                                                      style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); color: rgb(29, 120, 255); border-width: 3px; animation-duration: 4000ms;">
+                                                    </div>
+                                                    <div class="orbit"
+                                                      style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); border-width: 0.9px; animation-duration: 4000ms;">
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div  id="arrow" ></div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        <!-- </p> -->
+                                        <div class="info-data">
+                                            <div class="information ellipsis d-flex"><span>From:&nbsp;</span><span
+                                                class="inbox-info">
+                                                <div class="inline-block"
+                                                  style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                  <div><a href="/qa/saiffaveo/public/panel/user/55" class="user_name pop "
+                                                      data-container="body" data-toggle="popover" data-placement="right"
+                                                      data-content="#" target="_blank"><span class="emphasize text-primary">rani <span></span></span></a>
+                                                    </div>
+                                                </div>
+                                              </span>&nbsp; <span>Assigned to:&nbsp;</span><span
+                                                style="color: red;">Unassigned</span>&nbsp; <span
+                                                class="departm">Department:&nbsp;</span><span
+                                                style="color: rgb(60, 141, 188);">Support</span>&nbsp; <div
+                                                class="ticket-list-custom-box"></div>
+                                            </div>
+                                          </div>
+                                    </div>
+    
+                                </td>
+                                <td class="td-ticket-status hideForList"><span class="badge badge-danger text-xs">Overdue</span><span class="badge badge-warning text-xs" style="display: none;">Due Today</span></td>
+                                <td class="source source-icon hideForList">
+                                    <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-envelope" id="ticket-source-icon"></i></div>
+                                  </td>
+                                  <td class="source-icon hideForList">
+                                    <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-clock" id="ticket-source-icon" style="color: rgb(50, 199, 119);"></i></div>
+                                  </td>
+                                  <td class="assign hideForList">
+                                    <ul style="padding: 0px; margin: 0px; list-style: none; font-size: 11px;">
+                                      <li>Created: <span class="emphasize">3 days ago</span></li>
+                                      <li>Updated: <span class="emphasize">3 days ago</span></li>
+                                      <li>Overdue: <span class="emphasize">3 days ago</span></li>
+                                    </ul>
+                                  </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                  <div class="user-image"><img id="user_img_192"
+                                      src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                      class="img-circle" alt="User" width="40" height="40">
+                                       </div>
+                              <!-- <td> <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Project-management/edit-project-template.html" class="text-primary">Project Template-1</a></td></td> -->
+                                  <td class="checkboxx">
+                                      
+                                      <div class="ticket_subject">
+                                          <!-- <p class="ticket-description-tip overdue_ticket break-word"> -->
+                                              <div class="inbox-pop d-flex "><a href="javascript:;" class="v-popper--has-tooltip "><span
+                                                  class="ticket-no text-gray"
+                                                  data-pjax="192">[#HDSK-AAAA-0192]&nbsp;‏</span><span class="text-primary">faveo&nbsp;‏(‎1) </span> </a>
+                                              <div class="inline-block"
+                                                style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                <div><a class="tic-pop mr-1 v-popper--has-tooltip" href="javascript:;"><i
+                                                      class="fas fa-question-circle tic-pop-i text-primary"></i></a></div>
+                                                <div class="popper fade-leave-active fade-leave-to" style="display: none;">
+                                                  <div class="row" id="load_margin">
+                                                    <div class="fulfilling-bouncing-circle-spinner"
+                                                      style="height: 30px; width: 30px; animation-duration: 4000ms;">
+                                                      <div class="circle"
+                                                        style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); color: rgb(29, 120, 255); border-width: 3px; animation-duration: 4000ms;">
+                                                      </div>
+                                                      <div class="orbit"
+                                                        style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); border-width: 0.9px; animation-duration: 4000ms;">
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div  id="arrow" ></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          <!-- </p> -->
+                                          <div class="info-data">
+                                              <div class="information ellipsis d-flex"><span>From:&nbsp;</span><span
+                                                  class="inbox-info">
+                                                  <div class="inline-block"
+                                                    style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                    <div><a href="/qa/saiffaveo/public/panel/user/55" class="user_name pop"
+                                                        data-container="body" data-toggle="popover" data-placement="right"
+                                                        data-content="#" target="_blank"><span class="emphasize text-primary">rani <span></span></span></a>
+                                                      </div>
+                                                  </div>
+                                                </span>&nbsp; <span>Assigned to:&nbsp;</span><span
+                                                  style="color: red;">Unassigned</span>&nbsp; <span
+                                                  class="departm">Department:&nbsp;</span><span
+                                                  style="color: rgb(60, 141, 188);">Support</span>&nbsp; <div
+                                                  class="ticket-list-custom-box"></div>
+                                              </div>
+                                            </div>
+                                      </div>
+      
+                                  </td>
+                                  <td class="td-ticket-status hideForList"><span class="badge badge-danger text-xs">Overdue</span><span class="badge badge-warning text-xs" style="display: none;">Due Today</span></td>
+                                  <td class="source source-icon hideForList">
+                                      <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-envelope" id="ticket-source-icon"></i></div>
+                                    </td>
+                                    <td class="source-icon hideForList">
+                                      <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-clock" id="ticket-source-icon" style="color: rgb(50, 199, 119);"></i></div>
+                                    </td>
+                                    <td class="assign hideForList">
+                                      <ul style="padding: 0px; margin: 0px; list-style: none; font-size: 11px;">
+                                        <li>Created: <span class="emphasize">3 days ago</span></li>
+                                        <li>Updated: <span class="emphasize">3 days ago</span></li>
+                                        <li>Overdue: <span class="emphasize">3 days ago</span></li>
+                                      </ul>
+                                    </td>
+                              </tr>
+                              <tr>
+                                <td >
+                                  <div class="user-image"><img id="user_img_192"
+                                      src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                      class="img-circle" alt="User" width="40" height="40">
+                                       </div>
+                              <!-- <td> <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Project-management/edit-project-template.html" class="text-primary">Project Template-1</a></td></td> -->
+                                  <td class="checkboxx">
+                                      
+                                      <div class="ticket_subject">
+                                          <!-- <p class="ticket-description-tip overdue_ticket break-word"> -->
+                                              <div class="inbox-pop d-flex "><a href="javascript:;" class="v-popper--has-tooltip "><span
+                                                  class="ticket-no text-gray"
+                                                  data-pjax="192">[#HDSK-AAAA-0192]&nbsp;‏</span><span class="text-primary">faveo&nbsp;‏(‎1) </span> </a>
+                                              <div class="inline-block"
+                                                style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                <div><a class="tic-pop mr-1 v-popper--has-tooltip" href="javascript:;"><i
+                                                      class="fas fa-question-circle tic-pop-i text-primary"></i></a></div>
+                                                <div class="popper fade-leave-active fade-leave-to" style="display: none;">
+                                                  <div class="row" id="load_margin">
+                                                    <div class="fulfilling-bouncing-circle-spinner"
+                                                      style="height: 30px; width: 30px; animation-duration: 4000ms;">
+                                                      <div class="circle"
+                                                        style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); color: rgb(29, 120, 255); border-width: 3px; animation-duration: 4000ms;">
+                                                      </div>
+                                                      <div class="orbit"
+                                                        style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); border-width: 0.9px; animation-duration: 4000ms;">
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div  id="arrow" ></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          <!-- </p> -->
+                                          <div class="info-data">
+                                              <div class="information ellipsis d-flex"><span>From:&nbsp;</span><span
+                                                  class="inbox-info">
+                                                  <div class="inline-block"
+                                                    style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                    <div><a href="/qa/saiffaveo/public/panel/user/55" class="user_name pop"
+                                                        data-container="body" data-toggle="popover" data-placement="right"
+                                                        data-content="#" target="_blank"><span class="emphasize text-primary">rani <span></span></span></a>
+                                                      </div>
+                                                  </div>
+                                                </span>&nbsp; <span>Assigned to:&nbsp;</span><span
+                                                  style="color: red;">Unassigned</span>&nbsp; <span
+                                                  class="departm">Department:&nbsp;</span><span
+                                                  style="color: rgb(60, 141, 188);">Support</span>&nbsp; <div
+                                                  class="ticket-list-custom-box"></div>
+                                              </div>
+                                            </div>
+                                      </div>
+      
+                                  </td>
+                                  <td class="td-ticket-status hideForList"><span class="badge badge-danger text-xs">Overdue</span><span class="badge badge-warning text-xs" style="display: none;">Due Today</span></td>
+                                  <td class="source source-icon hideForList">
+                                      <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-envelope" id="ticket-source-icon"></i></div>
+                                    </td>
+                                    <td class="source-icon hideForList">
+                                      <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-clock" id="ticket-source-icon" style="color: rgb(50, 199, 119);"></i></div>
+                                    </td>
+                                    <td class="assign hideForList">
+                                      <ul style="padding: 0px; margin: 0px; list-style: none; font-size: 11px;">
+                                        <li>Created: <span class="emphasize">3 days ago</span></li>
+                                        <li>Updated: <span class="emphasize">3 days ago</span></li>
+                                        <li>Overdue: <span class="emphasize">3 days ago</span></li>
+                                      </ul>
+                                    </td>
+                              </tr>
+                              <tr>
+                                <td >
+                                  <div class="user-image"><img id="user_img_192"
+                                      src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                      class="img-circle" alt="User" width="40" height="40">
+                                       </div>
+                              <!-- <td> <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Project-management/edit-project-template.html" class="text-primary">Project Template-1</a></td></td> -->
+                                  <td class="checkboxx">
+                                      
+                                      <div class="ticket_subject">
+                                          <!-- <p class="ticket-description-tip overdue_ticket break-word"> -->
+                                              <div class="inbox-pop d-flex "><a href="javascript:;" class="v-popper--has-tooltip "><span
+                                                  class="ticket-no text-gray"
+                                                  data-pjax="192">[#HDSK-AAAA-0192]&nbsp;‏</span><span class="text-primary">faveo&nbsp;‏(‎1) </span> </a>
+                                              <div class="inline-block"
+                                                style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                <div><a class="tic-pop mr-1 v-popper--has-tooltip" href="javascript:;"><i
+                                                      class="fas fa-question-circle tic-pop-i text-primary"></i></a></div>
+                                                <div class="popper fade-leave-active fade-leave-to" style="display: none;">
+                                                  <div class="row" id="load_margin">
+                                                    <div class="fulfilling-bouncing-circle-spinner"
+                                                      style="height: 30px; width: 30px; animation-duration: 4000ms;">
+                                                      <div class="circle"
+                                                        style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); color: rgb(29, 120, 255); border-width: 3px; animation-duration: 4000ms;">
+                                                      </div>
+                                                      <div class="orbit"
+                                                        style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); border-width: 0.9px; animation-duration: 4000ms;">
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div  id="arrow" ></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          <!-- </p> -->
+                                          <div class="info-data">
+                                              <div class="information ellipsis d-flex"><span>From:&nbsp;</span><span
+                                                  class="inbox-info">
+                                                  <div class="inline-block"
+                                                    style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                    <div><a href="/qa/saiffaveo/public/panel/user/55" class="user_name pop"
+                                                        data-container="body" data-toggle="popover" data-placement="right"
+                                                        data-content="#" target="_blank"><span class="emphasize text-primary">rani <span></span></span></a>
+                                                      </div>
+                                                  </div>
+                                                </span>&nbsp; <span>Assigned to:&nbsp;</span><span
+                                                  style="color: red;">Unassigned</span>&nbsp; <span
+                                                  class="departm">Department:&nbsp;</span><span
+                                                  style="color: rgb(60, 141, 188);">Support</span>&nbsp; <div
+                                                  class="ticket-list-custom-box"></div>
+                                              </div>
+                                            </div>
+                                      </div>
+      
+                                  </td>
+                                  <td class="td-ticket-status hideForList"><span class="badge badge-danger text-xs">Overdue</span><span class="badge badge-warning text-xs" style="display: none;">Due Today</span></td>
+                                  <td class="source source-icon hideForList">
+                                      <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-envelope" id="ticket-source-icon"></i></div>
+                                    </td>
+                                    <td class="source-icon hideForList">
+                                      <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-clock" id="ticket-source-icon" style="color: rgb(50, 199, 119);"></i></div>
+                                    </td>
+                                    <td class="assign hideForList">
+                                      <ul style="padding: 0px; margin: 0px; list-style: none; font-size: 11px;">
+                                        <li>Created: <span class="emphasize">3 days ago</span></li>
+                                        <li>Updated: <span class="emphasize">3 days ago</span></li>
+                                        <li>Overdue: <span class="emphasize">3 days ago</span></li>
+                                      </ul>
+                                    </td>
+                              </tr>
+                              <tr>
+                                <td >
+                                  <div class="user-image"><img id="user_img_192"
+                                      src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                      class="img-circle" alt="User" width="40" height="40">
+                                       </div>
+                              <!-- <td> <a href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Project-management/edit-project-template.html" class="text-primary">Project Template-1</a></td></td> -->
+                                  <td class="checkboxx">
+                                      
+                                      <div class="ticket_subject">
+                                          <!-- <p class="ticket-description-tip overdue_ticket break-word"> -->
+                                              <div class="inbox-pop d-flex "><a href="javascript:;" class="v-popper--has-tooltip "><span
+                                                  class="ticket-no text-gray"
+                                                  data-pjax="192">[#HDSK-AAAA-0192]&nbsp;‏</span><span class="text-primary">faveo&nbsp;‏(‎1) </span> </a>
+                                              <div class="inline-block"
+                                                style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                <div><a class="tic-pop mr-1 v-popper--has-tooltip" href="javascript:;"><i
+                                                      class="fas fa-question-circle tic-pop-i text-primary"></i></a></div>
+                                                <div class="popper fade-leave-active fade-leave-to" style="display: none;">
+                                                  <div class="row" id="load_margin">
+                                                    <div class="fulfilling-bouncing-circle-spinner"
+                                                      style="height: 30px; width: 30px; animation-duration: 4000ms;">
+                                                      <div class="circle"
+                                                        style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); color: rgb(29, 120, 255); border-width: 3px; animation-duration: 4000ms;">
+                                                      </div>
+                                                      <div class="orbit"
+                                                        style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); border-width: 0.9px; animation-duration: 4000ms;">
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div  id="arrow" ></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          <!-- </p> -->
+                                          <div class="info-data">
+                                              <div class="information ellipsis d-flex"><span>From:&nbsp;</span><span
+                                                  class="inbox-info">
+                                                  <div class="inline-block"
+                                                    style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                    <div><a href="/qa/saiffaveo/public/panel/user/55" class="user_name pop"
+                                                        data-container="body" data-toggle="popover" data-placement="right"
+                                                        data-content="#" target="_blank"><span class="emphasize text-primary">rani <span></span></span></a>
+                                                      </div>
+                                                  </div>
+                                                </span>&nbsp; <span>Assigned to:&nbsp;</span><span
+                                                  style="color: red;">Unassigned</span>&nbsp; <span
+                                                  class="departm">Department:&nbsp;</span><span
+                                                  style="color: rgb(60, 141, 188);">Support</span>&nbsp; <div
+                                                  class="ticket-list-custom-box"></div>
+                                              </div>
+                                            </div>
+                                      </div>
+      
+                                  </td>
+                                  <td class="td-ticket-status hideForList"><span class="badge badge-danger text-xs">Overdue</span><span class="badge badge-warning text-xs" style="display: none;">Due Today</span></td>
+                                  <td class="source source-icon hideForList">
+                                      <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-envelope" id="ticket-source-icon"></i></div>
+                                    </td>
+                                    <td class="source-icon hideForList">
+                                      <div class="status-source source-detailed-phone v-popper--has-tooltip"><i class="fas fa-clock" id="ticket-source-icon" style="color: rgb(50, 199, 119);"></i></div>
+                                    </td>
+                                    <td class="assign hideForList">
+                                      <ul style="padding: 0px; margin: 0px; list-style: none; font-size: 11px;">
+                                        <li>Created: <span class="emphasize">3 days ago</span></li>
+                                        <li>Updated: <span class="emphasize">3 days ago</span></li>
+                                        <li>Overdue: <span class="emphasize">3 days ago</span></li>
+                                      </ul>
+                                    </td>
+                              </tr>
+                          
+                            </tbody>
+                          </table>
+                    </div>
+                    <div id="div2" class="content-div" style="display:none;">
+                     
+                        <div class="dropdown dropdownn">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-columns"></i> Columns 
+                            </button>
+                            <div class="dropdown-menu p-3 dropdownn-menu" aria-labelledby="dropdownMenuButton">
+                              <div class="form-check dropdown-item">
+                                <input class="form-check-input" type="checkbox" id="ordernumberCheckbox" value="0" checked>
+                                <label class="form-check-label" for="ordernumberCheckbox">Ticket Number</label>
+                            </div>
+                            <div class="form-check dropdown-item">
+                              <input class="form-check-input" type="checkbox" id="ordernumberCheckbox" value="1" checked>
+                              <label class="form-check-label" for="ordernumberCheckbox">Subject</label>
+                          </div>
+                          <div class="form-check dropdown-item">
+                            <input class="form-check-input" type="checkbox" id="ordernumberCheckbox" value="2" checked>
+                            <label class="form-check-label" for="ordernumberCheckbox">From</label>
+                        </div>
+                        <div class="form-check dropdown-item">
+                          <input class="form-check-input" type="checkbox" id="ordernumberCheckbox" value="3" checked>
+                          <label class="form-check-label" for="ordernumberCheckbox">Assigned To</label>
+                      </div>
+                      <div class="form-check dropdown-item">
+                        <input class="form-check-input" type="checkbox" id="ordernumberCheckbox" value="4" checked>
+                        <label class="form-check-label" for="ordernumberCheckbox">Department</label>
+                    </div>
+                                <div class="form-check dropdown-item">
+                                    <input class="form-check-input" type="checkbox" id="ordernumberCheckbox" value="5" checked>
+                                    <label class="form-check-label" for="ordernumberCheckbox">Status</label>
+                                </div>
+                                <div class="form-check dropdown-item">
+                                    <input class="form-check-input" type="checkbox" id="licenseipCheckbox" value="6" checked>
+                                    <label class="form-check-label" for="licenseipCheckbox">Ticket Source</label>
+                                </div>
+                                <div class="form-check dropdown-item">
+                                    <input class="form-check-input" type="checkbox" id="licensedomainCheckbox" value="7">
+                                    <label class="form-check-label" for="licensedomainCheckbox">Created At</label>
+                                </div>
+                                <div class="form-check dropdown-item">
+                                  <input class="form-check-input" type="checkbox" id="licensedomainCheckbox" value="8">
+                                  <label class="form-check-label" for="licensedomainCheckbox">Help Topic</label>
+                              </div>
+                              <div class="form-check dropdown-item">
+                                <input class="form-check-input" type="checkbox" id="licensedomainCheckbox" value="9" checked>
+                                <label class="form-check-label" for="licensedomainCheckbox">Actions</label>
+                            </div>
+                    
+                                <div class="dropdown-item text-center dropdownn-item">
+                                    <button id="updateButton" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                          <table id="example3" class="table table-bordered table-striped table-responsive">
+                            <thead>
+                            <tr>
+                              <th>Ticket Number</th>
+                              <th>Subject</th>
+                              <th>From</th>
+                              <th>assigned To</th>
+                              <th>Department</th>
+                              <th>Status</th>
+                              <th>Ticket Source</th>
+                              <th>Created At</th>
+                              <th>Help Topic</th>
+                              <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                              <td><a href="#" class="text-primary">[#AAAA-0000-0029]</a></td>
+                              <td  class="text-primary"> Rights of a customer</td>
+                              <td><a href="#" class="text-primary">ashu@gmail.com</a></td>
+                              <td><a href="#" class="text-primary">rani@gmail.com</a> </td>
+                              <td>Sales</td>
+                              <td>Open</td>
+                              <td>Email</td>
+                              <td>2024-06-12 02:10pm</td>
+                              <td>Rights of a customer</td>
+                              <td><div class="actions-row"><a href="#" class="btn btn-default btn-act "><i
+                                class="fas fa-edit"></i></a> &nbsp;
+                                <a href="#" class="btn btn-default btn-act "><i
+                                  class="fas fa-trash"></i></a> &nbsp;
+                                <a href="" class="btn btn-default btn-act "><i
+                                    class="fas fa-eye"></i></a></div> 
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><a href="#" class="text-primary">[#HDSK-0000-0029]</a></td>
+                              <td  class="text-primary"> Pick up information</td>
+                              <td><a href="#" class="text-primary">ashu@gmail.com</a></td>
+                              <td><a href="#" class="text-primary">rani@gmail.com</a> </td>
+                              <td>Support</td>
+                              <td>Open</td>
+                              <td>Chat</td>
+                              <td>2024-06-12 02:10pm</td>
+                              <td>Pick up information</td>
+                              <td><div class="actions-row"><a href="#" class="btn btn-default btn-act "><i
+                                class="fas fa-edit"></i></a> &nbsp;
+                                <a href="#" class="btn btn-default btn-act "><i
+                                  class="fas fa-trash"></i></a> &nbsp;
+                                <a href="" class="btn btn-default btn-act "><i
+                                    class="fas fa-eye"></i></a></div> 
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><a href="#" class="text-primary">[#MNOP-0000-0029]</a></td>
+                              <td  class="text-primary"> Information regarding Duplicate invoices</td>
+                              <td><a href="#" class="text-primary">ashu@gmail.com</a></td>
+                              <td><a href="#" class="text-primary">rani@gmail.com</a> </td>
+                              <td>Design</td>
+                              <td>Open</td>
+                              <td>Chat</td>
+                              <td>2024-06-12 02:10pm</td>
+                              <td>Information regarding Duplicate invoices</td>
+                              <td><div class="actions-row"><a href="#" class="btn btn-default btn-act "><i
+                                class="fas fa-edit"></i></a> &nbsp;
+                                <a href="#" class="btn btn-default btn-act "><i
+                                  class="fas fa-trash"></i></a> &nbsp;
+                                <a href="" class="btn btn-default btn-act "><i
+                                    class="fas fa-eye"></i></a></div> 
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><a href="#" class="text-primary">[#AABB-0000-0029]</a></td>
+                              <td  class="text-primary"> Dangers of shopping online</td>
+                              <td><a href="#" class="text-primary">ashu@gmail.com</a></td>
+                              <td><a href="#" class="text-primary">rani@gmail.com</a> </td>
+                              <td>Development</td>
+                              <td>Open</td>
+                              <td>WhatsApp</td>
+                              <td>2024-06-12 02:10pm</td>
+                              <td>Dangers of shopping online</td>
+                              <td><div class="actions-row"><a href="#" class="btn btn-default btn-act "><i
+                                class="fas fa-edit"></i></a> &nbsp;
+                                <a href="#" class="btn btn-default btn-act "><i
+                                  class="fas fa-trash"></i></a> &nbsp;
+                                <a href="" class="btn btn-default btn-act "><i
+                                    class="fas fa-eye"></i></a></div> 
+                              </td>
+                            </tr>
+                           
+                          
+                            </tbody>
+                          </table>
+
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="time-ab-div">
+                  <div id="ticket-timeline" class="row">
+                    <div class="col-sm-12">
+                      <div class="card card-light" style="border-top: 3px solid rgb(0, 191, 239);">
+                        <div class="card-header">
+                          <h3 class="card-title"><i class="fas fa-ticket"></i>
+                            #HDSK-AAAA-0192‏&nbsp;</h3>
+                          <div class="card-tools timelinebtns"><span class="timeline-actions-span">
+                              <div id="labels-div" class="btn-group"><button type="button"
+                                  class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"
+                                  id="labels-button"><i class="fab fa-lastfm"></i> Labels <span
+                                    class="caret"></span></button>
+                                <ul id="label-dropdown" class="dropdown-menu label_menu">
+                                  <li>
+                                    <div color="#1d78ff">
+                                      <div class="fulfilling-bouncing-circle-spinner"
+                                        style="height: 30px; width: 30px; animation-duration: 4000ms;">
+                                        <div class="circle"
+                                          style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); color: rgb(29, 120, 255); border-width: 3px; animation-duration: 4000ms;">
+                                        </div>
+                                        <div class="orbit"
+                                          style="height: 30px; width: 30px; border-color: rgb(29, 120, 255); border-width: 0.9px; animation-duration: 4000ms;">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div id="tags-div" class="btn-group"><button type="button"
+                                  class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"
+                                  id="tags-button"><i class="fas fa-tag"></i> Tags <span class="caret"></span></button>
+                                <ul class="dropdown-menu" id="dropdown-tag">
+                                  <li>
+                                    <div  
+                                      class="col-sm-12 form-group form-field-template" id="Tags">
+                                      <div  class=""><label  for="Tags"
+                                          class="v-popper--has-tooltip"
+                                          style="display: none;">Tags</label></div>
+                                      <div  class="">
+                                        <div  class="slot-container">
+                                          <div  class="dynamic-select">
+                                            <div  dir="auto"
+                                              class="v-select vs--multiple vs--searchable faveo-dynamic-select"
+                                              name="tags">
+                                              <div id="vs1__combobox" class="vs__dropdown-toggle" role="combobox"
+                                                aria-expanded="false" aria-owns="vs1__listbox"
+                                                aria-label="Search for option">
+                                                <div class="vs__selected-options"><input class="vs__search"
+                                                    placeholder="Search or Select" id="dynamic-select"
+                                                    aria-autocomplete="list" aria-labelledby="vs1__combobox"
+                                                    aria-controls="vs1__listbox" type="search" autocomplete="off"
+                                                    value=""></div>
+                                                <div class="vs__actions"><button type="button" class="vs__clear"
+                                                    title="Clear Selected" aria-label="Clear Selected"
+                                                    style="display: none;"><svg xmlns="http://www.w3.org/2000/svg"
+                                                      width="10" height="10">
+                                                      <path
+                                                        d="M6.895455 5l2.842897-2.842898c.348864-.348863.348864-.914488 0-1.263636L9.106534.261648c-.348864-.348864-.914489-.348864-1.263636 0L5 3.104545 2.157102.261648c-.348863-.348864-.914488-.348864-1.263636 0L.261648.893466c-.348864.348864-.348864.914489 0 1.263636L3.104545 5 .261648 7.842898c-.348864.348863-.348864.914488 0 1.263636l.631818.631818c.348864.348864.914773.348864 1.263636 0L5 6.895455l2.842898 2.842897c.348863.348864.914772.348864 1.263636 0l.631818-.631818c.348864-.348864.348864-.914489 0-1.263636L6.895455 5z">
+                                                      </path>
+                                                    </svg></button><svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                    height="10" role="presentation" class="vs__open-indicator">
+                                                    <path
+                                                      d="M9.211364 7.59931l4.48338-4.867229c.407008-.441854.407008-1.158247 0-1.60046l-.73712-.80023c-.407008-.441854-1.066904-.441854-1.474243 0L7 5.198617 2.51662.33139c-.407008-.441853-1.066904-.441853-1.474243 0l-.737121.80023c-.407008.441854-.407008 1.158248 0 1.600461l4.48338 4.867228L7 10l2.211364-2.40069z">
+                                                    </path>
+                                                  </svg>
+                                                  <div class="vs__spinner" style="display: none;">Loading...</div>
+                                                </div>
+                                              </div>
+                                              <ul id="vs1__listbox" role="listbox"
+                                                style="display: none; visibility: hidden;"></ul>
+                                            </div>
+                                          </div><span  class="error-block is-danger"
+                                            style="display: none;"></span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <div class="tags_menu" id="tags-dropdown">
+                                    <li class="tag_button"><button class="btn btn-xs btn-default left"><i
+                                          class="fas fa-times"></i>
+                                        Cancel</button><button class="btn btn-xs btn-primary left right" disabled=""><i
+                                          class="fas fa-check"></i> Apply</button></li>
+                                  </div>
+                                </ul>
+                              </div>
+                              <div id="timeline-action-div" class="inline-block">
+                                <div id="task-ticket-actions" >
+                                  <div id="task-ticket-actions">
+                                    <div class="btn-group">
+                                      <div class="btn-group"><button type="button"
+                                          class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"
+                                          id="task-action"><i class="far fa-calendar-plus"></i> Task <span
+                                            class="badge badge-danger">0</span></button>
+                                        <div class="dropdown-menu"><a class="dropdown-item" href="javascript:;"><i
+                                              class="fa fa-plus"></i>&nbsp; Create
+                                            Task</a><a class="dropdown-item" href="javascript:;"><i
+                                              class="fas fa-tasks"></i>&nbsp; Attach Existing Task</a><a
+                                            class="dropdown-item" href="javascript:;"><i class="fa fa-bars"></i>&nbsp;
+                                            Apply Task Template</a><a class="dropdown-item" href="javascript:;"><i
+                                              class="fas fa-eye"></i>&nbsp; View</a></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="timeline-action-bar" class="inline-block">
+                                <div id="sd-ticket-actions" >
+                                  <div id="sd-ticket-actions"><button id="attach-assets"
+                                      class="btn btn-xs btn-default"><i class="fas fa-server"></i> Attach
+                                      Assets</button>
+                                    <div class="btn-group"><button type="button"
+                                        class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i
+                                          class="fas fa-bug"></i> Problem</button>
+                                      <div class="dropdown-menu"><a class="dropdown-item" id="attach_new"><i
+                                            class="fas fa-bug"></i> Attach New Problem</a><a class="dropdown-item"
+                                          id="attach_exists"><i class="fas fa-bug"></i> Attach Existing Problem</a>
+                                      </div>
+                                    </div>
+                                    <div class="btn-group"><button type="button"
+                                        class="btn btn-xs btn-default dropdown-toggle change-btn"
+                                        data-toggle="dropdown"><i class="fas fa-sync-alt"></i> Attach Change</button>
+                                      <div class="dropdown-menu dropdown-menu-right"><span
+                                          class="dropdown-item dropdown-header">Change Initiated by this Ticket</span><a
+                                          class="dropdown-item" id="attach_new" href="javascript:;"><span
+                                            class="ml-15"><i class="far fa-circle"></i> New
+                                            Change</span></a><a class="dropdown-item" id="attach_exists"
+                                          href="javascript:;"><span class="ml-15"><i class="far fa-circle"></i> Existing
+                                            Change</span></a><a class="dropdown-item" href="javascript:;"
+                                          id="attach_initiating"><i class="fas fa-sync-alt"></i> Change Initiating this
+                                          Ticket</a></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><button type="button" class="btn btn-primary btn-xs"><i class="fas fa-reply"></i>
+                                Reply</button><button type="button" class="btn btn-default btn-xs"><i
+                                  class="fas fa-edit"></i> Add Note</button><button type="button"
+                                class="btn btn-xs btn-default" id="user_btn"><i class="fas fa-user"></i>
+                                Requester</button><button type="button"
+                                class="btn btn-xs btn-default v-popper--has-tooltip"><i
+                                  class="fas fa-expand"></i></button>
+                              <div class="btn-group" id="more-evt"><button type="button"
+                                  class="btn btn-xs btn-default v-popper--has-tooltip" data-toggle="dropdown"><i
+                                    class="fas fa-ellipsis-v"></i></button>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
+                                    href="javascript:;"><i class="far fa-user"></i> Change
+                                    requester</a><a class="dropdown-item" href="javascript:;"><i class="fas fa-cog"></i>
+                                    Merge ticket</a><a class="dropdown-item" href="javascript:;"><i
+                                      class="fas fa-code-branch"></i> Fork</a><a href="javascript:;"
+                                    class="dropdown-item"><i class="far fa-star"></i>Request feedback</a><a
+                                    class="dropdown-item" href="javascript:;"><i class="far fa-clock"></i> Record
+                                    time</a><a class="dropdown-item" href="javascript:;"><i class="far fa-calendar"></i>
+                                    Change Due Date</a><a class="dropdown-item" href="javascript:;"><i
+                                      class="far fa-hand-point-right"></i> Change
+                                    Department</a><a href="javascript:;" class="dropdown-item"><i
+                                      class="far fa-file-pdf"></i> Generate PDF</a><a class="dropdown-item"
+                                    href="javascript:;"><i class="fas fa-pause"></i> Apply Approval Workflow</a><a
+                                    class="dropdown-item" href="javascript:;"><i class="fas fa-forward"></i> Forward
+                                    Ticket</a></div>
+                                
+                              </div>
+                            </span><button class="btn btn-default btn-xs v-popper--has-tooltip" href="javascript:;"><i
+                                class="fas fa-sync-alt"></i></button><button type="button"
+                              class="btn btn-default btn-xs v-popper--has-tooltip"><i
+                                class="fas fa-arrow-up"></i></button><button type="button"
+                              class="btn btn-default btn-xs v-popper--has-tooltip"><i class="fas fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="row mb-2">
+                            <div class="col-sm-9">
+                              <h5 class="mr-1">faveo&nbsp; <span><span
+                                    class="badge badge-danger mr-1 v-popper--has-tooltip">Overdue</span></span>
+                              </h5>
+                            </div>
+                            <div class="col-sm-3">
+                              <div class="row" url="rating/" ticket_id="">
+                                <div class="col-md-12">
+                                  <div class="mb-2 lh-1 ticketratings" id="ticketratings"> &nbsp; <table>
+                                      <tbody>
+                                        <tr>
+                                          <th>
+                                            <div class="ticketratingtitle">OverAll Satisfaction&nbsp;</div>
+                                          </th>
+                                          <td class="star-rating-control">
+                                            <div class="vue-star-rating" modelvalue="0">
+                                              <div class="sr-only"><span >Rated 0 stars out of
+                                                  5</span></div>
+                                              <div class="vue-star-rating"><span class="vue-star-rating-star"
+                                                  style="margin-right: 0px;"><svg class="vue-star-rating-star"
+                                                    height="18" width="18" viewBox="0 0 18 18" step="100">
+                                                    <linearGradient id="e4nfjo" x1="0" x2="100%" y1="0" y2="0">
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                    </linearGradient>
+                                                    <filter id="8ldewd" height="130%" width="130%"
+                                                      filterUnits="userSpaceOnUse">
+                                                      <feGaussianBlur stdDeviation="0" result="coloredBlur">
+                                                      </feGaussianBlur>
+                                                      <feMerge>
+                                                        <feMergeNode in="coloredBlur"></feMergeNode>
+                                                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                                                      </feMerge>
+                                                    </filter>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#e4nfjo)" stroke="#fff" filter="url(#8ldewd)"
+                                                      stroke-width="0" style="display: none;"></polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#e4nfjo)" stroke="#999" stroke-width="0"
+                                                      stroke-linejoin="miter">
+                                                    </polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#e4nfjo)"></polygon>
+                                                  </svg></span><span class="vue-star-rating-star"
+                                                  style="margin-right: 0px;"><svg class="vue-star-rating-star"
+                                                    height="18" width="18" viewBox="0 0 18 18" step="100">
+                                                    <linearGradient id="2500m" x1="0" x2="100%" y1="0" y2="0">
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                    </linearGradient>
+                                                    <filter id="iwrio" height="130%" width="130%"
+                                                      filterUnits="userSpaceOnUse">
+                                                      <feGaussianBlur stdDeviation="0" result="coloredBlur">
+                                                      </feGaussianBlur>
+                                                      <feMerge>
+                                                        <feMergeNode in="coloredBlur"></feMergeNode>
+                                                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                                                      </feMerge>
+                                                    </filter>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#2500m)" stroke="#fff" filter="url(#iwrio)"
+                                                      stroke-width="0" style="display: none;"></polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#2500m)" stroke="#999" stroke-width="0"
+                                                      stroke-linejoin="miter">
+                                                    </polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#2500m)"></polygon>
+                                                  </svg></span><span class="vue-star-rating-star"
+                                                  style="margin-right: 0px;"><svg class="vue-star-rating-star"
+                                                    height="18" width="18" viewBox="0 0 18 18" step="100">
+                                                    <linearGradient id="xax1n" x1="0" x2="100%" y1="0" y2="0">
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                    </linearGradient>
+                                                    <filter id="fph796" height="130%" width="130%"
+                                                      filterUnits="userSpaceOnUse">
+                                                      <feGaussianBlur stdDeviation="0" result="coloredBlur">
+                                                      </feGaussianBlur>
+                                                      <feMerge>
+                                                        <feMergeNode in="coloredBlur"></feMergeNode>
+                                                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                                                      </feMerge>
+                                                    </filter>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#xax1n)" stroke="#fff" filter="url(#fph796)"
+                                                      stroke-width="0" style="display: none;"></polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#xax1n)" stroke="#999" stroke-width="0"
+                                                      stroke-linejoin="miter">
+                                                    </polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#xax1n)"></polygon>
+                                                  </svg></span><span class="vue-star-rating-star"
+                                                  style="margin-right: 0px;"><svg class="vue-star-rating-star"
+                                                    height="18" width="18" viewBox="0 0 18 18" step="100">
+                                                    <linearGradient id="lo5cxg" x1="0" x2="100%" y1="0" y2="0">
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                    </linearGradient>
+                                                    <filter id="6blmka" height="130%" width="130%"
+                                                      filterUnits="userSpaceOnUse">
+                                                      <feGaussianBlur stdDeviation="0" result="coloredBlur">
+                                                      </feGaussianBlur>
+                                                      <feMerge>
+                                                        <feMergeNode in="coloredBlur"></feMergeNode>
+                                                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                                                      </feMerge>
+                                                    </filter>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#lo5cxg)" stroke="#fff" filter="url(#6blmka)"
+                                                      stroke-width="0" style="display: none;"></polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#lo5cxg)" stroke="#999" stroke-width="0"
+                                                      stroke-linejoin="miter">
+                                                    </polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#lo5cxg)"></polygon>
+                                                  </svg></span><span class="vue-star-rating-star"
+                                                  style="margin-right: 0px;"><svg class="vue-star-rating-star"
+                                                    height="18" width="18" viewBox="0 0 18 18" step="100">
+                                                    <linearGradient id="olq2nb" x1="0" x2="100%" y1="0" y2="0">
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                      <stop offset="0%" stop-color="#d8d8d8" stop-opacity="1"></stop>
+                                                    </linearGradient>
+                                                    <filter id="ubvji" height="130%" width="130%"
+                                                      filterUnits="userSpaceOnUse">
+                                                      <feGaussianBlur stdDeviation="0" result="coloredBlur">
+                                                      </feGaussianBlur>
+                                                      <feMerge>
+                                                        <feMergeNode in="coloredBlur"></feMergeNode>
+                                                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                                                      </feMerge>
+                                                    </filter>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#olq2nb)" stroke="#fff" filter="url(#ubvji)"
+                                                      stroke-width="0" style="display: none;"></polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#olq2nb)" stroke="#999" stroke-width="0"
+                                                      stroke-linejoin="miter">
+                                                    </polygon>
+                                                    <polygon
+                                                      points="8.181818181818182,0.9090909090909091,2.7272727272727266,18,16.363636363636363,7.09090909090909,0,7.09090909090909,13.636363636363635,18"
+                                                      fill="url(#olq2nb)"></polygon>
+                                                  </svg></span></div>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            
+                            <div class="col-sm-8">
+                                <div class="card card-light">
+                                    <div class="card-header">
+                                      <h3 class="card-title">Task Templates</h3>
+                                      <div class="card-tools">
+                                      
+                                            <div class="dropdown float-left mx-1">
+                                              <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  Remote Desktop
+                                              </button>
+                                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                  <a class="dropdown-item" onclick="selectOption(this, 'option1')" style="cursor: pointer;">Zoho Meeting</a>
+                                                  <a class="dropdown-item"  onclick="selectOption(this, 'option2')" style="cursor: pointer;">Teamviewer</a>
+                                                  <a class="dropdown-item"  onclick="selectOption(this, 'option3')" style="cursor: pointer;">Bomgar</a>
+                                              </div>
+                                          </div>
+                        
+    <!-- Customizable Bootstrap Modal -->
+<div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="taskModalLabel">Login to Teamviewer</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <label for="taskTitle">Login ID</label>
+              <input type="text" class="form-control" id="taskTitle">
+              
+              <label for="taskDetails" class="mt-3">Password</label>
+              <input class="form-control" id="taskDetails">
+          </div>
+          <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+              <button type="button" class="btn btn-primary" id="saveTask">Login</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+                                       <a class="btn btn-default btn-sm" href="file:///D:/faveo-html-prototype/Faveo-Helpdesk/Project-management/create-task-template.html" title="Create New Project Template">
+                                            <i class="fa fa-plus"></i> Add Canned Responses </a>
+                                            <!-- <a href="#">
+                                             <i class="fa fa-filter pr-3"></i> </a> -->
+                                      </div>
+                                      </div>
+
+
+                                      <div class="card-body">
+
+                                        <div class="row">
+                                         
+                                            <div class="col-md-6 form-group ">
+                                                <label for="type" class="required">To</label>
+                                                <select class="form-control" id="type" name="type" disabled>
+                                                    <option selected> rani< ranimehak0092@gmail.com> </option>
+                                                        <option >project -1  </option>
+                                                        <option >project -2</option>
+                                                </select>
+                                              </div>
+                                           
+                                            <div class="col-md-6 form-group ">
+                                              <label for="type" class="required">CC</label>
+                                              <select class="form-control" id="type" name="type">
+                                                  <option selected>Search or Select</option>
+                                                      <option >project -1  </option>
+                                                      <option >project -2</option>
+                                              </select>
+                                            </div>
+                    
+                                        </div>
+  <!-- Hidden divs for each section -->
+<div id="projectTemplateDiv" style="display:none;">
+  <h3>Create New Project Template</h3>
+  <!-- Your form or content for this option -->
+</div>
+
+<div id="taskDiv" style="display:none;">
+  <p><strong>Remote session instructions</strong></p>
+  <p>Session Code s886-668-787</p>
+  <br>
+  <p>Click teh link below to start your session</p>
+  <p><a href="#" class="text-primary">https://get.zohodesk.com/s886-668-787</a></p>
+  <!-- Your form or content for this option -->
+</div>
+
+<div id="overviewDiv" style="display:none;">
+  <h3>Project Overview</h3>
+  <!-- Your form or content for this option -->
+</div> 
+
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Description</label>
+                                            <textarea id="mytextarea" placeholder="Write a Note!" data-content=" "></textarea>
+                                          </div>
+                                      </div>
+
+                                      </div>
+                                </div>
+
+                              <div id="actions-card"></div>
+                              <div class="card card-light card-tabs">
+                                <div class="card-header p-0 pt-2">
+                                  <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" data-toggle="pill" role="tab"
+                                        href="javascript:;"><i class="far fa-comments"></i> Ticket Conversation</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="pill" role="tab"
+                                        href="javascript:;"><i class="fas fa-history"></i> Ticket
+                                        Activity</a></li>
+                                    <li class="nav-item ml-auto mt-04"><a
+                                        class="btn-tool text-small v-popper--has-tooltip"
+                                        href="javascript:;"><em>Overdue - <b>2 days ago</b></em></a><button
+                                        type="button" class="btn btn-tool v-popper--has-tooltip"
+                                        data-card-widget="maximize"><i class="fas fa-expand"></i></button></li>
+                                  </ul>
+                                </div>
+                                <div class="card-body">
+                                  <div  class="inbox-threads">
+                                    <div  class="scrollable-thread" id="thread_scroll">
+                                      <div  class="timeline">
+                                        <div  class="time-label"><span 
+                                            class="bg-default border">14-10-2024</span></div>
+                                        <div   class="inbox-thread-body"><i
+                                             class="fa fa-comment bg-blue v-popper--has-tooltip"></i>
+                                        <div  class="timeline-item">
+                                          
+                                          <span  class="time thread_right"><span
+                                               class="thread_rating v-popper--has-tooltip"></span><!---->
+                                            <div ><a  class="pointer margin_5px v-popper--has-tooltip"><i 
+                                                  class="fas fa-reply"></i></a> <a  data-toggle="dropdown" aria-expanded="true"
+                                                class="pointer margin_5px v-popper--has-tooltip"><i  class="fas fa-ellipsis-v"></i></a>
+                                              <div  class="dropdown-menu dropdown-menu-right" role="menu"><a 
+                                                  class="dropdown-item" href="javascript:;">Redact</a></div>
+                                            </div><!---->
+                                          </span>
+                                          <h3  class="timeline-header bg-light"><img  id="thread_img"
+                                              src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                              class="img-circle img-bordered-sm" alt="User Image" width="25" height="25">
+                                            <div  class="hover-card"><a  href="/qa/saiffaveo/public/panel/user/55"
+                                                class="ml-1" id="thread_head_name">rani</a>
+                                              <!-- <div  class="hover-card-content"> -->
+                                                <!-- <div  class="d-flex align-items-center mb-2"><img 
+                                                    src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                                    alt="Profile Picture"
+                                                    style="height: 40px; width: 40px; border-radius: 24px; border: 2px solid rgb(55, 136, 216);">
+                                                  <div  class="ml-2">
+                                                    <div >rani</div>
+                                                  </div>
+                                                </div> -->
+                                                <!-- <div  class="email-wrapper"><i  class="fas fa-envelope"></i><span
+                                                     class="email">ranimehak0092@gmail.com</span></div> -->
+                                              <!-- </div> -->
+                                            </div><span  class="thread_time"> - &nbsp;<i  class="far fa-clock"></i>
+                                              14-10-2024 01:34 pm</span><!---->
+                                          </h3>
+                                          <div  class="timeline-body thread_desc" id="thread_desc_278" contenteditable="false">
+                                            <div >
+                                              <div>
+                                                <div>test</div>
+                                              </div>
+                                            </div>
+                                          </div><!----><!----><!----><!---->
+                                        </div>
+
+                                        
+
+                                        </div>
+                                        <div ><i 
+                                            class="fas fa-history bg-gray"></i></div>
+                                        <div  ><!--v-if--><span
+                                            ></span><!--v-if--></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="inbox-associates">
+                                <div  class="card card-light">
+                                  <div  class="card-header pointer">
+                                    <h3  class="card-title">Time Track</h3>
+                                    <div  class="card-tools"><button 
+                                        type="button" class="btn btn-tool"><i 
+                                          class="fas fa-angle-down fs-25"></i></button></div>
+                                  </div>
+                                </div>
+                                <div id="timeline-tab">
+                                  <div id="ticket-associated-list" >
+                                    <div  class="card card-light">
+                                      <div  class="card-header pointer">
+                                        <h3  class="card-title">SD Associates</h3>
+                                        <div  class="card-tools"><button 
+                                            type="button" class="btn btn-tool"><i 
+                                              class="fas fa-angle-down fs-25"></i></button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="timeline-display-box-tasks">
+                                  <div id="associated-task-list" >
+                                    <div id="associated-task-list">
+                                      <div>
+                                        <div class="card card-light">
+                                          <div class="card-header pointer">
+                                            <h3 class="card-title w_80">Associated Tasks</h3>
+                                            <div class="card-tools"><button type="button" class="btn btn-tool"><i
+                                                  class="fas fa-angle-down fs-25"></i></button></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="timeline-boxes"></div>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="card card-light">
+                                    <div class="card-header pbt-4">
+                                      <div class="card-tools"><span><span
+                                            class="badge badge-danger text-xs mbt-4">Unassigned</span>&nbsp;
+                                        </span><button type="button" class="btn btn-xs btn-default mbt-4"><i
+                                            class="far fa-edit"></i> Edit</button><button type="button"
+                                          class="btn btn-xs btn-default mbt-4"><i class="far fa-hand-point-right"></i>
+                                          Assign</button>
+                                        <div class="btn-group"><button type="button"
+                                            class="btn btn-xs btn-default dropdown-toggle mbt-4" data-toggle="dropdown"
+                                            id="status"><i class="fas fa-exchange-alt"></i> Change Status</button>
+                                          <div class="dropdown-menu status-list dropdown-menu-right">
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="card-body" id="ticket_data">
+                                      <div class="row">
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Created
+                                              At</label><a class="col-sm-6 v-popper--has-tooltip text-primary">14-10-2024 01:34
+                                              pm</a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Updated
+                                              At</label><a class="col-sm-6 v-popper--has-tooltip text-primary">14-10-2024 01:34
+                                              pm</a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Status Changed
+                                              At</label><a class="col-sm-6 v-popper--has-tooltip">--</a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Assigned
+                                              at</label><a class="col-sm-6 v-popper--has-tooltip text-primary">--</a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Status</label><a
+                                              href="/qa/saiffaveo/public/panel/tickets?show%5B%5D=inbox&amp;departments%5B%5D=All&amp;filter-by-url=1&amp;category=all&amp;status-ids[]=1"
+                                              class="col-sm-6" target="_blank"><span
+                                                class="v-popper--has-tooltip text-primary">Open</span></a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Last
+                                              Replier</label><span class="inbox-info custom-user-info">
+                                              <div class="inline-block"
+                                                style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                <div><a href="/qa/saiffaveo/public/panel/user/55" class="user_name pop"
+                                                    data-container="body" data-toggle="popover" data-placement="right"
+                                                    data-content="#" target="_blank"><span class="emphasize text-primary px-2">rani <span></span></span></a>
+                                                </div>
+                                              </div>
+                                            </span></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Requester</label><span
+                                              class="inbox-info custom-user-info">
+                                              <div class="inline-block"
+                                                style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                <div><a href="/qa/saiffaveo/public/panel/user/55" class="user_name pop"
+                                                    data-container="body" data-toggle="popover" data-placement="right"
+                                                    data-content=" " target="_blank"><span class="emphasize text-primary px-2">rani <span></span></span></a>
+                                                </div>
+                                                <div class="popper fade-leave-active fade-leave-to"
+                                                  style="display: none;">
+                                                  <div class="card card-light card-widget mb-0">
+                                                    <div class="card-header pad-7">
+                                                      <div class="user-panel d-flex">
+                                                        <div class="hover-img"><img
+                                                            src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                                            class="img-circle imgupdate" alt="User Image"></div>
+                                                        <div class="info"><a
+                                                            class="d-block font-weight-bold font-size-14 text-primary px-2">rani </a>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="card-body info-body">
+                                                      <ul class="nav nav-stacked">
+                                                        <li id="b_bottom"><a id="cus-link"
+                                                            title="ranimehak0092@gmail.com"><i
+                                                              class="fas fa-envelope "></i>&nbsp;ranimehak0092@gmail.com</a><br><a
+                                                            id="cus-link mt-1" title="9898988898"><i
+                                                              class="fas fa-phone mr-1"></i>&nbsp;+91 9898988898</a>
+                                                        </li>
+                                                      </ul>
+                                                    </div>
+                                                  </div>
+                                                  <div id="arrow" ></div>
+                                                </div>
+                                              </div>
+                                            </span></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Creator</label><span
+                                              class="inbox-info custom-user-info">
+                                              <div class="inline-block"
+                                                style="border: 12px solid transparent; margin: -12px; --c81fc0a4: 9999;">
+                                                <div><a href="/qa/saiffaveo/public/panel/user/55" class="user_name pop"
+                                                    data-container="body" data-toggle="popover" data-placement="right"
+                                                    data-content=" " target="_blank"><span class="emphasize text-primary px-2"> rani <span></span></span></a>
+                                                </div>
+                                                <div class="popper fade-leave-active fade-leave-to"
+                                                  style="display: none;">
+                                                  <div class="card card-light card-widget mb-0">
+                                                    <div class="card-header pad-7">
+                                                      <div class="user-panel d-flex">
+                                                        <div class="hover-img"><img
+                                                            src="https://secure.gravatar.com/avatar/227d4dc1895063919ef665870c64a169?s=80&amp;r=g&amp;d=mm"
+                                                            class="img-circle imgupdate" alt="User Image"></div>
+                                                        <div class="info"><a
+                                                            class="d-block font-weight-bold font-size-14 text-primary "> rani </a>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="card-body info-body">
+                                                      <ul class="nav nav-stacked">
+                                                        <li id="b_bottom"><a id="cus-link"
+                                                            title="ranimehak0092@gmail.com"><i
+                                                              class="fas fa-envelope"></i>&nbsp;ranimehak0092@gmail.com</a><br><a
+                                                            id="cus-link mt-1" title="9898988898"><i
+                                                              class="fas fa-phone mr-1"></i>&nbsp;+91 9898988898</a>
+                                                        </li>
+                                                      </ul>
+                                                    </div>
+                                                  </div>
+                                                  <div id="arrow" ></div>
+                                                </div>
+                                              </div>
+                                            </span></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Source</label><a
+                                              href="/qa/saiffaveo/public/panel/tickets?show%5B%5D=inbox&amp;departments%5B%5D=All&amp;filter-by-url=1&amp;category=all&amp;source-ids[]=2"
+                                              class="col-sm-6" target="_blank"><span
+                                                class="v-popper--has-tooltip text-primary">Email</span></a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Priority</label><a
+                                              href="/qa/saiffaveo/public/panel/tickets?show%5B%5D=inbox&amp;departments%5B%5D=All&amp;filter-by-url=1&amp;category=all&amp;priority-ids[]=2"
+                                              class="col-sm-6" target="_blank"><span
+                                                class="v-popper--has-tooltip text-primary">Normal</span></a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Departments</label><a
+                                              href="/qa/saiffaveo/public/panel/tickets?show%5B%5D=inbox&amp;departments%5B%5D=All&amp;filter-by-url=1&amp;category=all&amp;dept-ids[]=1"
+                                              class="col-sm-6" target="_blank"><span
+                                                class="v-popper--has-tooltip text-primary">Support</span></a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">SLA
+                                              plan</label><a
+                                              href="/qa/saiffaveo/public/panel/tickets?show%5B%5D=inbox&amp;departments%5B%5D=All&amp;filter-by-url=1&amp;category=all&amp;sla-plan-ids[]=1"
+                                              class="col-sm-6" target="_blank"><span
+                                                class="v-popper--has-tooltip text-primary">Default</span></a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Help
+                                              topic</label><a
+                                              href="/qa/saiffaveo/public/panel/tickets?show%5B%5D=inbox&amp;departments%5B%5D=All&amp;filter-by-url=1&amp;category=all&amp;helptopic-ids[]=1"
+                                              class="col-sm-6" target="_blank"><span
+                                                class="v-popper--has-tooltip text-primary">Support query</span></a></div>
+                                        </div>
+                                        <div class="col-md-12 info-row">
+                                          <div class="row"><label class="col-sm-6">Form</label><a
+                                              href="/qa/saiffaveo/public/panel/tickets?show%5B%5D=inbox&amp;departments%5B%5D=All&amp;filter-by-url=1&amp;category=all&amp;form_category_ids[]=1"
+                                              class="col-sm-6" target="_blank"><span
+                                                class="v-popper--has-tooltip text-primary">Default Ticket Form</span></a></div>
+                                        </div>
+                                        <div id="timeline-meta-list-box" class="col-sm-12">
+                                          <div id="associated-problem" ></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+          <!-- /.col -->
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+      <div class="p-3">
+        <h5>Title</h5>
+        <p>Sidebar content</p>
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Version 1.0.0
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights
+      reserved.
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <!-- <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> -->
+  <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="../../plugins/jszip/jszip.min.js"></script>
+  <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+  <!-- date-range-picker -->
+  <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+
+  <!-- Add Select2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js"></script>
+
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+       // Initialize DataTable
+       var table = $('#example2').DataTable(  {
+       "responsive": true,
+      "lengthChange": true,
+      "autoWidth": true,
+      "paging": true,
+      "searching": true,
+      "info": true,
+      "columnDefs": [
+        { orderable: false, targets: [2] } // Disable ordering on Actions column
+      ]
+
+     });
+ 
+       // Trigger initial update to hide all optional columns
+       $('#updateButton').trigger('click');
+   });
+
+   $(document).ready(function() {
+      var table = $('#example3').DataTable(  {
+        "responsive": true,
+      "lengthChange": true,
+      "autoWidth": false,
+      "paging": true,
+      "searching": true,
+      "info": true,
+      "columnDefs": [
+        { orderable: false, targets: [2] } // Disable ordering on Actions column
+      ]
+    });
+
+      $('#updateButton').click(function() {
+          var selectedColumns = [];
+          $('.form-check-input:checked').each(function() {
+              selectedColumns.push(parseInt($(this).val()));
+          });
+
+          table.columns().visible(false);
+
+          table.column(0).visible(true);
+          table.column(1).visible(true);
+          table.column(2).visible(true);
+          table.column(3).visible(true);
+          table.column(4).visible(true);
+          table.column(5).visible(true);
+          table.column(6).visible(true);
+        
+          selectedColumns.forEach(function(columnIndex) {
+              table.column(columnIndex).visible(true);
+          });
+      });
+
+      $('#updateButton').trigger('click');
+  });
+ </script>
+ <script>
+  $(document).ready(function () {
+    // Show the first div by default
+    $("#div1").show();
+
+    // Function to hide all divs and show the selected ones
+    function showDiv(divIds) {
+        $(".content-div").hide(); // Hide all divs
+        divIds.forEach(function(divId) {
+            $(divId).show(); // Show each selected div
+        });
+    }
+
+    // Function to activate the clicked button
+    function activateButton(btnId) {
+        $(".btn").removeClass("active-btn"); // Remove active class from all buttons
+        $(btnId).addClass("active-btn"); // Add active class to the selected button
+    }
+
+    // Show only div1 and activate button1 when btn1 is clicked
+    $("#btn1").on("click", function () {
+        showDiv(["#div1"]);
+        activateButton("#btn1");
+    });
+
+    // Show both div2 and div3 and activate button2 when btn2 is clicked
+    $("#btn2").on("click", function () {
+        showDiv(["#div2", "#div3"]);
+        activateButton("#btn2");
+    });
+});
+
+</script>
+<script src="https://cdn.tiny.cloud/1/72uyw4x1ttv5j1dq99mp61patqz8oxemqf99kravmw4ipcqb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> 
+<script>
+  // Initialize TinyMCE
+  tinymce.init({
+      selector: '#mytextarea',
+      setup: function (editor) {
+          editor.on('init', function () {
+              editor.setContent(''); // Initialize TinyMCE with no default content
+          });
+      }
+  });
+
+  function selectOption(element, option) {
+      let content = '';
+
+      if (option === 'option1') {
+          content = `<p><strong>Remote session instructions</strong></p>
+                     <p>Session Code s886-668-787</p>
+                     <br>
+                     <p>Click the link below to start your session</p>
+                     <p><a href="#" class="text-primary">https://get.zohodesk.com/s886-668-787</a></p>`;
+      } else if (option === 'option2') {
+          // Show the customizable modal for option 2
+          $('#taskModal').modal('show');
+      } else if (option === 'option3') {
+          content = '<h3>Project Overview</h3>';
+      }
+
+      if (option !== 'option2') {
+          tinymce.get('mytextarea').setContent(content);
+      }
+
+      // Update the dropdown button's text with the selected option
+      document.getElementById('dropdownMenuButton').innerHTML = element.innerHTML;
+  }
+
+  // Save Task button functionality
+  document.getElementById('saveTask').addEventListener('click', function() {
+      let taskDetails = document.getElementById('taskDetails').value;
+      tinymce.get('mytextarea').setContent(`<h3>Create New Task</h3><p>${taskDetails}</p>`);
+      $('#taskModal').modal('hide'); // Hide the modal after saving
+  });
+</script>
+  
+</body>
+
+</html>
