@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Mobile OTP and Email Verification | Faveo</title>
+
+    <meta name="keywords" content="Faveo" />
+    <meta name="description" content="Faveo">
+    <meta name="author" content="Sakthivel Munusami">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../img/faveo.png">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Web Fonts  -->
+    <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../vendor/animate/animate.compat.css">
+    <link rel="stylesheet" href="../vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="../vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link id="default-styles" rel="stylesheet" href="../css/theme.css">
+    <link id="default-styles-2" rel="stylesheet" href="../css/theme-elements.css">
+    <link id="default-styles-3" rel="stylesheet" href="../css/theme-blog.css">
+    <link id="default-styles-4" rel="stylesheet" href="../css/theme-shop.css">
+
+    <link id="rtl-styles" rel="stylesheet" href="../css/rtl-theme.css">
+    <link id="rtl-styles-2" rel="stylesheet" href="../css/rtl-theme-elements.css">
+    <link id="rtl-styles-3" rel="stylesheet" href="../css/rtl-theme-blog.css">
+    <link id="rtl-styles-4" rel="stylesheet" href="../css/rtl-theme-shop.css">
+
+    <!-- Demo CSS -->
+    <link rel="stylesheet" href="../css/demos/demo-transportation-logistic.css">
+
+    <!-- Skin CSS -->
+    <link id="skinCSS" rel="stylesheet" href="../css/skins/skin-transportation-logistic.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="../css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="../vendor/modernizr/modernizr.min.js"></script>
+
+    <style>
+
+        .sticky-header-active .d-sticky-header-negative-none {
+            display: block !important;
+        }
+        #heading {
+	text-transform: uppercase;
+	color: #099fdc;
+	font-weight: normal;
+}
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+.form-card {
+	text-align: left;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+#msform input, #msform textarea {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    /* font-family: montserrat; */
+    color: #2C3E50;
+    /* background-color: #ECEFF1; */
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+#msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #099fdc;
+    outline-width: 0;
+}
+
+/*Next Buttons*/
+#msform .action-button {
+    width: 100px;
+    background: #099fdc;
+    font-weight: 600;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    /* padding: 10px 5px; */
+    margin: 10px 0px 10px 5px;
+    float: right;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/*Previous Buttons*/
+/* #msform .action-button-previous {
+    width: 130px;
+    background: #616161;
+    font-weight: 600;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    margin: 10px 5px 10px 0px;
+    float: right;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 14px;
+} */
+
+/* #msform .action-button-previous:hover, #msform .action-button-previous:focus {
+    background-color: #000000;
+} */
+
+/*The background card*/
+.card {
+    z-index: 0;
+    border: none;
+    position: relative;
+}
+
+/*FieldSet headings*/
+.fs-title {
+    font-size: 25px;
+    color: #099fdc;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.purple-text {
+	color: #099fdc;
+    font-weight: normal;
+}
+
+/*Step Count*/
+.steps {
+	font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right;
+}
+
+/*Field names*/
+.fieldlabels {
+	color: gray;
+	text-align: left;
+}
+
+/*Icon progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey;
+    margin-left: -30px;
+}
+
+#progressbar .active {
+    color: #099fdc;
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    /* width: 25%; */
+    width: 33.33%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+}
+
+/*Icons in the ProgressBar*/
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f13e";
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f003";
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f087";
+}
+
+/* #progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+} */
+
+/*Icon ProgressBar before any progress*/
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px;
+}
+
+/*ProgressBar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1;
+    
+}
+
+/*Color number of the step and the connector before it*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: #099fdc;
+}
+
+/*Animated Progress Bar*/
+.progress {
+	height: 20px;
+}
+
+.progress-bar {
+	background-color: #099fdc;
+}
+
+/*Fit image in bootstrap div*/
+.fit-image{
+    width: 100%;
+    object-fit: cover;
+}
+
+#otpButton{
+    color: #099fdc;
+    font-size: 14px;
+}
+#otpButton:disabled{
+    color: rgb(106, 106, 106);
+}
+
+#timer{
+    color:rgb(169, 169, 169);
+    font-size: 14px;
+    font-weight: 600;
+}
+#additionalButton{
+    color: #099fdc;
+    font-weight: 600;
+}
+#additionalButton:disabled{
+    color:rgb(169, 169, 169);
+}
+
+#otpButtonn{
+    color: #099fdc;
+    font-size: 14px;
+}
+#otpButtonn:disabled{
+    color: rgb(106, 106, 106);
+}
+
+#timerr{
+    color:rgb(169, 169, 169);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.emailalert{
+    border: 1px solid #262626;
+    background: #81818124;
+    border-radius: 5px;
+    padding: 10px;
+    color: #262626;
+    font-size: 13px;
+}
+/* .emailalert p{
+    color: #0d6901;
+} */
+
+.emailalertt{
+    border: 1px solid #15b600;
+    background: #15b60040;
+    border-radius: 5px;
+    padding: 10px;
+    color: #0d6901;
+    font-size: 13px;
+}
+.emailalertt #replaceText{
+    margin-left: 10px;
+}
+.emailalertt #replaceIcon{
+    margin-left: 10px;
+}
+    </style>
+
+</head>
+<body data-plugin-page-transition>
+
+<div class="body p-relative bottom-1">
+
+    <header id="header" class="header-effect-reveal" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'reveal', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': false, 'stickyStartAt': 200, 'stickySetTop': '-44px'}">
+
+        <div class="header-body border-0 border-bottom-light">
+
+            <div class="header-container container-fluid p-0">
+
+                <div class="header-row">
+
+                    <div class="header-column header-column-border-right flex-grow-0 d-sticky-header-active-none">
+
+                        <div class="header-row">
+
+                            <div class="header-logo p-relative top-30 m-0" style="width: 320px;height: 150px;text-align: center;">
+
+                                <a href="../index.html">
+
+                                    <img alt="Porto" width="130" height="75" src="../img/faveo.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="header-column">
+
+                        <div class="border-bottom-light w-100">
+
+                            <div class="hstack gap-4 px-4 py-2 font-weight-semi-bold d-none d-lg-flex">
+
+                                <div class="d-none d-lg-inline-block ps-1">
+
+                                    <a class="text-color-default text-color-hover-primary text-2" href="tel:+91 95133 12768">
+
+                                        <i class="fas fa-phone text-4 p-relative top-2"></i> &nbsp;(+91) 95133 12768
+                                    </a>
+                                </div>
+
+                                <div class="vr d-lg-inline-block opacity-2 d-none d-xl-inline-block"></div>
+
+                                <div class="d-none d-xl-inline-block">
+
+                                    <a class="text-color-default text-color-hover-primary text-2" href="mailto:support@faveohelpdesk.com">
+
+                                        <i class="fas fa-envelope text-4 p-relative top-2"></i> &nbsp;support@faveohelpdesk.com
+                                    </a>
+                                </div>
+
+                                <div class="ms-auto d-none d-lg-inline-block">
+
+                                    <div class="ms-auto d-none d-lg-inline-block">
+
+                                        <ul class="nav nav-pills">
+
+                                            <li class="nav-item dropdown">
+
+                                                <a class="nav-link text-2 p-0 text-color-default" href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                                    <img id="flagIcon" src="../img/blank.gif" class="flag flag-us" alt="English">&nbsp;English
+
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-end text-2" aria-labelledby="dropdownLanguage">
+
+                                                    <a class="dropdown-item text-color-default" href="#" id="englishOption">
+
+                                                        <img src="../img/blank.gif" class="flag flag-us" alt="English">&nbsp;English
+                                                    </a>
+
+                                                    <a class="dropdown-item text-color-default" href="#" id="arabicOption">
+
+                                                        <img src="../img/blank.gif" class="flag flag-ar" alt="Arabic">&nbsp;Arabic
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="vr opacity-2 d-none d-lg-inline-block"></div>
+
+                                <div class="d-none d-lg-inline-block">
+
+                                    <ul class="nav nav-pills me-1">
+
+                                        <li class="nav-item pe-2 mx-1">
+
+                                            <a href="https://www.facebook.com/faveohelpdesk" target="_blank" data-bs-toggle="tooltip" title="Facebook" class="text-color-default text-color-hover-primary text-4">
+
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item px-2 mx-1">
+
+                                            <a href="https://twitter.com/faveohelpdesk" target="_blank" data-bs-toggle="tooltip" title="Twitter" class="text-color-default text-color-hover-primary text-4">
+
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+
+
+                                        <li class="nav-item px-2 mx-1 me-0 pe-0">
+
+                                            <a href="https://www.linkedin.com/showcase/faveohelpdesk" target="_blank" data-bs-toggle="tooltip" title="Linkedin" class="text-color-default text-color-hover-primary text-4">
+
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="header-row h-100">
+
+                            <div class="hstack h-100 w-100">
+
+                                <div class="h-100 w-100 w-xl-auto">
+
+                                    <div class="header-nav header-nav-links h-100 justify-content-end justify-content-lg-start me-4 me-lg-0 ms-lg-3">
+
+                                        <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-text-capitalize header-nav-main-text-size-4 header-nav-main-arrows header-nav-main-full-width-mega-menu header-nav-main-mega-menu-bg-hover header-nav-main-effect-5">
+
+                                            <nav class="collapse">
+
+                                                <ul class="nav nav-pills" id="mainNav">
+
+                                                    <li class="d-sticky-header-negative-none" style="display:none">
+
+                                                        <a class="nav-link" href="../index.html">
+
+                                                            <img alt="Porto" width="75" height="50" src="../img/faveo.png">
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="dropdown">
+
+                                                        <a class="nav-link dropdown-toggle" href="javascript:;">
+                                                            &nbsp;Store&nbsp;
+                                                        </a>
+
+                                                        <ul class="dropdown-menu border-light mt-n1">
+
+                                                            <li>
+                                                                <a href="pricing.html" class="dropdown-item">HelpDesk Perpetual</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="pricing.html" class="dropdown-item">HelpDesk Recurring</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="pricing.html" class="dropdown-item">ServiceDesk Perpetual</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="pricing.html" class="dropdown-item">ServiceDesk Recurring</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="pricing.html" class="dropdown-item">Services</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="pricing.html" class="dropdown-item">Faveo Cloud</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="nav-link" href="contact.html">Contact Us</a>
+                                                    </li>
+
+                                                    <li class="dropdown">
+
+                                                        <a class="nav-link dropdown-toggle" href="javascript:;">
+                                                            &nbsp;My Account&nbsp;
+                                                        </a>
+
+                                                        <ul class="dropdown-menu border-light mt-n1">
+
+                                                            <li>
+                                                                <a href="../index.html" class="dropdown-item">Dashboard</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="orders.html" class="dropdown-item">My Orders</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="invoices.html" class="dropdown-item">My Invoices</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="profile.html" class="dropdown-item">My Profile</a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="javascript:;" class="dropdown-item">Logout</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="nav-link active" href="signup-in.html">Sign Up</a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+
+
+                                        <div class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2 me-2 me-lg-0">
+
+                                            <div class="header-nav-feature header-nav-features-cart d-inline-flex ms-2">
+
+                                                <a href="javascript:;" class="header-nav-features-toggle text-decoration-none">
+
+                                                    <span class="text-dark opacity-8 font-weight-bold text-color-hover-primary"> Cart</span>
+
+                                                    <img src="../img/icons/icon-cart.svg" width="14" alt="" class="header-nav-top-icon-img">
+
+                                                    <span class="cart-info">
+
+                                                        <span class="cart-qty">1</span>
+                                                    </span>
+                                                </a>
+
+                                                <div class="header-nav-features-dropdown right-15" id="headerTopCartDropdown">
+
+                                                    <ol class="mini-products-list">
+
+                                                        <li class="item">
+
+                                                            <a href="#" data-bs-toggle="tooltip" title="Camera X1000" class="product-image"><img src="../img/products/product-1.jpg" alt="Camera X1000"></a>
+
+                                                            <div class="product-details">
+
+                                                                <p class="product-name">
+
+                                                                    <a href="#">Helpdesk Enterprise Advance</a>
+                                                                </p>
+
+                                                                <p class="qty-price">
+
+                                                                    1X <span class="price">$99</span>
+                                                                </p>
+
+                                                                <a href="javascript:;" data-bs-toggle="tooltip" title="Remove This Item" class="btn-remove"><i class="fas fa-times"></i></a>
+                                                            </div>
+                                                        </li>
+                                                    </ol>
+
+                                                    <div class="totals">
+
+                                                        <span class="label">Total:</span>
+
+                                                        <span class="price-total"><span class="price">$99</span></span>
+                                                    </div>
+
+                                                    <div class="actions">
+
+                                                        <a class="btn btn-dark btn-modern text-uppercase font-weight-semi-bold" href="cart.html">View Cart</a>
+
+                                                        <a class="btn btn-primary" href="checkout.html">Checkout</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+
+                                            <i class="fas fa-bars"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="vr opacity-2 ms-auto d-none d-xl-inline-block"></div>
+
+                                <div class="px-4 d-none d-xxl-inline-block ws-nowrap">
+
+                                    <a href="#" class="btn border-0 px-4 py-2 line-height-9 btn-tertiary me-2">START FREE TRIAL</a>
+
+                                    <a href="#" class="btn border-0 px-4 py-2 line-height-9 btn-primary">REQUEST FOR DEMO</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div role="main" class="main">
+
+        <div class="custom-page-header border-bottom-light">
+            <section class="page-header page-header-modern bg-color-light-scale-1 border-0 my-0">
+                <div class="container my-3">
+                    <div class="row">
+                        <div class="col-md-12 align-self-center p-static order-2 text-center">
+                            <h1 class="font-weight-bold text-10 text-dark">Mobile OTP and Email Verification</h1>
+                        </div>
+                        <div class="col-md-12 align-self-center order-1">
+                            <ul class="breadcrumb breadcrumb-light d-block text-center">
+                                <li><a class="text-primary" href="../index.html">Home</a></li>
+                                <li class="active text-dark">Mobile OTP and Email Verification</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                        <!-- <h2 id="heading">Sign Up Your User Account</h2>
+                        <p>Fill all form field to go to next step</p> -->
+        
+                        <form id="msform">
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active" id="account"><strong>Verify OTP</strong></li>
+                                <li id="personal"><strong>Verify Email address</strong></li>
+                                <li id="payment"><strong>You are all set</strong></li>
+                                <!-- <li id="confirm"><strong>Finish</strong></li> -->
+                            </ul>
+                            <!-- <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div> -->
+                            <br>
+                            <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                  
+                                    <p class="text-left">Enter Code <span class="text-color-danger"> *</span></p>
+                                    
+                                    <input type="text" name="otp" placeholder="Enter OTP" required/>
+                                     <p>Enter the OTP code for verification which you have received on your registered mobile</p>
+                                    
+
+                                </div>
+                                <!-- <input type="button" name="next" class="next action-button" value="Next"/> -->
+                               
+                                <div class="row">
+                                    <div class="col">
+                                    <div class="d-flex">
+                                        <button id="otpButton" class="btn border-0 p-0" style="width: 110px;"><i class="fa fa-refresh"></i> Resend OTP</button>
+                                        <div id="timer"></div>
+                                        </div>
+                                        <div class="text-start">
+                                    <button id="additionalButton" class="border-0 background-transparent" onclick="" disabled>Get OTP on call</button>
+                                </div>
+                                </div>
+                                 <!-- <a  href="#" id="additionalButton" class="btn border-0 px-1 text-primary" disabled>Get OTP on call</a> -->
+                                   <div class="col"><a class="btn btn-primary" href="file:///D:/faveo-html-prototype/Agora-Invoicing/ClientPanel/progressbar/emailverification.html"><i class="fa fa-check"></i>Verify</a></div>   
+                                </div> 
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                
+                                    <!-- <p>Verify your Email address through the link sent to your inbox</p> -->
+
+                                    <div class="emailalertt d-flex">
+                                         <!-- Text element -->
+                                         <div id="replaceText" class="text"></div>
+                                        <!-- Icon element -->
+                                        <div><i id="replaceIcon" class="icon"></i></div>
+                                       
+                                    </div>
+                                    <div class="emailalert mt-2">
+                                        Verification link has been sent to your email. Please check mail inbox and spam.
+                                    </div>
+                                    <div class="mt-2 text-center" >or</div>
+                                    <div class="d-flex mt-2">
+                                        <button id="otpButtonn" class="btn border-0 p-0" style="width: 110px;"><i class="fa fa-refresh"></i> Resend OTP</button>
+                                        <div id="timerr"></div>
+                                        </div>
+                                    
+                                    <!-- <div class="d-flex">
+                                        <button id="resendBtnn" onclick="startResendTimerr()" class="btn border-0 p-0 text-primary" style="width: 190px;"><i class="fa fa-refresh"></i> Resend Email verification  </button> 
+                                       <span id="timerr"></span>
+                                       </div> -->
+
+                                </div>
+                                <input type="button" name="next" class="next action-button" value="Submit"/>
+                                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+
+                                    <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2>
+                                </div>
+                                  </fieldset>
+                            
+                        </form>
+
+                        <div class="mt-2 text-start text-2">
+                            Encountering trouble logging in? <a href="#" class="text-decoration-underline">click here</a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer" class="position-relative bg-color-light-scale-1 border-top-0">
+
+        <div class="container pt-5 pb-3">
+
+            <div class="row pt-5">
+
+                <div class="col-lg-4">
+
+                    <h4 class="text-color-dark font-weight-bold mb-3">Faveo</h4>
+
+                    <p class="text-3-5 font-weight-medium pe-lg-2">
+                        Web-based support ticket system, Easy to install, easy to use cost effective ticket management solution for startups, SME’s and enterprises.
+                    </p>
+
+                    <ul class="list list-unstyled">
+
+                        <li class="d-flex align-items-center mb-4">
+
+                            <i class="icon icon-envelope text-color-grey text-5 font-weight-bold position-relative top-1 me-3-5"></i>
+
+                            <a href="mailto:support@faveohelpdesk.com" class="d-inline-flex align-items-center text-decoration-none text-color-grey text-color-hover-primary font-weight-semibold text-4-5">support@faveohelpdesk.com</a>
+                        </li>
+
+                        <li class="d-flex align-items-center mb-4">
+
+                            <i class="icon icon-phone text-color-grey text-5 font-weight-bold position-relative top-1 me-3-5"></i>
+
+                            <a href="tel:95133 12768" class="d-inline-flex align-items-center text-decoration-none text-color-grey text-color-hover-primary font-weight-semibold text-4-5">(+91) 95133 12768</a>
+                        </li>
+                    </ul>
+
+                    <ul class="social-icons social-icons-clean social-icons-medium">
+
+                        <li class="social-icons-facebook">
+
+                            <a href="https://www.facebook.com/faveohelpdesk" target="_blank" data-bs-toggle="tooltip" title="Facebook">
+
+                                <i class="fab fa-facebook-f text-color-grey-lighten"></i>
+                            </a>
+                        </li>
+
+                        <li class="social-icons-twitter">
+
+                            <a href="https://twitter.com/faveohelpdesk" target="_blank" data-bs-toggle="tooltip" title="Twitter">
+
+                                <i class="fab fa-twitter text-color-grey-lighten"></i>
+                            </a>
+                        </li>
+
+                        <li class="social-icons-linkedin">
+
+                            <a href="https://www.linkedin.com/showcase/faveohelpdesk" target="_blank" data-bs-toggle="tooltip" title="Linkedin">
+
+                                <i class="fab fa-linkedin text-color-grey-lighten"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-8">
+
+                    <div class="row mb-3">
+
+                        <div class="col-lg-6 mb-4 mb-lg-0">
+
+                            <h4 class="text-color-dark font-weight-bold mb-3">Latest Tweets</h4>
+
+                            <ul class="list list-unstyled columns-lg-1">
+
+                                <li><a href="javascript:;" class="text-color-grey text-color-hover-primary">You better believe it!</a></li>
+
+                                <li><a href="javascript:;" class="text-color-grey text-color-hover-primary">I would love to.</a></li>
+
+                                <li><a href="javascript:;" class="text-color-grey text-color-hover-primary">Check your messages and notifications</a></li>
+
+                                <li><a href="javascript:;" class="text-color-grey text-color-hover-primary">Let theme shine like a star </a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <h4 class="text-color-dark font-weight-bold mb-3">Contact Us</h4>
+
+                            <ul class="list list-styled columns-lg-2 px-2">
+
+                                <li><a href="https://support.faveohelpdesk.com/knowledgebase" class="text-color-grey text-color-hover-primary">User Manual</a></li>
+
+                                <li><a href="https://www.faveohelpdesk.com/become-a-partner/" class="text-color-grey text-color-hover-primary">Become a Partner</a></li>
+
+                                <li><a href="https://www.faveohelpdesk.com/our-partners/" class="text-color-grey text-color-hover-primary">Our Partners</a></li>
+
+                                <li><a href="https://www.faveohelpdesk.com/love-open-source/" class="text-color-grey text-color-hover-primary">We Love Open Source</a></li>
+
+                                <li><a href="https://www.faveohelpdesk.com/faveo-helpdesk-road-map/" class="text-color-grey text-color-hover-primary">Faveo Road Map</a></li>
+
+                                <li><a href="https://www.faveohelpdesk.com/support-community-edition/" class="text-color-grey text-color-hover-primary">Support the Community Edition</a></li>
+
+                                <li><a href="https://developers.faveohelpdesk.com" class="text-color-grey text-color-hover-primary">Developer Portal</a></li>
+
+                                <li><a href="https://forum.faveohelpdesk.com/" class="text-color-grey text-color-hover-primary">Community Forums</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col p-relative bottom-3">
+
+                            <div class="alert alert-success d-none" id="newsletterSuccess">
+
+                                <strong>Success!</strong> You've been added to our email list.
+                            </div>
+
+                            <div class="alert alert-danger d-none" id="newsletterError"></div>
+
+                            <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
+
+                                <h4 class="text-color-dark ws-nowrap me-3 mb-3 mb-lg-0">Subscribe to Newsletter:</h4>
+
+                                <form id="newsletterForm" class="form-style-3 w-100" action="../php/newsletter-subscribe.php" method="POST" novalidate="novalidate">
+
+<div class="input-group">
+
+                                        <input class="form-control bg-light border" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="email">
+
+                                        <button class="btn btn-primary" type="submit"><strong>GO!</strong></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright bg-transparent">
+
+            <div class="container">
+
+                <hr class="bg-color-dark opacity-1">
+
+                <div class="row">
+                    <div class="col mt-4 mb-4 pb-5">
+
+                        <p class="text-center text-3 mb-0 text-color-grey">Copyright © 2023.
+
+                            <a href="https://www.faveohelpdesk.com/" class="text-color-grey text-color-hover-primary font-weight-bold">Ladybird Web Solution Pvt Ltd. </a>
+
+                            All Rights Reserved.Powered by
+
+                            <a href="https://www.ladybirdweb.com/" target="_blank"><img src="../img/ladybird.png" alt="Ladybird"></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Vendor -->
+<script src="../vendor/plugins/js/plugins.min.js"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="../js/theme.js"></script>
+
+<!-- Demo -->
+<script src="../js/demos/demo-transportation-logistic.js"></script>
+
+<!-- Current Page Vendor and Views -->
+<script src="../js/views/view.contact.js"></script>
+
+<!-- Theme Custom -->
+<script src="../js/custom.js"></script>
+
+<!-- Theme Initialization Files -->
+<script src="../js/theme.init.js"></script>
+
+<script>
+
+    var defaultStyles = document.querySelectorAll('[id^="default-styles"]');
+    var rtlStyles = document.querySelectorAll('[id^="rtl-styles"]');
+
+    const flagIcon = document.getElementById('flagIcon');
+    const englishOption = document.getElementById('englishOption');
+    const arabicOption = document.getElementById('arabicOption');
+
+    englishOption.addEventListener('click', function() {
+        flagIcon.className = 'flag flag-us';
+        flagIcon.alt = 'English';
+        flagIcon.nextSibling.textContent = ' English ';
+
+        defaultStyles.forEach(function(link) {
+            link.disabled = false;
+        });
+        rtlStyles.forEach(function(link) {
+            link.disabled = true;
+        });
+    });
+
+    arabicOption.addEventListener('click', function() {
+        flagIcon.className = 'flag flag-ar';
+        flagIcon.alt = 'Arabic';
+        flagIcon.nextSibling.textContent = ' Arabic ';
+
+        defaultStyles.forEach(function(link) {
+            link.disabled = true;
+        });
+        rtlStyles.forEach(function(link) {
+            link.disabled = false;
+        });
+    });
+
+    defaultStyles.forEach(function(link) {
+        link.disabled = false;
+    });
+    rtlStyles.forEach(function(link) {
+        link.disabled = true;
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+    
+    var current_fs, next_fs, previous_fs;
+    var opacity;
+    var current = 1;
+    var steps = $("fieldset").length;
+    
+    setProgressBar(current);
+    
+    $(".next").click(function(){
+        
+        current_fs = $(this).parent();
+        next_fs = $(this).parent().next();
+        
+        //Add Class Active
+        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        
+        //show the next fieldset
+        next_fs.show(); 
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now) {
+                // for making fielset appear animation
+                opacity = 1 - now;
+    
+                current_fs.css({
+                    'display': 'none',
+                    'position': 'relative'
+                });
+                next_fs.css({'opacity': opacity});
+            }, 
+            duration: 500
+        });
+        setProgressBar(++current);
+    });
+    
+    // $(".previous").click(function(){
+        
+    //     current_fs = $(this).parent();
+    //     previous_fs = $(this).parent().prev();
+        
+    //     $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        
+    //     previous_fs.show();
+    
+    //     current_fs.animate({opacity: 0}, {
+    //         step: function(now) {
+    //             opacity = 1 - now;
+    
+    //             current_fs.css({
+    //                 'display': 'none',
+    //                 'position': 'relative'
+    //             });
+    //             previous_fs.css({'opacity': opacity});
+    //         }, 
+    //         duration: 500
+    //     });
+    //     setProgressBar(--current);
+    // });
+    
+    function setProgressBar(curStep){
+        var percent = parseFloat(100 / steps) * curStep;
+        percent = percent.toFixed();
+        $(".progress-bar")
+          .css("width",percent+"%")   
+    }
+    
+    $(".submit").click(function(){
+        return false;
+    })
+        
+    });
+</script>
+
+
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+  var otpButton = document.getElementById("otpButton");
+  var additionalButton = document.getElementById("additionalButton");
+  var timerDisplay = document.getElementById("timer");
+  
+  var countdown = 120; // 2 minutes in seconds
+  
+  // Function to update timer display
+  function updateTimer() {
+    timerDisplay.textContent = countdown.toString().padStart(2, '0') + " seconds";
+  }
+  
+  // Function to start timer
+  function startTimer() {
+    otpButton.disabled = true;
+    additionalButton.disabled = true;
+    var timerInterval = setInterval(function() {
+      countdown--;
+      if (countdown <= 0) {
+        clearInterval(timerInterval);
+        otpButton.disabled = false; // Enable OTP button after 2 minutes
+        additionalButton.disabled = false; // Enable additional button after 2 minutes
+        timerDisplay.style.display = "none"; // Hide timer display after time completes
+      }
+      updateTimer();
+    }, 1000); // Update timer every second
+  }
+  
+  // Initial call to start the timer
+  startTimer();
+  
+  // Click event for OTP button
+  otpButton.addEventListener("click", function() {
+    // Request OTP functionality goes here
+    // For demonstration, just resetting the timer
+    countdown = 120;
+    timerDisplay.style.display = "block"; // Show timer display when button is clicked
+    startTimer();
+  });
+});
+
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+     var otpButtonn = document.getElementById("otpButtonn");
+     var additionalButton = document.getElementById("additionalButton");
+     var timerrDisplay = document.getElementById("timerr");
+     
+     var countdown = 120; // 2 minutes in seconds
+     
+     // Function to update timer display
+     function updateTimerr() {
+       timerrDisplay.textContent = countdown.toString().padStart(2, '0') + " seconds";
+     }
+     
+     // Function to start timer
+     function startTimerr() {
+       otpButtonn.disabled = true;
+       additionalButton.disabled = true;
+       var timerrInterval = setInterval(function() {
+         countdown--;
+         if (countdown <= 0) {
+           clearInterval(timerInterval);
+           otpButtonn.disabled = false; // Enable OTP button after 2 minutes
+           additionalButton.disabled = false; // Enable additional button after 2 minutes
+           timerrDisplay.style.display = "none"; // Hide timer display after time completes
+         }
+         updateTimerr();
+       }, 1000); // Update timer every second
+     }
+     
+     // Initial call to start the timer
+     startTimerr();
+     
+     // Click event for OTP button
+     otpButtonn.addEventListener("click", function() {
+       // Request OTP functionality goes here
+       // For demonstration, just resetting the timer
+       countdown = 120;
+       timerrDisplay.style.display = "block"; // Show timer display when button is clicked
+       startTimerr();
+     });
+   });
+   
+   
+   </script>
+
+<script>
+    window.onload = function() {
+        // Select the icon and text elements
+        var icon = document.getElementById('replaceIcon');
+        var text = document.getElementById('replaceText');
+        
+        // Array of different icon classes and corresponding texts
+        var data = [
+            { iconClass: 'fas fa-refresh', textContent: 'Refresh the page to check if the email is verified!' },
+            { iconClass: 'fas fa-check', textContent: 'The email is Verified' }
+        ];
+    
+        // Randomly choose an index for initial icon and text
+        var randomIndex = Math.floor(Math.random() * data.length);
+        var currentData = data[randomIndex];
+        
+        // Set the initial icon class and text content
+        icon.className = 'icon ' + currentData.iconClass;
+        text.textContent = currentData.textContent;
+    
+        // Function to handle icon click
+        function handleClick() {
+            // Randomly choose the other icon and text
+            var otherIndex = (randomIndex + 1) % data.length;
+            var newData = data[otherIndex];
+            
+            // Replace the current icon class and text content with the other ones
+            icon.className = 'icon ' + newData.iconClass;
+            text.textContent = newData.textContent;
+            
+            // Update the current index and data
+            randomIndex = otherIndex;
+            currentData = newData;
+        }
+    
+        // Add click event listener to the icon
+        icon.addEventListener('click', handleClick);
+    };
+    </script>
+
+</body>
+</html>
