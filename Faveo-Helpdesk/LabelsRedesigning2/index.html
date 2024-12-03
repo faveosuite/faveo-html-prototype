@@ -116,51 +116,80 @@
         .label-name-red:hover{
             background-color: rgba(128,0,0,0.1);
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .label-name-green:hover{
             background: rgba(0, 128, 0, 0.1);
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .label-name-blue:hover{
             background: rgba(0,0,128,0.1);
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .label-name-cyan:hover{
             background: rgba(23, 162, 184, 0.1);
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .label-name-orange:hover{
             background: rgba(255, 165, 0, 0.1);
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .border-left-red:hover{
             border-left: 3px solid red;
             transition: all 0.1s ease-out;
+            cursor: pointer;
         }
 
         .border-left-green:hover{
             border-left: 3px solid green;
             transition: all 0.1s ease-out;
+            cursor: pointer;
         }
         .border-left-blue:hover{
             border-left: 3px solid blue;
             transition: all 0.1s ease-out;
+            cursor: pointer;
         }
         .border-left-cyan:hover{
             border-left: 3px solid #17a2b8;
             transition: all 0.1s ease-out;
+            cursor: pointer;
         }
         .border-left-orange:hover{
             border-left: 3px solid orange;
             transition: all 0.1s ease-out;
+            cursor: pointer;
         }
         #label-dropdown{
             width: 300px;
+            /*height: 300px;*/
+            /*overflow-y: scroll;*/
+            margin-top: 10px;
+        }
+        #tags-dropdown{
+            width: 300px;
+            margin-top: 10px;
+        }
+        .input-box input, .input-box select{
+            padding-left: 30px;
+        }
+        .input-box i{
+            position: absolute;
+            left: 15px;
+            top: 59px;
+            color: gray;
+        }
+        .bg-tags{
+            background-color: #eee;
         }
     </style>
 </head>
@@ -300,17 +329,21 @@
 
                                             <span class="caret"></span>
                                         </button>
+
                                         <ul id="label-dropdown" class="dropdown-menu p-2 label_menu">
 
-                                            <label class="w-100">
-                                                <input type="search" class="form-control w-100" name="label" placeholder="Search" />
-                                            </label>
+                                            <label class="w-100 mt-2">SEARCH LABELS</label>
 
-                                            <li class="label-name-red border-left-red p-2 d-flex align-items-center">
+                                            <span class="input-box">
+                                                <i class="fas fa-search"></i>
+                                                <input type="search" class="form-control w-100" name="label" placeholder="Search..." />
+                                            </span>
+
+                                            <li class="label-name-red mt-2 border-left-red p-2 d-flex align-items-center">
 
                                                 <span class="color bg-red label-color mr-2"></span>
 
-                                                <label class="mb-0">Enhancement</label>
+                                                <span class="mb-0">Enhancement</span>
 
                                             </li>
 
@@ -318,7 +351,7 @@
 
                                                 <span class="color bg-green label-color mr-2"></span>
 
-                                                <label class="mb-0">Feature</label>
+                                                <span class="mb-0">Feature</span>
 
                                             </li>
 
@@ -326,7 +359,7 @@
 
                                                 <span class="color bg-blue label-color mr-2"></span>
 
-                                                <label class="mb-0">Bug</label>
+                                                <span class="mb-0">Bug</span>
 
                                             </li>
 
@@ -334,7 +367,7 @@
 
                                                 <span class="color bg-cyan label-color mr-2"></span>
 
-                                                <label class="mb-0">Upgrade</label>
+                                                <span class="mb-0">Upgrade</span>
 
                                             </li>
 
@@ -342,7 +375,7 @@
 
                                                 <span class="color bg-orange label-color mr-2"></span>
 
-                                                <label class="mb-0">Update</label>
+                                                <span class="mb-0">Update</span>
 
                                             </li>
 
@@ -372,6 +405,61 @@
 
                                             <span class="caret"></span>
                                         </button>
+
+                                        <ul id="tags-dropdown" class="dropdown-menu p-2 label_menu">
+
+                                            <label class="w-100 mt-2">SEARCH OR SELECT TAGS</label>
+
+                                            <span class="input-box">
+                                                <i class="fas fa-search"></i>
+                                                <select class="form-control w-100" name="label" >
+                                                    <option value="">Search or Select...</option>
+                                                    <option value="Enhancement">Enhancement</option>
+                                                    <option value="Bug">Bug</option>
+                                                    <option value="Update">Update</option>
+                                                    <option value="Product Enhancement">Product Enhancement</option>
+                                                    <option value="Feature">Feature</option>
+                                                </select>
+                                            </span>
+
+                                            <div class="text-center mt-3"><i class="fas fa-tag"></i>  <i>Add Tags</i></div>
+
+                                            <li class="bg-tags mt-2 p-2 rounded d-flex justify-content-between align-items-center">
+
+                                                <label class="mb-0"><i class="fas fa-tag"></i>   Enhancement</label>
+                                                <i class="fas fa-times"></i>
+
+                                            </li>
+
+                                            <li class="bg-tags mt-2 p-2 rounded d-flex justify-content-between align-items-center">
+
+                                                <label class="mb-0"><i class="fas fa-tag"></i>   Bug</label>
+                                                <i class="fas fa-times"></i>
+
+                                            </li>
+
+                                            <li class="bg-tags mt-2 p-2 rounded d-flex justify-content-between align-items-center">
+
+                                                <label class="mb-0"><i class="fas fa-tag"></i>   Feature</label>
+                                                <i class="fas fa-times"></i>
+
+                                            </li>
+
+                                            <li class="label_button border-top pt-2 m-2 d-flex justify-content-between">
+
+                                                <button class="btn p-2 btn-sm rounded btn-default">
+
+                                                    <i class="fas fa-times"> </i> Cancel
+
+                                                </button>
+
+                                                <button class="btn p-2 btn-sm btn-primary">
+
+                                                    <i class="fas fa-check"> </i> Apply
+
+                                                </button>
+                                            </li>
+                                        </ul>
 
                                     </div>
 
