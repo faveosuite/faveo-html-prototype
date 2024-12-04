@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Faveo</title>
+
+    <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+    <style>
+
+        .info-row {
+            border-top: 1px solid #f4f4f4;
+            padding: 10px;
+        }
+
+        .thread_time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        #thread_head_name, #thread_head_name_1{
+            color: #007bff!important;
+        }
+
+        .timeline-body {
+            user-select: none; /* Enable text selection */
+            position: relative;
+        }
+
+        #popup {
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            display: none;
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        #popup_unmark {
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            display: none;
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        #popup_undo {
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            display: none;
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        .redact {
+            border: 1px solid rgb(204, 51, 64);
+            background-color: rgba(204, 51, 64, 0.08);
+            cursor: pointer;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .redacted {
+            border: none !important;
+            background-color: unset !important;
+            user-select: none !important;
+            /*pointer-events: none !important;*/
+            cursor: unset !important;
+        }
+
+        .editable-timeline-body {
+            border: 2px solid #495057;
+            border-radius: 0.25rem;
+            margin: 3px;
+            user-select: text;
+        }
+
+        .redact_img {
+            position: relative;
+            display: inline-block;
+        }
+
+        .redacted_img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000; /* Dark background color */
+            opacity: 0.8; /* Adjust the opacity as needed */
+            /* Add other styles as needed */
+        }
+
+        .user-details{
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .user-details img{
+            margin-right: 10px;
+        }
+        .p-8{
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+        <a href="javascript:;" class="brand-link text-center">
+
+            <span class="brand-text font-weight-light">Faveo</span>
+        </a>
+
+        <div class="sidebar">
+
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+
+                <div class="image">
+
+                    <img src="../../dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
+                </div>
+
+                <div class="info">
+
+                    <a href="javascript:;" class="d-block">Sakthivel Munusami</a>
+                </div>
+            </div>
+
+            <nav class="mt-2">
+
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item">
+
+                        <a href="index.html" class="nav-link active">
+
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+
+                            <p>Ticket Details
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper">
+
+        <div class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1 class="m-0">Ticket Details</h1>
+                    </div>
+
+                    <div class="col-sm-6">
+
+                        <ol class="breadcrumb float-sm-right">
+
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+
+                            <li class="breadcrumb-item active">Ticket Details</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="container-fluid">
+
+                <div id="popup" class="rounded">
+                    <a class="dropdown-item" href="javascript:;" id="redactButton">Mark for permanent redaction</a>
+                    <a class="dropdown-item" id="t_redactButton" href="javascript:;">Mark for temporary redaction</a>
+                </div>
+
+                <div id="popup_unmark" class="rounded">
+                    <a class="dropdown-item" href="javascript:;" id="unRedactButton">UnMark for redaction</a>
+                </div>
+
+                <div id="popup_undo" class="rounded">
+                    <a class="dropdown-item" href="javascript:;" id="viewButton">View</a>
+                    <a class="dropdown-item" href="javascript:;" id="undoButton">Undo</a>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-12">
+
+                        <div class="card card-light">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">
+
+                                    <i class="fas fa-ticket-alt"></i>&nbsp;#HDSK-AAAA-0001
+                                </h3>
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="mr-1">Prototype for redaction functionality in ticket threads&nbsp;
+
+                                    <span class="badge badge-warning mr-1">Prototype</span>
+                                </h5>
+
+                                <div class="row mt-3">
+
+                                    <div class="col-sm-8">
+
+                                        <div class="card card-light card-tabs">
+
+                                            <div class="card-header p-0 pt-1">
+
+                                                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+
+                                                    <li class="nav-item">
+
+                                                        <a class="nav-link active" id="conversation-tab" data-toggle="pill" href="#conversation-tab-content" role="tab"
+                                                           aria-controls="conversation-tab-content" aria-selected="false">
+
+                                                            <i class="far fa-comments"></i>&nbsp; Ticket Conversation
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="nav-item">
+
+                                                        <a class="nav-link" id="activity-tab" data-toggle="pill" href="#activity-tab-content" role="tab"
+                                                           aria-controls="activity-tab-content" aria-selected="false">
+
+                                                            <i class="fas fa-history"></i>&nbsp; Ticket Activity
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="card-body">
+
+                                                <div class="tab-content" id="custom-tabs-one-tabContent">
+
+                                                    <div class="tab-pane fade active show" id="conversation-tab-content" role="tabpanel" aria-labelledby="conversation-tab">
+
+                                                        <div class="timeline">
+
+                                                            <div class="time-label">
+
+                                                                <span class="bg-light border">January 05, 2024</span>
+                                                            </div>
+
+                                                            <div>
+
+                                                                <i class="fas fa-envelope bg-primary"></i>
+
+                                                                <div class="timeline-item">
+
+                                                                    <span class="time">
+
+                                                                        <button type="button" data-toggle="dropdown" aria-expanded="true" class="btn btn-sm p-0"><i class="fas fa-ellipsis-v"></i></button>
+
+                                                                        <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
+
+                                                                            <a class="dropdown-item" href="javascript:;" onclick="onRedact('editableContent')">Redact</a>
+                                                                        </div>
+                                                                    </span>
+
+                                                                    <h3 class="timeline-header bg-light">
+
+                                                                        <img src="../../dist/img/avatar.png" class="img-circle img-bordered-sm" alt="User Image" width="25" height="25">
+
+                                                                        <a class="font-weight-normal" id="thread_head_name" href="javascript:;">Sakthivel Munusami</a>
+
+                                                                        <span class="thread_time"> - &nbsp;<i class="far fa-clock"></i> January 05, 2024 10:51 am</span>
+                                                                    </h3>
+
+                                                                    <div class="timeline-body" id="editableContent">
+                                                                        <p>
+                                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Select me!
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="timeline-footer" id="editableContent_footer" style="display: none">
+
+                                                                        <button type="button" id="editableContent_cancelBtn" class="btn btn-light border btn-sm"><i class="fas fa-times"></i> Cancel</button>
+
+                                                                        <button type="button" id="editableContent_redactBtn" class="btn btn-light border btn-sm"><i class="fas fa-check"></i> Redact</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+
+                                                                <i class="fas fa-comment bg-warning"></i>
+
+                                                                <div class="timeline-item">
+
+                                                                    <span class="time">
+
+                                                                        <button type="button" data-toggle="dropdown" aria-expanded="true" class="btn btn-sm p-0"><i class="fas fa-ellipsis-v"></i></button>
+
+                                                                        <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
+
+                                                                            <a class="dropdown-item" href="javascript:;" onclick="onRedact('editableContent1')">Redact</a>
+                                                                        </div>
+                                                                    </span>
+
+                                                                    <h3 class="timeline-header bg-light">
+
+                                                                        <img src="../../dist/img/avatar.png" class="img-circle img-bordered-sm" alt="User Image" width="25" height="25">
+
+                                                                        <a class="font-weight-normal" id="thread_head_name_1" href="javascript:;">Sakthivel Munusami</a>
+
+                                                                        <span class="thread_time"> - &nbsp;<i class="far fa-clock"></i> January 05, 2024 11:51 am</span>
+                                                                    </h3>
+
+                                                                    <div class="timeline-body" id="editableContent1">
+
+                                                                        <ul>
+                                                                            <li>Lorem ipsum dolor sit amet</li>
+                                                                            <li>Consectetur adipiscing elit</li>
+                                                                        </ul>
+                                                                        <br>
+                                                                        <p>Etsy doostang zoodles disqus groupon</p>
+
+                                                                        <img src="https://placehold.it/150x150" alt="...">
+                                                                    </div>
+
+                                                                    <div class="timeline-footer" id="editableContent1_footer" style="display: none">
+
+                                                                        <button type="button" id="editableContent1_cancelBtn" class="btn btn-light border btn-sm"><i class="fas fa-times"></i> Cancel</button>
+
+                                                                        <button type="button" id="editableContent1_redactBtn" class="btn btn-light border btn-sm"><i class="fas fa-check"></i> Redact</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <i class="far fa-clock bg-gray"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tab-pane fade" id="activity-tab-content" role="tabpanel" aria-labelledby="activity-tab">
+                                                        Maprimis ricies at, posuere nec nunc. Nunc euismod pellentesque diam.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+
+                                        <div class="card card-light">
+
+                                            <div class="card-header">
+
+                                                <span>Requester & Tickets</span>
+
+                                                <div class="card-tools" onclick="toggleCardBody()">
+
+                                                       <span class="dropdown-button">
+                                                           <i class="fas fa-angle-down"></i>
+                                                       </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-body details-page" style="display: none;">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-12 user-details">
+                                                        <div class="image img-circle">
+
+                                                            <img src="../../dist/img/avatar.png" class="elevation-2 img-circle img-bordered-sm" height="44" width="44" alt="User Image">
+                                                        </div>
+
+                                                        <div class="info">
+
+                                                            <a href="javascript:;" class="d-block">Sakthivel Munusami</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 border-bottom p-8">
+                                                        <div class="row">
+                                                            <label class="col-sm-6 text-muted">Role</label>
+                                                            <span class="col-sm-6">Admin</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 border-bottom p-8">
+                                                        <div class="row">
+                                                            <label class="col-sm-6 text-muted">Email</label>
+                                                            <span class="col-sm-6">email@example.com</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 border-bottom p-8">
+                                                        <div class="row">
+                                                            <label class="col-sm-6 text-muted">Work Phone</label>
+                                                            <span class="col-sm-6">987654321</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <label class="col-sm-12 mt-4 text-muted">Latest Tickets : </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 info-row">
+
+                                                        <div class="timeline">
+
+                                                            <div>
+
+                                                                <i class="far fa-dot-circle bg-secondary"></i>
+
+                                                                <div class="timeline-item">
+
+                                                                    <h3 class="timeline-header bg-light">
+
+                                                                        <a href="javascript:;">#EHGT-1024-0487</a>
+
+                                                                        <span class="thread_time"> - &nbsp;<i class="far fa-clock"></i> January 05, 2024 10:51 am</span>
+
+                                                                        <span class="right badge badge-success ml-1">Open</span>
+                                                                    </h3>
+
+                                                                    <div class="timeline-body">
+                                                                        <p>
+                                                                            Lorem ipsum dolor sit amet (TICKET SUBJECT)
+                                                                        </p>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+
+                                                                <i class="far fa-dot-circle bg-secondary"></i>
+
+                                                                <div class="timeline-item">
+
+                                                                    <h3 class="timeline-header bg-light">
+
+                                                                        <a href="javascript:;">#EHGT-1024-0487</a>
+
+                                                                        <span class="thread_time"> - &nbsp;<i class="far fa-clock"></i> January 05, 2024 10:51 am</span>
+
+                                                                        <span class="right badge badge-danger ml-1">Closed</span>
+                                                                    </h3>
+
+                                                                    <div class="timeline-body">
+
+                                                                        <p>
+                                                                            Lorem ipsum dolor sit amet (TICKET SUBJECT)
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+
+                                                                <i class="far fa-dot-circle bg-secondary"></i>
+
+                                                                <div class="timeline-item">
+
+                                                                    <h3 class="timeline-header bg-light">
+
+                                                                        <a href="javascript:;">#EHGT-1024-0487</a>
+
+                                                                        <span class="thread_time"> - &nbsp;<i class="far fa-clock"></i> January 05, 2024 10:51 am</span>
+
+                                                                        <span class="right badge badge-danger ml-1">Closed</span>
+                                                                    </h3>
+
+                                                                    <div class="timeline-body">
+
+                                                                        <p>
+                                                                            Lorem ipsum dolor sit amet (TICKET SUBJECT)
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <i class="fas fa-ellipsis-h bg-gray"></i>
+                                                                <span class="text-lg" style="margin-left: 60px;"> <a href="#">View all tickets</a> </span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card card-light">
+
+                                            <div class="card-header">
+
+                                                <div class="card-tools">
+
+                                                    <button type="button" class="btn btn-xs btn-default">
+
+                                                        <i class="far fa-edit"></i> Edit
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-body">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-12 info-row">
+                                                        <div class="row">
+                                                            <label class="col-sm-6">Created At</label>
+                                                            <a href="javascript:;" class="col-sm-6">January 05, 2024 10:51 am</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 info-row">
+                                                        <div class="row">
+                                                            <label class="col-sm-6">Updated At</label>
+                                                            <a href="javascript:;" class="col-sm-6">January 05, 2024 10:51 am</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 info-row">
+                                                        <div class="row">
+                                                            <label class="col-sm-6">Status</label>
+                                                            <a href="javascript:;" class="col-sm-6">Open</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 info-row">
+                                                        <div class="row">
+                                                            <label class="col-sm-6">Creator</label>
+                                                            <a href="javascript:;" class="col-sm-6">Sakthivel Munusami</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 info-row">
+                                                        <div class="row">
+                                                            <label class="col-sm-6">Priority</label>
+                                                            <a href="javascript:;" class="col-sm-6">Normal</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+
+        <div class="float-right d-none d-sm-inline">
+            Version 1.0.0
+        </div>
+
+        <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights reserved.
+    </footer>
+</div>
+
+<script src="../../plugins/jquery/jquery.min.js"></script>
+
+<script>
+
+    function toggleCardBody() {
+        // for changing the arrow for collapsing for requester details
+        const cardBody = document.querySelector('.details-page')
+        const icon = document.querySelector(".fa-angle-down") || document.querySelector(".fa-angle-up");
+
+        // Toggle display property
+        if (cardBody.style.display === "none" || cardBody.style.display === "") {
+            cardBody.style.display = "block";
+            icon.classList.remove("fa-angle-down");
+            icon.classList.add("fa-angle-up");
+        } else {
+            cardBody.style.display = "none";
+            icon.classList.remove("fa-angle-up");
+            icon.classList.add("fa-angle-down");
+        }
+    }
+
+
+</script>
+
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="../../dist/js/adminlte.min.js"></script>
+
+</body>
+</html>
