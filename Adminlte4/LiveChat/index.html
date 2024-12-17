@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Live Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Live Chat">
+    <meta name="author" content="Sakthivel Munusami">
+    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../dist/css/adminlte.css">
+    <link rel="icon" type="image/x-icon" href="../dist/assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous">
+
+    <style>
+
+        .sticky-m-top {
+            justify-content: space-between;
+            background-color: rgb(255 255 255 / 1);
+            position: fixed;
+            width: -webkit-fill-available;
+            z-index: 10;
+            height: 56px;
+            padding-left: 20px;
+            border-style: solid;
+            border-width: 0;
+            top: 57px;
+        }
+
+        .layout-navbar-fixed .app-wrapper .app-header {
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1037;
+        }
+
+        @media (min-width: 768px) {
+            body:not(.sidebar-mini-md) .aqpp-wrapper, body:not(.sidebar-mini-md) .apqp-footer, body:not(.sidebar-mini-md) .app-header {
+                transition: margin-left .3s ease-in-out;
+                margin-left: 250px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .sidebar-collapse .app-wrapper, .sidebar-collapse .app-footer, .sidebar-collapse .app-header {
+                margin-left: 0rem !important;
+            }
+        }
+
+        .badge-jungle {
+            color: #212529;
+            background-color: #E0F5F1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: .25em .4em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        /* Style the legend container */
+        .apexcharts-legend {
+            display: flex;
+            flex-direction: column; /* Ensure items are stacked vertically */
+            gap: 10px; /* Add space between items */
+        }
+
+        /* Style individual legend items */
+        .apexcharts-legend-series {
+            margin-right: 10px; /* Adds space between items horizontally */
+            padding: 5px 0; /* Adds vertical padding for more space */
+        }
+
+        .no-caret:after {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary layout-navbar-fixed">
+
+    <div class="app-wrapper">
+
+        <nav class="app-header navbar navbar-expand bg-body">
+
+            <div class="container-fluid">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" data-lte-toggle="sidebar" href="javascript:;" role="button">
+                            <i class="bi bi-list"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item dropdown user-menu">
+
+                        <a href="javascript:;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                            <img src="../dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image">
+
+                            <span class="d-none d-md-inline">Sakthivel Munusami</span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+
+                            <li class="user-header text-bg-light">
+
+                                <img src="../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
+
+                                <p>
+                                    Sakthivel Munusami - Lead Frontend Developer
+                                    <small>Member since Sept. 2017</small>
+                                </p>
+                            </li>
+                            <li class="user-footer">
+
+                                <a href="javascript:;" class="btn btn-light border">Profile</a>
+
+                                <a href="javascript:;" class="btn btn-light border float-end">Sign out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
+
+            <div class="sidebar-brand">
+
+                <a href="javascript:;" class="brand-link">
+
+                    <img src="../dist/assets/img/faveo.png" alt="Faveo Logo" class="brand-image opacity-75 shadow">
+                </a>
+            </div>
+
+            <div class="sidebar-wrapper">
+
+                <nav class="mt-2">
+
+                    <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+
+                        <li class="nav-item">
+
+                            <a href="index.html" class="nav-link active">
+
+                                <i class="nav-icon bi bi-palette"></i>
+
+                                <p>Support Dashboard</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="app-main">
+
+            <div class="app-content-header">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+
+                            <h3 class="mb-0">Support Dashboard</h3>
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <ol class="breadcrumb float-sm-end">
+
+                                <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Support Dashboard
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-content">
+
+                <div class="row">
+
+                    <div class="sticky-m-top border-0">
+
+                        <div class="row">
+
+                            <nav class="navbar navbar-expand">
+
+                                <div class="container-fluid">
+
+                                    <ul class="navbar-nav">
+
+                                        <li class="nav-item">
+
+                                            <div class="btn-group">
+
+                                                <button type="button" class="btn dropdown-toggle shadow-none no-caret" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                                    <i class="fas fa-bars-staggered"></i> &nbsp;Overview
+                                                </button>
+
+                                                <ul class="dropdown-menu" style="">
+
+                                                    <li><a class="dropdown-item" href="javascript:;">Chat Agent Performance</a></li>
+
+                                                    <li><a class="dropdown-item" href="javascript:;">Agent Availabilty</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <ul class="navbar-nav ms-auto">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="far fa-calendar"></i> Today</a>
+                                        </li>
+
+                                        <li class="nav-item">
+
+                                            <div class="btn-group">
+
+                                                <button type="button" class="btn dropdown-toggle shadow-none" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                                    Group: All groups
+                                                </button>
+
+                                                <ul class="dropdown-menu" style="">
+
+                                                    <li class="ms-3"><b>Chat groups</b></li>
+
+                                                    <li><a class="dropdown-item" href="javascript:;">Sales Support</a></li>
+
+                                                    <li><a class="dropdown-item" href="javascript:;">Tech Support</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row">
+
+                        <div class="mt-5">
+
+                            <div class="col-md-4">
+
+                                <div class="card border-0">
+
+                                    <div class="card-header border-0">
+
+                                        <h3 class="card-title">
+
+                                            <span class="badge badge-jungle"><i class="far fa-comment-dots"></i></span>
+
+                                            Chat Conversation Status
+                                        </h3>
+
+                                        <div class="card-tools"> <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"> <i data-lte-icon="expand" class="bi bi-plus-lg"></i> <i data-lte-icon="collapse" class="bi bi-dash-lg"></i> </button> <button type="button" class="btn btn-tool" data-lte-toggle="card-remove"> <i class="bi bi-x-lg"></i> </button> </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id="pie-chart"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4"></div>
+
+                            <div class="col-md-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+
+            <div class="float-end d-none d-sm-inline">Version 1.0</div>
+
+            <strong> Copyright &copy; 2024&nbsp;
+                <a href="https://www.faveohelpdesk.com/" class="text-decoration-none">Faveo</a>.
+            </strong>All rights reserved.
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+        const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+        const Default = {
+            scrollbarTheme: "os-theme-light",
+            scrollbarAutoHide: "leave",
+            scrollbarClickScroll: true,
+        };
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+            if (
+                sidebarWrapper &&
+                typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+            ) {
+                OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                    scrollbars: {
+                        theme: Default.scrollbarTheme,
+                        autoHide: Default.scrollbarAutoHide,
+                        clickScroll: Default.scrollbarClickScroll,
+                    },
+                });
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js" integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8=" crossorigin="anonymous"></script>
+    <script>
+
+        //-------------
+        // - PIE CHART -
+        //-------------
+
+        const pie_chart_options = {
+            series: [700, 500, 400, 600],
+            chart: {
+                type: "donut",
+                height: '350px'
+            },
+            plotOptions: {
+                pie: {
+                    startAngle: 0,
+                    endAngle: 360,
+                    expandOnClick: true,
+                    offsetX: 0,
+                    offsetY: 0,
+                    customScale: 1,
+                    dataLabels: {
+                        offset: 0,
+                        minAngleToShowLabel: 10
+                    },
+                    donut: {
+                        size: '70%',
+                        background: 'transparent',
+                        labels: {
+                            show: true,
+                            name: {
+                                show: false,
+                                fontSize: '22px',
+                                fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+                                fontWeight: 600,
+                                color: undefined,
+                                offsetY: -10,
+                                formatter: function (val) {
+                                    return val
+                                }
+                            },
+                            value: {
+                                show: true,
+                                fontSize: '22px',
+                                fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+                                fontWeight: 600,
+                                color: undefined,
+                                offsetY: 16,
+                                formatter: function (val) {
+                                    return val
+                                }
+                            },
+                            total: {
+                                show: true,
+                                showAlways: false,
+                                label: '',
+                                fontSize: '28px',
+                                fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+                                fontWeight: 700,
+                                color: '#373d3f',
+                                formatter: function (w) {
+                                    return w.globals.seriesTotals.reduce((a, b) => {
+                                        return a + b
+                                    }, 0)
+                                }
+                            }
+                        }
+                    },
+                }
+            },
+            legend: {
+                show: true,
+                showForSingleSeries: false,
+                showForNullSeries: true,
+                showForZeroSeries: true,
+                position: 'right',
+                // horizontalAlign: 'center',
+                floating: false,
+                fontSize: '14px',
+                fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+                fontWeight: 400,
+                formatter: function(seriesName, opts) {
+                    // Append series value to the series label
+                    const value = opts.w.config.series[opts.seriesIndex];
+                    return `${seriesName}: ${value}`;
+                },
+                inverseOrder: false,
+                width: undefined,
+                height: undefined,
+                tooltipHoverFormatter: undefined,
+                customLegendItems: [],
+                offsetX: 0,
+                offsetY: 0,
+                labels: {
+                    colors: undefined,
+                    useSeriesColors: false
+                },
+                markers: {
+                    size: 7,
+                    shape: undefined,
+                    strokeWidth: 1,
+                    fillColors: undefined,
+                    customHTML: undefined,
+                    onClick: undefined,
+                    offsetX: 0,
+                    offsetY: 0
+                },
+                itemMargin: {
+                    horizontal: 5,
+                    vertical: 0
+                },
+                onItemClick: {
+                    toggleDataSeries: true
+                },
+                onItemHover: {
+                    highlightDataSeries: true
+                },
+            },
+            tooltip: {
+                enabled: true,
+                enabledOnSeries: undefined,
+                shared: true,
+                followCursor: false,
+                intersect: false,
+                inverseOrder: false,
+                custom: undefined,
+                hideEmptySeries: true,
+                fillSeriesColor: false,
+                theme: false,
+                style: {
+                    fontSize: '12px',
+                    fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+                },
+                onDatasetHover: {
+                    highlightDataSeries: false,
+                },
+                x: {
+                    show: true,
+                    format: 'dd MMM',
+                    formatter: undefined,
+                },
+                y: {
+                    formatter: function () {
+                        return ''; // Hide the value by returning an empty string
+                    },
+                    title: {
+                        formatter: (seriesName) => seriesName,
+                    },
+                },
+                z: {
+                    formatter: undefined,
+                    title: 'Size: '
+                },
+                marker: {
+                    show: true,
+                },
+                items: {
+                    display: 'flex',
+                },
+                fixed: {
+                    enabled: false,
+                    position: 'topRight',
+                    offsetX: 0,
+                    offsetY: 0,
+                },
+            },
+            labels: ["Open", "Waiting", "Closed", "Resolved"],
+            dataLabels: {
+                enabled: false,
+            },
+            colors: [
+                "#0d6efd",
+                "#20c997",
+                "#ffc107",
+                "#d63384"
+            ],
+        };
+
+        const pie_chart = new ApexCharts(
+            document.querySelector("#pie-chart"),
+            pie_chart_options,
+        );
+        pie_chart.render();
+
+        //-----------------
+        // - END PIE CHART -
+        //-----------------
+    </script> <!--end::Script-->
+</body>
+
+</html>
