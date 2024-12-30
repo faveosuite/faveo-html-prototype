@@ -1,0 +1,70 @@
+.settingiconblue {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.settingdivblue {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    text-align: center;
+    border: 5px solid #C4D8E4;
+    border-radius: 100%;
+}
+.settingdivblue span {
+    margin-top: 6px;
+}
+.fw_400 {
+    font-weight: 400;
+}
+.text-sm {
+    font-size: .875rem !important;
+}
+
+.table_btn {
+    background: gainsboro;
+}
+
+.cursor-ban { cursor: not-allowed !important; opacity: 0.3; }
+
+.fs_120 { font-size: 1.2rem !important; }
+
+.card-footer {
+    border-top: 0 solid rgba(0,0,0,.125) !important;
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, .125) !important;
+    padding: .75rem 1.25rem !important;
+}
+
+.form-label {
+    font-weight: 700 !important;
+}
+
+.form-control {
+    box-shadow: none !important;
+    font-size: inherit !important;
+}
+
+.nav-tabs .nav-link.active{
+    color: #3c8dbc !important;
+}
+
+.nav-tabs .nav-link{
+    color: #000000a1 !important;
+}
+
+.border-right {
+    border-right: 1px solid #dee2e6 !important;
+}
+
+.ps-4 {
+    padding-left: 1.5rem;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0; /* Optional: Remove padding from the left of the list */
+}
+
+.op_06 { opacity: 0.6 !important;}

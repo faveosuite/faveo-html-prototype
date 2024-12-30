@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Roles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Roles">
+    <meta name="author" content="Sakthivel Munusami">
+    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../dist/css/adminlte.css">
+    <link rel="icon" type="image/x-icon" href="../../dist/assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../dist/css/custom.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm">
+
+<div class="app-wrapper">
+
+    <nav class="app-header navbar navbar-expand bg-body">
+
+        <div class="container-fluid">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-lte-toggle="sidebar" href="javascript:;" role="button">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown user-menu">
+
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                        <img src="../../dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image">
+
+                        <span class="d-none d-md-inline">Sakthivel Munusami</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+
+                        <li class="user-header text-bg-light">
+
+                            <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
+
+                            <p>
+                                Sakthivel Munusami - Lead Frontend Developer
+                                <small>Member since Sept. 2017</small>
+                            </p>
+                        </li>
+                        <li class="user-footer">
+
+                            <a href="javascript:;" class="btn btn-light border">Profile</a>
+
+                            <a href="javascript:;" class="btn btn-light border float-end">Sign out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
+
+        <div class="sidebar-brand">
+
+            <a href="javascript:;" class="brand-link">
+
+                <img src="../../dist/assets/img/faveo.png" alt="Faveo Logo" class="brand-image opacity-75 shadow">
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+
+            <nav class="mt-2">
+
+                <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item">
+
+                        <a href="index.html" class="nav-link active">
+
+                            <i class="nav-icon bi bi-palette"></i>
+
+                            <p>Roles</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="app-main">
+
+        <div class="app-content-header">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+
+                        <h3 class="mb-0">Roles</h3>
+                    </div>
+
+                    <div class="col-sm-6">
+
+                        <ol class="breadcrumb float-sm-end">
+
+                            <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+
+                            <li class="breadcrumb-item"><a href="index.html">Roles</a></li>
+
+                            <li class="breadcrumb-item active" aria-current="page">
+                                New Role
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+
+            <div class="container-fluid">
+
+                <div class="col-12">
+
+                    <div class="card card-light">
+
+                        <div class="card-header">
+
+                            <h3 class="card-title">New Role</h3>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="mb-3">
+
+                                <label for="name" class="form-label">Name <span class="text-danger"> *</span></label>
+
+                                <input type="text" class="form-control" id="name" placeholder="Enter name...">
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="description" class="form-label">Description <span class="text-danger"> *</span></label>
+
+                                <textarea class="form-control" id="description" placeholder="Enter description"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label class="form-label">Permissions </label>
+
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="client-panel-tab" data-bs-toggle="tab" data-bs-target="#client-panel" type="button" role="tab" aria-controls="client-panel" aria-selected="true">Client panel</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="agent-panel-tab" data-bs-toggle="tab" data-bs-target="#agent-panel" type="button" role="tab" aria-controls="agent-panel" aria-selected="false">Agent panel</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="admin-panel-tab" data-bs-toggle="tab" data-bs-target="#admin-panel" type="button" role="tab" aria-controls="admin-panel" aria-selected="false">Admin panel</button>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+
+                                    <div class="tab-pane fade show active" id="client-panel" role="tabpanel" aria-labelledby="client-panel-tab">
+
+                                        <div class="mt-3">
+                                            <b>Scroll To: </b>
+                                            <a href="#articles"><span class="badge text-bg-light border fs-7 fw-normal">Articles</span></a>
+                                            <a href="#Categories"><span class="badge text-bg-light border fs-7 fw-normal">Categories</span></a>
+                                            <a href="#Billing"><span class="badge text-bg-light border fs-7 fw-normal">Billing</span></a>
+                                            <a href="#Tickets"><span class="badge text-bg-light border fs-7 fw-normal">Tickets</span></a>
+                                            <a href="#Timeline"><span class="badge text-bg-light border fs-7 fw-normal">Timeline</span></a>
+                                            <a href="#Profile"><span class="badge text-bg-light border fs-7 fw-normal">Profile</span></a>
+                                            <a href="#twofa"><span class="badge text-bg-light border fs-7 fw-normal">Two factor Authentication</span></a>
+                                        </div>
+
+                                        <div class="card-body">
+
+                                            <div class="row" id="articles">
+
+                                                <div class="col-3 d-flex align-items-center border-end">
+
+                                                    <h5 class="op_06">Articles</h5>
+                                                </div>
+                                                <div class="col-9">
+
+                                                    <div class="form-check mt-3">
+
+                                                        <input class="form-check-input" type="checkbox" id="parent2">
+
+                                                        <label class="form-check-label" for="parent2">View articles</label>
+
+                                                        <ul class="ps-4">
+
+                                                            <li>
+
+                                                                <div class="form-check">
+
+                                                                    <input class="form-check-input" type="checkbox" id="child3">
+
+                                                                    <label class="form-check-label" for="child3">Create or edit article</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="grandchild43">
+                                                                                <label class="form-check-label" for="grandchild4">Publish an article</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="grandchild4">
+                                                                                <label class="form-check-label" for="grandchild4">Publish an article, if approved</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="child4">
+                                                                    <label class="form-check-label" for="child4">Approve an article</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <div class=" row" id="Categories">
+
+                                                <div class="col-3 d-flex align-items-center border-end">
+
+                                                    <h5 class="op_06">Categories</h5>
+                                                </div>
+
+                                                <div class="col-9">
+
+                                                    <div class="row">
+
+                                                        <div class="col-12">
+
+                                                            <div class="form-check">
+
+                                                                <input class="form-check-input" type="checkbox" id="parent1">
+
+                                                                <label class="form-check-label" for="parent1">View categories</label>
+
+                                                                <ul class="ps-4">
+                                                                    <li>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="child1">
+                                                                            <label class="form-check-label" for="child1">Create or edit categories</label>
+                                                                            <ul class="ps-5">
+                                                                                <li>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input" type="checkbox" id="grandchild1">
+                                                                                        <label class="form-check-label" for="grandchild1">Create category</label>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input" type="checkbox" id="grandchild2">
+                                                                                        <label class="form-check-label" for="grandchild2">Edit Category</label>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" id="child2">
+                                                                            <label class="form-check-label" for="child2">Delete Category</label>
+                                                                            <ul class="ps-5">
+                                                                                <li>
+                                                                                    <div class="form-check">
+                                                                                        <input class="form-check-input" type="checkbox" id="grandchild3">
+                                                                                        <label class="form-check-label" for="grandchild3">Move to trash</label>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <div class="row" id="Billing">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Billing</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="billing-view">
+                                                        <label class="form-check-label" for="billing-view">View billing</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="billing-edit">
+                                                                    <label class="form-check-label" for="billing-edit">Edit billing information</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="billing-pay">
+                                                                                <label class="form-check-label" for="billing-pay">Make a payment</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="billing-history">
+                                                                                <label class="form-check-label" for="billing-history">View payment history</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <div class="row" id="Tickets">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Tickets</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="tickets-view">
+                                                        <label class="form-check-label" for="tickets-view">View tickets</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="tickets-create">
+                                                                    <label class="form-check-label" for="tickets-create">Create tickets</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="tickets-close">
+                                                                    <label class="form-check-label" for="tickets-close">Close tickets</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <div class="row" id="Timeline">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Timeline</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="timeline-view">
+                                                        <label class="form-check-label" for="timeline-view">View timeline</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="timeline-edit">
+                                                                    <label class="form-check-label" for="timeline-edit">Edit timeline entries</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <div class="row" id="Profile">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Profile</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="profile-view">
+                                                        <label class="form-check-label" for="profile-view">View profile</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="profile-edit">
+                                                                    <label class="form-check-label" for="profile-edit">Edit profile</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="profile-delete">
+                                                                    <label class="form-check-label" for="profile-delete">Delete profile</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <div class="row" id="twofa">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Two Factor Authentication</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="twofa-enable">
+                                                        <label class="form-check-label" for="twofa-enable">Enable 2FA</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="twofa-reset">
+                                                                    <label class="form-check-label" for="twofa-reset">Reset 2FA</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="agent-panel" role="tabpanel" aria-labelledby="agent-panel-tab">
+
+                                        <div class="mt-3">
+                                            <b>Scroll To: </b>
+                                            <a href="#Tickets1"><span class="badge text-bg-light border fs-7 fw-normal">Tickets</span></a>
+                                            <a href="#Users"><span class="badge text-bg-light border fs-7 fw-normal">Users</span></a>
+                                            <a href="#Organizations"><span class="badge text-bg-light border fs-7 fw-normal">Organizations</span></a>
+                                            <a href="#Assets"><span class="badge text-bg-light border fs-7 fw-normal">Assets</span></a>
+                                            <a href="#Changes"><span class="badge text-bg-light border fs-7 fw-normal">Changes</span></a>
+                                            <a href="#Problems"><span class="badge text-bg-light border fs-7 fw-normal">Problems</span></a>
+                                            <a href="#Tasks"><span class="badge text-bg-light border fs-7 fw-normal">Tasks</span></a>
+                                        </div>
+
+                                        <div class="card-body">
+
+                                            <div class="row" id="Tickets1">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Tickets</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="tickets-parent">
+                                                        <label class="form-check-label" for="tickets-parent">Manage Tickets</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="ticket-child1">
+                                                                    <label class="form-check-label" for="ticket-child1">Create Ticket</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="ticket-child2">
+                                                                    <label class="form-check-label" for="ticket-child2">Edit Ticket</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="ticket-grandchild1">
+                                                                                <label class="form-check-label" for="ticket-grandchild1">Assign Ticket</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Users Section -->
+                                            <div class="row mt-4" id="Users">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Users</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="users-parent">
+                                                        <label class="form-check-label" for="users-parent">Manage Users</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="user-child1">
+                                                                    <label class="form-check-label" for="user-child1">Add User</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="user-child2">
+                                                                    <label class="form-check-label" for="user-child2">Edit User</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="user-child3">
+                                                                    <label class="form-check-label" for="user-child3">Deactivate User</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Organizations Section -->
+                                            <div class="row mt-4" id="Organizations">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Organizations</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="org-parent">
+                                                        <label class="form-check-label" for="org-parent">Manage Organizations</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="org-child1">
+                                                                    <label class="form-check-label" for="org-child1">Add Organization</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="org-child2">
+                                                                    <label class="form-check-label" for="org-child2">Edit Organization</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <div class="row" id="Assets">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Assets</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="assetParent">
+                                                        <label class="form-check-label" for="assetParent">Manage Assets</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="assetChild1">
+                                                                    <label class="form-check-label" for="assetChild1">Create or Edit Assets</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="assetGrandchild1">
+                                                                                <label class="form-check-label" for="assetGrandchild1">Upload Asset Details</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="assetGrandchild2">
+                                                                                <label class="form-check-label" for="assetGrandchild2">Edit Asset History</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Changes -->
+                                            <div class="row" id="Changes">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Changes</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="changeParent">
+                                                        <label class="form-check-label" for="changeParent">Manage Changes</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="changeChild1">
+                                                                    <label class="form-check-label" for="changeChild1">Request Changes</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="changeGrandchild1">
+                                                                                <label class="form-check-label" for="changeGrandchild1">Approve Changes</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="changeGrandchild2">
+                                                                                <label class="form-check-label" for="changeGrandchild2">Reject Changes</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Problems -->
+                                            <div class="row" id="Problems">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Problems</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="problemParent">
+                                                        <label class="form-check-label" for="problemParent">Handle Problems</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="problemChild1">
+                                                                    <label class="form-check-label" for="problemChild1">Identify Problems</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="problemGrandchild1">
+                                                                                <label class="form-check-label" for="problemGrandchild1">Log Problems</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Tasks -->
+                                            <div class="row" id="Tasks">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Tasks</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="taskParent">
+                                                        <label class="form-check-label" for="taskParent">Manage Tasks</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="taskChild1">
+                                                                    <label class="form-check-label" for="taskChild1">Create Tasks</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="taskGrandchild1">
+                                                                                <label class="form-check-label" for="taskGrandchild1">Assign Tasks</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="taskGrandchild2">
+                                                                                <label class="form-check-label" for="taskGrandchild2">Track Progress</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="admin-panel" role="tabpanel" aria-labelledby="admin-panel-tab">
+
+                                        <div class="mt-3">
+                                            <b>Scroll To: </b>
+                                            <a href="#Agents"><span class="badge text-bg-light border fs-7 fw-normal">Agents</span></a>
+                                            <a href="#Departments"><span class="badge text-bg-light border fs-7 fw-normal">Departments</span></a>
+                                            <a href="#Teams"><span class="badge text-bg-light border fs-7 fw-normal">Teams</span></a>
+                                            <a href="#Associates"><span class="badge text-bg-light border fs-7 fw-normal">SD Associates</span></a>
+                                            <a href="#Plugins"><span class="badge text-bg-light border fs-7 fw-normal">Plugins</span></a>
+                                            <a href="#Workflow"><span class="badge text-bg-light border fs-7 fw-normal">Workflow</span></a>
+                                            <a href="#Business"><span class="badge text-bg-light border fs-7 fw-normal">Business hours</span></a>
+                                        </div>
+
+                                        <div class="card-body">
+
+                                            <!-- Agents -->
+                                            <div class="row" id="Agents">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Agents</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="agentParent">
+                                                        <label class="form-check-label" for="agentParent">Manage Agents</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="agentChild1">
+                                                                    <label class="form-check-label" for="agentChild1">Add New Agent</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="agentGrandchild1">
+                                                                                <label class="form-check-label" for="agentGrandchild1">Assign Roles</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Departments -->
+                                            <div class="row" id="Departments">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Departments</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="deptParent">
+                                                        <label class="form-check-label" for="deptParent">Manage Departments</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="deptChild1">
+                                                                    <label class="form-check-label" for="deptChild1">Create Department</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="deptGrandchild1">
+                                                                                <label class="form-check-label" for="deptGrandchild1">Define Responsibilities</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Teams -->
+                                            <div class="row" id="Teams">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Teams</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="teamParent">
+                                                        <label class="form-check-label" for="teamParent">Manage Teams</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="teamChild1">
+                                                                    <label class="form-check-label" for="teamChild1">Form Team</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="teamGrandchild1">
+                                                                                <label class="form-check-label" for="teamGrandchild1">Assign Projects</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <div class="row" id="Associates">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">SD Associates</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="associateParent">
+                                                        <label class="form-check-label" for="associateParent">Manage Associates</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="associateChild1">
+                                                                    <label class="form-check-label" for="associateChild1">Add New Associates</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="associateGrandchild1">
+                                                                                <label class="form-check-label" for="associateGrandchild1">Verify Credentials</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Plugins -->
+                                            <div class="row" id="Plugins">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Plugins</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="pluginParent">
+                                                        <label class="form-check-label" for="pluginParent">Manage Plugins</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="pluginChild1">
+                                                                    <label class="form-check-label" for="pluginChild1">Install Plugins</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="pluginGrandchild1">
+                                                                                <label class="form-check-label" for="pluginGrandchild1">Configure Plugins</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+
+                                            <!-- Workflow -->
+                                            <div class="row" id="Workflow">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Workflow</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="workflowParent">
+                                                        <label class="form-check-label" for="workflowParent">Manage Workflow</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="workflowChild1">
+                                                                    <label class="form-check-label" for="workflowChild1">Design Workflow</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="workflowGrandchild1">
+                                                                                <label class="form-check-label" for="workflowGrandchild1">Test Workflow</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <br/>
+                                            
+                                            <!-- Business Hours -->
+                                            <div class="row" id="Business">
+                                                <div class="col-3 d-flex align-items-center border-end">
+                                                    <h5 class="op_06">Business hours</h5>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="form-check mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="businessParent">
+                                                        <label class="form-check-label" for="businessParent">Set Business Hours</label>
+                                                        <ul class="ps-4">
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" id="businessChild1">
+                                                                    <label class="form-check-label" for="businessChild1">Define Hours</label>
+                                                                    <ul class="ps-5">
+                                                                        <li>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="checkbox" id="businessGrandchild1">
+                                                                                <label class="form-check-label" for="businessGrandchild1">Review Hours</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+
+        <div class="float-end d-none d-sm-inline">Version 1.0</div>
+
+        <strong> Copyright &copy; 2024&nbsp;
+            <a href="https://www.faveohelpdesk.com/" class="text-decoration-none">Faveo</a>.
+        </strong>All rights reserved.
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+<script src="../../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+<script>
+    const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+    const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (
+            sidebarWrapper &&
+            typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+        ) {
+            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                scrollbars: {
+                    theme: Default.scrollbarTheme,
+                    autoHide: Default.scrollbarAutoHide,
+                    clickScroll: Default.scrollbarClickScroll,
+                },
+            });
+        }
+    });
+</script>
+
+<script>
+    const parentCheckboxes = document.querySelectorAll('.form-check-input');
+
+    parentCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+            const isChecked = e.target.checked;
+            const childCheckboxes = e.target.closest('.form-check').querySelectorAll('ul .form-check-input');
+
+            childCheckboxes.forEach(childCheckbox => {
+                childCheckbox.checked = isChecked;
+            });
+        });
+    });
+</script>
+</body>
+
+</html>
