@@ -68,3 +68,11 @@ ul {
 }
 
 .op_06 { opacity: 0.6 !important;}
+
+a {
+    text-decoration: none !important;
+}
+
+.w-300 {
+    width: 300px !important;
+}
