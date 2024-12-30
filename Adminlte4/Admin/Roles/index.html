@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Roles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Roles">
+    <meta name="author" content="Sakthivel Munusami">
+    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../dist/css/adminlte.css">
+    <link rel="icon" type="image/x-icon" href="../../dist/assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../dist/css/custom.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm">
+
+<div class="app-wrapper">
+
+    <nav class="app-header navbar navbar-expand bg-body">
+
+        <div class="container-fluid">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-lte-toggle="sidebar" href="javascript:;" role="button">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown user-menu">
+
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                        <img src="../../dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image">
+
+                        <span class="d-none d-md-inline">Sakthivel Munusami</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+
+                        <li class="user-header text-bg-light">
+
+                            <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
+
+                            <p>
+                                Sakthivel Munusami - Lead Frontend Developer
+                                <small>Member since Sept. 2017</small>
+                            </p>
+                        </li>
+                        <li class="user-footer">
+
+                            <a href="javascript:;" class="btn btn-light border">Profile</a>
+
+                            <a href="javascript:;" class="btn btn-light border float-end">Sign out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
+
+        <div class="sidebar-brand">
+
+            <a href="javascript:;" class="brand-link">
+
+                <img src="../../dist/assets/img/faveo.png" alt="Faveo Logo" class="brand-image opacity-75 shadow">
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+
+            <nav class="mt-2">
+
+                <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item">
+
+                        <a href="index.html" class="nav-link active">
+
+                            <i class="nav-icon bi bi-palette"></i>
+
+                            <p>Roles</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="app-main">
+
+        <div class="app-content-header">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+
+                        <h3 class="mb-0">Roles</h3>
+                    </div>
+
+                    <div class="col-sm-6">
+
+                        <ol class="breadcrumb float-sm-end">
+
+                            <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+
+                            <li class="breadcrumb-item"><a href="../index.html">Admin</a></li>
+
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Roles
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+
+            <div class="container-fluid">
+
+                <div class="col-12">
+
+                    <div class="card card-light">
+
+                        <div class="card-header">
+
+                            <h3 class="card-title">Roles</h3>
+
+                            <div class="card-tools">
+
+                                <a href="./create-edit.html" class="btn btn-tool" data-bs-toggle="tooltip" data-bs-placement="top" title="New Role">
+                                    <i class="fas fa-plus fs_120"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th style="width: 35%">Description</th>
+                                    <th>Assigned agents</th>
+                                    <th>Add-on access</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="align-middle">
+                                        <td><a href="./create-edit.html" class="text-decoration-none"><b>Account Administrator</b></a></td>
+                                        <td>Has complete control over the help desk and access to Account or Billing related information, and receives Invoices.</td>
+                                        <td><span class="badge text-bg-info text-white">10 Agents</span></td>
+                                        <td>AI Copilot</td>
+                                        <td>
+                                            <a href="./create-edit.html" class="btn btn-default table_btn border">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-default table_btn border cursor-ban">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle">
+                                        <td><a href="./create-edit.html" class="text-decoration-none"><b>Administrator</b></a></td>
+                                        <td>Can configure all features through the Admin tab, but is restricted from viewing Account or Billing related information.</td>
+                                        <td><span class="badge text-bg-info text-white">1 Agent</span></td>
+                                        <td>--</td>
+                                        <td>
+                                            <a href="./create-edit.html" class="btn btn-default table_btn border">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-default table_btn border cursor-ban">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle">
+                                        <td><a href="./create-edit.html" class="text-decoration-none"><b>Supervisor</b></a></td>
+                                        <td>Can perform all agent related activities, access reports and see unresolved tickets dashboard.</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>
+                                            <a href="./create-edit.html" class="btn btn-default table_btn border">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-default table_btn border cursor-ban">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle">
+                                        <td><a href="./create-edit.html" class="text-decoration-none"><b>Agent</b></a></td>
+                                        <td>Can log, view, reply, update and resolve tickets and manage contacts.</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>
+                                            <a href="./create-edit.html" class="btn btn-default table_btn border">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-default table_btn border cursor-ban">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle">
+                                        <td><a href="./create-edit.html" class="text-decoration-none"><b>Ticket Collaborator</b></a></td>
+                                        <td>Ticket collaborators can get assigned/tagged to tickets, add/edit private notes within their scope, update ticket status</td>
+                                        <td><span class="badge text-bg-info text-white">34 Agents</span></td>
+                                        <td>--</td>
+                                        <td>
+                                            <a href="./create-edit.html" class="btn btn-default table_btn border">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-default table_btn border">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle">
+                                        <td><a href="./create-edit.html" class="text-decoration-none"><b>Analytics Collaborator</b></a></td>
+                                        <td>Analytics collaborators can view reports in the Analytics module.</td>
+                                        <td>--</td>
+                                        <td>Elea AI</td>
+                                        <td>
+                                            <a href="./create-edit.html" class="btn btn-default table_btn border">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-default table_btn border cursor-ban">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="align-middle">
+                                        <td><a href="./create-edit.html" class="text-decoration-none"><b>AI Copilot User</b></a></td>
+                                        <td>Can access the Freddy AI Copilot license features and thereby consuming a license</td>
+                                        <td><span class="badge text-bg-info text-white">1 Agent</span></td>
+                                        <td>AI Copilot</td>
+                                        <td>
+                                            <a href="./create-edit.html" class="btn btn-default table_btn border">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-default table_btn border">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+
+        <div class="float-end d-none d-sm-inline">Version 1.0</div>
+
+        <strong> Copyright &copy; 2024&nbsp;
+            <a href="https://www.faveohelpdesk.com/" class="text-decoration-none">Faveo</a>.
+        </strong>All rights reserved.
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+<script src="../../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+<script>
+    const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+    const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (
+            sidebarWrapper &&
+            typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+        ) {
+            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                scrollbars: {
+                    theme: Default.scrollbarTheme,
+                    autoHide: Default.scrollbarAutoHide,
+                    clickScroll: Default.scrollbarClickScroll,
+                },
+            });
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>
+</body>
+
+</html>
