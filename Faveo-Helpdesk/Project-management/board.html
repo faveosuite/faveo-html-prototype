@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Management</title>
+    <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+    <style>
+
+        .c-f {
+            width: -webkit-max-content;
+            width: -moz-max-content;
+            width: max-content;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+        }
+
+        .kanban .card.card-row {
+            width: 340px;
+            display: inline-block;
+            margin: 0 .5rem;
+        }
+
+        .c {
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .kanban .card.card-row .card-body {
+            height: calc(100% - (50px + (1.8rem* 1.2) + .5rem));
+            overflow-y: auto;
+        }
+
+        .kanban .card .card-body {
+            padding: .5rem;
+        }
+
+        .info-row {
+            border-top: 1px solid #f4f4f4;
+            padding: 10px;
+        }
+
+        .bg-card {
+            background: #f6f8fa !important;
+        }
+
+        .h-500 {
+            height: 500px !important;
+        }
+
+        .scroll-bar::-webkit-scrollbar-track
+        {
+            border-radius:1px;
+        }
+
+        .scroll-bar::-webkit-scrollbar
+        {
+            width: 4px;
+        }
+
+        .scroll-bar::-webkit-scrollbar-thumb
+        {
+            background-color: #7e7e7e40;
+            border-radius: 10px;
+        }
+
+        .avatar-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .avatar {
+            width: 25px;  /* Small size for avatars */
+            height: 25px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #fff;
+            margin-left: -12px;  /* Overlapping effect */
+            transition: margin 0.3s ease, transform 0.3s ease;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-container:hover .avatar {
+            margin-left: 0px;  /* Space out on hover */
+            transform: scale(1.1);  /* Zoom on hover */
+        }
+
+        .lh-1 {
+            line-height: 1 !important;
+        }
+
+        .dot-icon {
+            position: relative;
+            top: 1px;
+        }
+
+        .lh-1_5 {
+            line-height: 1.5 !important;
+        }
+
+        .custom-control-sidebar {
+            width:1000px;border-bottom-left-radius: 0.5rem;border-top-left-radius: 0.5rem;z-index: 99999;
+        }
+
+        .tab-body {
+            overflow-y: scroll;
+            max-height: 450px;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini text-sm">
+
+    <div class="wrapper">
+
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-widget="fullscreen" href="javascript:;" role="button">
+
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+            <a href="javascript:;" class="brand-link text-center">
+
+                <span class="brand-text font-weight-light">Faveo</span>
+            </a>
+
+            <div class="sidebar">
+
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+
+                    <div class="image">
+
+                        <img src="../../dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
+                    </div>
+
+                    <div class="info">
+
+                        <a href="javascript:;" class="d-block">Sakthivel Munusami</a>
+                    </div>
+                </div>
+
+                <nav class="mt-2">
+
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <li class="nav-item">
+
+                            <a href="javascript:;" class="nav-link active">
+
+                                <i class="nav-icon fas fa-columns"></i>
+
+                                <p>Project Management</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="content-wrapper">
+
+            <div class="content-header">
+
+                <div class="container-fluid h-100">
+
+                    <div class="row mb-2">
+
+                        <div class="col-sm-6">
+
+                            <h1 class="m-0">Project Management</h1>
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <ol class="breadcrumb float-sm-right">
+
+                                <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+
+                                <li class="breadcrumb-item active">Project Management</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    <div class="col-sm-12">
+
+                        <div class="card card-light">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title mt-1">Project details</h3>
+
+                                <div class="card-tools">
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-light btn-sm border dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-plus"></i> New
+                                        </button>
+                                        <div class="dropdown-menu" style="">
+                                            <a class="dropdown-item" href="#">Create task</a>
+                                        </div>
+                                    </div>
+
+<!--                                    <div class="btn-group">-->
+
+<!--                                        <button type="button" class="btn btn-light btn-sm border">-->
+<!--                                            <i class="fas fa-list"></i> List-->
+<!--                                        </button>-->
+
+<!--                                        <button type="button" class="btn btn-light btn-sm border">-->
+<!--                                            <i class="fas fa-columns"></i> Board-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+
+<!--                                    <button type="button" class="btn btn-light btn-sm border">-->
+<!--                                        <i class="fas fa-calendar"></i> Calendar-->
+<!--                                    </button>-->
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+
+                                <div class="row">
+                                    
+                                    <div class="col-md-12">
+                                        
+                                        <div class="callout callout-info bg-info">
+                                            
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <b>Created Date : </b>
+                                                    <span>January 03, 2025 12:54 pm</span>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                    <b>Status : </b><span>Enable</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <b>Manufacturer : </b><span>Sakthi</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6 info-row d-flex">
+                                            <div class="col-md-6">
+                                                <label>Product Status</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a class="text-primary">In Pipeline</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 info-row d-flex">
+                                            <div class="col-md-6">
+                                                <label>Department Access</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a class="text-primary">Operation</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 info-row d-flex">
+                                            <div class="col-md-6">
+                                                <label>Product Mode Procurement</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a class="text-primary">Buy</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 info-row d-flex">
+                                            <div class="col-md-6">
+                                                <label>Description</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="javascript:;" class="btn btn-info btn-xs"><i class="fas fa-file-code">&nbsp;</i>Show Description</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 info-row d-flex">
+                                            <div class="col-md-6">
+                                                <label>Asset type</label>
+                                            </div>
+                                            <div class="col-md-6"><p>---</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="board-tab" data-toggle="pill" href="#board" role="tab" aria-controls="board" aria-selected="true"><i class="fas fa-columns"></i> Board</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="table-tab" data-toggle="pill" href="#table" role="tab" aria-controls="table" aria-selected="true"><i class="fas fa-list"></i> Table</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="calendar-tab" data-toggle="pill" href="#calendar" role="tab" aria-controls="calendar" aria-selected="true"><i class="fas fa-calendar"></i> Calendar</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content mt-3" id="custom-content-above-tabContent">
+
+                                    <div class="tab-pane fade" id="table" role="tabpanel" aria-labelledby="table-tab">
+                                        Table
+                                    </div>
+
+                                    <div class="tab-pane fade active show" id="board" role="tabpanel" aria-labelledby="board-tab">
+
+                                        <div class="kanban">
+
+                                            <div class="c pb-3">
+
+                                                <div class="c-f">
+
+                                                    <div class="card card-row bg-card">
+
+                                                        <div class="card-header border-0 pb-0 pl-2">
+
+                                                            <strong class="text-md">
+
+                                                                <i class="far fa-clock text-success"></i> Open
+
+                                                                <span class="badge border rounded text-muted ml-1">6</span>
+                                                            </strong>
+
+                                                            <div class="card-tools">
+
+                                                                <div class="btn-group">
+
+                                                                    <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+
+                                                                        <i class="fas fa-ellipsis-h"></i>
+                                                                    </button>
+
+                                                                    <div class="dropdown-menu" role="menu">
+
+                                                                        <a href="javascript:;" class="dropdown-item">New task</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-body h-500 scroll-bar pt-0">
+
+                                                            <p class="text-muted mb-3">This item hasn't been started</p>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-success dot-icon"></i> <b>#1</b></span>
+                                                                    <span class="badge bg-lightblue">Public</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=1" alt="Agent A" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=2" alt="Agent B" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=3" alt="Agent C" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none;">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Create ticket from mobile</a></h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-success dot-icon"></i> <b>#2</b></span>
+                                                                    <span class="badge bg-lightblue">Public</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=4" alt="Agent D" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=5" alt="Agent E" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=6" alt="Agent F" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Create ticket from desktop</a></h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-success dot-icon"></i> <b>#3</b></span>
+                                                                    <span class="badge bg-lightblue">Public</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=4" alt="Agent D" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=5" alt="Agent E" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=6" alt="Agent F" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Create ticket from whatsapp</a></h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-success dot-icon"></i> <b>#4</b></span>
+                                                                    <span class="badge bg-lightblue">Private</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=4" alt="Agent D" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=5" alt="Agent E" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=6" alt="Agent F" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Create ticket from facebook</a></h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-success dot-icon"></i> <b>#5</b></span>
+                                                                    <span class="badge bg-lightblue">Public</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=4" alt="Agent D" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=5" alt="Agent E" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=6" alt="Agent F" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Create ticket from twitter</a></h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-success dot-icon"></i> <b>#6</b></span>
+                                                                    <span class="badge bg-lightblue">Public</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=4" alt="Agent D" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=5" alt="Agent E" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=6" alt="Agent F" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Create ticket from linkedIn</a></h6>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="card-footer">
+                                                            <i class="fas fa-plus"></i> Add Item
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card card-row bg-card">
+
+                                                        <div class="card-header border-0 pb-0 pl-2">
+
+                                                            <strong class="text-md">
+
+                                                                <i class="fas fa-exclamation-triangle text-warning"></i> In progress
+
+                                                                <span class="badge border rounded text-muted ml-1">98</span>
+                                                            </strong>
+
+                                                            <div class="card-tools">
+
+                                                                <div class="btn-group">
+
+                                                                    <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+
+                                                                        <i class="fas fa-ellipsis-h"></i>
+                                                                    </button>
+
+                                                                    <div class="dropdown-menu" role="menu">
+
+                                                                        <a href="javascript:;" class="dropdown-item">New task</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-body h-500 scroll-bar pt-0">
+
+                                                            <p class="text-muted mb-3">This is actively being worked on</p>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-warning dot-icon"></i> <b>#7</b></span>
+                                                                    <span class="badge bg-lightblue">Public</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=1" alt="Agent A" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=2" alt="Agent B" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=3" alt="Agent C" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none;">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Artciles are in table view</a></h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-warning dot-icon"></i> <b>#8</b></span>
+                                                                    <span class="badge bg-lightblue">Private</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=4" alt="Agent D" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=5" alt="Agent E" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=6" alt="Agent F" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Support the team</a></h6>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="card-footer">
+                                                            <i class="fas fa-plus"></i> Add Item
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card card-row bg-card">
+
+                                                        <div class="card-header border-0 pb-0 pl-2">
+
+                                                            <strong class="text-md">
+
+                                                                <i class="fas fa-minus-circle text-danger"></i> Closed
+
+                                                                <span class="badge border rounded text-muted ml-1">100</span>
+                                                            </strong>
+
+                                                            <div class="card-tools">
+
+                                                                <div class="btn-group">
+
+                                                                    <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+
+                                                                        <i class="fas fa-ellipsis-h"></i>
+                                                                    </button>
+
+                                                                    <div class="dropdown-menu" role="menu">
+
+                                                                        <a href="javascript:;" class="dropdown-item">New task</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-body h-500 scroll-bar pt-0">
+
+                                                            <p class="text-muted mb-3">This has been completed</p>
+
+                                                            <div class="card" onmouseover="showBtnGroup(this)" onmouseout="hideBtnGroup(this)">
+                                                                <div class="card-header border-0 pl-2">
+                                                                    <span class="text-gray text-md"><i class="far fa-circle text-danger dot-icon"></i> <b>#9</b></span>
+                                                                    <span class="badge bg-lightblue">Public</span>
+                                                                    <div class="card-tools lh-1 d-flex">
+                                                                        <div class="avatar-container">
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=1" alt="Agent A" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=2" alt="Agent B" />
+                                                                            </div>
+                                                                            <div class="avatar">
+                                                                                <img src="https://i.pravatar.cc/100?img=3" alt="Agent C" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="btn-group" style="display: none;">
+                                                                            <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+                                                                                <i class="fas fa-ellipsis-h"></i>
+                                                                            </button>
+                                                                            <div class="dropdown-menu lh-1_5" role="menu">
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                                                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h6><a href="javascript:;" class="text-dark text-sm" onclick="showControlSidebar(this)">Create ticket from mobile</a></h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-footer">
+                                                            <i class="fas fa-plus"></i> Add Item
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card card-row bg-card">
+
+                                                        <div class="card-header border-0">
+
+                                                            <strong class="text-md">
+
+                                                                <i class="fas fa-plus"></i> New
+
+                                                                <span class="badge border rounded text-muted ml-1">0</span>
+                                                            </strong>
+
+                                                            <div class="card-tools">
+
+                                                                <div class="btn-group">
+
+                                                                    <button type="button" class="btn btn-tool btn-sm" data-toggle="dropdown">
+
+                                                                        <i class="fas fa-ellipsis-h"></i>
+                                                                    </button>
+
+                                                                    <div class="dropdown-menu" role="menu">
+
+                                                                        <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+
+                                                                        <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-body h-500 scroll-bar">
+
+                                                      
+                                                        </div>
+
+                                                        <div class="card-footer">
+                                                            <i class="fas fa-plus"></i> Add Item
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">Calendar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar-overlay"></div>
+
+        </div>
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-inline">
+                Version 1.0.0
+            </div>
+            <strong>Copyright &copy; 2024-2025 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights reserved.
+        </footer>
+
+        <aside class="control-sidebar control-sidebar-light custom-control-sidebar">
+            <!-- Control sidebar content goes here -->
+            <div class="p-4 control-sidebar-content">
+
+                <h5>
+
+                    <i class="fas fa-clock text-success"></i> Create a ticket from form page <span class="badge badge-success text-xs">Open</span>
+
+                    <div class="float-right">
+
+                        <button type="button" class="btn btn-light btn-sm border">
+                            <i class="fas fa-hand-point-right"></i> Reassign
+                        </button>
+
+                        <div class="btn-group">
+
+                            <button type="button" class="btn btn-light btn-sm border dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-cog"></i> Actions
+                            </button>
+
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-edit text-primary"></i> Edit</a>
+                                <a href="javascript:;" class="dropdown-item"><i class="fas fa-trash text-danger"></i> Delete</a>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-light btn-sm border" onclick="hideControlSidebar(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+
+                    </div>
+                </h5>
+
+                <div class="mt-3">
+
+                    <div class="row">
+                        <div  class="col-md-12">
+                            <div  class="callout callout-info bg-info">
+                                <div  class="row">
+                                    <div class="col-md-4"><b >Created Date : </b><span>January 03, 2025 03:36 pm</span></div>
+                                    <div class="col-md-4"><b >Start Date : </b><span>January 03, 2025 03:36 pm</span></div>
+                                    <div class="col-md-4"><b >End Date : </b><span>January 04, 2025 03:36 pm</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label >Created By</label></div>
+                                <div class="col-md-6"><a href="javascript:;">Demo Admin</a></div>
+                            </div>
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label>Task Status</label></div>
+                                <div class="col-md-6"><a class="text-capitalize">Open</a></div>
+                            </div>
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label >Assigned Agents</label></div>
+                                <div class="col-md-6"><a href="javascript:;">Demo Admin</a></div>
+                            </div>
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label >Assigned Teams</label></div>
+                                <div class="col-md-6"><a class="text-center">---</a></div>
+                            </div>
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label >Task Description</label></div>
+                                <div class="col-md-6"><a href="javascript:;" class="btn btn-info btn-xs"><i class="fas fa-file-code">&nbsp;</i>Show Description</a></div>
+                            </div>
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label >Project</label></div>
+                                <div class="col-md-6"><a>---</a></div>
+                            </div>
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label>Category</label></div>
+                                <div class="col-md-6"><a>---</a></div>
+                            </div>
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label >Watching department(s)</label></div>
+                                <div class="col-md-6"><a>---</a></div>
+                            </div>
+                            <div class="col-md-6 info-row d-flex">
+                                <div class="col-md-6"><label >Watching agent(s)</label></div>
+                                <div class="col-md-6"><a>---</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12">
+                    <div class="card card-light card-tabs">
+                        <div class="card-header p-0 pt-1 border-bottom-0">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="pill" href="#discussion-tab" role="tab" aria-controls="discussion-tab" aria-selected="true">Discussions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#activity-tab" role="tab" aria-controls="activity-tab" aria-selected="false">Activity</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body tab-body scroll-bar">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="discussion-tab" role="tabpanel" aria-labelledby="discussion-tab">
+
+                                    <button class="btn btn-default">
+                                        <i class="fas fa-plus"></i>&nbsp;Add Comment
+                                    </button>
+
+                                    <div class="col-sm-12 row mt-3">
+
+                                        <div class="timeline">
+
+                                            <div class="time-label">
+                                                <span class="bg-light border">10 Feb. 2025</span>
+                                            </div>
+
+                                            <div>
+                                                <i class="fas fa-comment bg-secondary"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                    <div class="timeline-body">
+                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                                        quora plaxo ideeli hulu weebly balihoo...
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <i class="fas fa-comment bg-secondary"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                    <div class="timeline-body">
+                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                                        quora plaxo ideeli hulu weebly balihoo...
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <i class="fas fa-comment bg-secondary"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                    <div class="timeline-body">
+                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                                        quora plaxo ideeli hulu weebly balihoo...
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <i class="fas fa-clock bg-gray"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="activity-tab" role="tabpanel" aria-labelledby="activity-tab">
+
+                                    <div class="col-sm-12 row mt-3">
+
+                                        <div class="timeline">
+
+                                            <div class="time-label">
+                                                <span class="bg-light border">10 Feb. 2025</span>
+                                            </div>
+
+                                            <div>
+                                                <i class="fas fa-comment bg-secondary"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                    <div class="timeline-body">
+                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                                        quora plaxo ideeli hulu weebly balihoo...
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <i class="fas fa-comment bg-secondary"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                    <div class="timeline-body">
+                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                                        quora plaxo ideeli hulu weebly balihoo...
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <i class="fas fa-comment bg-secondary"></i>
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="fas fa-clock"></i> 12:05</span>
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                    <div class="timeline-body">
+                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                                        quora plaxo ideeli hulu weebly balihoo...
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <i class="fas fa-clock bg-gray"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <script>
+        function showBtnGroup(card) {
+            // Find the button group within the card and set its style to display: block
+            var btnGroup = card.querySelector('.btn-group');
+            if (btnGroup) {
+                btnGroup.style.display = 'block'; // Show the button group
+            }
+        }
+
+        function hideBtnGroup(card) {
+            // Find the button group within the card and set its style to display: none
+            var btnGroup = card.querySelector('.btn-group');
+            if (btnGroup) {
+                btnGroup.style.display = 'none'; // Hide the button group
+            }
+        }
+
+        function showControlSidebar() {
+
+            window.scroll(0, 0);
+
+            let sidebar = document.getElementsByClassName('custom-control-sidebar')[0];
+
+            if(sidebar) {
+                sidebar.style.display = 'block';
+                document.body.classList.add('control-sidebar-slide-open');
+                document.getElementById('sidebar-overlay').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                sidebar.style.height = window.innerHeight - 50 + 'px';
+            }
+        }
+
+        function hideControlSidebar() {
+
+            let sidebar = document.getElementsByClassName('custom-control-sidebar')[0];
+
+            if(sidebar) {
+                sidebar.style.display = 'none';
+                document.body.classList.remove('control-sidebar-slide-open');
+                document.getElementById('sidebar-overlay').style.display = 'none';
+                document.body.style.overflow = 'scroll';
+            }
+        }
+    </script>
+</body>
+</html>
