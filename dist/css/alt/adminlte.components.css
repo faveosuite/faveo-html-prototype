@@ -447,7 +447,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-switch.custom-switch-off-primary .custom-control-input ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #3c8dbc;
   border-color: #004a99;
 }
 
@@ -460,7 +460,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-switch.custom-switch-on-primary .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #3c8dbc;
   border-color: #004a99;
 }
 
@@ -811,7 +811,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-switch.custom-switch-off-blue .custom-control-input ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #3c8dbc;
   border-color: #004a99;
 }
 
@@ -824,7 +824,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-switch.custom-switch-on-blue .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #3c8dbc;
   border-color: #004a99;
 }
 
@@ -1165,7 +1165,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-primary::-webkit-slider-thumb {
-  background-color: #007bff;
+  background-color: #3c8dbc;
 }
 
 .custom-range.custom-range-primary::-webkit-slider-thumb:active {
@@ -1173,7 +1173,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-primary::-moz-range-thumb {
-  background-color: #007bff;
+  background-color: #3c8dbc;
 }
 
 .custom-range.custom-range-primary::-moz-range-thumb:active {
@@ -1181,7 +1181,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-primary::-ms-thumb {
-  background-color: #007bff;
+  background-color: #3c8dbc;
 }
 
 .custom-range.custom-range-primary::-ms-thumb:active {
@@ -1725,7 +1725,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-blue::-webkit-slider-thumb {
-  background-color: #007bff;
+  background-color: #3c8dbc;
 }
 
 .custom-range.custom-range-blue::-webkit-slider-thumb:active {
@@ -1733,7 +1733,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-blue::-moz-range-thumb {
-  background-color: #007bff;
+  background-color: #3c8dbc;
 }
 
 .custom-range.custom-range-blue::-moz-range-thumb:active {
@@ -1741,7 +1741,7 @@ body.text-sm .input-group-text {
 }
 
 .custom-range.custom-range-blue::-ms-thumb {
-  background-color: #007bff;
+  background-color: #3c8dbc;
 }
 
 .custom-range.custom-range-blue::-ms-thumb:active {
@@ -2229,8 +2229,8 @@ body.text-sm .input-group-text {
 }
 
 .custom-control-input-primary:checked ~ .custom-control-label::before {
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #3c8dbc;
+  background-color: #3c8dbc;
 }
 
 .custom-control-input-primary.custom-control-input-outline:checked[type="checkbox"] ~ .custom-control-label::after {
@@ -2593,8 +2593,8 @@ body.text-sm .input-group-text {
 }
 
 .custom-control-input-blue:checked ~ .custom-control-label::before {
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #3c8dbc;
+  background-color: #3c8dbc;
 }
 
 .custom-control-input-blue.custom-control-input-outline:checked[type="checkbox"] ~ .custom-control-label::after {
@@ -5567,7 +5567,7 @@ body.text-sm .input-group-text {
 }
 
 .card-primary:not(.card-outline) > .card-header {
-  background-color: #007bff;
+  background-color: #3c8dbc;
 }
 
 .card-primary:not(.card-outline) > .card-header,
@@ -5580,7 +5580,7 @@ body.text-sm .input-group-text {
 }
 
 .card-primary.card-outline {
-  border-top: 3px solid #007bff;
+  border-top: 3px solid #3c8dbc;
 }
 
 .card-primary.card-outline-tabs > .card-header a:hover {
@@ -5589,7 +5589,7 @@ body.text-sm .input-group-text {
 
 .card-primary.card-outline-tabs > .card-header a.active,
 .card-primary.card-outline-tabs > .card-header a.active:hover {
-  border-top: 3px solid #007bff;
+  border-top: 3px solid #3c8dbc;
 }
 
 .bg-primary > .card-header .btn-tool,
@@ -6575,7 +6575,7 @@ body.text-sm .input-group-text {
 }
 
 .card-blue:not(.card-outline) > .card-header {
-  background-color: #007bff;
+  background-color: #3c8dbc;
 }
 
 .card-blue:not(.card-outline) > .card-header,
@@ -6588,7 +6588,7 @@ body.text-sm .input-group-text {
 }
 
 .card-blue.card-outline {
-  border-top: 3px solid #007bff;
+  border-top: 3px solid #3c8dbc;
 }
 
 .card-blue.card-outline-tabs > .card-header a:hover {
@@ -6597,7 +6597,7 @@ body.text-sm .input-group-text {
 
 .card-blue.card-outline-tabs > .card-header a.active,
 .card-blue.card-outline-tabs > .card-header a.active:hover {
-  border-top: 3px solid #007bff;
+  border-top: 3px solid #3c8dbc;
 }
 
 .bg-blue > .card-header .btn-tool,
@@ -7883,7 +7883,7 @@ html.maximized-card {
 }
 
 .todo-list .primary {
-  border-left-color: #007bff;
+  border-left-color: #3c8dbc;
 }
 
 .todo-list .secondary {
@@ -7939,7 +7939,7 @@ html.maximized-card {
 }
 
 .todo-list .blue {
-  border-left-color: #007bff;
+  border-left-color: #3c8dbc;
 }
 
 .todo-list .indigo {
@@ -11672,7 +11672,7 @@ html.maximized-card {
 
 .alert-primary {
   color: #fff;
-  background-color: #007bff;
+  background-color: #3c8dbc;
   border-color: #006fe6;
 }
 
