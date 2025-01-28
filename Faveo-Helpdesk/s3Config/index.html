@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Faveo | GlobalSearch</title>
+
+    <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <style>
+        .button2 {
+            width: 100px;
+            height: 30px;
+            display: inline-block;
+            background-color: black;
+            margin: 0 10px 10px 0;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #txt-custom {
+            display: none;
+        }
+
+        .button2:hover {
+            background-color: red;
+        }
+
+        .content2 {
+            width: 400px;
+            height: 100px;
+            display: block;
+            background-color: gray;
+        }
+
+        .hide2 {
+            display: none;
+        }
+        label{
+            font-size: 14px;
+        }
+        .navbar-search {
+            position: absolute;
+            padding: 0rem;
+            left: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #fff;
+            margin-right: 10px;
+        }
+        .dropdown-menu {
+            width:360px;
+            margin-right: 10px;
+        }
+
+        .select-filter{
+            padding: 4px 8px;
+        }
+
+        .card{
+            margin-bottom: 0rem;
+        }
+
+        .second-card{
+            padding:15px;
+        }
+
+        .scrollable-ul { max-height: 280px; overflow-y: auto;overflow-x: auto; }
+
+        .scrollable-ul::-webkit-scrollbar-track
+        {
+            background-color: #f1f1f1;
+            border-radius:10px;
+        }
+
+        .scrollable-ul::-webkit-scrollbar
+        {
+            width: 6px;
+            background-color: #f1f1f1;
+        }
+
+        .scrollable-ul::-webkit-scrollbar-thumb
+        {
+            background-color: #c1c1c1;
+            border-radius: 10px;
+        }
+
+
+        .toggle-container:focus {
+            box-shadow:none;
+            outline: none;
+        }
+
+
+        .toggle-container input[type="checkbox"] {
+            display: none;
+        }
+
+        .toggle-container label{
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            border-radius: 15px;
+            background-color: #f57373;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-container label::after {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            transition: left 0.5s;
+        }
+
+        .toggle-container input[type="checkbox"]:checked + label[for="toggle"] {
+            background-color: #4caf50;
+        }
+
+        .toggle-container input[type="checkbox"]:checked + label[for="toggle"]::after {
+            left: calc(100% - 18px);
+        }
+
+        .toggle-container{
+            padding-right:10px;
+        }
+
+        .ml-auto, .mx-auto {
+            margin-top: 5px;
+        }
+
+
+        .form-inline .input-group{
+            width:360px;
+            margin-top: 20px;
+        }
+
+        .card{
+            margin-bottom: 0rem;
+        }
+
+        img {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .header{
+            font-size: 1.3rem;
+        }
+
+        .text-gray{
+            font-family: Source Sans Pro;
+            font-size: 14px;
+        }
+
+        .text-primary{
+            color:rgb(60,141,188) !important;
+        }
+
+        .btn-primary{
+
+            padding-top:3px;
+            padding-bottom:3px;
+
+            margin:-2px;
+
+        }
+
+        .btn-outline-primary{
+
+            padding-top:3px;
+            padding-bottom:3px;
+
+            margin:-2px;
+
+        }
+
+
+        /* .dropdown-divider{
+          margin-top: 5px !important;
+          margin-bottom: 5px !important;
+        } */
+
+
+
+        .dropdown-item {
+
+            padding: 0;
+        }
+
+        .dropdown-menu-xl .dropdown-item{
+            padding: 0;
+        }
+
+        .media{
+            cursor: pointer;
+            padding-right:10px;
+            padding-left:10px;
+            padding-top:10px;
+            padding-bottom:8px;
+        }
+
+        .header{
+            padding-left:20px;
+        }
+
+        .media-body{
+            padding-left: 10px;
+        }
+
+        .col-sm{
+            padding:5px;
+        }
+
+        .switcher-toggle{
+            width: 80px;
+            padding: 2px;
+            background-color: #fff;
+            height: 35px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .switcher-toggle span.icon {
+            height: 30px;
+            width: 30px;
+            display: block;
+            background-color: #D3D3D3;
+            border-radius: 22px;
+            position: absolute;
+            left: 4px;
+            right: auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .switcher-toggle span.bark-mode{
+            height: 30px;
+            width: 30px;
+            display: block;
+            background-color: #009aba;
+            border-radius: 22px;
+            position: absolute;
+            right: 4px;
+            left: auto;
+        }
+
+
+    </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="index3.html" class="brand-link text-center">
+            <span class="brand-text font-weight-light">Faveo Help Desk</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Faveo</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Simple Link
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">S3 Configuration</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Admin Panel</a></li>
+                            <li class="breadcrumb-item active">S3 Configuration</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- License -->
+        <div class="card p-3">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card card-light">
+                                <div class="card-header">
+                                    <h3 class="card-title">S3 Configuration</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mt-2">
+                                        <div class="col-lg-6">
+                                            <label>Access Key</label>
+                                            <input class="form-control" placeholder="Enter a Value" />
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <label>Secret Key</label>
+                                            <input class="form-control" placeholder="Enter a Value" />
+                                        </div>
+                                        <!--                                        <div class="col-lg-6">-->
+                                        <!--                                            <label>Expiry Date</label>-->
+
+                                        <!--                                            <select id="select-list" class="form-select2 form-control" aria-label="Default select example">-->
+                                        <!--                                                <option value="1">30 days</option>-->
+                                        <!--                                                <option value="2">60 days</option>-->
+                                        <!--                                                <option value="4">90 days</option>-->
+                                        <!--                                                <option value="5">Never</option>-->
+                                        <!--                                                <option value="custom">Custom</option>-->
+                                        <!--                                            </select>-->
+
+                                        <!--                                        </div>-->
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-lg-6">
+                                            <label>Region</label>
+                                            <input class="form-control" placeholder="Enter a Value" />
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <label>Bucket</label>
+                                            <input class="form-control" placeholder="Enter a Value" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-lg-6">
+                                            <label>Endpoint</label>
+                                            <input class="form-control" placeholder="Enter a Value" />
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label>Storage</label>
+                                            <div>
+                                                <input type="radio" name="radio" checked="checked" id="foo1" onclick="switch_div(1);" placeholder="Application name">Public</input>
+                                                <!-- <label>Full Access</label> -->
+                                                <!--                                                <label for="foo1">Public</label>-->
+
+                                                <input type="radio" class="ml-5" name="radio" id="foo2" onclick="switch_div(2);" placeholder="Application name">Private</input>
+                                                <!-- <label>Restricted Access</label> -->
+                                                <!--                                                <label for="foo2">Private</label>-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-lg-3">
+                                            <label>Upload</label>
+                                            <div>
+                                                <input type="radio" name="radio" checked="checked" onclick="switch_div(1);" placeholder="Application name">With Attachment</input>
+                                                <!-- <label>Full Access</label> -->
+                                                <!--                                                <label for="foo1">Public</label>-->
+
+                                                <input type="radio" class="ml-5" name="radio" onclick="switch_div(2);" placeholder="Application name">Without Attachment</input>
+                                                <!-- <label>Restricted Access</label> -->
+                                                <!--                                                <label for="foo2">Private</label>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+
+            <div class="p-3">
+                <button class="btn btn-info">Save</button>
+            </div>
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+        <div class="p-3">
+            <h5>Title</h5>
+            <p>Sidebar content</p>
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline">
+            Version 1.0.0
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+
+<script>
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+
+</script>
+
+<script>
+    function switch_div(show) {
+        document.getElementById("show_"+show).style.display = "block";
+        document.getElementById("show_"+((show==1)?2:1)).style.display = "none";
+    }
+
+    function myFunction() {
+        var element = document.querySelector('.icon');
+        element.classList.toggle("bark-mode");
+    }
+</script>
+<script>
+    document.querySelectorAll(
+        'input[type=radio][name=foo]').forEach((elem) => {
+        elem.addEventListener('click', allowUncheck);
+        // only needed if elem can be pre-checked
+        elem.previous = elem.checked;
+    });
+
+    function allowUncheck(e) {
+        if (this.previous) {
+            this.checked = false;
+        }
+        // need to update previous on all elements of this group
+        // (either that or store the id of the checked element)
+        document.querySelectorAll(
+            `input[type=radio][name=${this.name}]`).forEach((elem) => {
+            elem.previous = elem.checked;
+        });
+    }
+</script>
+<script>
+    let selectEl = document.getElementById('select-list');
+
+    selectEl.addEventListener('change', (e) => {
+        if (e.target.value == 'custom') {
+            document.getElementById('txt-custom').style.display = 'block';
+        } else {
+            document.getElementById('txt-custom').style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>
