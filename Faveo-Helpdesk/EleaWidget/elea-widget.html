@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faveo | Elea Widget</title>
+  <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <style>
+    .elea-bot-icon {
+      position: fixed;
+      right: -5px;
+      bottom: 0;
+      z-index: 9999 !important;
+      cursor: pointer;
+    }
+
+    .elea-bot-container {
+      position: fixed;
+      bottom: 45px;
+      right: 15px;
+      z-index: 9999 !important;
+      width: 32%;
+      height: 70%;
+      -webkit-transition: all .4s ease-out;
+      -webkit-transition: all .4s ease-in-out;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      transition: all .4s ease-in-out;
+    }
+
+    .elea-bot-container.open-animation {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .elea-bot-container {
+        width: 100%;
+        height: 70%;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .elea-bot-container {
+        width: 100%;
+        height: 60%;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    .inline-element {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+
+    .card-footer.search-box {
+      flex-shrink: 0;
+      padding: 10px 10px;
+      background-color: transparent;
+      border-top: 0 solid rgba(0, 0, 0, .125);
+    }
+
+    .search-icon {
+      --fa-rotate-angle: 45deg;
+      font-size: 18px;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chat-message {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .user-message {
+      flex-direction: row-reverse;
+    }
+
+    .chat-image {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin: 0 10px;
+    }
+
+    .chat-text {
+      max-width: 60%;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #f1f1f1;
+    }
+
+    .bot-message .chat-text {
+      background-color: #b2d4e7;
+    }
+
+    .elea-bot-body::-webkit-scrollbar {
+      width: 6px;
+      color: #9c9a9a;
+    }
+
+    .elea-bot-body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .elea-bot-body::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 10px;
+      border: 2px solid #f1f1f1;
+    }
+
+    .elea-bot-body::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+
+    .bot-header {
+      border-bottom: none;
+      background-color: #2a97d6;
+      color: white;
+      border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-bottom: 70px;
+    }
+
+    .bot-actions {
+      display: flex;
+      align-items: center;
+      color: black !important;
+    }
+
+    .loading-animation {
+      display: inline-block;
+    }
+
+    .loading-dots::after {
+      content: '';
+      animation: dots 1s steps(3, end) infinite;
+    }
+
+    .bot-icons{
+      color: white !important;
+    }
+
+    @keyframes dots {
+      0% {
+        content: '.';
+      }
+
+      50% {
+        content: '..';
+      }
+
+      100% {
+        content: '...';
+      }
+    }
+
+    .elea-icon-tooltip {
+      visibility: hidden;
+      z-index: 1;
+      opacity: .40;
+      padding: 5px 8px 0px 8px;
+      background: #45a6e3;
+      color: white;
+      position: absolute;
+      top: -20%;
+      left: unset;
+      right: 20%;
+      border-radius: 9px;
+      transform: translateY(9px);
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
+      white-space: pre;
+    }
+
+    .elea-icon-tooltip::after {
+      content: " ";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 0.5px 0px 16.5px;
+      border-color: #45a6e3 transparent transparent transparent;
+      position: absolute;
+      left: 35%;
+    }
+
+    .elea-tooltip:hover .elea-icon-tooltip {
+      visibility: visible;
+      transform: translateY(-10px);
+      opacity: 1;
+      transition: .3s linear;
+      animation: odsoky 1s ease-in-out infinite alternate;
+    }
+
+    .elea-icon-tooltip-p {
+      margin-bottom: 5px !important;
+    }
+
+    .icon-inline-element{
+      padding: 1px 2px;
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+
+    .elea-bots{
+      background-color: #f4f5f7;
+    }
+
+    .elea-bot-chat-info{
+      height: 125%;
+      overflow-y: auto;
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: #ffffff;
+      margin-top: -50px;
+    }
+    .search-box{
+      background-color: #f4f5f7 !important;
+    }
+  </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index3.html" class="brand-link text-center">
+        <span class="brand-text font-weight-light">Faveo Help Desk</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">Faveo</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Simple Link
+                  <span class="right badge badge-danger">New</span>
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Starter Page</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Starter Page</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the card's
+                    content.
+                  </p>
+
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+
+              <div class="card card-primary card-outline">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the card's
+                    content.
+                  </p>
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div><!-- /.card -->
+            </div>
+            <!-- /.col-md-6 -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="m-0">Featured</h5>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title">Special title treatment</h6>
+
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+
+              <div class="card card-primary card-outline">
+                <div class="card-header">
+                  <h5 class="m-0">Featured</h5>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title">Special title treatment</h6>
+
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-md-6 -->
+
+            <div class="card direct-chat-primary elea-bot-container">
+
+              <!-- Header of the assistant -->
+              <div class=" d-flex bot-header pr-2 pl-2 pt-2">
+                <span class="icon-inline-element">
+                  <!-- Icon for the assistant -->
+                  <img src="/dist/img/elea.png" width="25" height="25" alt="Elea Icon" />
+                </span>&nbsp;
+                <!-- Title of the assistant -->
+                <p class="inline-element mb-0 mt-1"><b>Chat with Faveo</b></p>
+
+                <div class="bot-actions ml-auto">
+                  <!-- Button to clear the chat -->
+                  <button type="button" class="btn btn-tool bot-icons" title="Create Session" onclick="clearChat()">
+                    <i class="fas fa-plus"></i>
+                  </button>
+
+                  <!-- Button to close the assistant -->
+                  <button type="button" class="btn btn-tool bot-icons" title="Close Assistant" onclick="closeAssistant()">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Body of the assistant -->
+              <div class="card-body elea-bots p-3">
+
+                <div class="elea-bot-chat-info pt-3">
+  
+                  <!-- Container for chat messages -->
+                  <div class="chat-container" id="chat-container">
+                    <!-- Static messages for demonstration -->
+                    <div class="chat-message bot-message">
+                      <img src="/dist/img/elea.png" class="chat-image" alt="Bot Image" />
+                      <div class="chat-text">Hey there 👋! May I help you learn more about Faveo?</div>
+                    </div>
+                    <div class="chat-message user-message">
+                      <img src="/dist/img/avatar5.png" class="chat-image" alt="User Image" />
+                      <div class="chat-text">I need help with my account.</div>
+                    </div>
+                    <div class="chat-message bot-message">
+                      <img src="/dist/img/elea.png" class="chat-image" alt="Bot Image" />
+                      <div class="chat-text">Sure, I can help with that. What seems to be the issue?</div>
+                    </div>
+                  </div>
+  
+                  <!-- Loading indicator -->
+                  <div id="loading-indicator" class="chat-message bot-message" style="display: none;">
+                    <img src="https://via.placeholder.com/40" class="chat-image" alt="Bot Image" />
+                    <div class="chat-text loading-dots">...</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer with input for new messages -->
+              <div class="card-footer search-box">
+                <div class="input-group">
+                  <!-- Input field for new messages -->
+                  <input type="text" id="new-message" autocomplete="off" spellcheck="false" placeholder="Type Message ..." class="form-control">
+                  <!-- Button to send the message -->
+                  <button type="button" id="send-message" class="btn btn-light input-group-text">
+                    <i class="fas fa-arrow-right text-muted search-icon"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+      <div class="p-3">
+        <h5>Title</h5>
+        <p>Sidebar content</p>
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Version 1.0.0
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights
+      reserved.
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- REQUIRED SCRIPTS -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../dist/js/adminlte.min.js"></script>
+
+  <script>
+    function clearChat() {
+      document.getElementById('chat-container').innerHTML = '';
+    }
+
+    function closeAssistant() {
+      document.querySelector('.elea-bot-container').style.display = 'none';
+    }
+
+    document.getElementById('send-message').addEventListener('click', function () {
+      var newMessage = document.getElementById('new-message').value;
+      if (newMessage.trim() !== '') {
+        var chatContainer = document.getElementById('chat-container');
+        var userMessage = document.createElement('div');
+        userMessage.className = 'chat-message user-message';
+        userMessage.innerHTML = `
+          <img src="https://via.placeholder.com/40" class="chat-image" alt="User Image" />
+          <div class="chat-text">${newMessage}</div>
+        `;
+        chatContainer.appendChild(userMessage);
+        document.getElementById('new-message').value = '';
+
+        // Simulate bot response
+        setTimeout(function () {
+          var botMessage = document.createElement('div');
+          botMessage.className = 'chat-message bot-message';
+          botMessage.innerHTML = `
+            <img src="https://via.placeholder.com/40" class="chat-image" alt="Bot Image" />
+            <div class="chat-text">I'm here to help you with your account issues.</div>
+          `;
+          chatContainer.appendChild(botMessage);
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+
+</html>
