@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Admin Panel">
+    <meta name="author" content="Sakthivel Munusami">
+    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../dist/css/adminlte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="../../dist/assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../dist/css/custom.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm">
+
+<div class="app-wrapper">
+
+    <nav class="app-header navbar navbar-expand bg-body">
+
+        <div class="container-fluid">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-lte-toggle="sidebar" href="javascript:;" role="button">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown user-menu">
+
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                        <img src="../../dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image">
+
+                        <span class="d-none d-md-inline">Sakthivel Munusami</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+
+                        <li class="user-header text-bg-light">
+
+                            <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
+
+                            <p>
+                                Sakthivel Munusami - Lead Frontend Developer
+                                <small>Member since Sept. 2017</small>
+                            </p>
+                        </li>
+                        <li class="user-footer">
+
+                            <a href="javascript:;" class="btn btn-light border">Profile</a>
+
+                            <a href="javascript:;" class="btn btn-light border float-end">Sign out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
+
+        <div class="sidebar-brand">
+
+            <a href="javascript:;" class="brand-link">
+
+                <img src="../../dist/assets/img/faveo.png" alt="Faveo Logo" class="brand-image opacity-75 shadow">
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+
+            <nav class="mt-2">
+
+                <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item menu-open">
+
+                        <a href="javascript:;" class="nav-link active">
+
+                            <i class="nav-icon far fa-rectangle-list"></i> <p> Chat <i class="nav-arrow bi bi-chevron-right"></i></p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+
+                                <a href="index.html" class="nav-link active">
+
+                                    <i class="nav-icon fas fa-chart-simple"></i> <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="conversation.html" class="nav-link">
+
+                                    <i class="far fa-comments"></i> <p>Conversation Inbox</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="app-main"> <!--begin::App Content Header-->
+        <div class="app-content-header"> <!--begin::Container-->
+            <div class="container-fluid"> <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">Chat</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Chat
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">Chat conversation status</h3>
+                            </div>
+
+                            <div class="card-body h-280">
+
+                                <div class="row mt-4">
+
+                                    <div class="col-md-7">
+
+                                        <div class="chart-responsive"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+
+                                            <canvas id="pieChart" height="260" style="display: block; height: 130px; width: 261px;" width="522" class="chartjs-render-monitor"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="chart-legend clearfix lh-3">
+                                            <li><i class="far fa-circle text-primary"></i> Opera</li>
+                                            <li><i class="far fa-circle text-warning"></i> Waiting on customer</li>
+                                            <li><i class="far fa-circle text-danger"></i> Waiting on internal team</li>
+                                            <li><i class="far fa-circle text-success"></i> Resolved</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-md-1">
+                                        <ul class="chart-legend clearfix lh-3">
+                                            <li><b>10</b></li>
+                                            <li><b>15</b></li>
+                                            <li><b>5</b></li>
+                                            <li><b>20</b></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+
+                        <div class="card">
+
+                            <div class="card-header border-0">
+
+                                <h3 class="card-title">Chat assignment status</h3>
+                            </div>
+
+                            <div class="card-body h-280">
+
+                                <h5> <b>100</b> <span class="fs-6 text-secondary">Total chat conversations</span> </h5>
+
+                                <hr class="text-secondary">
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="d-flex flex-column">
+                                            <span class="fw-bold fs-6">10 </span>
+                                            <span class="text-secondary">Assigned conversations</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6 mt-3">
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar bg-primary" style="width: 10%; border-radius: 0.375rem;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="d-flex flex-column">
+                                            <span class="fw-bold fs-6">25 </span>
+                                            <span class="text-secondary">Assigned and not replied </span>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6 mt-3">
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar bg-success" style="width: 25%; border-radius: 0.375rem;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="d-flex flex-column">
+                                            <span class="fw-bold fs-6">65 </span>
+                                            <span class="text-secondary">Overdue</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6 mt-3">
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar bg-warning" style="width: 65%; border-radius: 0.375rem;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+
+                    <div class="col-sm-4">
+
+                        <div class="card">
+
+                            <div class="card-header border-0">
+
+                                <h3 class="card-title">Chat customer satisfaction</h3>
+                            </div>
+
+                            <div class="card-body h-280">
+
+                                <h5 class="mt-2"> <b>10</b> <span class="fs-6 text-secondary">Responses received</span> </h5>
+
+                                <div class="mt-5 d-flex justify-content-between align-items-center mb-3 px-5">
+
+                                    <p class="d-flex flex-column text-center">
+
+                                        <span class="fw-bold fs-1">
+
+                                            <i class="bi bi-emoji-smile text-success"></i>
+                                        </span>
+
+                                        <span class="text-success fs-6 mb-2">Positive</span>
+                                        <b class="fs-4">75.5 %</b>
+                                    </p>
+
+                                    <p class="d-flex flex-column text-center">
+
+                                        <span class="fw-bold fs-1">
+
+                                            <i class="bi bi-emoji-smile text-danger"></i>
+                                        </span>
+
+                                        <span class="text-danger fs-6 mb-2">Negative</span>
+
+                                        <b class="fs-4">24.5 %</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+
+                        <div class="card">
+
+                            <div class="card-header border-0">
+
+                                <h3 class="card-title">All available agents</h3>
+
+                                <div class="card-tools">
+                                    <a href="javascript:;" class="btn btn-tool btn-sm"> <i class="bi bi-eye"></i> View all </a>
+                                </div>
+                            </div>
+
+                            <div class="card-body h-280">
+
+                                <div class="row mt-5">
+
+                                    <div class="col-sm-6">
+
+                                        <p class="d-flex flex-column">
+
+                                            <span>Agents on Chat </span>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-sm-6 text-end">
+
+                                        <b>10</b> &nbsp;available
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+
+        <div class="float-end d-none d-sm-inline">Version 1.0</div>
+
+        <strong> Copyright &copy; 2024&nbsp;
+            <a href="https://www.faveohelpdesk.com/" class="text-decoration-none">Faveo</a>.
+        </strong>All rights reserved.
+    </footer>
+</div>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+<script src="../../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+<script src="../../../plugins/chart.js/Chart.min.js"></script>
+<script>
+    const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+    const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (
+            sidebarWrapper &&
+            typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+        ) {
+            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                scrollbars: {
+                    theme: Default.scrollbarTheme,
+                    autoHide: Default.scrollbarAutoHide,
+                    clickScroll: Default.scrollbarClickScroll,
+                },
+            });
+        }
+    });
+
+    //-------------
+    // - PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData = {
+        labels: [
+            'Open',
+            'Waiting on customer',
+            'Waiting on internal team',
+            'Resolved',
+        ],
+        datasets: [
+            {
+                data: [10, 15, 5, 20],
+                backgroundColor: ['#00c0ef', '#f39c12', '#f56954', '#00a65a']
+            }
+        ]
+    }
+    var pieOptions = {
+        legend: {
+            display: false
+        }
+    }
+    // Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    // eslint-disable-next-line no-unused-vars
+    var pieChart = new Chart(pieChartCanvas, {
+        type: 'doughnut',
+        data: pieData,
+        options: pieOptions
+    })
+
+    //-----------------
+    // - END PIE CHART -
+    //-----------------
+</script>
+
+<script
+        src='//in.fw-cdn.com/32298145/1240017.js'
+        chat='true'>
+</script>
+</body>
+
+</html>

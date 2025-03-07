@@ -76,3 +76,11 @@ a {
 .w-300 {
     width: 300px !important;
 }
+
+.lh-3 {
+    line-height: 3 !important;
+}
+
+.h-280 {
+    height: 280px !important;
+}
