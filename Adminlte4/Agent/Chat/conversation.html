@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Admin Panel">
+    <meta name="author" content="Sakthivel Munusami">
+    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../dist/css/adminlte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="../../dist/assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../dist/css/custom.css">
+
+    <style>
+        .btn-default{
+            background-color: #f8f9fa;
+            border-color: #ddd;
+            color: #444;
+        }
+        /* Custom CSS */
+        .avatar-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between avatar and name */
+            margin: 5px;
+        }
+
+        .avatar-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+            border: 3px solid #ddd;
+            padding: 2px;
+        }
+
+        .checkbox-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: white; /* White background for the checkbox */
+            border-radius: 50%; /* Make the overlay round */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+            border: 3px solid #ddd;
+        }
+
+        .avatar-container:hover .avatar-image {
+            opacity: 0; /* Hide the avatar on hover */
+        }
+
+        .avatar-container:hover .checkbox-overlay {
+            opacity: 1; /* Show the checkbox on hover */
+        }
+
+        .checkbox-overlay input[type="checkbox"] {
+            width: 13px;
+            height: 13px;
+            cursor: pointer;
+            border: 2px solid #ccc; /* Default border color */
+            border-radius: 4px; /* Slightly rounded corners */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect on the checkbox */
+        .checkbox-overlay input[type="checkbox"]:hover {
+            border-color: #007bff; /* Change border color on hover */
+            transform: scale(1.1); /* Slightly enlarge the checkbox */
+            background-color: #f0f8ff; /* Light blue background on hover */
+        }
+
+        /* Hide the avatar image and show the checkbox permanently when checked */
+        .avatar-container.checked .avatar-image {
+            visibility: hidden; /* Hide the avatar image */
+        }
+
+        .avatar-container.checked .checkbox-overlay {
+            opacity: 1; /* Show the checkbox permanently */
+        }
+    </style>
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm">
+
+<div class="app-wrapper">
+
+    <nav class="app-header navbar navbar-expand bg-body">
+
+        <div class="container-fluid">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-lte-toggle="sidebar" href="javascript:;" role="button">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown user-menu">
+
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                        <img src="../../dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image">
+
+                        <span class="d-none d-md-inline">Sakthivel Munusami</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+
+                        <li class="user-header text-bg-light">
+
+                            <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
+
+                            <p>
+                                Sakthivel Munusami - Lead Frontend Developer
+                                <small>Member since Sept. 2017</small>
+                            </p>
+                        </li>
+                        <li class="user-footer">
+
+                            <a href="javascript:;" class="btn btn-light border">Profile</a>
+
+                            <a href="javascript:;" class="btn btn-light border float-end">Sign out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
+
+        <div class="sidebar-brand">
+
+            <a href="javascript:;" class="brand-link">
+
+                <img src="../../dist/assets/img/faveo.png" alt="Faveo Logo" class="brand-image opacity-75 shadow">
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+
+            <nav class="mt-2">
+
+                <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item menu-open">
+
+                        <a href="javascript:;" class="nav-link active">
+
+                            <i class="nav-icon far fa-rectangle-list"></i> <p> Chat <i class="nav-arrow bi bi-chevron-right"></i></p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+
+                                <a href="index.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-chart-simple"></i> <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="conversation.html" class="nav-link active">
+
+                                    <i class="far fa-comments"></i> <p>Conversation Inbox</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="app-main"> <!--begin::App Content Header-->
+        <div class="app-content-header"> <!--begin::Container-->
+            <div class="container-fluid"> <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">Chat</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Chat
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+                    
+                    <div class="col-sm-12">
+
+                        <div class="row mb-3">
+
+                            <div class="col-sm-4">
+
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                        All open and unassigned conversations &nbsp;<span class="badge bg-secondary">6</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">My open conversations</a></li>
+                                        <li><a class="dropdown-item" href="#">My unresolved conversations</a></li>
+                                        <li><a class="dropdown-item" href="#">My snoozed conversations</a></li>
+                                        <li><a class="dropdown-item" href="#">All open and assigned conversations</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-8">
+
+                                <div class="float-end">
+
+                                    <div class="btn-group">
+
+                                        <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-list"></i> </a>
+                                        <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-table"></i> </a>
+                                    </div>
+
+                                    <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-edit"></i> </a>
+
+                                    <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-filter"></i>  </a>
+
+                                    <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-sort"></i>  </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-light">
+
+                            <div class="card-body p-0">
+
+                                <table class="table table-striped projects">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-light py-3"> Customer </th>
+                                            <th class="bg-light py-3"> Conversations </th>
+                                            <th class="bg-light py-3"> Status </th>
+                                            <th class="bg-light py-3"> Agent </th>
+                                            <th class="bg-light py-3"> Last updated </th>
+                                            <th class="bg-light py-3"> Due by </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="avatar-table-body">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+
+        <div class="float-end d-none d-sm-inline">Version 1.0</div>
+
+        <strong> Copyright &copy; 2024&nbsp;
+            <a href="https://www.faveohelpdesk.com/" class="text-decoration-none">Faveo</a>.
+        </strong>All rights reserved.
+    </footer>
+</div>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+<script src="../../dist/js/adminlte.js"></script>
+<script>
+    const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+    const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (
+            sidebarWrapper &&
+            typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+        ) {
+            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                scrollbars: {
+                    theme: Default.scrollbarTheme,
+                    autoHide: Default.scrollbarAutoHide,
+                    clickScroll: Default.scrollbarClickScroll,
+                },
+            });
+        }
+    });
+
+    // const avatars = [
+    //     { id: 1, name: "John Doe", status: 'Open', conversation: 'Okay, I\'ll try that. Thanks!', image: "https://adminlte.io/themes/v3/dist/img/avatar4.png" },
+    //     { id: 2, name: "Jane Smith", status: 'Open', conversation: 'Hello there', image: "https://adminlte.io/themes/v3/dist/img/avatar3.png" },
+    //     { id: 3, name: "Alice Johnson", status: 'Open', conversation: 'Good morning',  image: "https://adminlte.io/themes/v3/dist/img/avatar2.png" },
+    //     { id: 4, name: "Bob Brown", status: 'Open', conversation: 'Happy to connect with you',  image: "https://adminlte.io/themes/v3/dist/img/avatar.png" },
+    // ];
+
+    const avatars = [
+        {
+            id: 1,
+            name: "John Doe",
+            image: "https://adminlte.io/themes/v3/dist/img/avatar4.png",
+            conversation: "Hello, how are you?",
+            status: "Open",
+            agent: "Agent 1",
+            lastUpdated: "a day ago",
+            dueBy: "--",
+        },
+        {
+            id: 2,
+            name: "Jane Smith",
+            image: "https://adminlte.io/themes/v3/dist/img/avatar3.png",
+            conversation: "Let's catch up soon!",
+            status: "Closed",
+            agent: "Agent 2",
+            lastUpdated: "2 weeks ago",
+            dueBy: "2023-10-05",
+        },
+        {
+            id: 3,
+            name: "Alice Johnson",
+            image: "https://adminlte.io/themes/v3/dist/img/avatar2.png",
+            conversation: "Nice to meet you!",
+            status: "Pending",
+            agent: "Agent 3",
+            lastUpdated: "2023-09-30",
+            dueBy: "--",
+        },
+        {
+            id: 4,
+            name: "Bob Brown",
+            image: "https://adminlte.io/themes/v3/dist/img/avatar.png",
+            conversation: "See you tomorrow!",
+            status: "Open",
+            agent: "Agent 4",
+            lastUpdated: "5 mins ago",
+            dueBy: "2023-10-12",
+        },
+    ];
+
+    // Function to create a table row with avatar and checkbox
+    function createAvatarRow(avatar) {
+        const row = document.createElement("tr");
+        row.className = "align-middle";
+
+        // Avatar & Name column
+        const avatarCell = document.createElement("td");
+        const avatarContainer = document.createElement("div");
+        avatarContainer.className = "avatar-container";
+        avatarContainer.id = `avatar-container-${avatar.id}`;
+
+        // Avatar image
+        const avatarImage = document.createElement("img");
+        avatarImage.src = avatar.image;
+        avatarImage.alt = "Avatar";
+        avatarImage.className = "avatar-image";
+
+        // Checkbox overlay
+        const checkboxOverlay = document.createElement("div");
+        checkboxOverlay.className = "checkbox-overlay";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = `avatar-checkbox-${avatar.id}`;
+
+        // Add event listener to handle checkbox state
+        checkbox.addEventListener("change", function () {
+            if (this.checked) {
+                avatarContainer.classList.add("checked"); // Hide avatar and show checkbox permanently
+            } else {
+                avatarContainer.classList.remove("checked"); // Show avatar again
+            }
+        });
+
+        checkboxOverlay.appendChild(checkbox);
+        avatarContainer.appendChild(avatarImage);
+        avatarContainer.appendChild(checkboxOverlay);
+
+        // Name
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = avatar.name;
+        avatarContainer.appendChild(nameSpan);
+
+        avatarCell.appendChild(avatarContainer);
+        row.appendChild(avatarCell);
+
+        // Conversation column
+        const conversationCell = document.createElement("td");
+        conversationCell.className = "align-middle";
+
+        // Create a container for the icon and text
+        const conversationContainer = document.createElement("div");
+        conversationContainer.className = "conversation-cell";
+
+
+        // Add conversation text
+        const conversationText = document.createElement("span");
+        conversationText.textContent = avatar.conversation;
+        conversationContainer.appendChild(conversationText);
+
+        // Add Font Awesome reply icon
+        const replyIcon = document.createElement("i");
+        replyIcon.className = "fas fa-reply text-secondary ms-1 opacity-75"; // Font Awesome reply icon
+        conversationContainer.appendChild(replyIcon);
+
+        conversationCell.appendChild(conversationContainer);
+        row.appendChild(conversationCell);
+
+        // Status column
+        const statusCell = document.createElement("td");
+        const statusBadge = document.createElement("span");
+        statusBadge.className = `status-badge ${avatar.status.toLowerCase()}`;
+        statusBadge.textContent = avatar.status;
+        statusCell.appendChild(statusBadge);
+        row.appendChild(statusCell);
+
+        // Agent column
+        const agentCell = document.createElement("td");
+        agentCell.textContent = avatar.agent;
+        row.appendChild(agentCell);
+
+        // Last Updated column
+        const lastUpdatedCell = document.createElement("td");
+        lastUpdatedCell.textContent = avatar.lastUpdated;
+        row.appendChild(lastUpdatedCell);
+
+        // Due By column
+        const dueByCell = document.createElement("td");
+        dueByCell.textContent = avatar.dueBy;
+        row.appendChild(dueByCell);
+
+        return row;
+    }
+
+    // Function to populate the table with avatars
+    function populateTable() {
+        const tableBody = document.getElementById("avatar-table-body");
+        avatars.forEach((avatar) => {
+            const row = createAvatarRow(avatar);
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Populate the table on page load
+    populateTable();
+</script>
+
+<script
+        src='//in.fw-cdn.com/32298145/1240017.js'
+        chat='true'>
+</script>
+</body>
+
+</html>
