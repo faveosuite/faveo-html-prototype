@@ -23,6 +23,23 @@
             color: #444;
         }
         /* Custom CSS */
+        .table-row {
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Light background when hovering over the row */
+        .table-row:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Show the checkbox when hovering over the row */
+        .table-row:hover .checkbox-overlay {
+            opacity: 1;
+        }
+
+        /* Apply your existing styles */
         .avatar-container {
             position: relative;
             display: flex;
@@ -57,14 +74,20 @@
             border: 3px solid #ddd;
         }
 
+        /* Hide the avatar and show the checkbox when hovering on the row */
+        .table-row:hover .avatar-image {
+            opacity: 0;
+        }
+
         .avatar-container:hover .avatar-image {
-            opacity: 0; /* Hide the avatar on hover */
+            opacity: 0; /* Keep this in case of direct hover on avatar */
         }
 
-        .avatar-container:hover .checkbox-overlay {
-            opacity: 1; /* Show the checkbox on hover */
+        .table-row:hover .checkbox-overlay {
+            opacity: 1;
         }
 
+        /* Checkbox styling */
         .checkbox-overlay input[type="checkbox"] {
             width: 13px;
             height: 13px;
@@ -81,13 +104,48 @@
             background-color: #f0f8ff; /* Light blue background on hover */
         }
 
-        /* Hide the avatar image and show the checkbox permanently when checked */
+        /* Keep checkbox visible when checked */
         .avatar-container.checked .avatar-image {
             visibility: hidden; /* Hide the avatar image */
         }
 
         .avatar-container.checked .checkbox-overlay {
             opacity: 1; /* Show the checkbox permanently */
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-transform: capitalize;
+            font-size: 12px;
+        }
+
+        .status-badge.open {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .status-badge.closed {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .status-badge.pending {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        @media (min-width: 992px) {
+            .sidebar-expand-lg.layout-fixed .app-main {
+                overflow: unset !important;
+            }
+        }
+
+        .sticky-card {
+            position: sticky;
+             top: -1px;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -218,43 +276,46 @@
                     
                     <div class="col-sm-12">
 
-                        <div class="row mb-3">
+                        <div class="card sticky-card shadow-none rounded-bottom-0">
 
-                            <div class="col-sm-4">
+                            <div class="row my-3 mx-1">
 
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                                        All open and unassigned conversations &nbsp;<span class="badge bg-secondary">6</span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">My open conversations</a></li>
-                                        <li><a class="dropdown-item" href="#">My unresolved conversations</a></li>
-                                        <li><a class="dropdown-item" href="#">My snoozed conversations</a></li>
-                                        <li><a class="dropdown-item" href="#">All open and assigned conversations</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                                <div class="col-sm-4">
 
-                            <div class="col-sm-8">
-
-                                <div class="float-end">
-
-                                    <div class="btn-group">
-
-                                        <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-list"></i> </a>
-                                        <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-table"></i> </a>
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                            All open and unassigned conversations &nbsp;<span class="badge bg-secondary">6</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">My open conversations</a></li>
+                                            <li><a class="dropdown-item" href="#">My unresolved conversations</a></li>
+                                            <li><a class="dropdown-item" href="#">My snoozed conversations</a></li>
+                                            <li><a class="dropdown-item" href="#">All open and assigned conversations</a></li>
+                                        </ul>
                                     </div>
+                                </div>
 
-                                    <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-edit"></i> </a>
+                                <div class="col-sm-8">
 
-                                    <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-filter"></i>  </a>
+                                    <div class="float-end">
 
-                                    <a class="btn btn-default" href="javascript:void(0)"><i class="fas fa-sort"></i>  </a>
+                                        <div class="btn-group">
+
+                                            <a class="btn btn-default btn-sm" href="list-conversation.html"><i class="fas fa-list"></i> </a>
+                                            <a class="btn btn-default btn-sm" href="conversation.html"><i class="fas fa-table"></i> </a>
+                                        </div>
+
+                                        <a class="btn btn-default btn-sm" href="javascript:void(0)"><i class="fas fa-edit"></i> </a>
+
+                                        <a class="btn btn-default btn-sm" href="javascript:void(0)"><i class="fas fa-filter"></i>  </a>
+
+                                        <a class="btn btn-default btn-sm" href="javascript:void(0)"><i class="fas fa-sort"></i>  </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card card-light">
+                        <div class="card card-light rounded-top-0 shadow-none border-top-0">
 
                             <div class="card-body p-0">
 
@@ -319,122 +380,66 @@
         }
     });
 
-    // const avatars = [
-    //     { id: 1, name: "John Doe", status: 'Open', conversation: 'Okay, I\'ll try that. Thanks!', image: "https://adminlte.io/themes/v3/dist/img/avatar4.png" },
-    //     { id: 2, name: "Jane Smith", status: 'Open', conversation: 'Hello there', image: "https://adminlte.io/themes/v3/dist/img/avatar3.png" },
-    //     { id: 3, name: "Alice Johnson", status: 'Open', conversation: 'Good morning',  image: "https://adminlte.io/themes/v3/dist/img/avatar2.png" },
-    //     { id: 4, name: "Bob Brown", status: 'Open', conversation: 'Happy to connect with you',  image: "https://adminlte.io/themes/v3/dist/img/avatar.png" },
-    // ];
-
     const avatars = [
-        {
-            id: 1,
-            name: "John Doe",
-            image: "https://adminlte.io/themes/v3/dist/img/avatar4.png",
-            conversation: "Hello, how are you?",
-            status: "Open",
-            agent: "Agent 1",
-            lastUpdated: "a day ago",
-            dueBy: "--",
-        },
-        {
-            id: 2,
-            name: "Jane Smith",
-            image: "https://adminlte.io/themes/v3/dist/img/avatar3.png",
-            conversation: "Let's catch up soon!",
-            status: "Closed",
-            agent: "Agent 2",
-            lastUpdated: "2 weeks ago",
-            dueBy: "2023-10-05",
-        },
-        {
-            id: 3,
-            name: "Alice Johnson",
-            image: "https://adminlte.io/themes/v3/dist/img/avatar2.png",
-            conversation: "Nice to meet you!",
-            status: "Pending",
-            agent: "Agent 3",
-            lastUpdated: "2023-09-30",
-            dueBy: "--",
-        },
-        {
-            id: 4,
-            name: "Bob Brown",
-            image: "https://adminlte.io/themes/v3/dist/img/avatar.png",
-            conversation: "See you tomorrow!",
-            status: "Open",
-            agent: "Agent 4",
-            lastUpdated: "5 mins ago",
-            dueBy: "2023-10-12",
-        },
+        { id: 1, name: "John Doe", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "Hello, how are you?", status: "Open", agent: "Agent 1", lastUpdated: "a day ago", dueBy: "--" },
+        { id: 2, name: "Jane Smith", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "Let's catch up soon!", status: "Closed", agent: "Agent 2", lastUpdated: "2 weeks ago", dueBy: "2023-10-05" },
+        { id: 3, name: "Alice Johnson", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Nice to meet you!", status: "Pending", agent: "Agent 3", lastUpdated: "2023-09-30", dueBy: "--" },
+        { id: 4, name: "Bob Brown", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "See you tomorrow!", status: "Open", agent: "Agent 4", lastUpdated: "5 mins ago", dueBy: "2023-10-12" },
+        { id: 5, name: "Charlie Davis", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Can you help me?", status: "Open", agent: "Agent 5", lastUpdated: "1 hour ago", dueBy: "2023-10-15" },
+        { id: 6, name: "Eva Green", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "Thanks for the update!", status: "Closed", agent: "Agent 6", lastUpdated: "3 days ago", dueBy: "2023-10-10" },
+        { id: 7, name: "Frank White", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Let's schedule a meeting.", status: "Pending", agent: "Agent 7", lastUpdated: "2023-09-25", dueBy: "--" },
+        { id: 8, name: "Grace Hall", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "I have a question.", status: "Open", agent: "Agent 8", lastUpdated: "10 mins ago", dueBy: "2023-10-20" },
+        { id: 9, name: "Henry Adams", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "Please review this.", status: "Closed", agent: "Agent 9", lastUpdated: "1 week ago", dueBy: "2023-10-01" },
+        { id: 10, name: "Ivy Clark", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Looking forward to it!", status: "Pending", agent: "Agent 10", lastUpdated: "2023-09-28", dueBy: "--" },
+        { id: 11, name: "Jack Evans", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "Can we reschedule?", status: "Open", agent: "Agent 11", lastUpdated: "2 hours ago", dueBy: "2023-10-18" },
+        { id: 12, name: "Karen Lee", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Thanks for your help!", status: "Closed", agent: "Agent 12", lastUpdated: "4 days ago", dueBy: "2023-10-08" },
+        { id: 13, name: "Leo Martinez", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "Let's discuss this further.", status: "Pending", agent: "Agent 13", lastUpdated: "2023-09-22", dueBy: "--" },
+        { id: 14, name: "Mia Garcia", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "I need assistance.", status: "Open", agent: "Agent 14", lastUpdated: "30 mins ago", dueBy: "2023-10-25" },
+        { id: 15, name: "Noah Wilson", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Please check this out.", status: "Closed", agent: "Agent 15", lastUpdated: "6 days ago", dueBy: "2023-10-03" },
     ];
 
     // Function to create a table row with avatar and checkbox
     function createAvatarRow(avatar) {
         const row = document.createElement("tr");
-        row.className = "align-middle";
+        row.className = "table-row align-middle";
+
+        // Navigation on row click (except for the checkbox)
+        row.addEventListener("click", (event) => {
+            if (!event.target.matches("input[type='checkbox']")) {
+                window.location.href = `list-conversation.html?id=${avatar.id}`;
+            }
+        });
 
         // Avatar & Name column
         const avatarCell = document.createElement("td");
         const avatarContainer = document.createElement("div");
         avatarContainer.className = "avatar-container";
-        avatarContainer.id = `avatar-container-${avatar.id}`;
 
-        // Avatar image
         const avatarImage = document.createElement("img");
         avatarImage.src = avatar.image;
-        avatarImage.alt = "Avatar";
         avatarImage.className = "avatar-image";
 
-        // Checkbox overlay
         const checkboxOverlay = document.createElement("div");
         checkboxOverlay.className = "checkbox-overlay";
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
-        checkbox.id = `avatar-checkbox-${avatar.id}`;
 
-        // Add event listener to handle checkbox state
+        // Handle checkbox state
         checkbox.addEventListener("change", function () {
-            if (this.checked) {
-                avatarContainer.classList.add("checked"); // Hide avatar and show checkbox permanently
-            } else {
-                avatarContainer.classList.remove("checked"); // Show avatar again
-            }
+            avatarImage.style.opacity = this.checked ? "0" : "1";  // Toggle avatar visibility
         });
 
         checkboxOverlay.appendChild(checkbox);
         avatarContainer.appendChild(avatarImage);
         avatarContainer.appendChild(checkboxOverlay);
-
-        // Name
-        const nameSpan = document.createElement("span");
-        nameSpan.textContent = avatar.name;
-        avatarContainer.appendChild(nameSpan);
-
+        avatarContainer.appendChild(document.createTextNode(avatar.name));
         avatarCell.appendChild(avatarContainer);
         row.appendChild(avatarCell);
 
         // Conversation column
         const conversationCell = document.createElement("td");
-        conversationCell.className = "align-middle";
-
-        // Create a container for the icon and text
-        const conversationContainer = document.createElement("div");
-        conversationContainer.className = "conversation-cell";
-
-
-        // Add conversation text
-        const conversationText = document.createElement("span");
-        conversationText.textContent = avatar.conversation;
-        conversationContainer.appendChild(conversationText);
-
-        // Add Font Awesome reply icon
-        const replyIcon = document.createElement("i");
-        replyIcon.className = "fas fa-reply text-secondary ms-1 opacity-75"; // Font Awesome reply icon
-        conversationContainer.appendChild(replyIcon);
-
-        conversationCell.appendChild(conversationContainer);
+        conversationCell.innerHTML = `<div class="conversation-cell">${avatar.conversation} <i class="fas fa-reply text-secondary ms-1"></i></div>`;
         row.appendChild(conversationCell);
 
         // Status column
@@ -463,13 +468,11 @@
         return row;
     }
 
-    // Function to populate the table with avatars
+    // Function to populate the table
     function populateTable() {
         const tableBody = document.getElementById("avatar-table-body");
-        avatars.forEach((avatar) => {
-            const row = createAvatarRow(avatar);
-            tableBody.appendChild(row);
-        });
+        tableBody.innerHTML = ""; // Clear existing content
+        avatars.forEach((avatar) => tableBody.appendChild(createAvatarRow(avatar)));
     }
 
     // Populate the table on page load
