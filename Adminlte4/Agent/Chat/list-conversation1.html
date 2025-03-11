@@ -121,6 +121,13 @@
             background-color: var(--bs-secondary-bg);
             border: 1px solid var(--bs-border-color);
         }
+
+        #contactDiv {
+            display: none;
+        }
+        #propertyDiv {
+            display: none;
+        }
     </style>
 </head>
 
@@ -273,8 +280,8 @@
 
                                     <div class="float-end">
 
-                                        <a class="btn btn-default btn-sm" id="contactButton" href="javascript:void(0)"><i class="fas fa-eye-slash"></i> Hide Contact Info </a>
-                                        <a class="btn btn-default btn-sm" id="propertyButton" href="javascript:void(0)"><i class="fas fa-eye-slash"></i> Hide Conversation Properties </a>
+                                        <a class="btn btn-default btn-sm" id="contactButton" href="javascript:void(0)"><i class="fas fa-eye"></i> Show Contact Info </a>
+                                        <a class="btn btn-default btn-sm" id="propertyButton" href="javascript:void(0)"><i class="fas fa-eye"></i> Show Conversation Properties </a>
 
                                         <div class="btn-group">
 
@@ -583,12 +590,12 @@
 
         button.addEventListener('click', function() {
 
-            if (div.style.display === 'block' || div.style.display === '') {
-                div.style.display = 'none';
-                button.innerHTML = '<i class="fas fa-eye"></i> Show ' + text;
-            } else {
+            if (div.style.display === 'none' || div.style.display === '') {
                 div.style.display = 'block';
                 button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide ' + text;
+            } else {
+                div.style.display = 'none';
+                button.innerHTML = '<i class="fas fa-eye"></i> Show ' + text;
             }
 
             updateChatDiv();
@@ -599,11 +606,14 @@
     toggleVisibility('propertyButton', 'propertyDiv', 'Conversation Properties');
 
     function updateChatDiv() {
+
         const cDiv = document.getElementById('contactDiv');
         const pDiv = document.getElementById('propertyDiv');
         const chatDiv = document.getElementById('chatDiv');
 
-        if (cDiv.style.display === 'none' && pDiv.style.display === 'none') {
+        console.log(cDiv.style.display,'cDiv.style.display')
+        console.log(pDiv.style.display,'pDiv.style.display')
+        if ((cDiv.style.display === 'none' || cDiv.style.display === '') && (pDiv.style.display === 'none' || pDiv.style.display === '')) {
             chatDiv.className = 'col-sm-9 border-right border-start';
         } else {
             chatDiv.className = 'col-sm-6 border-right border-start';
