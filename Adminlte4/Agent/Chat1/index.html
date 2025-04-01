@@ -22,7 +22,7 @@
     </style>
 </head>
 
-<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm">
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm fs-7">
 
 <div class="app-wrapper">
 
@@ -58,7 +58,7 @@
                             <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
 
                             <p>
-                                Sakthivel Munusami - Lead Frontend Developer
+                                Sakthivel Munusami- Lead Frontend Developer
                                 <small>Member since Sept. 2017</small>
                             </p>
                         </li>
@@ -111,7 +111,11 @@
 
                                 <a href="inbox.html" class="nav-link">
 
-                                    <i class="nav-icon fas fa-inbox"></i> <p>Inbox</p>
+                                    <i class="nav-icon fas fa-inbox"></i>
+
+                                    <p>Inbox
+                                        <span class="nav-badge badge text-bg-danger me-3">6</span>
+                                    </p>
                                 </a>
                             </li>
 
@@ -135,7 +139,11 @@
 
                                 <a href="monitor.html" class="nav-link">
 
-                                    <i class="nav-icon fas fa-wave-square"></i> <p>Monitoring</p>
+                                    <i class="nav-icon fas fa-wave-square"></i>
+
+                                    <p>Monitoring
+                                        <span class="nav-badge badge text-bg-success me-3">12</span>
+                                    </p>
                                 </a>
                             </li>
 
@@ -180,11 +188,25 @@
 
                     <div class="col-sm-6">
 
-                        <div class="card card-light">
+                        <div class="card">
 
-                            <div class="card-header">
+                            <div class="card-header border-0">
 
                                 <h3 class="card-title">Live Visitors</h3>
+
+                                <div class="card-tools">
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-light border btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-calendar"></i> Live Now
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
+                                            <a href="#" class="dropdown-item">This Week</a>
+                                            <a href="#" class="dropdown-item">Last Week</a>
+                                            <a href="#" class="dropdown-item">This Month</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="card-body h-320">
@@ -213,9 +235,9 @@
 
                                     <div class="card-header border-0">
 
-                                        <h3 class="card-title">
+                                        <h3 class="card-title fw-bold">
 
-                                            <i class="fas fa-users text-info"></i> Visitors
+                                            <i class="fas fa-users text-info"></i> &nbsp;Visitors
                                         </h3>
                                     </div>
 
@@ -239,9 +261,9 @@
 
                                     <div class="card-header border-0">
 
-                                        <h3 class="card-title">
+                                        <h3 class="card-title fw-bold">
 
-                                            <i class="fas fa-comment-dots text-danger"></i> Chats
+                                            <i class="fas fa-comment-dots text-danger"></i> &nbsp;Chats
                                         </h3>
                                     </div>
 
@@ -269,9 +291,9 @@
 
                                     <div class="card-header border-0">
 
-                                        <h3 class="card-title">
+                                        <h3 class="card-title fw-bold">
 
-                                            <i class="fas fa-eye text-warning"></i> Page Views
+                                            <i class="fas fa-eye text-warning"></i> &nbsp;Page Views
                                         </h3>
                                     </div>
 
@@ -295,9 +317,9 @@
 
                                     <div class="card-header border-0">
 
-                                        <h3 class="card-title">
+                                        <h3 class="card-title fw-bold">
 
-                                            <i class="far fa-chart-bar text-success"></i> Reporting
+                                            <i class="fas fa-signal text-success"></i> &nbsp;Reporting
                                         </h3>
                                     </div>
 
@@ -360,82 +382,77 @@
 
                 <div class="row mt-4">
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
 
-                        <div class="card card-light">
+                        <div class="card">
 
-                            <div class="card-header">
+                            <div class="card-header border-0">
 
-                                <h3 class="card-title">Chat customer satisfaction</h3>
+                                <h3 class="card-title">History</h3>
                             </div>
 
-                            <div class="card-body h-320">
+                            <div class="card-body table-responsive p-0">
 
-                                <h5 class="mt-2"> <b>10</b> <span class="fs-6 text-secondary">Responses received</span> </h5>
+                                <table class="table table-striped table-valign-middle">
 
-                                <div class="mt-5 d-flex justify-content-between align-items-center mb-3 px-5">
+                                    <thead>
 
-                                    <p class="d-flex flex-column text-center">
+                                    <tr>
+                                        <th>Visitor</th>
+                                        <th>Agent</th>
+                                        <th>Time</th>
+                                    </tr>
 
-                                        <span class="fw-bold fs-1">
+                                    </thead>
+                                    <tbody>
 
-                                            <i class="bi bi-emoji-smile text-success"></i>
-                                        </span>
-
-                                        <span class="text-success fs-6 mb-2">Positive</span>
-                                        <b class="fs-4">75.5 %</b>
-                                    </p>
-
-                                    <p class="d-flex flex-column text-center">
-
-                                        <span class="fw-bold fs-1">
-
-                                            <i class="bi bi-emoji-smile text-danger"></i>
-                                        </span>
-
-                                        <span class="text-danger fs-6 mb-2">Negative</span>
-
-                                        <b class="fs-4">24.5 %</b>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-
-                        <div class="card card-light">
-
-                            <div class="card-header">
-
-                                <h3 class="card-title">All available agents</h3>
-
-                                <div class="card-tools">
-                                    <a href="javascript:;" class="btn btn-tool btn-sm"> <i class="bi bi-eye"></i> View all </a>
-                                </div>
-                            </div>
-
-                            <div class="card-body h-320">
-
-                                <div class="row mt-5">
-
-                                    <div class="col-sm-6">
-
-                                        <p class="d-flex flex-column">
-
-                                            <span>Agents on Chat </span>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-sm-6 text-end">
-
-                                        <b>10</b> &nbsp;available
-                                    </div>
-                                </div>
+                                    <tr>
+                                        <td>
+                                            <img src="../../../dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2"> James bond 1
+                                        </td>
+                                        <td>Sakthivel Munusami</td>
+                                        <td>31/Mar 17:53</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="../../../dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2"> James bond 2
+                                        </td>
+                                        <td>Sakthivel Munusami</td>
+                                        <td>31/Mar 17:53</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="../../../dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2"> James bond 3
+                                        </td>
+                                        <td>Sakthivel Munusami</td>
+                                        <td>31/Mar 17:53</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="../../../dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2"> James bond 4
+                                        </td>
+                                        <td>Sakthivel Munusami</td>
+                                        <td>31/Mar 17:53</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="../../../dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2"> James bond 5
+                                        </td>
+                                        <td>Sakthivel Munusami</td>
+                                        <td>31/Mar 17:53</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="../../../dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2"> James bond 6
+                                        </td>
+                                        <td>Sakthivel Munusami</td>
+                                        <td>31/Mar 17:53</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -552,10 +569,6 @@
     //-----------------
 </script>
 
-<script
-        src='//in.fw-cdn.com/32298145/1240017.js'
-        chat='true'>
-</script>
 </body>
 
 </html>

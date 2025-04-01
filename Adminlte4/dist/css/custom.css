@@ -92,3 +92,9 @@ a {
 .h-320 { height: 320px !important; }
 
 .h-128 { height: 128px !important; }
+
+.btn-light {
+    border-color: #c6c7c8;
+    box-shadow: none;
+    color: #444;
+}

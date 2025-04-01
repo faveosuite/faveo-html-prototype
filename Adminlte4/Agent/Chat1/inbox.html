@@ -1,10 +1,585 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Admin Panel">
+    <meta name="author" content="Sakthivel Munusami">
+    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../dist/css/adminlte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="../../dist/assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../dist/css/custom.css">
+
+    <style>
+
+        .card .nav.flex-column:not(.nav-sidebar)>li {
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+            margin: 0;
+        }
+
+        .nav-pills .nav-link {
+            color: #6c757d;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: .25rem;
+        }
+        .nav-link {
+            display: block;
+            padding: .5rem 1rem;
+        }
+
+        .card .nav.flex-column:not(.nav-sidebar)>li:last-of-type {
+            border-bottom: 0;
+        }
+
+        .card .nav.flex-column:not(.nav-sidebar)>li {
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+            margin: 0;
+        }
+
+        .btn-default{
+            background-color: #f8f9fa;
+            border-color: #ddd;
+            color: #444;
+        }
+        /* Custom CSS */
+        .table-row {
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Light background when hovering over the row */
+        .table-row:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Show the checkbox when hovering over the row */
+        .table-row:hover .checkbox-overlay {
+            opacity: 1;
+        }
+
+        /* Apply your existing styles */
+        .avatar-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between avatar and name */
+            margin: 5px;
+        }
+
+        .avatar-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+            border: 3px solid #ddd;
+            padding: 2px;
+        }
+
+        .checkbox-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: white; /* White background for the checkbox */
+            border-radius: 50%; /* Make the overlay round */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+            border: 3px solid #ddd;
+        }
+
+        /* Hide the avatar and show the checkbox when hovering on the row */
+        .table-row:hover .avatar-image {
+            opacity: 0;
+        }
+
+        .avatar-container:hover .avatar-image {
+            opacity: 0; /* Keep this in case of direct hover on avatar */
+        }
+
+        .table-row:hover .checkbox-overlay {
+            opacity: 1;
+        }
+
+        /* Checkbox styling */
+        .checkbox-overlay input[type="checkbox"] {
+            width: 13px;
+            height: 13px;
+            cursor: pointer;
+            border: 2px solid #ccc; /* Default border color */
+            border-radius: 4px; /* Slightly rounded corners */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect on the checkbox */
+        .checkbox-overlay input[type="checkbox"]:hover {
+            border-color: #007bff; /* Change border color on hover */
+            transform: scale(1.1); /* Slightly enlarge the checkbox */
+            background-color: #f0f8ff; /* Light blue background on hover */
+        }
+
+        /* Keep checkbox visible when checked */
+        .avatar-container.checked .avatar-image {
+            visibility: hidden; /* Hide the avatar image */
+        }
+
+        .avatar-container.checked .checkbox-overlay {
+            opacity: 1; /* Show the checkbox permanently */
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-transform: capitalize;
+            font-size: 12px;
+        }
+
+        .status-badge.open {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .status-badge.closed {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .status-badge.pending {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        @media (min-width: 992px) {
+            .sidebar-expand-lg.layout-fixed .app-main {
+                overflow: unset !important;
+            }
+        }
+
+        .sticky-card {
+            position: sticky;
+            top: -1px;
+            z-index: 1000;
+        }
+    </style>
 </head>
-<body>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm fs-7">
+
+<div class="app-wrapper">
+
+    <nav class="app-header navbar navbar-expand bg-body">
+
+        <div class="container-fluid">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-lte-toggle="sidebar" href="javascript:;" role="button">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown user-menu">
+
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                        <img src="../../dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image">
+
+                        <span class="d-none d-md-inline">Sakthivel Munusami</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+
+                        <li class="user-header text-bg-light">
+
+                            <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
+
+                            <p>
+                                Sakthivel Munusami- Lead Frontend Developer
+                                <small>Member since Sept. 2017</small>
+                            </p>
+                        </li>
+                        <li class="user-footer">
+
+                            <a href="javascript:;" class="btn btn-light border">Profile</a>
+
+                            <a href="javascript:;" class="btn btn-light border float-end">Sign out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
+
+        <div class="sidebar-brand">
+
+            <a href="javascript:;" class="brand-link">
+
+                <img src="../../dist/assets/img/faveo.png" alt="Faveo Logo" class="brand-image opacity-75 shadow">
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+
+            <nav class="mt-2">
+
+                <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item menu-open">
+
+                        <a href="javascript:;" class="nav-link active">
+
+                            <i class="nav-icon far fa-rectangle-list"></i> <p> Chat <i class="nav-arrow bi bi-chevron-right"></i></p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+
+                                <a href="index.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-chart-simple"></i> <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="inbox.html" class="nav-link active">
+
+                                    <i class="nav-icon fas fa-inbox"></i>
+
+                                    <p>Inbox
+                                        <span class="nav-badge badge text-bg-danger me-3">6</span>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="contacts.html" class="nav-link">
+
+                                    <i class="nav-icon far fa-address-book"></i> <p>Contacts</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="reports.html" class="nav-link">
+
+                                    <i class="nav-icon far fa-chart-bar"></i> <p>Reports</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="monitor.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-wave-square"></i>
+
+                                    <p>Monitoring
+                                        <span class="nav-badge badge text-bg-success me-3">12</span>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="chats.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-message"></i> <p>Active Chats</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="app-main"> <!--begin::App Content Header-->
+        <div class="app-content-header"> <!--begin::Container-->
+            <div class="container-fluid"> <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">Chat</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Chat
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <a href="javascript:;" class="btn btn-light mb-3 w-100">Compose</a>
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">Chats</h3>
+                            </div>
+
+                            <div class="card-body p-0">
+
+                                <ul class="nav nav-pills flex-column">
+
+                                    <li class="nav-item active">
+
+                                        <a href="javascript:;" class="nav-link">
+
+                                            <i class="fas fa-inbox"></i> All Chats
+
+                                            <span class="badge bg-primary float-end">12</span>
+                                        </a>
+                                    </li>
+
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fas fa-trash-alt"></i> Trash
+                                            <span class="badge bg-danger float-end">65</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fas fa-comment-slash"></i> Spam
+                                            <span class="badge bg-warning float-end">65</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+
+                        <div class="card card-light">
+
+                            <div class="card-body">
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="btn-group">
+
+                                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                                <i class="fas fa-filter"></i> &nbsp;Filter
+                                            </button>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="javascript:;">Assignee</a></li>
+                                                <li><a class="dropdown-item" href="javascript:;">Status</a></li>
+                                                <li><a class="dropdown-item" href="javascript:;">Tags</a></li>
+                                                <li><a class="dropdown-item" href="javascript:;">Updated</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+
+                                        <input type="text" class="form-control w-100" placeholder="Search...">
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive mailbox-messages mt-3">
+
+                                    <table class="table table-striped projects">
+                                        <thead>
+                                        <tr>
+                                            <th class="bg-light py-3"> Customer </th>
+                                            <th class="bg-light py-3"> Conversations </th>
+                                            <th class="bg-light py-3"> Status </th>
+                                            <th class="bg-light py-3"> Agent </th>
+                                            <th class="bg-light py-3"> Last updated </th>
+                                            <th class="bg-light py-3"> Due by </th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody id="avatar-table-body">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+
+        <div class="float-end d-none d-sm-inline">Version 1.0</div>
+
+        <strong> Copyright &copy; 2024&nbsp;
+            <a href="https://www.faveohelpdesk.com/" class="text-decoration-none">Faveo</a>.
+        </strong>All rights reserved.
+    </footer>
+</div>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+<script src="../../dist/js/adminlte.js"></script>
+<script>
+    const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+    const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (
+            sidebarWrapper &&
+            typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+        ) {
+            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                scrollbars: {
+                    theme: Default.scrollbarTheme,
+                    autoHide: Default.scrollbarAutoHide,
+                    clickScroll: Default.scrollbarClickScroll,
+                },
+            });
+        }
+    });
+
+    const avatars = [
+        { id: 1, name: "John Doe", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "Hello, how are you?", status: "Open", agent: "Agent 1", lastUpdated: "a day ago", dueBy: "--" },
+        { id: 2, name: "Jane Smith", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "Let's catch up soon!", status: "Closed", agent: "Agent 2", lastUpdated: "2 weeks ago", dueBy: "2023-10-05" },
+        { id: 3, name: "Alice Johnson", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Nice to meet you!", status: "Pending", agent: "Agent 3", lastUpdated: "2023-09-30", dueBy: "--" },
+        { id: 4, name: "Bob Brown", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "See you tomorrow!", status: "Open", agent: "Agent 4", lastUpdated: "5 mins ago", dueBy: "2023-10-12" },
+        { id: 5, name: "Charlie Davis", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Can you help me?", status: "Open", agent: "Agent 5", lastUpdated: "1 hour ago", dueBy: "2023-10-15" },
+        { id: 6, name: "Eva Green", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "Thanks for the update!", status: "Closed", agent: "Agent 6", lastUpdated: "3 days ago", dueBy: "2023-10-10" },
+        { id: 7, name: "Frank White", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Let's schedule a meeting.", status: "Pending", agent: "Agent 7", lastUpdated: "2023-09-25", dueBy: "--" },
+        { id: 8, name: "Grace Hall", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "I have a question.", status: "Open", agent: "Agent 8", lastUpdated: "10 mins ago", dueBy: "2023-10-20" },
+        { id: 9, name: "Henry Adams", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "Please review this.", status: "Closed", agent: "Agent 9", lastUpdated: "1 week ago", dueBy: "2023-10-01" },
+        { id: 10, name: "Ivy Clark", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Looking forward to it!", status: "Pending", agent: "Agent 10", lastUpdated: "2023-09-28", dueBy: "--" },
+        { id: 11, name: "Jack Evans", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "Can we reschedule?", status: "Open", agent: "Agent 11", lastUpdated: "2 hours ago", dueBy: "2023-10-18" },
+        { id: 12, name: "Karen Lee", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Thanks for your help!", status: "Closed", agent: "Agent 12", lastUpdated: "4 days ago", dueBy: "2023-10-08" },
+        { id: 13, name: "Leo Martinez", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "Let's discuss this further.", status: "Pending", agent: "Agent 13", lastUpdated: "2023-09-22", dueBy: "--" },
+        { id: 14, name: "Mia Garcia", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "I need assistance.", status: "Open", agent: "Agent 14", lastUpdated: "30 mins ago", dueBy: "2023-10-25" },
+        { id: 15, name: "Noah Wilson", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Please check this out.", status: "Closed", agent: "Agent 15", lastUpdated: "6 days ago", dueBy: "2023-10-03" },
+    ];
+
+    // Function to create a table row with avatar and checkbox
+    function createAvatarRow(avatar) {
+        const row = document.createElement("tr");
+        row.className = "table-row align-middle";
+
+        // Navigation on row click (except for the checkbox)
+        row.addEventListener("click", (event) => {
+            if (!event.target.matches("input[type='checkbox']")) {
+                window.location.href = `list-conversation.html?id=${avatar.id}`;
+            }
+        });
+
+        // Avatar & Name column
+        const avatarCell = document.createElement("td");
+        const avatarContainer = document.createElement("div");
+        avatarContainer.className = "avatar-container";
+
+        const avatarImage = document.createElement("img");
+        avatarImage.src = avatar.image;
+        avatarImage.className = "avatar-image";
+
+        const checkboxOverlay = document.createElement("div");
+        checkboxOverlay.className = "checkbox-overlay";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        // Handle checkbox state
+        checkbox.addEventListener("change", function () {
+            avatarImage.style.opacity = this.checked ? "0" : "1";  // Toggle avatar visibility
+        });
+
+        checkboxOverlay.appendChild(checkbox);
+        avatarContainer.appendChild(avatarImage);
+        avatarContainer.appendChild(checkboxOverlay);
+        avatarContainer.appendChild(document.createTextNode(avatar.name));
+        avatarCell.appendChild(avatarContainer);
+        row.appendChild(avatarCell);
+
+        // Conversation column
+        const conversationCell = document.createElement("td");
+        conversationCell.innerHTML = `<div class="conversation-cell">${avatar.conversation} <i class="fas fa-reply text-secondary ms-1"></i></div>`;
+        row.appendChild(conversationCell);
+
+        // Status column
+        const statusCell = document.createElement("td");
+        const statusBadge = document.createElement("span");
+        statusBadge.className = `status-badge ${avatar.status.toLowerCase()}`;
+        statusBadge.textContent = avatar.status;
+        statusCell.appendChild(statusBadge);
+        row.appendChild(statusCell);
+
+        // Agent column
+        const agentCell = document.createElement("td");
+        agentCell.textContent = avatar.agent;
+        row.appendChild(agentCell);
+
+        // Last Updated column
+        const lastUpdatedCell = document.createElement("td");
+        lastUpdatedCell.textContent = avatar.lastUpdated;
+        row.appendChild(lastUpdatedCell);
+
+        // Due By column
+        const dueByCell = document.createElement("td");
+        dueByCell.textContent = avatar.dueBy;
+        row.appendChild(dueByCell);
+
+        return row;
+    }
+
+    // Function to populate the table
+    function populateTable() {
+        const tableBody = document.getElementById("avatar-table-body");
+        tableBody.innerHTML = ""; // Clear existing content
+        avatars.forEach((avatar) => tableBody.appendChild(createAvatarRow(avatar)));
+    }
+
+    // Populate the table on page load
+    populateTable();
+</script>
 
 </body>
+
 </html>
