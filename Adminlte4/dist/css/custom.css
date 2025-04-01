@@ -88,3 +88,7 @@ a {
 .img-circle {
     border-radius: 50%;
 }
+
+.h-320 { height: 320px !important; }
+
+.h-128 { height: 128px !important; }

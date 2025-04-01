@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Admin Panel">
+    <meta name="author" content="Sakthivel Munusami">
+    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../dist/css/adminlte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="../../dist/assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../dist/css/custom.css">
+
+    <style>
+
+        #realTimeChart { height: 250px !important; width: 600px !important; }
+    </style>
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm">
+
+<div class="app-wrapper">
+
+    <nav class="app-header navbar navbar-expand bg-body">
+
+        <div class="container-fluid">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-lte-toggle="sidebar" href="javascript:;" role="button">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown user-menu">
+
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                        <img src="../../dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image">
+
+                        <span class="d-none d-md-inline">Sakthivel Munusami</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+
+                        <li class="user-header text-bg-light">
+
+                            <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
+
+                            <p>
+                                Sakthivel Munusami - Lead Frontend Developer
+                                <small>Member since Sept. 2017</small>
+                            </p>
+                        </li>
+                        <li class="user-footer">
+
+                            <a href="javascript:;" class="btn btn-light border">Profile</a>
+
+                            <a href="javascript:;" class="btn btn-light border float-end">Sign out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
+
+        <div class="sidebar-brand">
+
+            <a href="javascript:;" class="brand-link">
+
+                <img src="../../dist/assets/img/faveo.png" alt="Faveo Logo" class="brand-image opacity-75 shadow">
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+
+            <nav class="mt-2">
+
+                <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item menu-open">
+
+                        <a href="javascript:;" class="nav-link active">
+
+                            <i class="nav-icon far fa-rectangle-list"></i> <p> Chat <i class="nav-arrow bi bi-chevron-right"></i></p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+
+                                <a href="index.html" class="nav-link active">
+
+                                    <i class="nav-icon fas fa-chart-simple"></i> <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="inbox.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-inbox"></i> <p>Inbox</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="contacts.html" class="nav-link">
+
+                                    <i class="nav-icon far fa-address-book"></i> <p>Contacts</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="reports.html" class="nav-link">
+
+                                    <i class="nav-icon far fa-chart-bar"></i> <p>Reports</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="monitor.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-wave-square"></i> <p>Monitoring</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="chats.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-message"></i> <p>Active Chats</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="app-main"> <!--begin::App Content Header-->
+        <div class="app-content-header"> <!--begin::Container-->
+            <div class="container-fluid"> <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">Chat</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Chat
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+
+                        <div class="card card-light">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">Live Visitors</h3>
+                            </div>
+
+                            <div class="card-body h-320">
+
+                                <div class="row mt-4">
+
+                                    <div class="col-md-12">
+
+                                        <div class="chart-responsive">
+
+                                            <canvas id="realTimeChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+
+                                <div class="card">
+
+                                    <div class="card-header border-0">
+
+                                        <h3 class="card-title">
+
+                                            <i class="fas fa-users text-info"></i> Visitors
+                                        </h3>
+                                    </div>
+
+                                    <div class="card-body h-128">
+
+                                        <span class="text-muted">Today</span><br>
+
+                                        <p><b class="fs-4">0</b> <i class="fas fa-arrow-trend-up text-success"></i> 0.0%</p>
+
+                                        <span class="text-muted mt-2"> Last 7 days
+                                            <i class="fas fa-arrow-up text-success ms-2"></i> 1
+                                            <i class="fas fa-arrow-down text-danger ms-2"></i> 1
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+
+                                <div class="card">
+
+                                    <div class="card-header border-0">
+
+                                        <h3 class="card-title">
+
+                                            <i class="fas fa-comment-dots text-danger"></i> Chats
+                                        </h3>
+                                    </div>
+
+                                    <div class="card-body h-128">
+
+                                        <span class="text-muted">Today</span><br>
+
+                                        <p><b class="fs-4">0</b> <i class="fas fa-arrow-trend-up text-success"></i> 0.0%</p>
+
+                                        <span class="text-muted mt-2"> Last 7 days
+                                            <i class="fas fa-arrow-up text-success ms-2"></i> 1
+                                            <i class="fas fa-arrow-down text-danger ms-2"></i> 1
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-3">
+
+                            <div class="col-sm-6">
+
+                                <div class="card">
+
+                                    <div class="card-header border-0">
+
+                                        <h3 class="card-title">
+
+                                            <i class="fas fa-eye text-warning"></i> Page Views
+                                        </h3>
+                                    </div>
+
+                                    <div class="card-body h-128">
+
+                                        <span class="text-muted">Today</span><br>
+
+                                        <p><b class="fs-4">0</b> <i class="fas fa-arrow-trend-up text-success"></i> 0.0%</p>
+
+                                        <span class="text-muted mt-2"> Last 7 days
+                                            <i class="fas fa-arrow-up text-success ms-2"></i> 1
+                                            <i class="fas fa-arrow-down text-danger ms-2"></i> 1
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+
+                                <div class="card">
+
+                                    <div class="card-header border-0">
+
+                                        <h3 class="card-title">
+
+                                            <i class="far fa-chart-bar text-success"></i> Reporting
+                                        </h3>
+                                    </div>
+
+                                    <div class="card-body h-128">
+
+                                        <div class="row">
+
+                                            <div class="col-sm-6">
+
+                                                <p class="d-flex flex-column">
+
+                                                    <span>Positive Sentiment  </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="col-sm-6 text-end text-danger">
+
+                                                <i class="fas fa-arrow-trend-down"></i> <b class="fs-6">0.0%</b>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-sm-6">
+
+                                                <p class="d-flex flex-column">
+
+                                                    <span>Engagement  </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="col-sm-6 text-end text-danger">
+
+                                                <i class="fas fa-arrow-trend-down"></i> <b class="fs-6">0.0%</b>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-sm-6">
+
+                                                <p class="d-flex flex-column">
+
+                                                    <span>Availability  </span>
+                                                </p>
+                                            </div>
+
+                                            <div class="col-sm-6 text-end text-success">
+
+                                                <i class="fas fa-arrow-trend-up"></i> <b class="fs-6">12.0%</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+
+                    <div class="col-sm-4">
+
+                        <div class="card card-light">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">Chat customer satisfaction</h3>
+                            </div>
+
+                            <div class="card-body h-320">
+
+                                <h5 class="mt-2"> <b>10</b> <span class="fs-6 text-secondary">Responses received</span> </h5>
+
+                                <div class="mt-5 d-flex justify-content-between align-items-center mb-3 px-5">
+
+                                    <p class="d-flex flex-column text-center">
+
+                                        <span class="fw-bold fs-1">
+
+                                            <i class="bi bi-emoji-smile text-success"></i>
+                                        </span>
+
+                                        <span class="text-success fs-6 mb-2">Positive</span>
+                                        <b class="fs-4">75.5 %</b>
+                                    </p>
+
+                                    <p class="d-flex flex-column text-center">
+
+                                        <span class="fw-bold fs-1">
+
+                                            <i class="bi bi-emoji-smile text-danger"></i>
+                                        </span>
+
+                                        <span class="text-danger fs-6 mb-2">Negative</span>
+
+                                        <b class="fs-4">24.5 %</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+
+                        <div class="card card-light">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">All available agents</h3>
+
+                                <div class="card-tools">
+                                    <a href="javascript:;" class="btn btn-tool btn-sm"> <i class="bi bi-eye"></i> View all </a>
+                                </div>
+                            </div>
+
+                            <div class="card-body h-320">
+
+                                <div class="row mt-5">
+
+                                    <div class="col-sm-6">
+
+                                        <p class="d-flex flex-column">
+
+                                            <span>Agents on Chat </span>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-sm-6 text-end">
+
+                                        <b>10</b> &nbsp;available
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+
+        <div class="float-end d-none d-sm-inline">Version 1.0</div>
+
+        <strong> Copyright &copy; 2024&nbsp;
+            <a href="https://www.faveohelpdesk.com/" class="text-decoration-none">Faveo</a>.
+        </strong>All rights reserved.
+    </footer>
+</div>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+<script src="../../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+    const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (
+            sidebarWrapper &&
+            typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+        ) {
+            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                scrollbars: {
+                    theme: Default.scrollbarTheme,
+                    autoHide: Default.scrollbarAutoHide,
+                    clickScroll: Default.scrollbarClickScroll,
+                },
+            });
+        }
+    });
+
+    //-------------
+    // - LINE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var ctx = document.getElementById('realTimeChart').getContext('2d');
+
+    // Initial data (6 points)
+    var data = {
+        labels: ['', '', '', '', '', ''], // X-axis hidden
+        datasets: [{
+            label: 'Live Data',
+            data: [0, 1, 0, 1, 1, 2], // Initial values
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 2,
+            fill: false,
+            tension: 0 // Straight lines
+        }]
+    };
+
+    var config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            animation: false, // Smooth real-time effect
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    display: false // Hide X-axis labels
+                },
+                y: {
+                    beginAtZero: true,
+                    min: 0, // Ensure Y-axis starts at 0
+                    max: 10, // Ensure Y-axis goes up to 10
+                    ticks: {
+                        stepSize: 2,
+                        callback: function(value) {
+                            return value;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    var realTimeChart = new Chart(ctx, config);
+
+    function updateChart() {
+        // Generate a random number between 0 and 2
+        var newPoint = 1; // 0, 1, or 2
+
+        // Add new data point
+        realTimeChart.data.datasets[0].data.push(newPoint);
+
+        // Remove the oldest data point to keep the chart moving
+        realTimeChart.data.datasets[0].data.shift();
+
+        // Update the chart
+        realTimeChart.update();
+    }
+
+    // Update the chart every second
+    setInterval(updateChart, 1000);
+
+    //-----------------
+    // - END LINE CHART -
+    //-----------------
+</script>
+
+<script
+        src='//in.fw-cdn.com/32298145/1240017.js'
+        chat='true'>
+</script>
+</body>
+
+</html>
