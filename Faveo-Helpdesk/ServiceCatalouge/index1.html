@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Faveo | Service Catalogue</title>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            font-size: 0.87rem;
+        }
+        .text-primary{
+            color: #17a2b8 !important;
+        }
+        .btn-primary{
+            background-color: #3C8DBC;
+            width: 120px;
+            /* border: 1px solid #17a2b8; */
+            border: 1px solid #3C8DBC;
+        }
+        .btn-act{
+            background: #dcdcdc !important;
+        }
+        table{
+            overflow-x: scroll;
+        }
+        .card-header{
+            background-color: #ebebeb;
+        }
+        .nav-link{
+            color: #000;
+        }
+        .nav-sidebar .nav-item>.nav-link {
+            padding: .4rem .8rem !important;
+        }
+        .info-row{
+            border-top: 1px solid #f4f4f4;
+            padding: 10px;
+        }
+
+        .btn-close{
+            background: transparent !important;
+            border: none !important;
+            font-size: 30px;
+            color: #555555;
+        }
+
+        .modal-header{
+            border: none !important;
+        }
+
+        th:not(.checkbox-column),
+        td:not(.checkbox-column) {
+            width: 500px;
+        }
+        .checkbox-column {
+            width: 50px;
+        }
+        #search-bar{
+            border: 1px solid gray;
+        }
+
+        .category-list{
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .category-list li {
+            list-style-type: none;
+            padding: 7px 20px;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+        }
+
+        .category-list li.active {
+            border-left: 4px solid #3C8DBC;
+            background-color: #fff;
+        }
+
+        .category-list li:hover {
+            background-color: #fff;
+            border-left: 4px solid #3C8DBC;
+        }
+        #category_col{
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" role="button"><i
+                        class="fas fa-bars"></i>
+                </a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#"
+                   class="nav-link">Home</a></li>
+        </ul>
+        <!-- <ul class="navbar-nav ml-auto"><li class="nav-item user-menu"><a class="nav-link" data-toggle="dropdown" aria-expanded="true"><img src="../product/uploads/download (4).jpg" class="user-image img-circle elevation-2" alt="User Image"><span class="d-none d-md-inline">Ladybird Administrator</span></a></li><li class="nav-item"><a class="nav-link v-popper--has-tooltip" href="javascript:;" role="button"><i class="fas fa-power-off"></i></a></li></ul> -->
+        <ul   class="navbar-nav ml-auto">
+            <li   class="nav-item"><!----></li>
+            <li class="nav-item"><a class="nav-link v-popper--has-tooltip"
+                                    href="#"><i
+                    class="fa-solid fas fa-user-gear m-auto"></i></a>
+            </li>
+            <a   class="nav-link" href="javascript:;">
+                <div  ><i   class="fas fa-search"></i></div>
+            </a><!----><!---->
+            <li     class="nav-item dropdown"><a   class="nav-link font-1"
+                                                   data-toggle="dropdown" href="javascript:;">
+                <div  ><i   class="far fa-bell"></i>
+                    <div   class="indicator" style="border-color: rgb(248, 249, 250);"></div>
+                </div>
+            </a>
+                <div   class="dropdown-menu dropdown-menu-xl dropdown-menu-right inapp-notify-drop"><span
+                        class="dropdown-header">You have 10 unread notification(s)</span>
+                    <div   class="dropdown-header notify-actions row">
+                        <div   class="row">
+                            <div   class="col-sm-6 read"><a   href="javascript:;"><span
+                            ><i   class="fas fa-circle"></i></span>&nbsp;Mark all as read</a>
+                            </div>
+                            <div   class="col-sm-6 delete"><a   href="javascript:;" class="right"><span
+                            ><i   class="fas fa-trash-alt"></i></span>&nbsp;Delete all</a></div>
+                        </div>
+                    </div>
+                    <div   class="scrollable-ul" id="activity_scroll">
+                        <div  >
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">New release release 1 has been
+                                        created in the system</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:41 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="#"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">Reminder: Your approval is
+                                        pending for a change #CHN-1</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:38 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="#"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">Reminder: Your approval is
+                                        pending for a change #CHN-1</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:37 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="#"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">Your approval requested for a
+                                        change #CHN-1</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:37 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">Change change 1 has been
+                                        submitted for CAB approval.</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:36 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">Change change 1 has been
+                                        assigned to you.</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:35 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">New change change 1 has been
+                                        created in the system</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:35 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">Problem problem 1 has been
+                                        assigned to Demo Agent</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:33 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Manju</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">New problem problem 1 has been
+                                        created in the system</p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 26, 2024 12:33 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div   class="dropdown-divider"></div><a   href="javascript:;"
+                                                                       class="dropdown-item bg-light">
+                            <div   class="media"><img   id="size-30"
+                                                        src="#"
+                                                        class="img-size-50 mr-3 img-circle elevation-2" alt="User Image" width="0" height="0">
+                                <div   class="media-body">
+                                    <h3   class="dropdown-item-title text-primary v-popper--has-tooltip">Elea</h3>
+                                    <p   class="text-gray break-word v-popper--has-tooltip">Invalid login attempt detected.
+                                    </p>
+                                    <p   class="text-xs text-muted"><i   class="far fa-clock mr-1"></i> <i
+                                    >August 21, 2024 06:35 pm</i></p>
+                                </div>
+                            </div>
+                        </a>
+                            <div data-v-9d82030b=""  ><!--v-if--><!--v-if--><!--v-if--></div>
+                        </div>
+                    </div><!---->
+                </div><!---->
+            </li>
+            <li   id="nav-id" class="nav-item">
+                <div id="pending-invoices" data-v-app=""><!----></div>
+            </li>
+            <li data-v-9d3ffd8e=""   class="nav-item dropdown"><a data-v-9d3ffd8e="" class="nav-link"
+                                                                  data-toggle="dropdown" href="javascript:;"><img data-v-9d3ffd8e=""
+                                                                                                                  src=""></a>
+                <div data-v-9d3ffd8e="" class="dropdown-menu dropdown-menu-sm dropdown-menu-right p-0" id="lang_div"><a
+                        data-v-9d3ffd8e="" href="javascript:;" class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                          src=""
+                                                                                          class="mr-2"> &nbsp; Arabic &nbsp;‏(العربية)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                               class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                          src="g"
+                                                                                                                                                                          class="mr-2"> &nbsp; Bosnian &nbsp;‏(босански)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                 class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                            src="s.png"
+                                                                                                                                                                                                                                                            class="mr-2"> &nbsp; Chinese &nbsp;‏(中文 [Simplified])‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                            class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                       src="t.png"
+                                                                                                                                                                                                                                                                                                                                                       class="mr-2"> &nbsp; Chinese &nbsp;‏(中文 [Traditional])‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                        class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                   src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                   class="mr-2"> &nbsp; Dutch &nbsp;‏(Vlaams)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 class="mr-2"> &nbsp; English - United States &nbsp;‏(English)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  src="png"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  class="mr-2"> &nbsp; English - United Kingdom &nbsp;‏(English)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    class="mr-2"> &nbsp; French &nbsp;‏(français)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     class="mr-2"> &nbsp; German &nbsp;‏(Deutsch)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     class="mr-2"> &nbsp; Indonesian &nbsp;‏(Bahasa Indonesia)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  class="mr-2"> &nbsp; Italian &nbsp;‏(Italiano)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    class="mr-2"> &nbsp; Korean &nbsp;‏(한국어)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="mr-2"> &nbsp; Maltese &nbsp;‏(Malti)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               class="mr-2"> &nbsp; Norwegian &nbsp;‏(Norsk)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="mr-2"> &nbsp; Portuguese &nbsp;‏(Português)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      class="mr-2"> &nbsp; Russian &nbsp;‏(Русский)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       class="mr-2"> &nbsp; Spanish &nbsp;‏(Español)‏ </a><a data-v-9d3ffd8e="" href="javascript:;"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             class="dropdown-item"><img data-v-9d3ffd8e=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        src=""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="mr-2"> &nbsp; Vietnamese &nbsp;‏(Tiếng Việt)‏ </a><!----></div>
+            </li>
+            <li   class="nav-item dropdown user-menu"><a   href="javascript:;"
+                                                           class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span
+                    class="d-none d-md-inline mr-1 v-popper--has-tooltip" dir="auto">Manju <img
+                    src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                    class="user-image img-circle elevation-2 d-none d-md-inline" alt="User Image"></span><img
+                    id="nav-image" src="https://secure.gravatar.com/avatar/fc67fe26e7453a832daf98d64463fd50?s=80&amp;r=g&amp;d=mm"
+                    class="user-image img-circle elevation-2 d-md-none" alt="User Image" width="0" height="0"></a>
+                <ul
+                        class="dropdown-menu dropdown-menu-sm dropdown-menu-right rounded model-box rounded text-light dropdown-menu-arrow mt-2 rounded">
+                    <li  ><a   href="/sales/poojac/public/panel/profile"
+                               class="dropdown-item dp-data"><i   class="fa fa-user pr-2"></i>Profile</a></li>
+                    <li  ><a   href="javascript:;" class="dropdown-item dp-data mb-4 mt-1"><i
+                            class="fas fa-sign-out-alt pr-2"></i>Sign Out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link text-center">
+            <!-- <img src="Uploads/faveo.png" alt="AdminLTE Logo" class="brand-image  " style="opacity: .8" /> -->
+            <span class="brand-text">Faveo</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="../Promotional-content/uploads/download (4).jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Ladybird Administrator</a>
+                </div>
+            </div>
+
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                       with font-awesome or any other icon font library -->
+                    <li class="nav-item ">
+                        <a href="" class="nav-link">
+                            <p>
+                                HELPDESK
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-ticket-alt"></i>
+                            <p>
+                                Tickets
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New Version</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Versions</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-users"></i>
+                            <p>
+                                Contacts
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New Contact</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Contacts</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-wrench"></i>
+                            <p>
+                                Tools
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New License</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Licenses</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-chart-line"></i>
+                            <p>
+                                Reports
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New Installation</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Installations</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-user"></i>
+                            <p>
+                                Switch to Admin Panel
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <!-- <i class="nav-icon fas fa-solid fa-chart-column"></i> -->
+                            <i class="nav-icon fas fa-home"></i>
+                            <p>
+                                Go to Home
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-sign-out-alt"></i>
+                            <p>
+                                Sign Out
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Server Notifications</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Server Notifications</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item mt-4">
+                        <a href="#" class="nav-link">
+                            <!-- <i class="nav-icon fas fa-solid fa-gears"></i> -->
+                            <p>
+                                SERVICE DESK
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-bug"></i>
+                            <p>
+                                Problems
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New Problem</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Problems</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Open Problems</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-sync-alt"></i>
+                            <p>
+                                Changes
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New Change</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Chnages</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Awaiting for Approval Chan...</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-newspaper"></i>
+                            <p>
+                                Releases
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New Release</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Releases</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-server"></i>
+                            <p>
+                                Assets
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New Asset</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Assets</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Deployed Assets</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-paperclip"></i>
+                            <p>
+                                Contracts
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Create Contract</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Contracts</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Active Contracts</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-solid fa-clipboard-list"></i>
+                            <p>
+                                Software License
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>New Software License</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Software License</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Faveo Service Catalogue</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a class="text-primary" href="#">Home</a></li>
+                             <li class="breadcrumb-item active">Faveo Service Catalogue</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card card-light">
+                    <div class="card-header">
+                                <h3 class="card-title v-popper--has-tooltip">Categories</h3>
+                                <div class="card-tools">
+
+                                    <div class="dropdown mx-1">
+                                        <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Add New
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                            <a href="https://aman.localhost/faveo-prototype/Faveo-Helpdesk/ServiceCatalouge/newCategory.html" class="dropdown-item" style="cursor: pointer;">Service Category</a>
+                                            <a href="https://aman.localhost/faveo-prototype/Faveo-Helpdesk/ServiceCatalouge/newItem.html" class="dropdown-item" style="cursor: pointer;">Service Item</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <div class="row card-body">
+
+                                <aside class="col-md-3">
+
+                                    <div class="card-header col-md-12">
+                                        <span class="card-title">Service Categories</span>
+<!--                                        <button type="button" class="btn btn-xs w-auto m-0 btn-primary card-tools">Sort (A - Z)</button>-->
+                                    </div>
+
+                                    <ul class="category-list card-body px-0 text-lg" style="color: rgba(0,0,0,0.7)">
+                                        <li onclick="replaceTableData(1)" class="rounded tab m-1 active">
+                                            <span><i class="fas fa-folder m-1"></i> All Service Items</span>
+                                        </li>
+                                        <li onclick="replaceTableData(2)" class="rounded tab m-1"> <i class="fas fa-folder m-1"></i> Application Access</li>
+                                        <li onclick="replaceTableData(3)" class="rounded tab m-1"> <i class="fas fa-folder m-1"></i> Collaboration</li>
+                                        <li onclick="replaceTableData(4)" class="rounded tab m-1"> <i class="fas fa-folder m-1"></i> Data Services</li>
+                                        <li onclick="replaceTableData(5)" class="rounded tab m-1"> <i class="fas fa-folder m-1"></i> Hardware Provisioning</li>
+                                        <li onclick="replaceTableData(6)" class="rounded tab m-1"> <i class="fas fa-folder m-1"></i> Software Installation</li>
+                                    </ul>
+                                </aside>
+
+                                <div class="col-md-9">
+                                    <span id="actionButtons">
+                                    <button class="btn btn-default text-dark" id="categoryModalBtn">Move to Category</button>
+                                    <button class="btn btn-default text-dark" id="statusModalBtn">Change Status</button>
+                                    <div class="btn-group">
+                                        <button class="btn btn-default dropdown-toggle text-dark" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Visibility
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Agent Visibility</a></li>
+                                            <li><a class="dropdown-item" href="#">Requester Visibility</a></li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn btn-default text-dark" id="deleteModalBtn">Delete</button>
+                                </span>
+
+                                    <span class="float-right">
+                                    <label class="text-muted" for="search-bar">Search: </label>
+                                    <input type="text" class="p-1 m-2 rounded" id="search-bar" placeholder="Enter to search..." />
+                                </span>
+
+                                    <table class="table table-bordered table-striped table-responsive">
+                                        <thead id="data-header">
+                                        <tr>
+                                            <th class="checkbox-column">
+                                                <input type="checkbox" id="selectAllCheckbox" />
+                                            </th>
+                                            <th>Item</th>
+                                            <th id="category_col">Category</th>
+                                            <th>Usage Type</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="data-list">
+                                        <tr>
+                                            <td class="checkbox-column">
+                                                <input type="checkbox" />
+                                            </td>
+                                            <td><a class="text-primary">New Account</a></td>
+                                            <td><a class="text-primary">Permanent</a></td>
+                                            <td>
+                                                <button class="btn btn-md btn-success">Published</button>
+                                            </td>
+                                            <td>
+                                                <div class="actions-row">
+                                                    <a href="https://leela.faveodemo.com/faveo-html-prototype/Faveo-Helpdesk/product/viewlicense.html" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-copy"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a> &nbsp;
+                                                    <a href="#" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a> &nbsp;
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="checkbox-column">
+                                                <input type="checkbox" />
+                                            </td>
+                                            <td><a class="text-primary">Password Reset</a></td>
+                                            <td><a href="#" class="text-primary">Permanent</a></td>
+                                            <td>
+                                                <button class="btn btn-md btn-warning">Draft</button>
+                                            </td>
+                                            <td>
+                                                <div class="actions-row">
+                                                    <a href="https://leela.faveodemo.com/faveo-html-prototype/Faveo-Helpdesk/product/viewlicense.html" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-copy"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a> &nbsp;
+                                                    <a href="#" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a> &nbsp;
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="checkbox-column">
+                                                <input type="checkbox" />
+                                            </td>
+                                            <td><a class="text-primary">Revoke Application Access</a></td>
+                                            <td><a href="#" class="text-primary">Loaner</a></td>
+                                            <td>
+                                                <button class="btn btn-md btn-success">Published</button>
+                                            </td>
+                                            <td>
+                                                <div class="actions-row">
+                                                    <a href="https://leela.faveodemo.com/faveo-html-prototype/Faveo-Helpdesk/product/viewlicense.html" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-copy"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a> &nbsp;
+                                                    <a href="#" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a> &nbsp;
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                </div>
+            </div>
+
+            <!-- /.col -->
+            <!-- /.row -->
+    <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        Version 1.0.0
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights
+    reserved.
+</footer>
+</div>
+
+<!--      -->
+
+<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModal" aria-hidden="true">
+    <div class="modal-lg modal-dialog modal-dialog-centered" style="max-width: 550px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header pb-0">
+                <div class="modal-title">
+                    <h4>Move to Category</h4>
+                    <div class="text-muted">3 item(s) selected</div>
+                </div>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="categoryItems" class="text-muted text-sm">Category</label>
+<!--                <input id="categoryItems" class="p-1 dropdown-toggle" style="display: block; width: 100%" />-->
+                <select class="p-2 col-sm-12 rounded form-select" id="categoryItems" style="background: none;" aria-label="categorySelect">
+                    <option selected>Revoke Application Access</option>
+                    <option value="1">New Account</option>
+                    <option value="2">Password Reset</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-sm btn-primary w-auto" data-bs-dismiss="modal">Move</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModal" aria-hidden="true">
+    <div class="modal-lg modal-dialog modal-dialog-centered" style="max-width: 550px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header pb-0">
+                <div class="modal-title">
+                    <h4>Change Status</h4>
+                    <div class="text-muted">3 item(s) selected</div>
+                </div>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled">
+                    <label class="form-check-label" for="flexRadioDisabled">
+                        Draft
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked>
+                    <label class="form-check-label" for="flexRadioCheckedDisabled">
+                        Published
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-sm btn-primary w-auto" data-bs-dismiss="modal">Move</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal-lg modal-dialog modal-dialog-centered" style="max-width: 550px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header pb-0">
+                <div class="modal-title">
+                    <h4>Delete Service Item</h4>
+                </div>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <b>3 service items(s) ?</b>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1" role="dialog" aria-labelledby="deleteCategoryModal" aria-hidden="true">
+    <div class="modal-lg modal-dialog modal-dialog-centered" style="max-width: 550px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header pb-0">
+                <div class="modal-title">
+                    <h4>Delete Service Category</h4>
+                </div>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this service category. Associated service items will also be deleted?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/jszip/jszip.min.js"></script>
+<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+        $("#categoryModalBtn").click(function() {
+            $("#categoryModal").modal('show');
+        });
+
+        $("#statusModalBtn").click(function() {
+            $("#statusModal").modal('show');
+        });
+
+        $("#deleteModalBtn").click(function() {
+            $("#deleteModal").modal('show');
+        });
+
+        $("#selectAllCheckbox").click(function() {
+            let isChecked = $(this).prop("checked"); // Check if "Select All" is checked
+            $("input[type='checkbox']").prop("checked", isChecked);
+        })
+
+        function toggleActionButtons() {
+            if ($("input[type='checkbox']:checked").length > 0) {
+                $("#actionButtons").show(); // Show if at least one is checked
+            } else {
+                $("#actionButtons").hide(); // Hide if none are checked
+            }
+
+            if($("input[type='checkbox']:checked").length === 1 && $("#selectAllCheckbox").prop("checked")) {
+                $("#selectAllCheckbox").prop("checked", false);
+                $("#actionButtons").hide();
+            }
+        }
+
+        // Initially hide the action buttons
+        $("#actionButtons").hide();
+
+        // Listen for changes on any checkbox
+        $(document).on("change", "input[type='checkbox']", function() {
+            toggleActionButtons();
+        });
+    });
+
+    const datasets = {
+        1: [
+            { item: 'Adobe Illustrator CC', category: 'Application Access', usage_type: "Permanent", status: "Published" },
+            { item: 'Adobe Indesign', category: 'Software Installation', usage_type: "Permanent", status: "Published" },
+            { item: 'Adobe Photoshop', category: 'Software Installation', usage_type: "Loaner", status: "Draft" },
+            { item: 'Apple iMac', category: 'Application Access', usage_type: "Permanent", status: "Published" },
+            { item: 'Apple Macbook', category: 'Application Access', usage_type: "Loaner", status: "Draft" },
+            { item: 'Data Backup', category: 'Hardware Provisioning', usage_type: "Permanent", status: "Draft" },
+            { item: 'Dell Monitor', category: 'Collaboration', usage_type: "Permanent", status: "Published" },
+            { item: 'Design Software Kit', category: 'Data Services', usage_type: "Loaner", status: "Published" },
+        ],
+        2: [
+            { item: 'Apple iMac', usage_type: "Permanent", status: "Published" },
+            { item: 'Apple Macbook', usage_type: "Loaner", status: "Draft" },
+            { item: 'Adobe Indesign', usage_type: "Permanent", status: "Published" },
+            { item: 'Data Backup', usage_type: "Permanent", status: "Draft" },
+            { item: 'Adobe Illustrator CC', usage_type: "Permanent", status: "Published" },
+            { item: 'Adobe Photoshop', usage_type: "Loaner", status: "Draft" },
+        ],
+        3: [
+            { item: 'Adobe Illustrator CC', usage_type: "Permanent", status: "Published" },
+        ],
+        4: [
+            { item: 'Adobe Illustrator CC', usage_type: "Permanent", status: "Published" },
+            { item: 'Dell Monitor', usage_type: "Permanent", status: "Published" },
+            { item: 'Design Software Kit', usage_type: "Loaner", status: "Published" },
+        ],
+        5: [
+            { item: 'Adobe Illustrator CC', usage_type: "Permanent", status: "Published" },
+            { item: 'Design Software Kit', usage_type: "Loaner", status: "Published" },
+        ],
+        6: [
+            { item: 'Adobe Illustrator CC', usage_type: "Permanent", status: "Published" },
+            { item: 'Adobe Indesign', usage_type: "Permanent", status: "Published" },
+            { item: 'Adobe Photoshop', usage_type: "Loaner", status: "Draft" },
+            { item: 'Apple iMac', usage_type: "Permanent", status: "Published" },
+            { item: 'Design Software Kit', usage_type: "Loaner", status: "Published" },
+        ]
+    };
+
+    function replaceTableData(dataSetNumber) {
+
+        //when some data is checked and we change the active state of category list,
+        // we hide the top action btns and uncheck all checkboxes
+        const elements = document.querySelectorAll("input[type='checkbox']");
+        elements.forEach(element => element.checked = false)
+        $("#actionButtons").hide();
+
+        let tbody = document.querySelector("#data-list");
+        tbody.innerHTML = "";
+
+        datasets[dataSetNumber].forEach(row => {
+            let newRow = tbody.insertRow();
+
+            if(row.category) {
+                document.getElementById('category_col').style.display = 'table-cell';
+                newRow.innerHTML = `<td class="checkbox-column"><input type="checkbox" /></td>
+                                    <td><a class="text-primary">${row.item}</a></td>
+                                    <td><a class="text-primary">${row.category}</a></td>
+                                    <td>${row.usage_type}</td>`;
+                newRow.innerHTML += row.status === 'Draft' ? `<td><button class="btn btn-md btn-warning">${row.status}</button></td>` : `<td><button class="btn btn-md btn-success">${row.status}</button></td>`
+            } else {
+                document.getElementById('category_col').style.display = 'none';
+                newRow.innerHTML = `<td class="checkbox-column"><input type="checkbox" /></td>
+                                    <td><a class="text-primary">${row.item}</a></td>
+                                    <td>${row.usage_type}</td>`;
+                newRow.innerHTML += row.status === 'Draft' ? `<td><button class="btn btn-md btn-warning">${row.status}</button></td>` : `<td><button class="btn btn-md btn-success">${row.status}</button></td>`
+            }
+
+            newRow.innerHTML += `<td>
+                                                <div class="actions-row">
+                                                    <a href="https://leela.faveodemo.com/faveo-html-prototype/Faveo-Helpdesk/product/viewlicense.html" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-copy"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a> &nbsp;
+                                                    <a href="#" class="btn btn-default btn-act ">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>`;
+        });
+    }
+
+
+    document.querySelectorAll(".tab").forEach(tab => {
+        tab.addEventListener("click", function() {
+            document.querySelector("#act-btn")?.remove();
+            document.querySelector(".tab.active")?.classList.remove("active");
+            this.classList.add("active");
+
+            if(this.textContent.trim() === 'All Service Items') return;
+
+            // append action buttons
+            this.innerHTML += `<span class="float-right" id="act-btn">
+                                                    <a href="https://aman.localhost/faveo-prototype/Faveo-Helpdesk/ServiceCatalouge/newCategory.html" style="cursor: pointer; color: black;">
+                                                        <i class="fas fa-edit text-sm mr-1"></i>
+                                                    </a>
+                                                <i class="fas fa-trash text-sm" id="deleteCategoryModalBtn"></i>
+                                            </span>`;
+        });
+    });
+
+    $(document).on("click", "#deleteCategoryModalBtn", function() {
+        $("#deleteCategoryModal").modal('show');
+    });
+</script>
+</body>
+
+</html>
