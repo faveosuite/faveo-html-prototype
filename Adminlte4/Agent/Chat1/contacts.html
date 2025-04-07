@@ -15,6 +15,171 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="../../dist/assets/img/favicon.ico">
     <link rel="stylesheet" href="../../dist/css/custom.css">
+
+    <style>
+
+        .card .nav.flex-column:not(.nav-sidebar)>li {
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+            margin: 0;
+        }
+
+        .nav-pills .nav-link {
+            color: #6c757d;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: .25rem;
+        }
+        .nav-link {
+            display: block;
+            padding: .5rem 1rem;
+        }
+
+        .card .nav.flex-column:not(.nav-sidebar)>li:last-of-type {
+            border-bottom: 0;
+        }
+
+        .card .nav.flex-column:not(.nav-sidebar)>li {
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+            margin: 0;
+        }
+
+        .btn-default{
+            background-color: #f8f9fa;
+            border-color: #ddd;
+            color: #444;
+        }
+        /* Custom CSS */
+        .table-row {
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Light background when hovering over the row */
+        .table-row:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Show the checkbox when hovering over the row */
+        .table-row:hover .checkbox-overlay {
+            opacity: 1;
+        }
+
+        /* Apply your existing styles */
+        .avatar-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between avatar and name */
+            margin: 5px;
+        }
+
+        .avatar-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+            border: 3px solid #ddd;
+            padding: 2px;
+        }
+
+        .checkbox-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: white; /* White background for the checkbox */
+            border-radius: 50%; /* Make the overlay round */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+            border: 3px solid #ddd;
+        }
+
+        /* Hide the avatar and show the checkbox when hovering on the row */
+        .table-row:hover .avatar-image {
+            opacity: 0;
+        }
+
+        .avatar-container:hover .avatar-image {
+            opacity: 0; /* Keep this in case of direct hover on avatar */
+        }
+
+        .table-row:hover .checkbox-overlay {
+            opacity: 1;
+        }
+
+        /* Checkbox styling */
+        .checkbox-overlay input[type="checkbox"] {
+            width: 13px;
+            height: 13px;
+            cursor: pointer;
+            border: 2px solid #ccc; /* Default border color */
+            border-radius: 4px; /* Slightly rounded corners */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect on the checkbox */
+        .checkbox-overlay input[type="checkbox"]:hover {
+            border-color: #007bff; /* Change border color on hover */
+            transform: scale(1.1); /* Slightly enlarge the checkbox */
+            background-color: #f0f8ff; /* Light blue background on hover */
+        }
+
+        /* Keep checkbox visible when checked */
+        .avatar-container.checked .avatar-image {
+            visibility: hidden; /* Hide the avatar image */
+        }
+
+        .avatar-container.checked .checkbox-overlay {
+            opacity: 1; /* Show the checkbox permanently */
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-transform: capitalize;
+            font-size: 12px;
+        }
+
+        .status-badge.open {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .status-badge.closed {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .status-badge.pending {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        @media (min-width: 992px) {
+            .sidebar-expand-lg.layout-fixed .app-main {
+                overflow: unset !important;
+            }
+        }
+
+        .sticky-card {
+            position: sticky;
+            top: -1px;
+            z-index: 1000;
+        }
+
+        .link-hover:hover, .link-hover.active {
+            border-radius: 0.25rem;
+            background: #eee;
+        }
+        </style>
 </head>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm fs-7">
@@ -179,8 +344,90 @@
 
             <div class="container-fluid">
 
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <div class="card">
+
+                            <div class="card-header border-0 p-2 mt-2">
+
+                                <h3 class="card-title">Contacts</h3>
+                            </div>
+
+                            <div class="card-body p-2">
+
+                                <button type="button" class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#composeModal">
+                                    <i class="fas fa-plus"></i> &nbsp;Add Contact
+                                </button>
+
+                                <a href="#" class="nav-link link-hover active">
+                                    <i class="fas fa-user"></i> &nbsp;People
+                                </a>
+                                <a href="#" class="nav-link link-hover mt-1">
+                                    <i class="fas fa-sitemap"></i> &nbsp;Organization
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+
+                        <div class="card card-light">
+
+                            <div class="card-body">
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="btn-group">
+
+                                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                                <i class="fas fa-filter"></i> &nbsp;Filter
+                                            </button>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="javascript:;">Assignee</a></li>
+                                                <li><a class="dropdown-item" href="javascript:;">Status</a></li>
+                                                <li><a class="dropdown-item" href="javascript:;">Tags</a></li>
+                                                <li><a class="dropdown-item" href="javascript:;">Updated</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+
+                                        <input type="text" class="form-control w-100" placeholder="Search...">
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive mailbox-messages mt-3">
+
+                                    <table class="table table-striped projects">
+                                        <thead>
+                                        <tr>
+                                            <th class="bg-light py-3"> Name </th>
+                                            <th class="bg-light py-3"> Email </th>
+                                            <th class="bg-light py-3"> Phone </th>
+                                            <th class="bg-light py-3"> Organization </th>
+                                            <th class="bg-light py-3"> Tags </th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody id="avatar-table-body">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
     </main>
 
     <footer class="app-footer">
@@ -219,7 +466,92 @@
             });
         }
     });
+
+    const avatars = [
+        { id: 1, name: "John Doe", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", email: "test@gmail.com", phone: "9876556789", org: "Org 1", tags: "--" },
+        { id: 2, name: "Jane Smith", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", email: "test@gmail.com", phone: "9876556789", org: "Org 2", tags: "--" },
+        { id: 3, name: "Alice Johnson", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", email: "test@gmail.com", phone: "9876556789", org: "Org 3", tags: "--" },
+        { id: 4, name: "Bob Brown", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", email: "test@gmail.com", phone: "9876556789", org: "Org 4", tags: "--" },
+        { id: 5, name: "Charlie Davis", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", email: "test@gmail.com", phone: "9876556789", org: "Org 5", tags: "--" },
+        { id: 6, name: "Eva Green", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", email: "test@gmail.com", phone: "9876556789", org: "Org 6", tags: "--" },
+        { id: 7, name: "Frank White", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", email: "test@gmail.com", phone: "9876556789", org: "Org 7", tags: "--" },
+        { id: 8, name: "Grace Hall", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", email: "test@gmail.com", phone: "9876556789", org: "Org 8", tags: "--" },
+        { id: 9, name: "Henry Adams", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", email: "test@gmail.com", phone: "9876556789", org: "Org 9", tags: "--" },
+        { id: 10, name: "Ivy Clark", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", email: "test@gmail.com", phone: "9876556789", org: "Org 10", tags: "--" },
+        { id: 11, name: "Jack Evans", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", email: "test@gmail.com", phone: "9876556789", org: "Org 11", tags: "--" },
+        { id: 12, name: "Karen Lee", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", email: "test@gmail.com", phone: "9876556789", org: "Org 12", tags: "--" },
+        { id: 13, name: "Leo Martinez", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", email: "test@gmail.com", phone: "9876556789", org: "Org 13", tags: "--" },
+        { id: 14, name: "Mia Garcia", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", email: "test@gmail.com", phone: "9876556789", org: "Org 14", tags: "--" },
+        { id: 15, name: "Noah Wilson", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", email: "test@gmail.com", phone: "9876556789", org: "Org 15", tags: "--" },
+    ];
+
+    // Function to create a table row with avatar and checkbox
+    function createAvatarRow(avatar) {
+        const row = document.createElement("tr");
+        row.className = "table-row align-middle";
+
+
+        // Avatar & Name column
+        const avatarCell = document.createElement("td");
+        const avatarContainer = document.createElement("div");
+        avatarContainer.className = "avatar-container";
+
+        const avatarImage = document.createElement("img");
+        avatarImage.src = avatar.image;
+        avatarImage.className = "avatar-image";
+
+        const checkboxOverlay = document.createElement("div");
+        checkboxOverlay.className = "checkbox-overlay";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        // Handle checkbox state
+        checkbox.addEventListener("change", function () {
+            avatarImage.style.opacity = this.checked ? "0" : "1";  // Toggle avatar visibility
+        });
+
+        checkboxOverlay.appendChild(checkbox);
+        avatarContainer.appendChild(avatarImage);
+        avatarContainer.appendChild(checkboxOverlay);
+        avatarContainer.appendChild(document.createTextNode(avatar.name));
+        avatarCell.appendChild(avatarContainer);
+        row.appendChild(avatarCell);
+
+        // Conversation column
+        const emailCell = document.createElement("td");
+        emailCell.textContent = avatar.email;
+        row.appendChild(emailCell);
+
+        // Status column
+        const phoneCell = document.createElement("td");
+        phoneCell.textContent = avatar.phone;
+        row.appendChild(phoneCell);
+
+        // Org column
+        const orgCell = document.createElement("td");
+        orgCell.textContent = avatar.org;
+        row.appendChild(orgCell);
+
+        // Last Updated column
+        const tagsCell = document.createElement("td");
+        tagsCell.textContent = avatar.tags;
+        row.appendChild(tagsCell);
+        
+        return row;
+    }
+
+    // Function to populate the table
+    function populateTable() {
+        const tableBody = document.getElementById("avatar-table-body");
+        tableBody.innerHTML = ""; // Clear existing content
+        avatars.forEach((avatar) => tableBody.appendChild(createAvatarRow(avatar)));
+    }
+
+    // Populate the table on page load
+    populateTable();
 </script>
+
 
 </body>
 

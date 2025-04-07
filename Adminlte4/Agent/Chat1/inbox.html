@@ -174,6 +174,11 @@
             top: -1px;
             z-index: 1000;
         }
+
+        .link-hover:hover, .link-hover.active {
+            border-radius: 0.25rem;
+            background: #eee;
+        }
     </style>
 </head>
 
@@ -343,44 +348,45 @@
 
                     <div class="col-md-3">
 
-                        <a href="javascript:;" class="btn btn-light mb-3 w-100">Compose</a>
-
                         <div class="card">
 
-                            <div class="card-header">
+                            <div class="card-header border-0 p-2 mt-2">
 
-                                <h3 class="card-title">Chats</h3>
+                                <h3 class="card-title">Inbox</h3>
                             </div>
 
-                            <div class="card-body p-0">
+                            <div class="card-body p-2">
 
-                                <ul class="nav nav-pills flex-column">
+                                <button type="button" class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#composeModal">
+                                    <i class="fas fa-plus"></i> &nbsp;Compose Ticket
+                                </button>
 
-                                    <li class="nav-item active">
-
-                                        <a href="javascript:;" class="nav-link">
-
-                                            <i class="fas fa-inbox"></i> All Chats
-
-                                            <span class="badge bg-primary float-end">12</span>
-                                        </a>
-                                    </li>
-
-
+                                <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fas fa-trash-alt"></i> Trash
-                                            <span class="badge bg-danger float-end">65</span>
-                                        </a>
+                                        <a class="nav-link active" id="custom-content-below-home-tab" data-bs-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">All</a>
                                     </li>
-
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fas fa-comment-slash"></i> Spam
-                                            <span class="badge bg-warning float-end">65</span>
-                                        </a>
+                                        <a class="nav-link" id="custom-content-below-profile-tab" data-bs-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">Mine</a>
                                     </li>
                                 </ul>
+                                <div class="tab-content mt-2" id="custom-content-below-tabContent">
+
+                                    <div class="tab-pane fade show active" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+
+                                        <a href="#" class="nav-link link-hover active">
+                                            <i class="fas fa-inbox"></i> &nbsp;All
+                                        </a>
+                                        <a href="#" class="nav-link link-hover mt-1">
+                                            <i class="fas fa-trash-alt"></i> &nbsp;Trash
+                                        </a>
+                                        <a href="#" class="nav-link link-hover mt-1">
+                                            <i class="fas fa-ban"></i> &nbsp;Spam
+                                        </a></div>
+
+                                    <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
