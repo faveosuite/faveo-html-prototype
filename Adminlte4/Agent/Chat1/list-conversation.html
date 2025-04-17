@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Admin Panel">
+    <meta name="author" content="Sakthivel Munusami">
+    <meta name="description" content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../dist/css/adminlte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="../../dist/assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../dist/css/custom.css">
+
+    <style>
+        .btn-default{
+            background-color: #f8f9fa;
+            border-color: #ddd;
+            color: #444;
+        }
+
+        .custom-list-group {
+            height: 851px;
+            overflow: auto;
+        }
+        /* Custom CSS */
+        .list-group-item {
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .list-group-item:hover {
+            background-color: #f5f5f5;
+        }
+        .avatar-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .avatar-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ddd;
+            transition: opacity 0.3s ease;
+        }
+        .checkbox-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border: 3px solid #ddd;
+        }
+        .list-group-item:hover .checkbox-overlay {
+            opacity: 1;
+        }
+
+        .list-group-item:hover .avatar-image {
+            opacity: 0;
+        }
+
+        .avatar-container:hover .avatar-image {
+            opacity: 0; /* Keep this in case of direct hover on avatar */
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-transform: capitalize;
+            font-size: 12px;
+        }
+
+        .status-badge.open {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .status-badge.closed {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .status-badge.pending {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        @media (min-width: 992px) {
+            .sidebar-expand-lg.layout-fixed .app-main {
+                overflow: unset !important;
+            }
+        }
+
+        .sticky-card {
+            position: sticky;
+            top: -1px;
+            z-index: 1000;
+        }
+
+        .direct-chat-messages {
+            height: 706px;
+            overflow-y: auto;
+        }
+
+        .direct-chat-messages .end .direct-chat-text {
+            color: var(--bs-emphasis-color);
+            background-color: var(--bs-secondary-bg);
+            border: 1px solid var(--bs-border-color);
+        }
+    </style>
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary text-sm">
+
+<div class="app-wrapper">
+
+    <nav class="app-header navbar navbar-expand bg-body">
+
+        <div class="container-fluid">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" data-lte-toggle="sidebar" href="javascript:;" role="button">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown user-menu">
+
+                    <a href="javascript:;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                        <img src="../../dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image">
+
+                        <span class="d-none d-md-inline">Sakthivel Munusami</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+
+                        <li class="user-header text-bg-light">
+
+                            <img src="../../dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image">
+
+                            <p>
+                                Sakthivel Munusami - Lead Frontend Developer
+                                <small>Member since Sept. 2017</small>
+                            </p>
+                        </li>
+                        <li class="user-footer">
+
+                            <a href="javascript:;" class="btn btn-light border">Profile</a>
+
+                            <a href="javascript:;" class="btn btn-light border float-end">Sign out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
+
+        <div class="sidebar-brand">
+
+            <a href="javascript:;" class="brand-link">
+
+                <img src="../../dist/assets/img/faveo.png" alt="Faveo Logo" class="brand-image opacity-75 shadow">
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+
+            <nav class="mt-2">
+
+                <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item menu-open">
+
+                        <a href="javascript:;" class="nav-link active">
+
+                            <i class="nav-icon far fa-rectangle-list"></i> <p> Chat <i class="nav-arrow bi bi-chevron-right"></i></p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+
+                                <a href="index.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-chart-simple"></i> <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="inbox.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-inbox"></i>
+
+                                    <p>Inbox
+                                        <span class="nav-badge badge text-bg-danger me-3">6</span>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a href="contacts.html" class="nav-link">
+
+                                    <i class="nav-icon far fa-address-book"></i> <p>Contacts</p>
+                                </a>
+                            </li>
+
+                            <!--                            <li class="nav-item">-->
+
+                            <!--                                <a href="reports.html" class="nav-link">-->
+
+                            <!--                                    <i class="nav-icon far fa-chart-bar"></i> <p>Reports</p>-->
+                            <!--                                </a>-->
+                            <!--                            </li>-->
+
+                            <li class="nav-item">
+
+                                <a href="monitor.html" class="nav-link">
+
+                                    <i class="nav-icon fas fa-wave-square"></i>
+
+                                    <p>Monitoring
+                                        <span class="nav-badge badge text-bg-success me-3">12</span>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <!--                            <li class="nav-item">-->
+
+                            <!--                                <a href="chats.html" class="nav-link active">-->
+
+                            <!--                                    <i class="nav-icon fas fa-message"></i> <p>Active Chats</p>-->
+                            <!--                                </a>-->
+                            <!--                            </li>-->
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="app-main"> <!--begin::App Content Header-->
+        <div class="app-content-header"> <!--begin::Container-->
+            <div class="container-fluid"> <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">Chat</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Chat
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-12">
+
+                        <div class="card sticky-card shadow-none rounded-bottom-0">
+
+                            <div class="row my-3 mx-1">
+
+                                <div class="col-sm-4">
+
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                            All open and unassigned conversations &nbsp;<span class="badge bg-secondary">6</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">My open conversations</a></li>
+                                            <li><a class="dropdown-item" href="#">My unresolved conversations</a></li>
+                                            <li><a class="dropdown-item" href="#">My snoozed conversations</a></li>
+                                            <li><a class="dropdown-item" href="#">All open and assigned conversations</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="float-end">
+
+                                        <a class="btn btn-default btn-sm" id="contactButton" href="javascript:void(0)"><i class="fas fa-eye-slash"></i> Hide Contact Info </a>
+                                        <a class="btn btn-default btn-sm" id="propertyButton" href="javascript:void(0)"><i class="fas fa-eye-slash"></i> Hide Conversation Properties </a>
+
+                                        <div class="btn-group">
+
+                                            <a class="btn btn-default btn-sm" href="list-conversation.html"><i class="fas fa-list"></i> </a>
+                                            <a class="btn btn-default btn-sm" href="conversation.html"><i class="fas fa-table"></i> </a>
+                                        </div>
+
+                                        <a class="btn btn-default btn-sm" href="javascript:void(0)"><i class="fas fa-edit"></i> </a>
+
+                                        <a class="btn btn-default btn-sm" href="javascript:void(0)"><i class="fas fa-filter"></i>  </a>
+
+                                        <a class="btn btn-default btn-sm" href="javascript:void(0)"><i class="fas fa-sort"></i>  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-light rounded-top-0 shadow-none border-top-0">
+
+                            <div class="card-body p-0 bg-light">
+
+                                <div class="d-flex">
+
+                                    <div class="col-sm-3">
+
+                                        <div class="list-group custom-list-group shadow-none rounded-0" id="avatar-list"></div>
+                                    </div>
+
+                                    <div class="col-sm-6 border-right border-start" id="chatDiv">
+
+                                        <div class="card m-3 direct-chat direct-chat-light shadow-none">
+
+                                            <div class="card-header">
+
+                                                <h3 class="card-title mt-2">Sakthivel Munusami</h3>
+
+                                                <div class="card-tools">
+
+                                                    <div class="btn-group pe-2">
+
+                                                        <button type="button" class="btn btn-light border btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Open
+                                                        </button>
+
+                                                        <div class="dropdown-menu dropdown-menu-end" role="menu">
+                                                            <a href="javascript:;" class="dropdown-item">Resolved</a>
+                                                            <a href="javascript:;" class="dropdown-item">Waiting on customer</a>
+                                                            <a href="javascript:;" class="dropdown-item">Open</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-body bg-light">
+
+                                                <div class="direct-chat-messages">
+
+                                                    <div class="direct-chat-msg">
+
+                                                        <div class="direct-chat-infos clearfix">
+
+                                                            <span class="direct-chat-name float-start">Alexander Pierce</span>
+
+                                                            <span class="direct-chat-timestamp float-end fs-8">23 Jan 2:00 pm</span>
+                                                        </div>
+
+                                                        <img class="direct-chat-img" src="../../dist/assets/img/user1-128x128.jpg" alt="message user image" draggable="false">
+
+                                                        <div class="direct-chat-text">Is this template really for free? That's unbelievable!Is this template really for free? That's unbelievable!Is this template really for free? That's unbelievable!</div>
+                                                    </div>
+
+                                                    <div class="direct-chat-msg end">
+
+                                                        <div class="direct-chat-infos clearfix">
+
+                                                            <span class="direct-chat-name float-end">Sarah Bullock</span>
+
+                                                            <span class="direct-chat-timestamp float-start fs-8">23 Jan 2:05 pm</span>
+                                                        </div>
+
+                                                        <img class="direct-chat-img" src="../../dist/assets/img/user3-128x128.jpg" alt="message user image" draggable="false">
+
+                                                        <div class="direct-chat-text">You better believe it! You better believe it!You better believe it!You better believe it!You better believe it!You better believe it!</div>
+                                                    </div>
+                                                    <div class="direct-chat-msg">
+                                                        <div class="direct-chat-infos clearfix">
+                                                            <span class="direct-chat-name float-start">Alexander Pierce</span>
+                                                            <span class="direct-chat-timestamp float-end fs-8">23 Jan 5:37 pm</span>
+                                                        </div>
+                                                        <img class="direct-chat-img" src="../../dist/assets/img/user1-128x128.jpg" alt="message user image" draggable="false">
+                                                        <div class="direct-chat-text">Working with AdminLTE on a great new app! Wanna join?</div>
+                                                    </div>
+                                                    <div class="direct-chat-msg end">
+                                                        <div class="direct-chat-infos clearfix">
+                                                            <span class="direct-chat-name float-end">Sarah Bullock</span>
+                                                            <span class="direct-chat-timestamp float-start fs-8">23 Jan 6:10 pm</span>
+                                                        </div>
+                                                        <img class="direct-chat-img" src="../../dist/assets/img/user3-128x128.jpg" alt="message user image" draggable="false">
+                                                        <div class="direct-chat-text">I would love to.</div>
+                                                    </div>
+                                                    <div class="direct-chat-msg">
+                                                        <div class="direct-chat-infos clearfix">
+                                                            <span class="direct-chat-name float-start">Alexander Pierce</span>
+                                                            <span class="direct-chat-timestamp float-end fs-8">23 Jan 5:37 pm</span>
+                                                        </div>
+                                                        <img class="direct-chat-img" src="../../dist/assets/img/user1-128x128.jpg" alt="message user image" draggable="false">
+                                                        <div class="direct-chat-text">Working with AdminLTE on a great new app! Wanna join?</div>
+                                                    </div>
+                                                    <div class="direct-chat-msg end">
+                                                        <div class="direct-chat-infos clearfix">
+                                                            <span class="direct-chat-name float-end">Sarah Bullock</span>
+                                                            <span class="direct-chat-timestamp float-start fs-8">23 Jan 6:10 pm</span>
+                                                        </div>
+                                                        <img class="direct-chat-img" src="../../dist/assets/img/user3-128x128.jpg" alt="message user image" draggable="false">
+                                                        <div class="direct-chat-text">I would love to.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <form action="#" method="post">
+                                                    <div class="input-group">
+                                                        <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                                                        <span class="input-group-append">
+                                            <button type="button" class="btn btn-default rounded-start-0"><i class="fas fa-paper-plane"></i> Send</button>
+                                        </span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+
+                                        <div id="contactDiv" class="card card-light m-3 shadow-none">
+
+                                            <div class="card-header">
+
+                                                <h3 class="card-title">Contact Info</h3>
+                                            </div>
+
+                                            <div class="card-body p-0">
+
+                                                <div class="card-body box-profile">
+
+                                                    <div class="text-center">
+
+                                                        <img class="profile-user-img img-fluid img-circle" src="../../dist/assets/img/user1-128x128.jpg" alt="User profile picture" style="width:70px">
+                                                    </div>
+
+                                                    <h5 class="profile-username text-center">Nina Mcintire</h5>
+
+                                                    <p class="text-muted text-center">Software Engineer</p>
+
+                                                    <ul class="list-group list-group-unbordered mb-3">
+                                                        <li class="list-group-item">
+                                                            <b>Email</b> <a class="float-end">test@gmail.com</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <b>Mobile</b> <a class="float-end">98765434567</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <b>Location</b> <a class="float-end">Dharmapuri</a>
+                                                        </li>
+                                                    </ul>
+
+                                                    <a href="javascript:;" class="btn btn-default btn-block w-100"><b>Add Contact</b></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="propertyDiv" class="card card-light m-3 shadow-none">
+
+                                            <div class="card-header">
+
+                                                <h3 class="card-title">Conversation Properties</h3>
+                                            </div>
+
+                                            <div class="card-body p-0">
+
+                                                <div class="card-body box-profile">
+
+                                                    <label for="validationCustom04" class="form-label mt-3">Agent</label>
+                                                    <select class="form-select" id="validationCustom04" required="">
+                                                        <option selected="" disabled="" value="">Agent 1</option>
+                                                        <option>Agent 1</option>
+                                                        <option>Agent 2</option>
+                                                        <option>Agent 3</option>
+                                                    </select>
+
+                                                    <label for="validationCustom05" class="form-label mt-3">Group</label>
+                                                    <select class="form-select" id="validationCustom05" required="">
+                                                        <option selected="" disabled="" value="">Choose...</option>
+                                                        <option>...</option>
+                                                    </select>
+
+                                                    <label for="validationCustom06" class="form-label mt-3">Status</label>
+                                                    <select class="form-select" id="validationCustom06" required="">
+                                                        <option selected="" disabled="" value="">Open</option>
+                                                        <option>Open</option>
+                                                        <option>Closed</option>
+                                                        <option>Pending</option>
+                                                    </select>
+                                                    <a href="javascript:;" class="btn btn-default btn-block w-100 mt-5"><b>Update</b></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+
+        <div class="float-end d-none d-sm-inline">Version 1.0</div>
+
+        <strong> Copyright &copy; 2024&nbsp;
+            <a href="https://www.faveohelpdesk.com/" class="text-decoration-none">Faveo</a>.
+        </strong>All rights reserved.
+    </footer>
+</div>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+<script src="../../dist/js/adminlte.js"></script>
+<script>
+    const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+    const Default = {
+        scrollbarTheme: "os-theme-light",
+        scrollbarAutoHide: "leave",
+        scrollbarClickScroll: true,
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        if (
+            sidebarWrapper &&
+            typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+        ) {
+            OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                scrollbars: {
+                    theme: Default.scrollbarTheme,
+                    autoHide: Default.scrollbarAutoHide,
+                    clickScroll: Default.scrollbarClickScroll,
+                },
+            });
+        }
+    });
+
+    const avatars = [
+        { id: 1, name: "John Doe", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "Hello, how are you?", status: "Open", agent: "Agent 1", lastUpdated: "a day ago", dueBy: "--" },
+        { id: 2, name: "Jane Smith", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "Let's catch up soon!", status: "Closed", agent: "Agent 2", lastUpdated: "2 weeks ago", dueBy: "2023-10-05" },
+        { id: 3, name: "Alice Johnson", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Nice to meet you!", status: "Pending", agent: "Agent 3", lastUpdated: "2023-09-30", dueBy: "--" },
+        { id: 4, name: "Bob Brown", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "See you tomorrow!", status: "Open", agent: "Agent 4", lastUpdated: "5 mins ago", dueBy: "2023-10-12" },
+        { id: 5, name: "Charlie Davis", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Can you help me?", status: "Open", agent: "Agent 5", lastUpdated: "1 hour ago", dueBy: "2023-10-15" },
+        { id: 6, name: "Eva Green", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "Thanks for the update!", status: "Closed", agent: "Agent 6", lastUpdated: "3 days ago", dueBy: "2023-10-10" },
+        { id: 7, name: "Frank White", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Let's schedule a meeting.", status: "Pending", agent: "Agent 7", lastUpdated: "2023-09-25", dueBy: "--" },
+        { id: 8, name: "Grace Hall", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "I have a question.", status: "Open", agent: "Agent 8", lastUpdated: "10 mins ago", dueBy: "2023-10-20" },
+        { id: 9, name: "Henry Adams", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "Please review this.", status: "Closed", agent: "Agent 9", lastUpdated: "1 week ago", dueBy: "2023-10-01" },
+        { id: 10, name: "Ivy Clark", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Looking forward to it!", status: "Pending", agent: "Agent 10", lastUpdated: "2023-09-28", dueBy: "--" },
+        { id: 11, name: "Jack Evans", image: "https://adminlte.io/themes/v3/dist/img/avatar.png", conversation: "Can we reschedule?", status: "Open", agent: "Agent 11", lastUpdated: "2 hours ago", dueBy: "2023-10-18" },
+        { id: 12, name: "Karen Lee", image: "https://adminlte.io/themes/v3/dist/img/avatar2.png", conversation: "Thanks for your help!", status: "Closed", agent: "Agent 12", lastUpdated: "4 days ago", dueBy: "2023-10-08" },
+        { id: 13, name: "Leo Martinez", image: "https://adminlte.io/themes/v3/dist/img/avatar3.png", conversation: "Let's discuss this further.", status: "Pending", agent: "Agent 13", lastUpdated: "2023-09-22", dueBy: "--" },
+        { id: 14, name: "Mia Garcia", image: "https://adminlte.io/themes/v3/dist/img/avatar4.png", conversation: "I need assistance.", status: "Open", agent: "Agent 14", lastUpdated: "30 mins ago", dueBy: "2023-10-25" },
+        { id: 15, name: "Noah Wilson", image: "https://adminlte.io/themes/v3/dist/img/avatar5.png", conversation: "Please check this out.", status: "Closed", agent: "Agent 15", lastUpdated: "6 days ago", dueBy: "2023-10-03" },
+    ];
+
+    // Function to create a table row with avatar and checkbox
+    function createAvatarItem(avatar) {
+        const item = document.createElement("div");
+        item.className = "list-group-item py-3 px-2 border-0 border-bottom";
+        item.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <div class="avatar-container me-3">
+                        <img src="${avatar.image}" class="avatar-image">
+                        <div class="checkbox-overlay"><input type="checkbox"></div>
+                    </div>
+                    <div class="w-100">
+                        <h6 class="mb-1">${avatar.name} <small class="float-end text-muted fs-8">${avatar.lastUpdated}</small></h6>
+                        <p class="mb-1 small text-muted">${avatar.conversation} <i class="fas fa-reply text-secondary ms-1"></i></p>
+                        <div class="d-flex justify-content-between">
+                            <span class="badge status-badge ${avatar.status.toLowerCase()}">${avatar.status}</span>
+                            <small>${avatar.agent}</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+        return item;
+    }
+
+    function populateList() {
+        const listContainer = document.getElementById("avatar-list");
+        avatars.forEach(avatar => listContainer.appendChild(createAvatarItem(avatar)));
+    }
+
+    populateList();
+
+    function toggleVisibility(buttonId, divId, text) {
+        const button = document.getElementById(buttonId);
+        const div = document.getElementById(divId);
+
+        button.addEventListener('click', function() {
+
+            if (div.style.display === 'block' || div.style.display === '') {
+                div.style.display = 'none';
+                button.innerHTML = '<i class="fas fa-eye"></i> Show ' + text;
+            } else {
+                div.style.display = 'block';
+                button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide ' + text;
+            }
+
+            updateChatDiv();
+        });
+    }
+
+    toggleVisibility('contactButton', 'contactDiv', 'Contact Info');
+    toggleVisibility('propertyButton', 'propertyDiv', 'Conversation Properties');
+
+    function updateChatDiv() {
+        const cDiv = document.getElementById('contactDiv');
+        const pDiv = document.getElementById('propertyDiv');
+        const chatDiv = document.getElementById('chatDiv');
+
+        if (cDiv.style.display === 'none' && pDiv.style.display === 'none') {
+            chatDiv.className = 'col-sm-9 border-right border-start';
+        } else {
+            chatDiv.className = 'col-sm-6 border-right border-start';
+        }
+    }
+
+    updateChatDiv();
+
+</script>
+
+<script
+        src='//in.fw-cdn.com/32298145/1240017.js'
+        chat='true'>
+</script>
+</body>
+
+</html>
