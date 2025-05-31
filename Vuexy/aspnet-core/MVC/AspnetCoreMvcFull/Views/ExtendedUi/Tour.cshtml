@@ -1,0 +1,25 @@
+@{
+  ViewData["Title"] = "Shepherd tour - Extended UI";
+}
+@section VendorStyles{
+<link rel="stylesheet" href="~/vendor/libs/shepherd/shepherd.css" />
+}
+@section VendorScripts{
+<script src="~/vendor/libs/shepherd/shepherd.js"></script>
+}
+@section PageScripts{
+<script src="~/js/extended-ui-tour.js"></script>
+}
+@* ************** Content ************** *@
+<div class="row">
+  <div class="col-12">
+    <div class="card tour-card">
+      <h5 class="card-header">Tour</h5>
+      <div class="card-body">
+        <button class="btn btn-primary" id="shepherd-example">
+          Start tour
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+@model AspnetCoreMvcFull.Models.Transactions
+
+@{
+  ViewData["Title"] = "Add New Transaction";
+}
+@section VendorStyles {
+  <link rel="stylesheet" href="~/vendor/libs/select2/select2.css">
+  <link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/form-validation.css" />
+  <link rel="stylesheet" href="~/vendor/libs/flatpickr/flatpickr.css" />
+  <link rel="stylesheet" href="~/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+  <link rel="stylesheet" href="~/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+}
+
+@section VendorScripts {
+  <script src="~/vendor/libs/moment/moment.js"></script>
+  <script src="~/vendor/libs/select2/select2.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/popular.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/bootstrap5.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/auto-focus.js"></script>
+  <script src="~/vendor/libs/flatpickr/flatpickr.js"></script>
+}
+
+@section PageScripts {
+  <script src="~/js/transactions-add-update.js"></script>
+}
+
+<div class="card">
+  <div class="card-body pb-2">
+    <form asp-action="Add" id="addTransactionForm" method="post">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="mb-4">
+        <label asp-for="Customer" class="form-label"></label>
+        <input asp-for="Customer" class="form-control" placeholder="Customer Name"/>
+        <span asp-validation-for="Customer" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <label asp-for="TransactionDate" class="form-label"></label>
+        <input asp-for="TransactionDate" class="form-control transaction-date" placeholder="Transaction Date"/>
+        <span asp-validation-for="TransactionDate" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <label asp-for="DueDate" class="form-label"></label>
+        <input asp-for="DueDate" class="form-control due-date" placeholder="Due Date"/>
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <label asp-for="Total" class="form-label"></label>
+        <input asp-for="Total" class="form-control" placeholder="Total Amount"/>
+        <span asp-validation-for="Total" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <label asp-for="Status" class="form-label"></label>
+        <select asp-for="Status" class="form-select select2">
+          <option value="">Select Status</option>
+          <option value="paid">Paid</option>
+          <option value="due">Due</option>
+          <option value="canceled">Canceled</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <button type="submit" value="Create" class="btn btn-primary me-sm-3 me-1">Submit</button>
+        <a href="Index" value="Back" class="btn btn-secondary">Back</a>
+      </div>
+    </form>
+  </div>
+</div>

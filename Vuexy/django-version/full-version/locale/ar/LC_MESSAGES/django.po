@@ -1,0 +1,574 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-11 13:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: config/settings-demo.py:166 config/settings.py:166
+#: templates/layout/partials/navbar/navbar.html:73
+msgid "English"
+msgstr "English"
+
+#: config/settings-demo.py:167 config/settings.py:167
+#: templates/layout/partials/navbar/navbar.html:78
+msgid "French"
+msgstr "Français"
+
+#: config/settings-demo.py:168 config/settings.py:168
+#: templates/layout/partials/navbar/navbar.html:83
+msgid "Arabic"
+msgstr "عربي"
+
+#: config/settings-demo.py:169 config/settings.py:169
+#: templates/layout/partials/navbar/navbar.html:88
+msgid "German"
+msgstr "Deutsch"
+
+msgid "Academy"
+msgstr "الأكاديمية"
+
+msgid "My Course"
+msgstr "الدورة التدريبية الخاصة بي"
+
+msgid "Course Details"
+msgstr "تفاصيل الدورة"
+
+msgid "Permissions"
+msgstr "الأذونات"
+
+msgid "List"
+msgstr "قائمة"
+
+msgid "Roles"
+msgstr "الأدوار"
+
+msgid "UI elements"
+msgstr "عناصر واجهة المستخدم"
+
+msgid "Cards"
+msgstr "البطاقات"
+
+msgid "Actions"
+msgstr "الإجراءات"
+
+msgid "Advance"
+msgstr "متقدم"
+
+msgid "Analytics"
+msgstr "التحليلات"
+
+msgid "Basic"
+msgstr "أساسي"
+
+msgid "Statistics"
+msgstr "الإحصائيات"
+
+msgid "Charts"
+msgstr "الرسوم البيانية"
+
+msgid "Apex Charts"
+msgstr "مخططات القمة"
+
+msgid "ChartJS"
+msgstr "تشارت جي إس"
+
+msgid "eCommerce"
+msgstr "التجارة الإلكترونية"
+
+msgid "Category List"
+msgstr "قائمة الفئات"
+
+msgid "All Customers"
+msgstr "جميع العملاء"
+
+msgid "Customer Details"
+msgstr "تفاصيل العميل"
+
+msgid "Address & Billing"
+msgstr "العنوان"
+
+msgid "Notifications"
+msgstr "الإخطارات"
+
+msgid "Overview"
+msgstr "نظرة عامة"
+
+msgid "Security"
+msgstr "الأمن"
+
+msgid "Manage Reviews"
+msgstr "إدارة المراجعات"
+
+msgid "Order Details"
+msgstr "تفاصيل الطلب"
+
+msgid "Order List"
+msgstr "قائمة الطلبات"
+
+msgid "Add Product"
+msgstr "إضافة منتج"
+
+msgid "Product List"
+msgstr "قائمة المنتجات"
+
+msgid "Referrals"
+msgstr "الإحالات"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Extended UI"
+msgstr "واجهة مستخدم موسعة"
+
+msgid "Avatar"
+msgstr "الصورة الرمزية"
+
+msgid "BlockUI"
+msgstr "قفل واجهة المستخدم"
+
+msgid "Drag & Drop"
+msgstr "سحب وإسقاط"
+
+msgid "Plyr"
+msgstr "بلير"
+
+msgid "Miscellaneous"
+msgstr "متنوع"
+
+msgid "Perfect Scrollbar"
+msgstr "شريط التمرير المثالي"
+
+msgid "Star Ratings"
+msgstr "تقييمات النجوم"
+
+msgid "SweetAlert2"
+msgstr "تنبيه حلو2"
+
+msgid "Text Divider"
+msgstr "فاصل النصوص"
+
+msgid "Timeline"
+msgstr "الجدول الزمني"
+
+msgid "Fullscreen"
+msgstr "ملء الشاشة"
+
+msgid "Shepherd tour"
+msgstr "جولة الراعي"
+
+msgid "Treeview"
+msgstr "عرض الشجرة"
+
+msgid "Forms"
+msgstr "نماذج"
+
+msgid "Horizontal"
+msgstr "أفقي"
+
+msgid "Layouts"
+msgstr "التخطيطات"
+
+msgid "Sticky Actions"
+msgstr "إجراءات لاصقة"
+
+msgid "Vertical"
+msgstr "رَأسِيّ"
+
+msgid "Validation"
+msgstr "تصديق"
+
+msgid "Form Wizard"
+msgstr "معالج النموذج"
+
+msgid "Icons"
+msgstr "الرموز"
+
+msgid "Numbered"
+msgstr "مرقمة"
+
+msgid "Basic Inputs"
+msgstr "إدخالات أساسية"
+
+msgid "Custom Options"
+msgstr "خيارات مخصصة"
+
+msgid "Editors"
+msgstr "المحررين"
+
+msgid "Extras"
+msgstr "إضافات"
+
+msgid "File Upload"
+msgstr "رفع الملفات"
+
+msgid "Input groups"
+msgstr "مجموعات الإدخال"
+
+msgid "Pickers"
+msgstr "أدوات الاختيار"
+
+msgid "Select & Tags"
+msgstr "تحديد ووسوم"
+
+msgid "Sliders"
+msgstr "شريط التمرير"
+
+msgid "Switches"
+msgstr "مفاتيح التبديل"
+
+msgid "Font Awesome"
+msgstr "الخط رائع"
+
+msgid "Tabler"
+msgstr "تابلر"
+
+msgid "Invoice"
+msgstr "فاتورة"
+
+msgid "Logistics"
+msgstr "اللوجستيات"
+
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+msgid "Maps"
+msgstr "خرائط"
+
+msgid "Leaflet"
+msgstr "منشور"
+
+msgid "Modal Examples"
+msgstr "أمثلة على النماذج المودال"
+
+msgid "Account Settings"
+msgstr "إعدادت الحساب"
+
+msgid "Account"
+msgstr "حساب"
+
+msgid "Billing & Plans"
+msgstr "الفواتير والخطط"
+
+msgid "Connections"
+msgstr "روابط"
+
+msgid "User Profile"
+msgstr "ملف تعريفي للمستخدم"
+
+msgid "Projects"
+msgstr "المشاريع"
+
+msgid "Teams"
+msgstr "فرق"
+
+msgid "Profile"
+msgstr "حساب تعريفي"
+
+msgid "Tables"
+msgstr "الجداول"
+
+msgid "Datatables"
+msgstr "جداول البيانات"
+
+msgid "Advanced"
+msgstr "متقدم"
+
+msgid "Extensions"
+msgstr "الامتدادات"
+
+msgid "Transactions"
+msgstr "المعاملات"
+
+msgid "New"
+msgstr "جديد"
+
+msgid "Transaction"
+msgstr "عملية"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid "Accordion"
+msgstr "الأكورديون"
+
+msgid "Alerts"
+msgstr "التنبيهات"
+
+msgid "Badges"
+msgstr "الشارات"
+
+msgid "Buttons"
+msgstr "الأزرار"
+
+msgid "Carousel"
+msgstr "شريط التمرير"
+
+msgid "Collapse"
+msgstr "طي"
+
+msgid "Dropdowns"
+msgstr "القوائم المنسدلة"
+
+msgid "Footer"
+msgstr "التذييل"
+
+msgid "List Groups"
+msgstr "قائمة المجموعات"
+
+msgid "Modals"
+msgstr "النماذج المودال"
+
+msgid "Navbar"
+msgstr "شريط التنقل"
+
+msgid "Offcanvas"
+msgstr "قائمة تنظيم العرض"
+
+msgid "Pagination & Breadcrumbs"
+msgstr "ترقيم الصفحات وفتات الخبز"
+
+msgid "Progress bars"
+msgstr "أشرطة التقدم"
+
+msgid "Spinners"
+msgstr "الغزالون"
+
+msgid "Tabs & Pills"
+msgstr "علامات التبويب"
+
+msgid "Toasts"
+msgstr "تنبيهات"
+
+msgid "Tooltips & Popovers"
+msgstr "تلميحات وبوب أوفر"
+
+msgid "Typography"
+msgstr "الأسلوب والخطوط"
+
+msgid "User"
+msgstr "مستخدم"
+
+msgid "View"
+msgstr "منظر"
+
+msgid "Wizard Examples"
+msgstr "أمثلة على المعالج"
+
+msgid "Checkout"
+msgstr "الخروج"
+
+msgid "Create Deal"
+msgstr "إنشاء صفقة"
+
+msgid "Property Listing"
+msgstr "قائمة العقارات"
+
+msgid "Dashboards"
+msgstr "لوحات المعلومات"
+
+msgid "Collapsed menu"
+msgstr "القائمة المطوية"
+
+msgid "Content navbar"
+msgstr "شريط التنقل للمحتوى"
+
+msgid "Content nav + Sidebar"
+msgstr "الشريط الجانبي للتنقل في المحتوى"
+
+msgid "Without menu"
+msgstr "بدون قائمة"
+
+msgid "Without navbar"
+msgstr "بدون شريط التنقل"
+
+msgid "Fluid"
+msgstr "السوائل"
+
+msgid "Container"
+msgstr "حاوية"
+
+msgid "Blank"
+msgstr "فارغ"
+
+msgid "Front Pages"
+msgstr "الصفحات الأولى"
+
+msgid "Landing"
+msgstr "الهبوط"
+
+msgid "Pricing"
+msgstr "التسعير"
+
+msgid "Payments"
+msgstr "المدفوعات"
+
+msgid "Help Center"
+msgstr "مركز المساعدة"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Chat"
+msgstr "دردشة"
+
+msgid "Calendar"
+msgstr "التقويم"
+
+msgid "Kanban"
+msgstr "كانبان"
+
+msgid "Products"
+msgstr "المنتجات"
+
+msgid "Order"
+msgstr "النظام"
+
+msgid "Customer"
+msgstr "العميل"
+
+msgid "Store details"
+msgstr "تفاصيل المتجر"
+
+msgid "Shipping & Delivery"
+msgstr "الشحن"
+
+msgid "Locations"
+msgstr "المواقع"
+
+msgid "Fleet"
+msgstr "سريع"
+
+msgid "Preview"
+msgstr "معاينة"
+
+msgid "Edit"
+msgstr "يحرر"
+
+msgid "Add"
+msgstr "يضيف"
+
+msgid "Roles & Permissions"
+msgstr "الأدوار والأذونات"
+
+msgid "Pages"
+msgstr "الصفحات"
+
+msgid "FAQ"
+msgstr "التعليمات"
+
+msgid "Misc"
+msgstr "متنوعات"
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Under Maintenance"
+msgstr "تحت الصيانة"
+
+msgid "Coming Soon"
+msgstr "قريباً"
+
+msgid "Not Authorized"
+msgstr "غير مخول"
+
+msgid "Authentications"
+msgstr "المصادقة"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "Cover"
+msgstr "غطاء"
+
+msgid "Register"
+msgstr "يسجل"
+
+msgid "Multi-steps"
+msgstr "متعدد الخطوات"
+
+msgid "Verify Email"
+msgstr "التحقق من البريد الإلكتروني"
+
+msgid "Reset Password"
+msgstr "إعادة تعيين كلمة المرور"
+
+msgid "Forgot Password"
+msgstr "نسيت كلمة المرور"
+
+msgid "Two Steps"
+msgstr "خطوتين"
+
+msgid "User interface"
+msgstr "واجهة المستخدم"
+
+msgid "Progress"
+msgstr "شريط التقدم"
+
+msgid "Media Player"
+msgstr "مشغل الوسائط"
+
+msgid "Tour"
+msgstr "جولة"
+
+msgid "Form Elements"
+msgstr "عناصر النموذج"
+
+msgid "Form Layouts"
+msgstr "تخطيطات النموذج"
+
+msgid "Vertical Form"
+msgstr "نموذج عمودي"
+
+msgid "Horizontal Form"
+msgstr "نموذج أفقي"
+
+msgid "Form Validation"
+msgstr "التحقق من صحة النموذج"
+
+msgid "Support"
+msgstr "الدعم"
+
+msgid "Documentation"
+msgstr "التوثيق"
+
+msgid "Apps & Pages"
+msgstr "التطبيقات والصفحات"
+
+msgid "Apps"
+msgstr "تطبيقات"
+
+msgid "Components"
+msgstr "عناصر"
+
+msgid "Forms & Tables"
+msgstr "النماذج والجداول"
+
+msgid "Charts & Maps"
+msgstr "الرسوم البيانية والخرائط"
+
+msgid "Users"
+msgstr "المستخدمين"
+
+msgid "Fontawesome"
+msgstr "فونتاويسوم"
+
+msgid "Leaflet Maps"
+msgstr "خرائط النشرة"
+
+msgid "Transactions (CRUD)"
+msgstr "المعاملات (CRUD)"
