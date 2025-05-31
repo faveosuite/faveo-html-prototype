@@ -1,0 +1,73 @@
+@model AspnetCoreMvcFull.Models.Transactions
+
+@{
+  ViewData["Title"] = "Update Transaction";
+}
+@section VendorStyles {
+  <link rel="stylesheet" href="~/vendor/libs/select2/select2.css">
+  <link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/form-validation.css" />
+  <link rel="stylesheet" href="~/vendor/libs/flatpickr/flatpickr.css" />
+  <link rel="stylesheet" href="~/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+  <link rel="stylesheet" href="~/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+  <link rel="stylesheet" href="~/vendor/libs/sweetalert2/sweetalert2.css" />
+}
+
+@section VendorScripts {
+  <script src="~/vendor/libs/moment/moment.js"></script>
+  <script src="~/vendor/libs/select2/select2.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/popular.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/bootstrap5.js"></script>
+  <script src="~/vendor/libs/&#64;form-validation/auto-focus.js"></script>
+  <script src="~/vendor/libs/flatpickr/flatpickr.js"></script>
+  <script src="~/vendor/libs/sweetalert2/sweetalert2.js"></script>
+}
+
+@section PageScripts {
+  <script src="~/js/transactions-add-update.js"></script>
+  <script src="~/js/transactions-delete.js"></script>
+}
+
+<!-- Update Transactions Form -->
+<div class="card">
+  <div class="card-body pb-2">
+    <form asp-action="Update" id="UpdateTransactionForm" method="post">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <input type="hidden" asp-for="Id" />
+      <div class="mb-4">
+        <label asp-for="Customer" class="form-label"></label>
+        <input asp-for="Customer" class="form-control" />
+        <span asp-validation-for="Customer" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <label asp-for="TransactionDate" class="form-label"></label>
+        <input id="TransactionDate" name="TransactionDate" class="form-control transaction-date" value='@Model.TransactionDate.ToString("MMM dd, yyyy")' />
+        <span asp-validation-for="TransactionDate" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <label asp-for="DueDate" class="form-label"></label>
+        <input id="DueDate" name="DueDate" class="form-control due-date" value='@Model.DueDate.ToString("MMM dd, yyyy")' />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <label asp-for="Total" class="form-label"></label>
+        <input asp-for="Total" class="form-control" />
+        <span asp-validation-for="Total" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <label asp-for="Status" class="form-label"></label>
+        <select asp-for="Status" class="form-select select2">
+          <option value="">Select Status</option>
+          <option value="paid">Paid</option>
+          <option value="due">Due</option>
+          <option value="canceled">Canceled</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+      </div>
+      <div class="mb-4">
+        <button type="submit" value="Save" class="btn btn-primary me-sm-3 me-1">Save</button>
+        <a href="/Transactions/Delete/@Model.Id" class="btn btn-danger me-sm-3 me-1 delete-transaction" data-transaction-username="@Model.Customer" >Delete</a>
+        <a asp-controller="Transactions" asp-action="Index" value="Back" class="btn btn-secondary">Back</a>
+      </div>
+    </form>
+  </div>
+</div>
