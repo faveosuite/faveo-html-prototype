@@ -1,0 +1,258 @@
+[
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "admin",
+      "permissions": [
+        29,
+        30,
+        31,
+        32,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        5,
+        6,
+        7,
+        8,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "client",
+      "permissions": [
+        28
+      ]
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$lB2lViQ05MKmDe3UTdgcbB$WArj5X5ESoOTgbn3T+2ipWb4A0+QhLXvLtq7OGs2wyc=",
+      "last_login": "2023-11-20T08:25:46.625Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@demo.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-11-04T09:53:40Z",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$7SWvzDJ3IoNkZi2UHJA0Z7$2ZyzMxHmU0MTZ/C45yxSlBW24owr0rwa9jc5ZojDgtc=",
+      "last_login": "2023-11-04T11:30:48.040Z",
+      "is_superuser": false,
+      "username": "client",
+      "first_name": "",
+      "last_name": "",
+      "email": "client@demo.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-11-04T10:58:10.836Z",
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "transactions",
+      "model": "transaction"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "accounts",
+      "model": "profile"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 1,
+    "fields": {
+      "customer": "John Doe",
+      "transaction_date": "2022-01-01",
+      "due_date": "2022-01-31",
+      "total": "100.00",
+      "status": "Paid"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 2,
+    "fields": {
+      "customer": "Jane Smith",
+      "transaction_date": "2022-02-01",
+      "due_date": "2022-02-28",
+      "total": "200.00",
+      "status": "Due"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 3,
+    "fields": {
+      "customer": "Bob Johnson",
+      "transaction_date": "2022-03-01",
+      "due_date": "2022-03-31",
+      "total": "300.00",
+      "status": "Canceled"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 4,
+    "fields": {
+      "customer": "Alice Lee",
+      "transaction_date": "2022-04-01",
+      "due_date": "2022-04-30",
+      "total": "400.00",
+      "status": "Paid"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 5,
+    "fields": {
+      "customer": "David Kim",
+      "transaction_date": "2022-05-01",
+      "due_date": "2022-05-31",
+      "total": "500.00",
+      "status": "Due"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 6,
+    "fields": {
+      "customer": "Emily Chen",
+      "transaction_date": "2022-06-01",
+      "due_date": "2022-06-30",
+      "total": "600.00",
+      "status": "Canceled"
+    }
+  },
+  {
+    "model": "transactions.transaction",
+    "pk": 7,
+    "fields": {
+      "customer": "Michael Brown",
+      "transaction_date": "2022-07-01",
+      "due_date": "2022-07-31",
+      "total": "700.00",
+      "status": "Paid"
+    }
+  },
+  {
+    "model": "accounts.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "email": "admin@demo.com",
+      "email_token": null,
+      "forget_password_token": null,
+      "is_verified": true,
+      "created_at": "2023-11-04T09:53:40.886Z"
+    }
+  },
+  {
+    "model": "accounts.profile",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "email": "client@demo.com",
+      "email_token": "c3d317e4-0424-4881-a96a-98937db05248",
+      "forget_password_token": null,
+      "is_verified": false,
+      "created_at": "2023-11-04T10:58:10.996Z"
+    }
+  }
+]

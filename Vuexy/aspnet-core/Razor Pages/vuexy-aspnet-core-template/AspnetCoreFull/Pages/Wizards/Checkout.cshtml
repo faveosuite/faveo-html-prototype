@@ -1,0 +1,34 @@
+@page
+@model AspnetCoreFull.Pages.Wizards.CheckoutModel
+@{
+  ViewData["Title"] = "Checkout - Wizards";
+}
+@section VendorStyles {
+<link rel="stylesheet" href="~/vendor/libs/select2/select2.dist.css" />
+<link rel="stylesheet" href="~/vendor/libs/bs-stepper/bs-stepper.dist.css" />
+<link rel="stylesheet" href="~/vendor/libs/rateyo/rateyo.dist.css" />
+<link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/form-validation.dist.css" />
+}
+@section VendorScripts {
+<script src="~/vendor/libs/select2/select2.dist.js"></script>
+<script src="~/vendor/libs/bs-stepper/bs-stepper.dist.js"></script>
+<script src="~/vendor/libs/rateyo/rateyo.dist.js"></script>
+<script src="~/vendor/libs/cleavejs/cleave.dist.js"></script>
+<script src="~/vendor/libs/cleavejs/cleave-phone.dist.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/popular.dist.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/bootstrap5.dist.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/auto-focus.dist.js"></script>
+}
+@section PageScripts {
+<script src="~/js/modal-add-new-address.dist.js"></script>
+<script src="~/js/wizard-ex-checkout.dist.js"></script>
+}
+@section PageStyles {
+<link rel="stylesheet" href="~/vendor/css/pages/wizard-ex-checkout.dist.css" />
+}
+@* ************** Content ************** *@
+<!-- Checkout Wizard -->
+@await Html.PartialAsync("../_Partials/WizardCheckout")
+<!--/ Checkout Wizard -->
+<!-- Add new address modal -->
+@await Html.PartialAsync("../_Partials/_Modals/ModalAddNewAddress")

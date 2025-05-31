@@ -1,0 +1,52 @@
+@{
+  ViewData["Title"] = "Permission - Apps";
+}
+
+@section VendorStyles {
+<link rel="stylesheet" href="~/vendor/libs/datatables-bs5/datatables.bootstrap5.css">
+<link rel="stylesheet" href="~/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+<link rel="stylesheet" href="~/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+<link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/form-validation.css" />
+}
+
+@section VendorScripts {
+<script src="~/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
+<script src="~/vendor/libs/&#64;form-validation/popular.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/bootstrap5.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/auto-focus.js"></script>
+}
+
+@section PageScripts {
+<script src="~/js/app-access-permission.js"></script>
+<script src="~/js/modal-add-permission.js"></script>
+<script src="~/js/modal-edit-permission.js"></script>
+}
+
+@* ************** Content ************** *@
+
+
+<!-- Permission Table -->
+<div class="card">
+  <div class="card-datatable table-responsive">
+    <table class="datatables-permissions table border-top">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Name</th>
+          <th>Assigned To</th>
+          <th>Created Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+<!--/ Permission Table -->
+
+
+<!-- Modal -->
+@await Html.PartialAsync("../_Partials/_Modals/ModalAddPermission")
+@await Html.PartialAsync("../_Partials/_Modals/ModalEditPermission")
+<!-- /Modal -->

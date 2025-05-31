@@ -1,0 +1,570 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-11 13:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: config/settings-demo.py:166 config/settings.py:166
+#: templates/layout/partials/navbar/navbar.html:73
+msgid "English"
+msgstr "English"
+
+#: config/settings-demo.py:167 config/settings.py:167
+#: templates/layout/partials/navbar/navbar.html:78
+msgid "French"
+msgstr "Français"
+
+#: config/settings-demo.py:168 config/settings.py:168
+#: templates/layout/partials/navbar/navbar.html:83
+msgid "Arabic"
+msgstr "عربي"
+
+#: config/settings-demo.py:169 config/settings.py:169
+#: templates/layout/partials/navbar/navbar.html:88
+msgid "German"
+msgstr "Deutsch"
+
+msgid "Academy"
+msgstr "Akademie"
+
+msgid "My Course"
+msgstr "Mein Kurs"
+
+msgid "Course Details"
+msgstr "Kursdetails"
+
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+msgid "List"
+msgstr "Liste"
+
+msgid "Roles"
+msgstr "Rollen"
+
+msgid "UI elements"
+msgstr "UI-Elemente"
+
+msgid "Cards"
+msgstr "Karten"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Advance"
+msgstr "Advance"
+
+msgid "Analytics"
+msgstr "Analytik"
+
+msgid "Basic"
+msgstr "Basic"
+
+msgid "Statistics"
+msgstr "Statistiken"
+
+msgid "Charts"
+msgstr "Diagramme"
+
+msgid "Apex Charts"
+msgstr "Apex Diagramme"
+
+msgid "ChartJS"
+msgstr "ChartJS"
+
+msgid "eCommerce"
+msgstr "E-Commerce"
+
+msgid "Category List"
+msgstr "Kategorieliste"
+
+msgid "All Customers"
+msgstr "Alle Kunden"
+
+msgid "Customer Details"
+msgstr "Kundendetails"
+
+msgid "Address & Billing"
+msgstr "Adresse und Abrechnung"
+
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+msgid "Overview"
+msgstr "Überblick"
+
+msgid "Security"
+msgstr "Sicherheit"
+
+msgid "Manage Reviews"
+msgstr "Bewertungen verwalten"
+
+msgid "Order Details"
+msgstr "Bestelldetails"
+
+msgid "Order List"
+msgstr "Bestelldetails"
+
+msgid "Add Product"
+msgstr "Produkt hinzufügen"
+
+msgid "Product List"
+msgstr "Produktliste"
+
+msgid "Referrals"
+msgstr "Empfehlungen"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Extended UI"
+msgstr "Erweiterte Benutzeroberfläche"
+
+msgid "Avatar"
+msgstr "Benutzerbild"
+
+msgid "BlockUI"
+msgstr "BlockUI"
+
+msgid "Drag & Drop"
+msgstr "Ziehen und Ablegen"
+
+msgid "Plyr"
+msgstr "Plyr"
+
+msgid "Miscellaneous"
+msgstr "Verschiedenes"
+
+msgid "Perfect Scrollbar"
+msgstr "Perfect Scrollbar"
+
+msgid "Star Ratings"
+msgstr "Sterne-Bewertungen"
+
+msgid "SweetAlert2"
+msgstr "SweetAlert2"
+
+msgid "Text Divider"
+msgstr "Textteiler"
+
+msgid "Timeline"
+msgstr "Zeitleiste"
+
+msgid "Fullscreen"
+msgstr "Ganzer Bildschirm"
+
+msgid "Shepherd tour"
+msgstr "Hirtentour"
+
+msgid "Treeview"
+msgstr "Baumsicht"
+
+msgid "Forms"
+msgstr "Formen"
+
+msgid "Horizontal"
+msgstr "Horizontal"
+
+msgid "Layouts"
+msgstr "Layouts"
+
+msgid "Sticky Actions"
+msgstr "Sticky-Aktionen"
+
+msgid "Vertical"
+msgstr "Vertikal"
+
+msgid "Validation"
+msgstr "Validierung"
+
+msgid "Form Wizard"
+msgstr "Formzauberer"
+
+msgid "Icons"
+msgstr "Symbole"
+
+msgid "Numbered"
+msgstr "Nummeriert"
+
+msgid "Basic Inputs"
+msgstr "Grundlegende Eingaben"
+
+msgid "Custom Options"
+msgstr "Benutzerdefinierte Optionen"
+
+msgid "Editors"
+msgstr "Herausgeber"
+
+msgid "Extras"
+msgstr "Extras"
+
+msgid "File Upload"
+msgstr "Datei-Upload"
+
+msgid "Input groups"
+msgstr "Eingabegruppen"
+
+msgid "Pickers"
+msgstr "Pflücker"
+
+msgid "Select & Tags"
+msgstr "Wählen Sie & Tags aus"
+
+msgid "Sliders"
+msgstr "Schieberegler"
+
+msgid "Switches"
+msgstr "Schalter"
+
+msgid "Font Awesome"
+msgstr "Schriftart Super"
+
+msgid "Tabler"
+msgstr "Tischler"
+
+msgid "Invoice"
+msgstr "Rechnung"
+
+msgid "Logistics"
+msgstr "Logistik"
+
+msgid "Dashboard"
+msgstr "Armaturenbrett"
+
+msgid "Maps"
+msgstr "Karten"
+
+msgid "Leaflet"
+msgstr "Flugblatt"
+
+msgid "Modal Examples"
+msgstr "Modale Beispiele"
+
+msgid "Account Settings"
+msgstr "Account Einstellungen"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Billing & Plans"
+msgstr "Abrechnung und Pläne"
+
+msgid "Connections"
+msgstr "Verbindungen"
+
+msgid "User Profile"
+msgstr "Benutzerprofil"
+
+msgid "Projects"
+msgstr "Projekte"
+
+msgid "Teams"
+msgstr "Mannschaften"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Tables"
+msgstr "Tische"
+
+msgid "Datatables"
+msgstr "Datentabellen"
+
+msgid "Advanced"
+msgstr "Fortschrittlich"
+
+msgid "Extensions"
+msgstr "Erweiterungen"
+
+msgid "Transactions"
+msgstr "Transaktionen"
+
+msgid "New"
+msgstr "Neu"
+
+msgid "Transaction"
+msgstr "Transaktion"
+
+msgid "Update"
+msgstr "Aktualisieren"
+
+msgid "Accordion"
+msgstr "Akkordeon"
+
+msgid "Alerts"
+msgstr "Warnungen"
+
+msgid "Badges"
+msgstr "Abzeichen"
+
+msgid "Buttons"
+msgstr "Tasten"
+
+msgid "Carousel"
+msgstr "Karussell"
+
+msgid "Collapse"
+msgstr "Zusammenbruch"
+
+msgid "Dropdowns"
+msgstr "Dropdowns"
+
+msgid "Footer"
+msgstr "Fusszeile"
+
+msgid "List Groups"
+msgstr "Listengruppen"
+
+msgid "Modals"
+msgstr "Modals"
+
+msgid "Navbar"
+msgstr "Navigationsleiste"
+
+msgid "Offcanvas"
+msgstr "Offcanvas"
+
+msgid "Pagination & Breadcrumbs"
+msgstr "Paginierung und Semmelbrösel"
+
+msgid "Progress bars"
+msgstr "Fortschrittsbalken"
+
+msgid "Spinners"
+msgstr "Spinner"
+
+msgid "Tabs & Pills"
+msgstr "Tabs und Pillen"
+
+msgid "Toasts"
+msgstr "Toasts"
+
+msgid "Tooltips & Popovers"
+msgstr "Tooltips und Popovers"
+
+msgid "Typography"
+msgstr "Typografie"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "View"
+msgstr "Sicht"
+
+msgid "Wizard Examples"
+msgstr "Beispiele für Assistenten"
+
+msgid "Checkout"
+msgstr "Kasse"
+
+msgid "Create Deal"
+msgstr "Angebot erstellen"
+
+msgid "Property Listing"
+msgstr "Immobilienauflistung"
+
+msgid "Dashboards"
+msgstr "Instrumententafel"
+
+msgid "Collapsed menu"
+msgstr "Eingeklapptes Menü"
+
+msgid "Content navbar"
+msgstr "Inhalts-Navigationsleiste"
+
+msgid "Content nav + Sidebar"
+msgstr "Inhalts-Navigation + Seitenleiste"
+
+msgid "Without menu"
+msgstr "Ohne Menü"
+
+msgid "Without navbar"
+msgstr "Ohne Navigationsleiste"
+
+msgid "Fluid"
+msgstr "Flüssig"
+
+msgid "Container"
+msgstr "Container"
+
+msgid "Blank"
+msgstr "Leer"
+
+msgid "Front Pages"
+msgstr "Startseiten"
+
+msgid "Landing"
+msgstr "Startseite"
+
+msgid "Pricing"
+msgstr "Preisgestaltung"
+
+msgid "Payments"
+msgstr "Zahlungen"
+
+msgid "Help Center"
+msgstr "Hilfezentrum"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Chat"
+msgstr "Chat"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Kanban"
+msgstr "Kanban"
+
+msgid "Products"
+msgstr "Produkte"
+
+msgid "Order"
+msgstr "Bestellung"
+
+msgid "Customer"
+msgstr "Kunde"
+
+msgid "Store details"
+msgstr "Geschäftsdaten"
+
+msgid "Shipping & Delivery"
+msgstr "Versand und Lieferung"
+
+msgid "Locations"
+msgstr "Standorte"
+
+msgid "Fleet"
+msgstr "Fahrzeugflotte"
+
+msgid "Preview"
+msgstr "Vorschau"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Roles & Permissions"
+msgstr "Rollen und Berechtigungen"
+
+msgid "Pages"
+msgstr "Seiten"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Misc"
+msgstr "Verschiedenes"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Under Maintenance"
+msgstr "Wartung"
+
+msgid "Coming Soon"
+msgstr "Demnächst verfügbar"
+
+msgid "Not Authorized"
+msgstr "Nicht autorisiert"
+
+msgid "Authentications"
+msgstr "Authentifizierungen"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Cover"
+msgstr "Titelbild"
+
+msgid "Register"
+msgstr "Registrieren"
+
+msgid "Multi-steps"
+msgstr "Mehrstufig"
+
+msgid "Verify Email"
+msgstr "E-Mail überprüfen"
+
+msgid "Reset Password"
+msgstr "Passwort zurücksetzen"
+
+msgid "Forgot Password"
+msgstr "Passwort vergessen"
+
+msgid "Two Steps"
+msgstr "Zwei Schritte"
+
+msgid "User interface"
+msgstr "Benutzeroberfläche"
+
+msgid "Progress"
+msgstr "Fortschritt"
+
+msgid "Media Player"
+msgstr "Mediaplayer"
+
+msgid "Tour"
+msgstr "Tour"
+
+msgid "Form Elements"
+msgstr "Formularelemente"
+
+msgid "Form Layouts"
+msgstr "Formularlayouts"
+
+msgid "Vertical Form"
+msgstr "Vertikales Formular"
+
+msgid "Horizontal Form"
+msgstr "Horizontales Formular"
+
+msgid "Form Validation"
+msgstr "Formularvalidierung"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "Documentation"
+msgstr "Dokumentation"
+
+msgid "Apps & Pages"
+msgstr "Apps & Seiten"
+
+msgid "Apps"
+msgstr "Apps"
+
+msgid "Components"
+msgstr "Komponenten"
+
+msgid "Forms & Tables"
+msgstr "Formulare & Tabellen"
+
+msgid "Charts & Maps"
+msgstr "Diagramme & Karten"
+
+msgid "Fontawesome"
+msgstr "Fontawesome"
+
+msgid "Leaflet Maps"
+msgstr "Leaflet-Karten"
+
+msgid "Transactions (CRUD)"
+msgstr "Transaktionen (CRUD)"
