@@ -31,6 +31,10 @@
   color: var(--bs-table-heading-color);
 }
 
+.label-input label{
+    font-size: 1rem !important;
+}
+
 @media (max-width: 768px) {
   .navbar-nav .language-dropdown{
   position:absolute;
@@ -95,7 +99,7 @@
     margin-top:5rem;
 }
 
-.state, .l1, .l2{
+.state, .l1{
     color:#3aa7d9 !important;
 }
 

@@ -14,7 +14,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Demo: Checkout Card - Front Pages | Vuexy - Bootstrap Dashboard PRO</title>
+    <title>Network Discovery</title>
 
     <meta name="description" content="" />
 
@@ -81,10 +81,20 @@
     <!-- Navbar: Start -->
     <nav class="layout-navbar shadow-none py-0">
       <div class="container">
-        <div class="navbar navbar-expand-lg landing-navbar px-3 px-md-8">
+        <div class="navbar navbar-expand landing-navbar px-3 px-md-8">
           <!-- Menu logo wrapper: Start -->
           <div class="navbar-brand app-brand demo d-flex py-0 me-4 me-xl-8 ms-0">
             <!-- Mobile menu toggle: Start-->
+            <!-- <button
+              class="navbar-toggler border-0 px-0 me-4"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="icon-base ti tabler-menu-2 icon-lg align-middle text-heading fw-medium"></i>
+            </button> -->
             <!-- Mobile menu toggle: End-->
             <a href="https://www.faveohelpdesk.com/" class="app-brand-link">
               <img src="./images/faveo-logo.svg" width="80" height="45" alt="logo">
@@ -304,17 +314,18 @@
                 <span class="bs-stepper-label text-wrap text-center state">License Agreement</span>
               </button>
             </div>
-            <div class="line l1">
+            <div class="line">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step" data-target="#database-setup">
               <button type="button" class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
-                    <use xlink:href="./images/database-blue.svg#Layer_2"></use>
+                    <use xlink:href="./images/database.svg#Layer_2"></use>
                   </svg>
+                  <!-- <img src="../../assets/svg/icons/license-agreement.png" width="60" height="60" alt=""> -->
                 </span>
-                <span class="bs-stepper-label state">Database setup</span>
+                <span class="bs-stepper-label">Database setup</span>
               </button>
             </div>
             <div class="line">
@@ -357,68 +368,44 @@
               </button>
             </div>
           </div>
-          <div class="bs-stepper-content border-top">
-            <div class="error-content-box ">
-                <div class="px-5 mx-auto mb-2 mt-8 d-flex flex-column align-items-center justify-content-center">
-                    <div class="error-box">
-                      <h5>This test will check prerequisities required to install Network Discovery</h5>
-                      <div class="mt-6" id="code-group">
-                        <ul class="timeline error-box-1 mb-0 ">
-                          <li class="alert-box timeline-item-transparent">
-                            <span class="cross-icon"><img src="./images/red-tick-icon.svg" alt="" ></span>
-                            <div class="timeline-event ">
-                              <div class="timeline-header border border-danger rounded p-4 mb-4 error-content">
-                                <h6 class="mb-0 text-white">Failed to connect to database. <br />Access denied for user
-                                  <span>'root'</span>@<span>'localhost'</span> (using password: NO)
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
-                    
-                        </ul>
-                      </div>
-                      <div class="error-list d-flex flex-column justify-content-start row-gap-2">
-                        <h6>This either means that the username and password information is incorrect or your host is not reachable.</h6>
-                        <ul class="txt-black">
-                          <li class="mb-3">Are you sure you have a database already existing with the Database name provided?</li>
-                          <li class="mb-3">Are you sure you have the correct database privileges?</li>
-                          <li class="mb-3">Are you sure you have the correct username and password?</li>
-                          <li class="mb-3">Are you sure that you have typed the correct hostname?</li>
-                          <li class="mb-3">Are you sure you that database server is running?</li>
-                        </ul>
-                        <h6 class="black">
-                          If you're unsure what these terms mean you should probably contact your host. If you still need help you can always
-                          visit <a href="https://support.faveohelpdesk.com/home" target="_blank">Support</a>. </h6>
-                        <div class="d-flex flex-column row-gap-1 mt-9 mb-5">
-                          <div>
-                            <img src="./images/tick-icon.svg" alt=""><span class="ms-5">All OK</span>
-                          </div>
-                          <div>
-                            <img src="./images/red-tick-icon.svg"><span class="ms-5">Network Discovery require this feature and can’t work without it</span>
-                          </div>
-                          <div>
-                            <img src="./images/warning-icon.svg" alt="" ><span class="ms-5">Not a dealer, but it's recommended to have this installed for some features to work.</span>
-                          </div>
-                        </div>
-                        <div class="database-buttons">
-                            <a href="database-setup.html">
-                              <button type="button" class="btn btn-lg btn-primary">
-                                <span class="icon-xs icon-base ti tabler-arrow-left me-2"></span>Previous
-                              </button>
-                            </a>
-                            <div class="continue-btn">
-                              <button type="submit" class="btn btn-lg btn-primary" disabled>
-                                Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
-                              </button>
-                            </div>
-                        
-                        </div>
-                      </div>
-                    </div>
-                    
+        <div class="bs-stepper-content border-top">
+           <div class="col-12 px-5 mx-auto mb-2 mt-4">
+                  <p>Please read this software license agreement carefully before proceeding or using the software. By clicking on the
+                    "accept" button, you are consenting to be bound by this agreement. if you do not agree to all of the terms of this
+                    agreement, stop the installation process and exit.
+                  </p>
+              
+                  
+                    <input type="checkbox" name="Terms-and-conditions" value="checkbox" class="terms-checkbox me-2" id="terms" onchange="toggleButton()"/>
+                    <label for="terms" class="checkbox-label">
+
+                      <p>
+                         I accept the 
+                      <a href="https://www.faveohelpdesk.com/eula/" class="text-heading fw-medium">EULA</a>, 
+                      <a href="https://www.faveohelpdesk.com/privacy-policy/" class="text-heading fw-medium">Privacy Policy</a> & 
+                      <a href="https://www.faveohelpdesk.com/terms-conditions/" class="text-heading fw-medium">Terms & Conditions</a>.
+                      </p>
+                    </label>
+                  
+
+                  <div class="license-buttons">
+                      <a href="server-requirement.html">
+                        <button type="button" class="btn btn-lg btn-primary">
+                          <span class="icon-xs icon-base ti tabler-arrow-left me-2"></span>Cancel
+                      </button>
+                      </a>
+
+                      <a href="database-setup.html">
+                        <button class="btn btn-lg btn-primary" id="continueBtn" disabled >
+                        Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
+                      </button>
+                      </a>
+        
+
+                  </div>
+
                 </div>
-            </div>
-          </div>
+        </div>
         </div>
         
         </div>
@@ -481,6 +468,7 @@
 
     <!-- Page JS -->
 
+    <script src="js/installer.js"></script>
     <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/extended-ui-perfect-scrollbar.js"></script>
     <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/modal-add-new-address.js"></script>
     <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/wizard-ex-checkout.js"></script>

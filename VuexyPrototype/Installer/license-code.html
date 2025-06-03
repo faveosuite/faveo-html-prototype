@@ -14,7 +14,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Demo: Checkout Card - Front Pages | Vuexy - Bootstrap Dashboard PRO</title>
+    <title>Network Discovery</title>
 
     <meta name="description" content="" />
 
@@ -81,10 +81,20 @@
     <!-- Navbar: Start -->
     <nav class="layout-navbar shadow-none py-0">
       <div class="container">
-        <div class="navbar navbar-expand-lg landing-navbar px-3 px-md-8">
+        <div class="navbar navbar-expand landing-navbar px-3 px-md-8">
           <!-- Menu logo wrapper: Start -->
           <div class="navbar-brand app-brand demo d-flex py-0 me-4 me-xl-8 ms-0">
             <!-- Mobile menu toggle: Start-->
+            <!-- <button
+              class="navbar-toggler border-0 px-0 me-4"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="icon-base ti tabler-menu-2 icon-lg align-middle text-heading fw-medium"></i>
+            </button> -->
             <!-- Mobile menu toggle: End-->
             <a href="https://www.faveohelpdesk.com/" class="app-brand-link">
               <img src="./images/faveo-logo.svg" width="80" height="45" alt="logo">
@@ -313,34 +323,35 @@
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/database-blue.svg#Layer_2"></use>
                   </svg>
+                  
                 </span>
                 <span class="bs-stepper-label state">Database setup</span>
               </button>
             </div>
             <div class="line">
-              <i class="icon-base ti tabler-chevron-right"></i>
+              <i class="icon-base ti tabler-chevron-right l1"></i>
             </div>
             <div class="step" data-target="#checkout-address">
               <button type="button" class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
-                    <use xlink:href="./images/getting-started.svg#getting"></use>
+                    <use xlink:href="./images/getting-started-blue.svg#Layer_2"></use>
                   </svg>
                 </span>
-                <span class="bs-stepper-label">Getting Started</span>
+                <span class="bs-stepper-label state">Getting Started</span>
               </button>
             </div>
             <div class="line">
-              <i class="icon-base ti tabler-chevron-right"></i>
+              <i class="icon-base ti tabler-chevron-right l1"></i>
             </div>
             <div class="step" data-target="#checkout-payment">
               <button type="button" class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
-                    <use xlink:href="./images/license-code.svg#Layer_2"></use>
+                    <use xlink:href="./images/blue-license-code.svg#Layer_2"></use>
                   </svg>
                 </span>
-                <span class="bs-stepper-label">License Code</span>
+                <span class="bs-stepper-label state">License Code</span>
               </button>
             </div>
             <div class="line">
@@ -357,68 +368,37 @@
               </button>
             </div>
           </div>
-          <div class="bs-stepper-content border-top">
-            <div class="error-content-box ">
-                <div class="px-5 mx-auto mb-2 mt-8 d-flex flex-column align-items-center justify-content-center">
-                    <div class="error-box">
-                      <h5>This test will check prerequisities required to install Network Discovery</h5>
-                      <div class="mt-6" id="code-group">
-                        <ul class="timeline error-box-1 mb-0 ">
-                          <li class="alert-box timeline-item-transparent">
-                            <span class="cross-icon"><img src="./images/red-tick-icon.svg" alt="" ></span>
-                            <div class="timeline-event ">
-                              <div class="timeline-header border border-danger rounded p-4 mb-4 error-content">
-                                <h6 class="mb-0 text-white">Failed to connect to database. <br />Access denied for user
-                                  <span>'root'</span>@<span>'localhost'</span> (using password: NO)
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
+        <div class="bs-stepper-content border-top">
+           <div class="row mt-12 mb-12">
+                  <div class="col-12 col-lg-8 mx-auto text-center mb-2">
+                    <h5>Please enter your License Code for Network Discovery</h5>
+                    <form id="twoStepsForm" action="index.html" method="GET">
+                      <div class="mb-6 form-control-validation d-flex justify-content-center" id="code-group">
+                        <div class="auth-input-wrapper d-flex align-items-center justify-content-between numeral-mask-wrapper col-xl-7">
+                          <input type="text" class="form-control auth-input h-px-50 text-center numeral-mask mx-sm-1 my-2" maxlength="4"
+                            autofocus />
+                          <input type="text" class="form-control auth-input h-px-50 text-center numeral-mask mx-sm-1 my-2" maxlength="4" />
+                          <input type="text" class="form-control auth-input h-px-50 text-center numeral-mask mx-sm-1 my-2" maxlength="4" />
+                          <input type="text" class="form-control auth-input h-px-50 text-center numeral-mask mx-sm-1 my-2" maxlength="4" />
                     
-                        </ul>
-                      </div>
-                      <div class="error-list d-flex flex-column justify-content-start row-gap-2">
-                        <h6>This either means that the username and password information is incorrect or your host is not reachable.</h6>
-                        <ul class="txt-black">
-                          <li class="mb-3">Are you sure you have a database already existing with the Database name provided?</li>
-                          <li class="mb-3">Are you sure you have the correct database privileges?</li>
-                          <li class="mb-3">Are you sure you have the correct username and password?</li>
-                          <li class="mb-3">Are you sure that you have typed the correct hostname?</li>
-                          <li class="mb-3">Are you sure you that database server is running?</li>
-                        </ul>
-                        <h6 class="black">
-                          If you're unsure what these terms mean you should probably contact your host. If you still need help you can always
-                          visit <a href="https://support.faveohelpdesk.com/home" target="_blank">Support</a>. </h6>
-                        <div class="d-flex flex-column row-gap-1 mt-9 mb-5">
-                          <div>
-                            <img src="./images/tick-icon.svg" alt=""><span class="ms-5">All OK</span>
-                          </div>
-                          <div>
-                            <img src="./images/red-tick-icon.svg"><span class="ms-5">Network Discovery require this feature and can’t work without it</span>
-                          </div>
-                          <div>
-                            <img src="./images/warning-icon.svg" alt="" ><span class="ms-5">Not a dealer, but it's recommended to have this installed for some features to work.</span>
-                          </div>
                         </div>
-                        <div class="database-buttons">
-                            <a href="database-setup.html">
-                              <button type="button" class="btn btn-lg btn-primary">
-                                <span class="icon-xs icon-base ti tabler-arrow-left me-2"></span>Previous
-                              </button>
-                            </a>
-                            <div class="continue-btn">
-                              <button type="submit" class="btn btn-lg btn-primary" disabled>
-                                Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
-                              </button>
-                            </div>
-                        
-                        </div>
+                        <!-- Create a hidden field which is combined by 3 fields above -->
+                        <input type="hidden" name="otp" />
                       </div>
-                    </div>
-                    
+                      <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-lg btn-primary">
+                          Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
+                        </button>
+                      </div>
+                      <div class="text-center  mt-12">
+                        You can find your license code in our billing portal
+                        <a href="https://billing.faveohelpdesk.com/"> billing.faveohelpdesk.com </a>
+                      </div>
+                    </form> 
+                  </div>
+            <!-- </form> -->
                 </div>
-            </div>
-          </div>
+        </div>
         </div>
         
         </div>
