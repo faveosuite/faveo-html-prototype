@@ -84,6 +84,15 @@
     justify-content: space-between;
 }
 
+.database-refresh-button{
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    display:flex;
+    /* flex-direction: row; */
+    justify-content: space-evenly;
+    /* column-gap: 1rem; */
+}
+
 .question-tooltip{
     position: relative;
     top:2px;
@@ -101,6 +110,10 @@
 
 .state, .l1{
     color:#3aa7d9 !important;
+}
+
+.black-text{
+    color: var(--bs-heading-color);
 }
 
 .tick-icon{
@@ -131,6 +144,8 @@
     border-inline-start: none !important;
 }
 
+
+
 .error-content{
     background-color:#F24822;
     color: #ffffff !important;
@@ -138,6 +153,91 @@
 .error-list{
     margin-top:3.8rem;
 }
+
+.label-input-2 input:focus {
+    outline: 0;
+}
+
+.label-input-2.success input {
+    border-color: #09c372;
+}
+
+.label-input-2.error input {
+    border-color: #ff3860 !important;
+}
+
+.label-input-2 .error {
+    /* display:none; */
+    color: #ff3860;
+    font-size: 12px;
+}
+
+
+
+.form-control .is-invalid{
+        border-color: var(--bs-form-validation-border-color) !important;
+        box-shadow: 0 1px 10px 1px #ff4c51 !important;
+}
+.input-group > .form-control{
+    z-index: 0 !important;
+}
+
+.input-group:has(.is-invalid):focus-within:not(.input-group-merge) .input-group-text {
+  box-shadow: var(--bs-border-width) 0 0 var(--bs-form-validation-border-color);
+}
+
+
+.timeline-item{
+    opacity: 0;
+  transform: translateY(20px);
+  animation: slideOutUp 1s forwards;
+}
+
+
+@keyframes slideOutUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.timeline-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.timeline-item:nth-child(3) {
+  animation-delay: 0.7s;
+}
+.timeline-item:nth-child(4) {
+  animation-delay: 1s;
+}
+.timeline-item:nth-child(5) {
+  animation-delay: 1.3s;
+}
+.timeline-item:nth-child(6) {
+  animation-delay: 1.7s;
+}
+
+
+
+
+/*RTL*/
+[dir="rtl"] .icon-base, .fa-arrow-right-long{
+    transform: rotate(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width:424px) {
@@ -153,6 +253,12 @@
         align-items: center;
         row-gap: 1rem;
     }
+    .database-refresh-button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+    }
 } 
 
 
@@ -160,7 +266,7 @@
     .error-box h5{
         text-align: center !important;
     }
-    p{
+    p, span{
         line-height: 25px;
     }
 }
@@ -187,7 +293,7 @@
     }
     .label-input{
         display: flex;
-        flex-direction: row;
+        /* flex-direction: row; */
     }
     
 } 
