@@ -38,7 +38,7 @@
 @media (max-width: 768px) {
   .navbar-nav .language-dropdown{
   position:absolute;
-  transform: translate3d(-97.5px,19px,0px);
+  transform: translate3d(-148.5px,19px,0px);
 }
 }
 
@@ -54,7 +54,7 @@
   
 }
 .tabless tr td:nth-child(2){
-    color:#28C76F;
+    color:#50C878;
 }
 
 
@@ -112,13 +112,29 @@
     color:#3aa7d9 !important;
 }
 
+.fa-circle-check, .fa-circle-xmark, .fa-triangle-exclamation{
+    font-size: 26px !important;
+}
+
+.fa-circle-check{
+    color:#50C878;
+}
+
+.fa-circle-xmark{
+    color:#F24822;
+}
+
+.fa-triangle-exclamation{
+    color:#FFCD29;
+}
+
 .black-text{
     color: var(--bs-heading-color);
 }
 
 .tick-icon{
     position: absolute;
-    top: 8px !important;
+    top: 6px !important;
     z-index: 0;
     display: block;
     block-size: 1rem;
@@ -145,6 +161,9 @@
 }
 
 
+.timeline .timeline-item {
+    border-inline-start: none !important;
+}
 
 .error-content{
     background-color:#F24822;
@@ -153,6 +172,8 @@
 .error-list{
     margin-top:3.8rem;
 }
+
+
 
 .label-input-2 input:focus {
     outline: 0;
@@ -167,7 +188,6 @@
 }
 
 .label-input-2 .error {
-    /* display:none; */
     color: #ff3860;
     font-size: 12px;
 }
@@ -187,6 +207,7 @@
 }
 
 
+/*SUCCESS ANIMATION*/
 .timeline-item{
     opacity: 0;
   transform: translateY(20px);
@@ -223,6 +244,62 @@
 
 
 
+
+/*Spinner Animation*/
+.lds-spinner,
+.lds-spinner div,
+.lds-spinner div:after {
+  box-sizing: border-box;
+}
+
+.lds-spinner.tiny {
+  color: currentColor;
+  display: inline-block;
+  position: relative;
+  width: 29px;
+  height: 29px;
+}
+
+.lds-spinner.tiny div {
+  transform-origin: 14.5px 14.5px; /* Center of 29px */
+  animation: lds-spinner 1.2s linear infinite;
+}
+
+.lds-spinner.tiny div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 1.2px;        
+  left: 13.4px;      
+  width: 2.3px;      
+  height: 6.4px;     
+  border-radius: 20%;
+  background: currentColor;
+}
+
+/* 12 segments with staggered animation delays */
+.lds-spinner.tiny div:nth-child(1)  { transform: rotate(0deg);    animation-delay: -1.1s; }
+.lds-spinner.tiny div:nth-child(2)  { transform: rotate(30deg);   animation-delay: -1s; }
+.lds-spinner.tiny div:nth-child(3)  { transform: rotate(60deg);   animation-delay: -0.9s; }
+.lds-spinner.tiny div:nth-child(4)  { transform: rotate(90deg);   animation-delay: -0.8s; }
+.lds-spinner.tiny div:nth-child(5)  { transform: rotate(120deg);  animation-delay: -0.7s; }
+.lds-spinner.tiny div:nth-child(6)  { transform: rotate(150deg);  animation-delay: -0.6s; }
+.lds-spinner.tiny div:nth-child(7)  { transform: rotate(180deg);  animation-delay: -0.5s; }
+.lds-spinner.tiny div:nth-child(8)  { transform: rotate(210deg);  animation-delay: -0.4s; }
+.lds-spinner.tiny div:nth-child(9)  { transform: rotate(240deg);  animation-delay: -0.3s; }
+.lds-spinner.tiny div:nth-child(10) { transform: rotate(270deg);  animation-delay: -0.2s; }
+.lds-spinner.tiny div:nth-child(11) { transform: rotate(300deg);  animation-delay: -0.1s; }
+.lds-spinner.tiny div:nth-child(12) { transform: rotate(330deg);  animation-delay: 0s; }
+
+@keyframes lds-spinner {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+
+
+
 /*RTL*/
 [dir="rtl"] .icon-base, .fa-arrow-right-long{
     transform: rotate(180deg);
@@ -230,35 +307,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 @media (max-width:424px) {
-    .license-buttons{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 1rem;
-    }
-    .database-buttons{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 1rem;
-    }
+    .license-buttons, .database-buttons, 
     .database-refresh-button{
         display: flex;
         flex-direction: column;
         align-items: center;
         row-gap: 1rem;
     }
+   
 } 
 
 
@@ -281,22 +338,39 @@
     .error-box{
         width: 625px;
     }
-    .error-box-1{
-        position:relative;
-        right:75px;
+     .error-box-1 .alert-box {
+        padding-inline-start: 4.4rem !important;
     }
     .timeline .alert-box{
     padding-inline-start: 8.4rem;
     }
     .cross-icon{
-      inset-inline-start: 6rem;  
+      inset-inline-start: 1.5rem;  
     }
     .label-input{
         display: flex;
-        /* flex-direction: row; */
+        
     }
+
     
 } 
+
+@media (min-width:992px){
+    .server{
+        text-align: center !important;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px){
+    .bs-stepper .bs-stepper-header{
+        padding-inline: 0.5rem !important;
+    }
+    .bs-stepper.wizard-icons .bs-stepper-header{
+        gap:0 !important;
+    }
+    
+}
+
 
 
 

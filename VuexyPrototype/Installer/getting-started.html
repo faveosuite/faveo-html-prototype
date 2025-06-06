@@ -14,12 +14,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Getting Started</title>
+    <title>Network Discovery</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,18 +35,13 @@
     <!-- Core CSS -->
     <!-- build:css assets/vendor/css/theme.css  -->
 
-    <!-- <link rel="stylesheet" href="../../assets/vendor/libs/node-waves/node-waves.css" /> -->
-     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/node-waves/node-waves.css" />
-
+    
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/node-waves/node-waves.css" />
     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/pickr/pickr-themes.css" />
-
-    <!-- <link rel="stylesheet" href="../../assets/vendor/css/core.css" /> -->
-     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/core.css" />
     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/css/demo.css" />
-
     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/pages/front-page.css" />
-    <!-- <link rel="stylesheet" href="database-wrong-enter.css" /> -->
-    <link rel="stylesheet" href="./styles/installer.css" />
+
     
 
     <!-- Vendors CSS -->
@@ -62,6 +57,7 @@
 
     <!-- Page CSS -->
 
+    <link rel="stylesheet" href="./styles/installer.css" />
     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/pages/wizard-ex-checkout.css" />
 
     <!-- Helpers -->
@@ -160,7 +156,7 @@
                             <span>
                             <img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/us.svg" width="25" height="15" alt="">
                             </span>
-                            English
+                            
                           </button>
                           <ul class="dropdown-menu overflow-hidden dropdown-center language-dropdown" style="height:455px;" id="vertical-example">
                             <li>
@@ -206,6 +202,11 @@
                             <li>
                               <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="de" data-text-direction="ltr"
                                 ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/de.svg" width="20" height="15" alt="">German (Deutsch)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="il" data-text-direction="rtl"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/il.svg" width="20" height="15" alt="">Hebrew (עִברִית)</a
                               >
                             </li>
                             <li>
@@ -275,20 +276,20 @@
         <div id="wizard-checkout" class="bs-stepper wizard-icons wizard-icons-example">
           <div class="bs-stepper-header m-lg-auto border-0 custom-bs-header">
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/server.svg#server"></use>
                   </svg>
                 </span>
-                <span class="bs-stepper-label flex-wrap text-wrap text-center state">Server Requirements</span>
-              </button>
+                <span class="bs-stepper-label flex-wrap text-wrap server state">Server Requirements</span>
+              </div>
             </div>
             <div class="line l1">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/blue-license-agreement.svg#Layer_1"></use>
@@ -296,13 +297,13 @@
 
                 </span>
                 <span class="bs-stepper-label text-wrap text-center state">License Agreement</span>
-              </button>
+              </div>
             </div>
             <div class="line l1">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/database-blue.svg#Layer_2"></use>
@@ -310,46 +311,46 @@
                   
                 </span>
                 <span class="bs-stepper-label state">Database setup</span>
-              </button>
+              </div>
             </div>
             <div class="line">
               <i class="icon-base ti tabler-chevron-right l1"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/getting-started-blue.svg#Layer_2"></use>
                   </svg>
                 </span>
                 <span class="bs-stepper-label state">Getting Started</span>
-              </button>
+              </div>
             </div>
             <div class="line">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/license-code.svg#Layer_2"></use>
                   </svg>
                 </span>
                 <span class="bs-stepper-label">License Code</span>
-              </button>
+              </div>
             </div>
             <div class="line">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/final.svg#Layer_2"></use>
                   </svg>
                 </span>
                 <span class="bs-stepper-label">Final</span>
-              </button>
+              </div>
             </div>
           </div>
         <div class="bs-stepper-content border-top">
@@ -437,9 +438,9 @@
                                 </div>
         
                             </div>
-        
+
+                            <!-- System Information -->
                             <div class="border rounded p-6 mb-8">
-                                <!-- System Information -->
                                 <h5 class="mb-12">System Information</h5>
         
                                 <div class="mb-6 label-input">
@@ -451,7 +452,7 @@
                                             </i>
                                         </span>
                                     </label>
-                                    <select id="timezone" name="timeZone" class="form-control  ">
+                                    <select id="timezone" name="timeZone" class="form-control">
                                         <option value="Pacific/Midway">(GMT-11:00) Pacific/Midway</option>
                                         <option value="US/Samoa">(GMT-11:00) US/Samoa</option>
                                         <option value="US/Hawaii">(GMT-10:00) US/Hawaii</option>

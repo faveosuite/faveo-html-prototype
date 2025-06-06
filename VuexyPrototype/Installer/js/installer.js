@@ -327,6 +327,26 @@ document.querySelectorAll('#code1, #code2, #code3, #code4').forEach(function(inp
 });
 
 
+
+//ICON WITH BOX SHADOW
+document.querySelectorAll('.timeline-item').forEach(item => {
+  const icon = item.querySelector('i');
+
+  if (!icon) return;
+
+  const header = item.querySelector('.timeline-header');
+  if (!header) return;
+
+  if (icon.classList.contains('fa-circle-check')) {
+    header.style.boxShadow = '0 0 6px rgba(80, 200, 120, 1)'; // green
+  } else if (icon.classList.contains('fa-circle-xmark')) {
+    header.style.boxShadow = '0 0 10px rgba(242, 72, 34, 1)'; // red
+  } else if (icon.classList.contains('fa-triangle-exclamation')) {
+    header.style.boxShadow = '0 0 10px rgba(255, 205, 41, 1)'; // yellow
+  }
+});
+
+
 //RTL
 document.addEventListener('click', function(event) {
       const target = event.target;
@@ -345,33 +365,6 @@ document.addEventListener('click', function(event) {
 
 
 
-//IMAGE WITH WORDS
-
-// const dropdownButton = document.getElementById("defaultDropdown");
-//   const dropdownLinks = document.querySelectorAll("#vertical-example a");
-
-//   dropdownLinks.forEach(link => {
-//     link.addEventListener("click", function (e) {
-//       e.preventDefault();
-
-//       const img = this.querySelector("img").cloneNode(true);
-//       const words = this.textContent.trim().split(/\s+/);
-//       const isEnglish = this.getAttribute("data-language") === "en";
-
-//       let selectedText = '';
-
-//       if (isEnglish) {
-//         selectedText = words[0] || '';
-//       } else {
-//         selectedText = `${words[1] || ''} ${words[2] || ''}`.trim();
-//       }
-
-//       // Clear and update button content
-//       dropdownButton.innerHTML = '';
-//       dropdownButton.appendChild(img);
-//       dropdownButton.appendChild(document.createTextNode(' ' + selectedText));
-//     });
-//   });
 
 
   //ONLY IMAGE

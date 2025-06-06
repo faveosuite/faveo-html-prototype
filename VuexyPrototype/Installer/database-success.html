@@ -14,12 +14,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Demo: Checkout Card - Front Pages | Vuexy - Bootstrap Dashboard PRO</title>
+    <title>Network Discovery</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,18 +35,12 @@
     <!-- Core CSS -->
     <!-- build:css assets/vendor/css/theme.css  -->
 
-    <!-- <link rel="stylesheet" href="../../assets/vendor/libs/node-waves/node-waves.css" /> -->
-     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/node-waves/node-waves.css" />
-
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/node-waves/node-waves.css" />
     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/pickr/pickr-themes.css" />
-
-    <!-- <link rel="stylesheet" href="../../assets/vendor/css/core.css" /> -->
-     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/core.css" />
     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/css/demo.css" />
-
     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/pages/front-page.css" />
-    <link rel="stylesheet" href="database-wrong-enter.css" />
-    <link rel="stylesheet" href="./styles/installer.css" />
+    
 
     <!-- Vendors CSS -->
      <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -61,6 +55,7 @@
 
     <!-- Page CSS -->
 
+    <link rel="stylesheet" href="./styles/installer.css" />
     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/pages/wizard-ex-checkout.css" />
 
     <!-- Helpers -->
@@ -158,7 +153,7 @@
                             <span>
                             <img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/us.svg" width="25" height="15" alt="">
                             </span>
-                            English
+                            
                           </button>
                           <ul class="dropdown-menu overflow-hidden dropdown-center language-dropdown" style="height:455px;" id="vertical-example">
                             <li>
@@ -204,6 +199,11 @@
                             <li>
                               <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="de" data-text-direction="ltr"
                                 ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/de.svg" width="20" height="15" alt="">German (Deutsch)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="il" data-text-direction="rtl"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/il.svg" width="20" height="15" alt="">Hebrew (עִברִית)</a
                               >
                             </li>
                             <li>
@@ -273,20 +273,20 @@
         <div id="wizard-checkout" class="bs-stepper wizard-icons wizard-icons-example">
           <div class="bs-stepper-header m-lg-auto border-0 custom-bs-header">
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/server.svg#server"></use>
                   </svg>
                 </span>
-                <span class="bs-stepper-label flex-wrap text-wrap text-center state">Server Requirements</span>
-              </button>
+                <span class="bs-stepper-label flex-wrap text-wrap server state">Server Requirements</span>
+              </div>
             </div>
             <div class="line l1">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/blue-license-agreement.svg#Layer_1"></use>
@@ -294,59 +294,59 @@
 
                 </span>
                 <span class="bs-stepper-label text-wrap text-center state">License Agreement</span>
-              </button>
+              </div>
             </div>
             <div class="line l1">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/database-blue.svg#Layer_2"></use>
                   </svg>
                 </span>
                 <span class="bs-stepper-label state">Database setup</span>
-              </button>
+              </div>
             </div>
             <div class="line">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/getting-started.svg#getting"></use>
                   </svg>
                 </span>
                 <span class="bs-stepper-label">Getting Started</span>
-              </button>
+              </div>
             </div>
             <div class="line">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/license-code.svg#Layer_2"></use>
                   </svg>
                 </span>
                 <span class="bs-stepper-label">License Code</span>
-              </button>
+              </div>
             </div>
             <div class="line">
               <i class="icon-base ti tabler-chevron-right"></i>
             </div>
             <div class="step">
-              <button type="button" class="step-trigger">
+              <div class="step-trigger">
                 <span class="bs-stepper-icon">
                   <svg viewBox="0 0 60 60">
                     <use xlink:href="./images/final.svg#Layer_2"></use>
                   </svg>
                 </span>
                 <span class="bs-stepper-label">Final</span>
-              </button>
+              </div>
             </div>
           </div>
           <div class="bs-stepper-content border-top">
@@ -356,7 +356,7 @@
                 <div class="my-6" id="code-group">
                   <ul class="timeline mb-0">
                     <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><img src="./images/tick-icon.svg" alt=""></span>
+                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
                       <div class="timeline-event ">
                         <div class="timeline-header border rounded p-4 mb-4 data-check-content">
                           <h6 class="mb-0">Connected to database as <span>root@localhost</span>:</h6>
@@ -365,7 +365,7 @@
                     </li>
 
                     <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><img src="./images/tick-icon.svg" alt=""></span>
+                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
                       <div class="timeline-event ">
                         <div class="timeline-header border rounded p-4 mb-4 data-check-content">
                           <h6 class="mb-0">Database <span>“kk”</span> Selected</h6>
@@ -374,7 +374,7 @@
                     </li>
 
                      <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><img src="./images/tick-icon.svg" alt=""></span>
+                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
                       <div class="timeline-event ">
                         <div class="timeline-header border rounded p-4 mb-4 data-check-content">
                           <h6 class="mb-0">MYSQL Version is 10.6.21-MariaDB-0Ubuntu0.22.04.2</h6>
@@ -383,7 +383,7 @@
                     </li>
 
                      <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><img src="./images/tick-icon.svg" alt=""></span>
+                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
                       <div class="timeline-event ">
                         <div class="timeline-header border rounded p-4 mb-4 data-check-content">
                           <h6 class="mb-0">Database is empty</h6>
@@ -392,7 +392,7 @@
                     </li>
 
                     <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><img src="./images/tick-icon.svg" alt=""></span>
+                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
                       <div class="timeline-event ">
                         <div class="timeline-header border rounded p-4 mb-4 data-check-content">
                           <h6 class="mb-0">Premigration has been tested successfully.</h6>
@@ -401,7 +401,7 @@
                     </li>
 
                     <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><img src="./images/tick-icon.svg" alt=""></span>
+                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
                       <div class="timeline-event ">
                         <div class="timeline-header border rounded p-4 mb-4 data-check-content">
                           <h6 class="mb-0">Migration table in database.</h6>
@@ -412,17 +412,20 @@
                     
                   </ul>
                 </div>
-                <div class="d-flex flex-column row-gap-1 mt-9 mb-5">
+                <div class="d-flex flex-column row-gap-2 mt-9 mb-5">
                           <div>
-                            <img src="./images/tick-icon.svg" alt=""><span class="ms-5">All OK</span>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span class="ms-5">All OK</span>
                           </div>
                           <div>
-                            <img src="./images/red-tick-icon.svg"><span class="ms-5">Network Discovery require this feature and can’t work without it</span>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                            <span class="ms-5">Network Discovery require this feature and can’t work without it</span>
                           </div>
                           <div>
-                            <img src="./images/warning-icon.svg" alt="" ><span class="ms-5">Not a dealer, but it's recommended to have this installed for some features to work.</span>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span class="ms-5">Not a dealer, but it's recommended to have this installed for some features to work.</span>
                           </div>
-                        </div>
+                </div>
               </div>
             </div>
           </div>
@@ -484,10 +487,12 @@
     <!-- Main JS -->
 
     <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/front-main.js"></script>
+    
 
 
     <!-- Page JS -->
 
+    <script src="js/installer.js"></script>
     <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/extended-ui-perfect-scrollbar.js"></script>
     <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/modal-add-new-address.js"></script>
     <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/wizard-ex-checkout.js"></script>
