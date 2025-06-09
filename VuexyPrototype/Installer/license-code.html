@@ -353,12 +353,17 @@
             </div>
           </div>
         <div class="bs-stepper-content border-top">
-          <div class="row mt-12 mb-12">
-            <div class="col-12 col-lg-8 mx-auto text-center mb-2">
-              <h5>Please enter your License Code for Network Discovery</h5>
+          <div class="row mt-8 mb-12">
+            <div class="col-12 col-lg-11 mx-auto mb-2">
+              <div class="alert alert-danger alert-dismissible mt-7" role="alert">
+                License Code verification Failed (Invalid server response.)
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              
               <form id="twoStepsForm"  method="GET">
-                <div class="mb-6 form-control-validation d-flex justify-content-center" id="code-group">
-                  <div class="auth-input-wrapper d-flex align-items-center justify-content-between numeral-mask-wrapper col-xl-7">
+                <div class="mb-6 form-control-validation code-form" id="code-group">
+                  <h5 class="mt-4">Please enter your License Code for Network Discovery:</h5>
+                  <div class="auth-input-wrapper d-flex align-items-center justify-content-between numeral-mask-wrapper col-xl-5">
                     <input type="text" id="code1" class="form-control auth-input h-px-50 text-center numeral-mask mx-sm-1 my-2"
                       maxlength="4" autofocus autocomplete="off" />
                     <input type="text" id="code2" class="form-control  h-px-50 text-center numeral-mask mx-sm-1 my-2"
@@ -372,20 +377,16 @@
                   <!-- Create a hidden field which is combined by 3 fields above -->
                   <input type="hidden" name="otp" />
                 </div>
-                <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-lg btn-primary">
-                    Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
-                  </button>
-                </div>
-                <div class="alert alert-danger alert-dismissible mt-10" role="alert">
-                        License Code verification Failed (Invalid server response.)
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                      </div>
-              </form>
-              <div class="text-center  mt-12">
+                <div class="mt-5">
                   You can find your license code in our billing portal
                   <a href="https://billing.faveohelpdesk.com/"> billing.faveohelpdesk.com </a>
                 </div>
+                <button type="submit" class="btn btn-lg btn-primary mt-10">
+                  Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
+                </button>
+                
+              </form>
+              
             </div>
             <!-- </form> -->
           </div>
@@ -399,6 +400,7 @@
 
     <!-- Footer: Start -->
     <footer class="landing-footer bg-body footer-text">
+      <div class="footer-top position-relative overflow-hidden z-1"></div>
       <div class="footer-bottom py-3 py-md-5">
         <div
           class="container d-flex flex-wrap justify-content-between flex-md-row flex-column text-center text-md-start">

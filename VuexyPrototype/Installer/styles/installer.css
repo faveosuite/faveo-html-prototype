@@ -71,15 +71,7 @@
     border-width: 5px;
 }
 
-.license-buttons{
-    margin-top: 1rem;
-    display:flex;
-    justify-content: space-between;
-}
-
 .database-buttons{
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
     display:flex;
     justify-content: space-between;
 }
@@ -88,10 +80,12 @@
     margin-top: 3rem;
     margin-bottom: 1.5rem;
     display:flex;
-    /* flex-direction: row; */
     justify-content: space-evenly;
-    /* column-gap: 1rem; */
+    
 }
+
+
+
 
 .question-tooltip{
     position: relative;
@@ -152,6 +146,14 @@
     inset-block-start: 0;
     inset-inline-start: -1rem;
 }
+.ft-top{
+    padding-block: 8.6875rem 2.4375rem !important;
+}
+.button-set{
+    padding-inline-end: 5.5rem !important;
+    padding-inline-start: 5.5rem !important;
+}
+
 
 .timeline .alert-box{
     position: relative;
@@ -306,31 +308,26 @@
 }
 
 
-
-@media (max-width:424px) {
-    .license-buttons, .database-buttons, 
+@media (max-width:767px){
+    p, span{
+        line-height: 25px;
+    }
+    .database-buttons, 
     .database-refresh-button{
         display: flex;
         flex-direction: column;
         align-items: center;
         row-gap: 1rem;
     }
-   
-} 
-
-
-@media (max-width:767px){
-    .error-box h5{
-        text-align: center !important;
-    }
-    p, span{
-        line-height: 25px;
+    .continue-btn{
+        display: flex;
+        justify-content: center;
     }
 }
 
 @media (min-width:768px) {
     .data-check-content{
-        width: 415px;
+        width: 500px;
     }
     .error-content{
         width: 480px;
@@ -347,18 +344,24 @@
     .cross-icon{
       inset-inline-start: 1.5rem;  
     }
-    .label-input{
-        display: flex;
-        
+   .getting{
+          width:90%;
     }
 
     
 } 
 
+
+
 @media (min-width:992px){
     .server{
         text-align: center !important;
     }
+    .continue-btn{
+        display: flex;
+        justify-content: flex-end;
+        margin: 32px 64px 32px 0;
+}
 }
 
 @media screen and (min-width:992px) and (max-width:1199px){
@@ -372,6 +375,29 @@
 }
 
 
+
+@media (min-width:1200px) {
+    .label-input{
+        display: flex;
+       
+    }
+}
+
+
+@media (max-width:767px){
+    .code-form{
+        display:flex;
+        flex-direction: column;
+    }
+}
+@media (min-width:768px){
+    .code-form{
+        display:flex;
+    }
+    .code-form  .auth-input-wrapper{
+        padding-inline-start: 2rem;;
+    }
+}
 
 
 
