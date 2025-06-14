@@ -306,7 +306,7 @@
                     <use xlink:href="./images/database-blue.svg#Layer_2"></use>
                   </svg>
                 </span>
-                <span class="bs-stepper-label state">Database setup</span>
+                <span class="bs-stepper-label state"><strong>Database setup</strong></span>
               </div>
             </div>
             <div class="line">
@@ -349,92 +349,115 @@
               </div>
             </div>
           </div>
-          <div class="bs-stepper-content border-top">
-            <div class="col-xl-9">
-              <div class="px-5 mx-auto mb-2 mt-8 d-flex flex-column align-items-center">
-                <h5>This test will check prerequisities required to install Network Discovery</h5>
-                <div class="my-6" id="code-group">
-                  <ul class="timeline mb-0">
-                    <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
-                      <div class="timeline-event ">
-                        <div class="timeline-header border rounded p-3 mb-4 data-check-content">
-                          <h6 class="mb-0">Connected to database as <span>root@localhost</span>:</h6>
-                        </div>
+           <div class="bs-stepper-content border-top">
+            <div class="px-5 mx-auto mb-2 mt-8 d-flex flex-column align-items-start">
+              <h5>This test will check prerequisities required to install Network Discovery</h5>
+              <div class="data-group mt-6 mb-12 w-100">
+                <ul class="timeline d-flex flex-column row-gap-6">
+                  <li class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
+                    <div class="timeline-event card p-0 aos-init aos-animate" data-aos="fade-right">
+                      <div class="card-body database-card">
+                        <p>Connected to database as root@localhost:</p>
                       </div>
-                    </li>
-
-                    <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
-                      <div class="timeline-event ">
-                        <div class="timeline-header border rounded p-3 mb-4 data-check-content">
-                          <h6 class="mb-0">Database <span>“kk”</span> Selected</h6>
-                        </div>
+            
+                    </div>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
+                    <div class="timeline-event card p-0 aos-init aos-animate" data-aos="fade-right">
+                      <div class="card-body database-card">
+                        <p>Database “kk” Selected</p>
                       </div>
-                    </li>
-
-                     <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
-                      <div class="timeline-event ">
-                        <div class="timeline-header border rounded p-3 mb-4 data-check-content">
-                          <h6 class="mb-0">MYSQL Version is 10.6.21-MariaDB-0Ubuntu0.22.04.2</h6>
-                        </div>
+            
+                    </div>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
+                    <div class="timeline-event card p-0 aos-init aos-animate" data-aos="fade-right">
+                      <div class="card-body database-card">
+                        <p>MYSQL Version is 10.6.21-MariaDB-0Ubuntu0.22.04.2</p>
                       </div>
-                    </li>
-
-                     <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
-                      <div class="timeline-event ">
-                        <div class="timeline-header border rounded p-3 mb-4 data-check-content">
-                          <h6 class="mb-0">Database is empty</h6>
-                        </div>
+            
+                    </div>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
+                    <div class="timeline-event card p-0 aos-init aos-animate" data-aos="fade-right">
+                      <div class="card-body database-card">
+                        <p>Database is empty</p>
                       </div>
-                    </li>
-
-                    <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
-                      <div class="timeline-event ">
-                        <div class="timeline-header border rounded p-3 mb-4 data-check-content">
-                          <h6 class="mb-0">Premigration has been tested successfully.</h6>
-                        </div>
+            
+                    </div>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
+                    <div class="timeline-event card p-0 aos-init aos-animate" data-aos="fade-right">
+                      <div class="card-body database-card">
+                        <p>Premigration has been tested successfully.</p>
                       </div>
-                    </li>
-
-                    <li class="timeline-item timeline-item-transparent">
-                      <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
-                      <div class="timeline-event ">
-                        <div class="timeline-header border rounded p-3 mb-4 data-check-content">
-                          <h6 class="mb-0">Migration table in database.</h6>
-                        </div>
+            
+                    </div>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <span class="tick-icon"><i class="fa-solid fa-circle-check"></i></span>
+                    <div class="timeline-event card p-0 aos-init aos-animate" data-aos="fade-right">
+                      <div class="card-body database-card">
+                        <p>Migration table in database.</p>
                       </div>
-                    </li>
+            
+                    </div>
+                  </li>
+                </ul>
+            
+              </div>
 
-                    
-                  </ul>
+              <div class="mb-8 d-flex flex-column justify-content-start row-gap-2">
+                <h6>This either means that the username and password information is incorrect or your host is not reachable.</h6>
+                <ul>
+                  <li class="mb-3">Are you sure you have a database already existing with the Database name provided?</li>
+                  <li class="mb-3">Are you sure you have the correct database privileges?</li>
+                  <li class="mb-3">Are you sure you have the correct username and password?</li>
+                  <li class="mb-3">Are you sure that you have typed the correct hostname?</li>
+                  <li class="mb-3">Are you sure you that database server is running?</li>
+                </ul>
+                <h6 class="black-text">
+                  If you're unsure what these terms mean you should probably contact your host. If you still need help you can
+                  always
+                  visit <a href="https://support.faveohelpdesk.com/home" target="_blank">Support</a>. </h6>
+            
+            
+              </div>
+
+              <div class="d-flex flex-column row-gap-1">
+                <div class="instruction">
+                  <h6 style="color: #28c76f;" class="mb-0 me-1">Ok -</h6>
+                  <span>All OK</span>
                 </div>
-                <div class="d-flex flex-column row-gap-2 mt-9 mb-5">
-                          <div>
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span class="ms-5">All OK</span>
-                          </div>
-                          <div>
-                            <i class="fa-solid fa-circle-xmark"></i>
-                            <span class="ms-5">Network Discovery require this feature and can’t work without it</span>
-                          </div>
-                          <div>
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <span class="ms-5">Not a dealer, but it's recommended to have this installed for some features to work.</span>
-                          </div>
+                <div class="instruction">
+                  <h6 style="color: #F24822;" class="mb-0 me-1">Error -</h6>
+                  <span>Network Discovery require this feature and can’t work without it</span>
+                </div>
+                <div class="instruction">
+                  <h6 style="color: #FFCD29;" class="mb-0 me-1">Warning -</h6>
+                  <span>Not a dealer, but it's recommended to have this installed for some features to work.</span>
                 </div>
               </div>
             </div>
-            <div class="continue-btn me-12 mb-7 mt-7">
-              <a href="#">
-                <button type="button" class="btn btn-lg btn-primary">
-                  Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
-                </button>
-              </a>
-            </div>
+        
+            <div class="d-flex justify-content-end mx-lg-6 mt-12 mb-6" >
+                   <a href="getting-started.html">
+                     <button type="button" class="btn btn-lg btn-primary">
+                        Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
+                    </button>
+                   </a>
+                </div>
           </div>
         </div>
         

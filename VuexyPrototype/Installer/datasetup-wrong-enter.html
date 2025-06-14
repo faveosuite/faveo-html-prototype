@@ -307,7 +307,7 @@
                     <use xlink:href="./images/database-blue.svg#Layer_2"></use>
                   </svg>
                 </span>
-                <span class="bs-stepper-label state">Database setup</span>
+                <span class="bs-stepper-label state"><strong>Database setup</strong></span>
               </div>
             </div>
             <div class="line">
@@ -350,71 +350,71 @@
               </div>
             </div>
           </div>
-          <div class="bs-stepper-content border-top">
-            <div class="col-xl-9 ">
-                <div class="px-5 mx-auto mb-2 mt-8 d-flex flex-column align-items-center justify-content-center">
-                    <div class="error-box">
-                      <h5>This test will check prerequisities required to install Network Discovery</h5>
-                      <div class="mt-6" id="code-group">
-                        <ul class="timeline error-box-1 mb-0 ">
-                          <li class="alert-box timeline-item-transparent">
-                            <span class="cross-icon"><i class="fa-solid fa-circle-xmark"></i></span>
-                            <div class="timeline-event ">
-                              <div class="timeline-header border border-danger rounded p-4 mb-4 error-content">
-                                <h6 class="mb-0 text-white">Failed to connect to database. <br />Access denied for user
-                                  <span>'root'</span>@<span>'localhost'</span> (using password: NO)
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
-                    
-                        </ul>
+           <div class="bs-stepper-content border-top">
+            <div class="px-5 mx-auto mb-2 mt-8 d-flex flex-column align-items-start">
+              <h5>This test will check prerequisities required to install Network Discovery</h5>
+              <div class="data-group mt-6 mb-12 w-100">
+                <ul class="timeline d-flex flex-column row-gap-6">
+                  <li class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <span class="tick-icon"><i class="fa-solid fa-circle-xmark"></i></span>
+                    <div class="timeline-event card p-0 aos-init aos-animate" data-aos="fade-right">
+                      <div class="card-body database-card">
+                        <p>Failed to connect to database. Access denied for user 'root'@'localhost'(using password:NO)</p>
                       </div>
-                      <div class="error-list d-flex flex-column justify-content-start row-gap-2">
-                        <h6>This either means that the username and password information is incorrect or your host is not reachable.</h6>
-                        <ul class="txt-black">
-                          <li class="mb-3">Are you sure you have a database already existing with the Database name provided?</li>
-                          <li class="mb-3">Are you sure you have the correct database privileges?</li>
-                          <li class="mb-3">Are you sure you have the correct username and password?</li>
-                          <li class="mb-3">Are you sure that you have typed the correct hostname?</li>
-                          <li class="mb-3">Are you sure you that database server is running?</li>
-                        </ul>
-                        <h6 class="black">
-                          If you're unsure what these terms mean you should probably contact your host. If you still need help you can always
-                          visit <a href="https://support.faveohelpdesk.com/home" target="_blank">Support</a>. </h6>
-                        <div class="d-flex flex-column row-gap-2 mt-9 mb-5">
-                          <div>
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span class="ms-5">All OK</span>
-                          </div>
-                          <div>
-                            <i class="fa-solid fa-circle-xmark"></i>
-                            <span class="ms-5">Network Discovery require this feature and can’t work without it</span>
-                          </div>
-                          <div>
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <span class="ms-5">Not a dealer, but it's recommended to have this installed for some features to work.</span>
-                          </div>
-                </div>
-                        
-                      </div>
-                    </div>    
-                </div>
-            </div>
-            <div class="button-set">
-              <div class="database-buttons  mt-12 mb-6">
-                  <a href="database-setup.html">
-                    <button type="button" class="btn btn-lg btn-primary">
-                      <span class="icon-xs icon-base ti tabler-arrow-left me-2"></span>Previous
-                    </button>
-                  </a>
-                  <div>
-                    <button type="submit" class="btn btn-lg btn-primary" disabled>
-                      Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
-                    </button>
-                  </div>
-                
+            
+                    </div>
+                  </li>
+                  
+                </ul>
+            
               </div>
+
+              <div class="mb-8 d-flex flex-column justify-content-start row-gap-2">
+                <h6>This either means that the username and password information is incorrect or your host is not reachable.</h6>
+                <ul>
+                  <li class="mb-3">Are you sure you have a database already existing with the Database name provided?</li>
+                  <li class="mb-3">Are you sure you have the correct database privileges?</li>
+                  <li class="mb-3">Are you sure you have the correct username and password?</li>
+                  <li class="mb-3">Are you sure that you have typed the correct hostname?</li>
+                  <li class="mb-3">Are you sure you that database server is running?</li>
+                </ul>
+                <h6 class="black-text">
+                  If you're unsure what these terms mean you should probably contact your host. If you still need help you can
+                  always
+                  visit <a href="https://support.faveohelpdesk.com/home" target="_blank">Support</a>. </h6>
+            
+            
+              </div>
+
+              <div class="d-flex flex-column row-gap-1">
+                <div class="instruction">
+                  <h6 style="color: #28c76f;" class="mb-0 me-1">Ok -</h6>
+                  <span>All OK</span>
+                </div>
+                <div class="instruction">
+                  <h6 style="color: #F24822;" class="mb-0 me-1">Error -</h6>
+                  <span>Network Discovery require this feature and can’t work without it</span>
+                </div>
+                <div class="instruction">
+                  <h6 style="color: #FFCD29;" class="mb-0 me-1">Warning -</h6>
+                  <span>Not a dealer, but it's recommended to have this installed for some features to work.</span>
+                </div>
+              </div>
+            </div>
+        
+            <div class="database-buttons mx-lg-6 mt-12 mb-6">
+              <a href="database-setup.html">
+                <button type="button" class="btn btn-lg btn-primary waves-effect waves-light">
+                  <span class="icon-xs icon-base ti tabler-arrow-left me-2"></span>Previous
+                </button>
+              </a>
+              <div>
+                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light" disabled>
+                  Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
+                </button>
+              </div>
+            
             </div>
           </div>
         </div>

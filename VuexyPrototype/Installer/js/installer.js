@@ -328,23 +328,6 @@ document.querySelectorAll('#code1, #code2, #code3, #code4').forEach(function(inp
 
 
 
-//ICON WITH BOX SHADOW
-document.querySelectorAll('.timeline-item').forEach(item => {
-  const icon = item.querySelector('i');
-
-  if (!icon) return;
-
-  const header = item.querySelector('.timeline-header');
-  if (!header) return;
-
-  if (icon.classList.contains('fa-circle-check')) {
-    header.style.boxShadow = '0 0 6px rgba(80, 200, 120, 1)'; // green
-  } else if (icon.classList.contains('fa-circle-xmark')) {
-    header.style.boxShadow = '0 0 10px rgba(242, 72, 34, 1)'; // red
-  } else if (icon.classList.contains('fa-triangle-exclamation')) {
-    header.style.boxShadow = '0 0 10px rgba(255, 205, 41, 1)'; // yellow
-  }
-});
 
 
 //RTL

@@ -128,7 +128,8 @@
 
 .tick-icon{
     position: absolute;
-    top: 6px !important;
+    top: 13px !important;
+    left: -15px !important;
     z-index: 0;
     display: block;
     block-size: 1rem;
@@ -154,7 +155,33 @@
     padding-inline-start: 5.5rem !important;
 }
 
+.timeline .timeline-item {
+    border-inline-start: none !important;
+}
 
+.timeline-line {
+  position: absolute;
+  top: 35px;
+  left: -3px;
+  width: 2px;
+  height: 108%;
+  background-color: #ebebed;
+  
+}
+
+.timeline-item:last-child .timeline-line {
+  display: none;
+}
+
+.timeline .timeline-item .timeline-event {
+   
+    min-block-size: 0px !important;
+    
+}
+
+.timeline .alert{
+      box-shadow:  2px 2px 2px rgba(0,0,0,0.3);
+}
 .timeline .alert-box{
     position: relative;
     border: 0;
@@ -162,10 +189,16 @@
     border-inline-start: none !important;
 }
 
-
-.timeline .timeline-item {
-    border-inline-start: none !important;
+.database-card{
+  
+  padding: 0.6rem 1rem 0 1rem !important;
 }
+
+.database-card p{
+  margin-block-start: 0.35rem !important;
+ 
+}
+
 
 .error-content{
     background-color:#F24822;
@@ -307,6 +340,9 @@
     transform: rotate(180deg);
 }
 
+[dir="rtl"] .timeline-line{
+    left: 79.09rem;
+}
 
 @media (max-width:767px){
     p, span{
@@ -344,8 +380,8 @@
     .cross-icon{
       inset-inline-start: 1.5rem;  
     }
-   .getting{
-          width:90%;
+    .data-group{
+      padding-inline-start: 2rem;
     }
 
     
@@ -361,7 +397,11 @@
         display: flex;
         justify-content: flex-end;
         margin: 32px 64px 32px 0;
-}
+    }
+    .instruction{
+       display:flex;
+       align-items: center;
+    }
 }
 
 @media screen and (min-width:992px) and (max-width:1199px){
