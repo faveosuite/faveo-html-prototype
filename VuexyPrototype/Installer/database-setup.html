@@ -1,0 +1,509 @@
+<!doctype html>
+
+<html
+  lang="en"
+  class="layout-navbar-fixed layout-wide"
+  dir="ltr"
+  data-skin="default"
+  data-assets-path="../../assets/"
+  data-template="front-pages"
+  data-bs-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Network Discovery</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <!-- Core CSS -->
+    <!-- build:css assets/vendor/css/theme.css  -->
+
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/css/demo.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/pages/front-page.css" />
+    
+    <!-- Vendors CSS -->
+     <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/bs-stepper/bs-stepper.css" />
+    <link rel="stylesheet" href=".../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/raty-js/raty-js.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/@form-validation/form-validation.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+
+    <link rel="stylesheet" href="styles/installer.css" />
+    <link rel="stylesheet" href="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/css/pages/wizard-ex-checkout.css" />
+
+    <!-- Helpers -->
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/js/template-customizer.js"></script>
+
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/front-config.js"></script>
+  </head>
+
+  <body>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/js/dropdown-hover.js"></script>
+
+    <!-- Navbar: Start -->
+    <nav class="layout-navbar shadow-none py-0">
+      <div class="container">
+        <div class="navbar navbar-expand landing-navbar px-3 px-md-8">
+          <!-- Menu logo wrapper: Start -->
+          <div class="navbar-brand app-brand demo d-flex py-0 me-4 me-xl-8 ms-0">
+            <a href="javascript:void(0);" class="app-brand-link">
+              <img src="images/faveo-logo.svg" width="80" height="45" alt="logo">
+            </a>
+          </div>
+          <!-- Menu logo wrapper: End -->
+          <!-- Menu wrapper: Start -->
+
+          
+
+          <div class="landing-menu-overlay d-lg-none"></div>
+          <!-- Menu wrapper: End -->
+          <!-- Toolbar: Start -->
+          <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <!-- Style Switcher -->
+            <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-1">
+              <a
+                class="nav-link dropdown-toggle hide-arrow"
+                id="nav-theme"
+                href="javascript:void(0);"
+                data-bs-toggle="dropdown">
+                <i class="icon-base ti tabler-sun icon-lg theme-icon-active"></i>
+                <span class="d-none ms-2" id="nav-theme-text">Toggle theme</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-theme-text">
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item align-items-center active"
+                    data-bs-theme-value="light"
+                    aria-pressed="false">
+                    <span><i class="icon-base ti tabler-sun icon-md me-3" data-icon="sun"></i>Light</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="true">
+                    <span><i class="icon-base ti tabler-moon-stars icon-md me-3" data-icon="moon-stars"></i>Dark</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item align-items-center"
+                    data-bs-theme-value="system"
+                    aria-pressed="false">
+                    <span
+                      ><i
+                        class="icon-base ti tabler-device-desktop-analytics icon-md me-3"
+                        data-icon="device-desktop-analytics"></i
+                      >System</span
+                    >
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <!-- / Style Switcher-->
+
+            <!-- navbar button: Start -->
+            <li>
+                <div class="btn dropdown-menu-start">
+                          
+                          <button
+                            class="btn  dropdown-toggle d-flex flex-row gap-2"
+                            type="button"
+                            id="defaultDropdown"
+                            data-bs-toggle="dropdown"
+                            data-bs-auto-close="true"
+                            aria-expanded="false">
+                            <span>
+                            <img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/us.svg" width="25" height="15" alt="">
+                            </span>
+                            
+                          </button>
+                          <ul class="dropdown-menu overflow-hidden dropdown-center language-dropdown" id="vertical-example">
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="ar" data-text-direction="rtl"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/ae.svg" width="20" height="15" alt="">Arabic (العربية)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3 " data-language="bsn" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/ba.svg" width="20" height="15" alt="">Bosnian (босански)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="cn" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/cn.svg" width="20" height="15" alt="">Chinese (中文 [Simplified])</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="cn" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/cn.svg" width="20" height="15" alt="">Chinese (中文 [Traditional])</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="nl" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/nl.svg" width="20" height="15" alt="">Dutch (Vlaams)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="en" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/us.svg" width="20" height="15" alt="">English - United States</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="en" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/sh.svg" width="20" height="15" alt="">English - United Kingdom</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="fr" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/fr.svg" width="20" height="15" alt="">French (français)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="de" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/de.svg" width="20" height="15" alt="">German (Deutsch)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="il" data-text-direction="rtl"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/il.svg" width="20" height="15" alt="">Hebrew (עִברִית)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="id" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/id.svg" width="20" height="15" alt="">Indonesian (Bahasa Indonesia)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="it" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/it.svg" width="20" height="15" alt="">Italian (Italiano)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="kr" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/kr.svg" width="20" height="15" alt="">Korean (한국어)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="mt" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/mt.svg" width="20" height="15" alt="">Maltese (Malti)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="no" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/no.svg" width="20" height="15" alt="">Norwegian (Norsk)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="pt" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/pt.svg" width="20" height="15" alt="">Portuguese (Português)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="ru" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/ru.svg" width="20" height="15" alt="">Russian (Русский)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="es" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/es.svg" width="20" height="15" alt="">Spanish (Español)</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" class="dropdown-item d-flex align-items-center gap-3" data-language="vi" data-text-direction="ltr"
+                                ><img src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/dist/fonts/flags/4x3/vi.svg" width="20" height="15" alt="">Vietnamese (Tiếng Việt)</a
+                              >
+                            </li>
+
+                          </ul>
+                          
+                
+              </div>
+              
+            </li>
+            <!-- navbar button: End -->
+          </ul>
+          <!-- Toolbar: End -->
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar: End -->
+
+    <!-- Sections:Start -->
+
+    <section class="section-py bg-body first-section-pt">
+      <div class="container">
+        <div id="wizard-checkout" class="bs-stepper wizard-icons wizard-icons-example">
+          <div class="bs-stepper-header m-lg-auto border-0 custom-bs-header">
+            <div class="step">
+              <div class="step-trigger">
+                <span class="bs-stepper-icon">
+                  <svg viewBox="0 0 60 60">
+                    <use xlink:href="./images/server.svg#server"></use>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label flex-wrap text-wrap server state">Server Requirements</span>
+              </div>
+            </div>
+            <div class="line l1">
+              <i class="icon-base ti tabler-chevron-right"></i>
+            </div>
+            <div class="step">
+              <div class="step-trigger">
+                <span class="bs-stepper-icon">
+                  <svg viewBox="0 0 60 60">
+                    <use xlink:href="./images/blue-license-agreement.svg#Layer_1"></use>
+                  </svg>
+
+                </span>
+                <span class="bs-stepper-label text-wrap text-center state">License Agreement</span>
+              </div>
+            </div>
+            <div class="line l1">
+              <i class="icon-base ti tabler-chevron-right"></i>
+            </div>
+            <div class="step">
+              <div class="step-trigger">
+                <span class="bs-stepper-icon">
+                  <svg viewBox="0 0 60 60">
+                    <use xlink:href="./images/database-blue.svg#Layer_2"></use>
+                  </svg>
+                  
+                </span>
+                <span class="bs-stepper-label state"><strong>Database setup</strong></span>
+              </div>
+            </div>
+            <div class="line">
+              <i class="icon-base ti tabler-chevron-right"></i>
+            </div>
+            <div class="step">
+              <div class="step-trigger">
+                <span class="bs-stepper-icon">
+                  <svg viewBox="0 0 60 60">
+                    <use xlink:href="./images/getting-started.svg#getting"></use>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label">Getting Started</span>
+              </div>
+            </div>
+            <div class="line">
+              <i class="icon-base ti tabler-chevron-right"></i>
+            </div>
+            <div class="step">
+              <div class="step-trigger">
+                <span class="bs-stepper-icon">
+                  <svg viewBox="0 0 60 60">
+                    <use xlink:href="./images/license-code.svg#Layer_2"></use>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label">License Code</span>
+              </div>
+            </div>
+            <div class="line">
+              <i class="icon-base ti tabler-chevron-right"></i>
+            </div>
+            <div class="step">
+              <div class="step-trigger">
+                <span class="bs-stepper-icon">
+                  <svg viewBox="0 0 60 60">
+                    <use xlink:href="./images/final.svg#Layer_2"></use>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label">Final</span>
+              </div>
+            </div>
+          </div>
+        <div class="bs-stepper-content border-top">
+           <div class="col-xl-12 px-5 mx-auto mb-2 mt-8">
+                  <form id="formAuthentication">
+                <div class="mb-6 label-input">
+                    <label class="form-label col-xl-3" for="hostname">Host
+                        <span class="text-danger">*</span>
+                        <span> <i class="fa-solid fa-circle-question question-tooltip" data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                title="If your MySQL is installed on the same server as Network Discovery, let it be localhost">
+                            </i>
+                        </span>
+                    </label>
+                    <div  class="label-input-2">
+                      <input type="text" class="form-control" id="hostname" autocomplete="off" />
+                      <span class="error" id="hostnameError"></span>
+                    </div>
+        
+                </div>
+                <div class="mb-6 label-input">
+                    <label class="form-label col-xl-3" for="port">MYSQL Port number
+                        <span>
+                            <i class="fa-solid fa-circle-question question-tooltip" data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                title="Port number on which your MySQL server is listening. By default, it is 3306">
+                            </i>
+                        </span>
+                    </label>
+                    <div class="label-input-2">
+                      <input type="tel" class="form-control" id="port" placeholder="Port number" />
+                    <span class="error" ></span>
+                    </div>
+                    
+        
+                </div>
+                <div class="mb-6 label-input">
+                  <label class="form-label col-xl-3" for="databasename">Database Name <span class="text-danger">*</span></label>
+                  <div class="label-input-2">
+                    <input type="text" class="form-control" id="databasename" placeholder="Database Name" />
+                    <span class="error" id="databaseError"></span>
+                  </div>
+                
+                </div>
+                <div class="mb-6 label-input">
+                    <label class="form-label col-xl-3" for="username">Username <span class="text-danger">*</span></label>
+                    <div class="label-input-2">
+                      <input type="text" id="username" class="form-control phone-mask" placeholder="Username" />
+                      <span class="error" id="usernameError"></span>
+                    </div>
+                    
+                </div>
+                <div class="mb-6 form-password-toggle label-input">
+                        <label class="form-label col-xl-3" for="form-alignment-password">Password</label>
+                          <div style="width: 100%;">
+                            <div class="input-group input-group-merge label-input-2" >                          
+                            <input
+                            type="password"
+                            id="form-alignment-password"
+                            class="form-control"
+                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                            aria-describedby="form-alignment-password" />
+                          <span class="input-group-text cursor-pointer" id="form-alignment-password2"
+                            ><i class="icon-base ti tabler-eye-off"></i
+                          ></span>
+                          </div>
+                          
+                          <span class="error" id="passwordError"></span>
+                        </div>
+                        
+                        
+                        
+                </div>
+        
+                <!-- Buttons-->
+                <div class="database-buttons mt-12 mb-6">
+                    <div class="cancel">
+                        <a href="license-agreement.html">
+                          <button type="button" class="btn btn-lg btn-primary">
+                            <span class="icon-xs icon-base ti tabler-arrow-left me-2"></span>Previous
+                        </button>
+                        </a>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary">
+                      Continue<span class="icon-xs icon-base ti tabler-arrow-right ms-2"></span>
+                    </button>
+        
+                </div>
+            </form>
+
+                </div>
+        </div>
+        </div>
+        
+        </div>
+        </section>
+
+    <!-- / Sections:End -->
+
+    <!-- Footer: Start -->
+    <footer class="landing-footer bg-body footer-text">
+      <div class="footer-bottom py-3 py-md-5">
+        <div
+          class="container d-flex flex-wrap justify-content-between flex-md-row flex-column text-center text-md-start">
+          <div class="mb-2 mb-md-0">
+            <span class="footer-bottom-text"
+              >Copyright ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+            </span>
+            <a href="https://pixinvent.com" target="_blank" class="fw-medium text-white">Ladybird Web Solution.</a>
+            <span class="footer-bottom-text"> All rights reserved. Powered by</span>
+            <span class="fw-medium text-white">Faveo</span>
+          </div>
+          <div>
+            <span class="footer-bottom-text">Network Discovery v1.0.1</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer: End -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/theme.js -->
+
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/js/bootstrap.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/node-waves/node-waves.js"></script>
+
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/@algolia/autocomplete-js.js"></script>
+
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/pickr/pickr.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/select2/select2.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/raty-js/raty-js.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/cleave-zen/cleave-zen.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/@form-validation/popular.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/@form-validation/bootstrap5.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/@form-validation/auto-focus.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <!-- Main JS -->
+
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/front-main.js"></script>
+
+
+    <!-- Page JS -->
+
+    <script src="js/installer.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/extended-ui-perfect-scrollbar.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/modal-add-new-address.js"></script>
+    <script src="../../Vuexy/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template/full-version/assets/js/wizard-ex-checkout.js"></script>
+  </body>
+</html>
