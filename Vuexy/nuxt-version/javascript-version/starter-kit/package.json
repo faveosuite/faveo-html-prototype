@@ -34,7 +34,7 @@
     "eslint-plugin-regexp": "2.7.0",
     "jwt-decode": "4.0.0",
     "mapbox-gl": "3.5.2",
-    "next-auth": "4.21.1",
+    "next-auth": "4.24.12",
     "nuxt": "3.14.1592",
     "ofetch": "1.4.1",
     "pinia": "2.3.0",
