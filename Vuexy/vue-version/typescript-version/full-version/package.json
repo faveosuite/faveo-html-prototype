@@ -21,7 +21,7 @@
     "@sindresorhus/is": "7.0.1",
     "@tiptap/extension-highlight": "^2.10.3",
     "@tiptap/extension-image": "^2.10.3",
-    "@tiptap/extension-link": "^2.10.3",
+    "@tiptap/extension-link": "^2.10.4",
     "@tiptap/extension-text-align": "^2.10.3",
     "@tiptap/pm": "^2.10.3",
     "@tiptap/starter-kit": "^2.10.3",
