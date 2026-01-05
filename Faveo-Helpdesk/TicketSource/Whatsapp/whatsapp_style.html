@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Faveo Ticket Reply - WhatsApp Style</title>
+    <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+
+    <style>
+        /* --- General Faveo/AdminLTE Tweaks --- */
+        .info-row {
+            border-top: 1px solid #f4f4f4;
+            padding: 10px;
+        }
+
+        /* --- WhatsApp Style Chat --- */
+        .chat-container {
+            background-color: #f2f4f6; /* Neutral background fitting AdminLTE */
+            padding: 20px;
+            height: 600px;
+            overflow-y: auto;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            max-width: 80%;
+        }
+
+        .message-row.incoming {
+            align-self: flex-start;
+        }
+
+        .message-row.outgoing {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .message-bubble {
+            padding: 10px 15px;
+            border-radius: 15px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.5;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            min-width: 120px;
+        }
+
+        .message-row.incoming .message-bubble {
+            background-color: #ffffff;
+            border-bottom-left-radius: 2px;
+            border: 1px solid #e1e1e1;
+        }
+
+        .message-row.outgoing .message-bubble {
+            background-color: #dcf8c6; /* WhatsApp Light Green */
+            border-bottom-right-radius: 2px;
+            border: 1px solid #ccebc4;
+        }
+
+        /* Meta Info */
+        .message-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            font-size: 11px;
+            color: #888;
+        }
+
+        .message-author-name {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 2px;
+            font-size: 12px;
+        }
+
+        .message-row.outgoing .message-author-name {
+            text-align: right;
+            display: none; /* Hide own name usually */
+        }
+
+        /* Actions (Reply/React) - Faveo Style */
+        .message-actions {
+            opacity: 0;
+            transition: opacity 0.2s;
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+
+        .message-row:hover .message-actions {
+            opacity: 1;
+        }
+
+        .btn-action {
+            padding: 2px 6px;
+            font-size: 11px;
+            border-radius: 3px;
+            background: #fff;
+            border: 1px solid #ddd;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .btn-action:hover {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        /* Input Area - AdminLTE Style */
+        .chat-input-container {
+            background-color: #fff;
+            padding: 15px;
+            border-top: 1px solid #d2d6de;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Reply Context Preview */
+        .reply-preview {
+            background: #f1f8e9;
+            border-left: 4px solid #25D366;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: none;
+            position: relative;
+        }
+
+        .reply-preview .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        /* Reactions Display */
+        .reactions-display {
+            display: flex;
+            gap: 3px;
+            margin-top: 4px;
+            justify-content: flex-end;
+        }
+
+        .reaction-pill {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1px 5px;
+            font-size: 10px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        }
+
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="javascript:void(0)" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="javascript:void(0)" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="javascript:void(0)" class="brand-link text-center"><span class="brand-text font-weight-light">Faveo</span></a>
+        <div class="sidebar">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="../../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="javascript:void(0)" class="d-block">Karthi Keyan</a>
+                </div>
+            </div>
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Ticket Details</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../Line/line_source_view.html" class="nav-link">
+                            <i class="nav-icon fab fa-line"></i>
+                            <p>Line <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Line/line_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Line/line_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Line/line_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-twitter"></i>
+                            <p>Twitter <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-facebook"></i>
+                            <p>Facebook <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fab fa-whatsapp"></i>
+                            <p>Whatsapp <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="whatsapp_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="whatsapp_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="whatsapp_style.html" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-instagram"></i>
+                            <p>Instagram <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6"><h1 class="m-0">Ticket Details <span class="badge badge-danger">Overdue</span></h1></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card card-light">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-ticket-alt"></i>&nbsp;#HDSK-AAAA-0930
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="mr-1">Prototype for sources functionality in ticket threads&nbsp;
+                                    <span class="badge badge-warning mr-1">Prototype</span>
+                                </h5>
+                                <div class="row mt-3">
+                                    <div class="col-sm-8">
+                                        <div class="card card-light card-tabs">
+                                            <div class="card-header p-0 pt-1">
+                                                <ul class="nav nav-tabs" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-toggle="pill" href="#conversation-tab" role="tab">
+                                                            <i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Conversation
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="pill" href="#activity-tab-content" role="tab">
+                                                            <i class="fas fa-history"></i>&nbsp; Ticket Activity
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-body p-0">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade active show" id="conversation-tab" role="tabpanel">
+
+                                                        <!-- WhatsApp Conversation Wrapper -->
+                                                        <div class="chat-container" id="chat-messages">
+
+                                                            <!-- Incoming Message -->
+                                                            <div class="message-row incoming" id="msg_1">
+                                                                <div style="position: relative;">
+                                                                    <img src="../../../dist/img/avatar3.png" class="message-avatar" alt="User">
+                                                                    <div class="source-badge"><i class="fab fa-whatsapp"></i></div>
+                                                                </div>
+                                                                <div class="d-flex flex-column">
+                                                                    <div class="message-author-name">John Doe</div>
+                                                                    <div class="message-bubble">
+                                                                        Hello, I need help with my order #12345.
+                                                                        <div class="message-meta">
+                                                                            <span>10:30 AM</span>
+                                                                        </div>
+                                                                        <div class="reactions-display" id="reacts_msg_1"></div>
+                                                                    </div>
+                                                                    <div class="message-actions">
+                                                                        <button class="btn-action" onclick="replyTo('msg_1', 'John Doe', 'Hello, I need help...')"><i class="fas fa-reply"></i> Reply</button>
+                                                                        <button class="btn-action" onclick="toggleReaction('msg_1')"><i class="far fa-smile"></i> React</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Outgoing Message -->
+                                                            <div class="message-row outgoing" id="msg_2">
+                                                                <div style="position: relative;">
+                                                                    <img src="../../../dist/img/avatar5.png" class="message-avatar" alt="Agent">
+                                                                </div>
+                                                                <div class="d-flex flex-column align-items-end">
+                                                                    <div class="message-bubble">
+                                                                        Hi John, I'd be happy to help. What seems to be the issue?
+                                                                        <div class="message-meta">
+                                                                            <span>10:32 AM</span>
+                                                                            <i class="fas fa-check-double text-primary ml-1"></i>
+                                                                        </div>
+                                                                        <div class="reactions-display" id="reacts_msg_2"></div>
+                                                                    </div>
+                                                                    <div class="message-actions">
+                                                                        <button class="btn-action" onclick="toggleReaction('msg_2')"><i class="far fa-smile"></i> React</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Incoming Message with Reply Context -->
+                                                            <div class="message-row incoming" id="msg_3">
+                                                                <div style="position: relative;">
+                                                                    <img src="../../../dist/img/avatar3.png" class="message-avatar" alt="User">
+                                                                    <div class="source-badge"><i class="fab fa-whatsapp"></i></div>
+                                                                </div>
+                                                                <div class="d-flex flex-column">
+                                                                    <div class="message-author-name">John Doe</div>
+                                                                    <div class="message-bubble">
+                                                                        <!-- Quoted Context -->
+                                                                        <div class="reply-preview" style="display: block; margin-bottom: 5px; font-size: 12px; padding: 5px 8px;">
+                                                                            <strong style="color: #075e54;">You</strong><br>
+                                                                            <span style="color: #666;">What seems to be the issue?</span>
+                                                                        </div>
+                                                                        It hasn't arrived yet.
+                                                                        <div class="message-meta">
+                                                                            <span>10:35 AM</span>
+                                                                        </div>
+                                                                        <div class="reactions-display" id="reacts_msg_3"></div>
+                                                                    </div>
+                                                                    <div class="message-actions">
+                                                                        <button class="btn-action" onclick="replyTo('msg_3', 'John Doe', 'It hasn\'t arrived yet.')"><i class="fas fa-reply"></i> Reply</button>
+                                                                        <button class="btn-action" onclick="toggleReaction('msg_3')"><i class="far fa-smile"></i> React</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <!-- Input Area -->
+                                                        <div class="chat-input-container">
+                                                            <div class="reply-preview" id="input-reply-preview">
+                                                                <i class="fas fa-times close-btn" onclick="cancelReply()"></i>
+                                                                <strong style="color: #075e54;" id="reply-author">Author</strong><br>
+                                                                <span style="color: #666;" id="reply-text">Text</span>
+                                                            </div>
+
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <button class="btn btn-default"><i class="far fa-smile"></i></button>
+                                                                    <button class="btn btn-default"><i class="fas fa-paperclip"></i></button>
+                                                                </div>
+                                                                <input type="text" id="chat-input" class="form-control" placeholder="Type a message...">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-success" onclick="sendMessage()"><i class="fas fa-paper-plane"></i> Send</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-2">
+                                                                <small class="text-muted">
+                                                                    <i class="fas fa-info-circle"></i> This message will be sent via WhatsApp.
+                                                                </small>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="tab-pane fade" id="activity-tab-content" role="tabpanel">
+                                                        <div class="p-3">Activity Log...</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right Sidebar (Ticket Info) -->
+                                    <div class="col-sm-4">
+                                        <div class="card card-light">
+                                            <div class="card-header">
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-xs btn-default"><i class="far fa-edit"></i> Edit</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Created At</label><a href="javascript:;" class="col-sm-6">January 05, 2024</a></div></div>
+                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Status</label><a href="javascript:;" class="col-sm-6">Open</a></div></div>
+                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Source</label><a href="javascript:;" class="col-sm-6"><i class="fab fa-whatsapp text-success"></i> WhatsApp</a></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">Version 1.0.0</div>
+        <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights reserved.
+    </footer>
+</div>
+
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../dist/js/adminlte.min.js"></script>
+
+<script>
+    let currentReply = null;
+
+    function replyTo(msgId, author, text) {
+        currentReply = { id: msgId, author: author, text: text };
+        $('#reply-author').text(author);
+        $('#reply-text').text(text);
+        $('#input-reply-preview').slideDown();
+        $('#chat-input').focus();
+    }
+
+    function cancelReply() {
+        currentReply = null;
+        $('#input-reply-preview').slideUp();
+    }
+
+    function toggleReaction(msgId) {
+        // Simple simulation of adding a reaction
+        const container = $('#reacts_' + msgId);
+        if (container.children().length === 0) {
+            container.append('<span class="reaction-pill">👍 1</span>');
+        } else {
+            container.empty();
+        }
+    }
+
+    function sendMessage() {
+        const text = $('#chat-input').val().trim();
+        if (!text) return;
+
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const msgId = 'msg_' + Date.now();
+
+        let replyHtml = '';
+        if (currentReply) {
+            replyHtml = `
+                <div class="reply-preview" style="display: block; margin-bottom: 5px; font-size: 12px; padding: 5px 8px;">
+                    <strong style="color: #075e54;">${currentReply.author}</strong><br>
+                    <span style="color: #666;">${currentReply.text}</span>
+                </div>
+            `;
+        }
+
+        const html = `
+            <div class="message-row outgoing" id="${msgId}">
+                <div style="position: relative;">
+                    <img src="../../../dist/img/avatar5.png" class="message-avatar" alt="Agent">
+                </div>
+                <div class="d-flex flex-column align-items-end">
+                    <div class="message-bubble">
+                        ${replyHtml}
+                        ${text}
+                        <div class="message-meta">
+                            <span>${time}</span>
+                            <i class="fas fa-check text-secondary ml-1"></i>
+                        </div>
+                        <div class="reactions-display" id="reacts_${msgId}"></div>
+                    </div>
+                    <div class="message-actions">
+                        <button class="btn-action" onclick="toggleReaction('${msgId}')"><i class="far fa-smile"></i> React</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        $('#chat-messages').append(html);
+        $('#chat-input').val('');
+        cancelReply();
+
+        // Scroll to bottom
+        const chatDiv = document.getElementById('chat-messages');
+        chatDiv.scrollTop = chatDiv.scrollHeight;
+    }
+
+    // Enter key
+    $('#chat-input').on('keypress', function(e) {
+        if(e.which == 13) sendMessage();
+    });
+
+</script>
+</body>
+</html>

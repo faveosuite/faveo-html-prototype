@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Faveo Ticket - WhatsApp Timeline</title>
+    <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+
+    <style>
+        .info-row { border-top: 1px solid #f4f4f4; padding: 10px; }
+
+        /* WhatsApp Specifics */
+        .timeline-icon-whatsapp {
+            background-color: #25D366 !important;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-item.whatsapp-incoming {
+            border-top: 3px solid #25D366;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item.whatsapp-outgoing {
+            border-top: 3px solid #128C7E;
+            background-color: #e6ffde;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .wa-source-badge {
+            background-color: #e6ffde;
+            color: #128C7E;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-left: 8px;
+            border: 1px solid #a3d9a5;
+            font-weight: 600;
+        }
+
+        /* Improved Reply Box */
+        .wa-reply-box {
+            background: #fff;
+            border: 1px solid #d2d6de;
+            border-top: 3px solid #25D366;
+            border-radius: 4px;
+            padding: 0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .wa-reply-header {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #128C7E;
+            font-weight: bold;
+        }
+
+        .wa-reply-context {
+            background-color: #e6ffde;
+            border-left: 4px solid #25D366;
+            padding: 8px 15px;
+            display: none;
+            position: relative;
+        }
+
+        .wa-reply-context .close-context {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .wa-reply-body { padding: 15px; }
+
+        .wa-reply-footer {
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Reaction Styles */
+        .reaction-btn {
+            color: #65676b;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+            font-size: 13px;
+            border: 1px solid transparent;
+            background: transparent;
+        }
+
+        .reaction-btn:hover {
+            background-color: #f0f2f5;
+            color: #128C7E;
+            border-color: #e0e0e0;
+        }
+
+        .added-reactions { margin-top: 8px; display: flex; gap: 5px; }
+
+        .reaction-pill {
+            background-color: #f0f2f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2px 8px;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            color: #333;
+        }
+
+        /* Footer Action Buttons */
+        .timeline-footer {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding-top: 10px;
+            border-top: 1px solid #f4f4f4;
+            margin-top: 10px;
+        }
+
+        .btn-reply-wa {
+            color: #555;
+            background: #fff;
+            border: 1px solid #ddd;
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .btn-reply-wa:hover {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        /* Reply Context inside Message */
+        .reply-context-msg {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-left: 3px solid #25D366;
+            padding: 4px 8px;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            display: block;
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="#" class="brand-link text-center"><span class="brand-text font-weight-light">Faveo</span></a>
+        <div class="sidebar">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image"><img src="../../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image"></div>
+                <div class="info"><a href="#" class="d-block">Karthi Keyan</a></div>
+            </div>
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Ticket Details</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-line"></i>
+                            <p>Line <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Line/line_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Line/line_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Line/line_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-twitter"></i>
+                            <p>Twitter <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-facebook"></i>
+                            <p>Facebook <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fab fa-whatsapp"></i>
+                            <p>Whatsapp <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="whatsapp_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="whatsapp_timeline_view.html" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="whatsapp_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-instagram"></i>
+                            <p>Instagram <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6"><h1 class="m-0">Ticket Details <span class="badge badge-danger">Overdue</span></h1></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card card-light">
+                            <div class="card-header">
+                                <h3 class="card-title"><i class="fas fa-ticket-alt"></i>&nbsp;#HDSK-AAAA-0930</h3>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="mr-1">Prototype for sources functionality in ticket threads <span class="badge badge-warning mr-1">Prototype</span></h5>
+                                <div class="row mt-3">
+                                    <div class="col-sm-8">
+
+                                        <!-- WhatsApp Reply Box (Top) -->
+                                        <div class="wa-reply-box" id="main-reply-box">
+                                            <div class="wa-reply-header">
+                                                <span><i class="fab fa-whatsapp"></i> Reply via WhatsApp</span>
+                                                <small class="text-muted">To: +1 555 0123 456</small>
+                                            </div>
+                                            <div class="wa-reply-context" id="reply-context-preview">
+                                                <i class="fas fa-times close-context" onclick="clearReplyContext()"></i>
+                                                <small class="d-block text-primary font-weight-bold" id="reply-context-author">Replying to...</small>
+                                                <span class="text-muted" id="reply-context-text">Message text...</span>
+                                            </div>
+                                            <div class="wa-reply-body">
+                                                <textarea class="form-control" id="timeline-reply-input" rows="3" placeholder="Type your WhatsApp message here..."></textarea>
+                                            </div>
+                                            <div class="wa-reply-footer">
+                                                <div>
+                                                    <button class="btn btn-default btn-sm"><i class="fas fa-paperclip"></i> Attach</button>
+                                                    <button class="btn btn-default btn-sm"><i class="far fa-smile"></i> Emoji</button>
+                                                </div>
+                                                <button class="btn btn-success btn-sm" onclick="sendTimelineMessage()"><i class="fab fa-whatsapp"></i> Send</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="card card-light card-tabs">
+                                            <div class="card-header p-0 pt-1">
+                                                <ul class="nav nav-tabs" role="tablist">
+                                                    <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#conversation-tab" role="tab"><i class="far fa-comments"></i>&nbsp; Ticket Conversation</a></li>
+                                                    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#activity-tab-content" role="tab"><i class="fas fa-history"></i>&nbsp; Ticket Activity</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade active show" id="conversation-tab" role="tabpanel">
+                                                        <div class="timeline">
+                                                            <div class="time-label"><span class="bg-light border">Today</span></div>
+
+                                                            <!-- Incoming WhatsApp Message -->
+                                                            <div>
+                                                                <i class="fab fa-whatsapp timeline-icon-whatsapp"></i>
+                                                                <div class="timeline-item whatsapp-incoming">
+                                                                    <span class="time"><i class="far fa-clock"></i> 12:05 PM</span>
+                                                                    <h3 class="timeline-header">
+                                                                        <a href="#">John Doe</a> sent a message
+                                                                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                                                                    </h3>
+                                                                    <div class="timeline-body" id="msg_1">
+                                                                        Hello, I need help with my order #12345.
+                                                                        <div class="added-reactions" id="reactions_msg_1"></div>
+                                                                    </div>
+                                                                    <div class="timeline-footer">
+                                                                        <button class="btn-reply-wa" onclick="setReplyContext('John Doe', 'Hello, I need help with my order #12345.')"><i class="fas fa-reply"></i> Reply</button>
+                                                                        <button class="reaction-btn ml-2" onclick="addReaction('msg_1', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Outgoing WhatsApp Message -->
+                                                            <div>
+                                                                <i class="fas fa-user bg-gray"></i>
+                                                                <div class="timeline-item whatsapp-outgoing">
+                                                                    <span class="time"><i class="far fa-clock"></i> 12:10 PM</span>
+                                                                    <h3 class="timeline-header">
+                                                                        <a href="#">Karthi Keyan</a> replied
+                                                                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                                                                    </h3>
+                                                                    <div class="timeline-body" id="msg_2">
+                                                                        Hi John, we received your message.
+                                                                        <div class="added-reactions" id="reactions_msg_2"></div>
+                                                                    </div>
+                                                                    <div class="timeline-footer">
+                                                                         <button class="reaction-btn" onclick="addReaction('msg_2', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div><i class="far fa-clock bg-gray"></i></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="activity-tab-content" role="tabpanel"><div class="p-3">Activity Log...</div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card card-light">
+                                            <div class="card-header"><div class="card-tools"><button type="button" class="btn btn-xs btn-default"><i class="far fa-edit"></i> Edit</button></div></div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Status</label><a href="javascript:;" class="col-sm-6">Open</a></div></div>
+                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Source</label><a href="javascript:;" class="col-sm-6"><i class="fab fa-whatsapp text-success"></i> WhatsApp</a></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">Version 1.0.0</div>
+        <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights reserved.
+    </footer>
+</div>
+
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../dist/js/adminlte.min.js"></script>
+
+<script>
+    let currentTimelineReply = null;
+
+    function setReplyContext(author, text) {
+        currentTimelineReply = { author: author, text: text };
+        $('#reply-context-author').text('Replying to ' + author);
+        $('#reply-context-text').text(text);
+        $('#reply-context-preview').slideDown();
+
+        $('html, body').animate({
+            scrollTop: $("#main-reply-box").offset().top - 100
+        }, 500);
+
+        $('#timeline-reply-input').focus();
+    }
+
+    function clearReplyContext() {
+        currentTimelineReply = null;
+        $('#reply-context-preview').slideUp();
+    }
+
+    function sendTimelineMessage() {
+        const text = $('#timeline-reply-input').val().trim();
+        if (!text) return;
+
+        const msgId = 'msg_' + Date.now();
+        const timeString = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        let replyHtml = '';
+        if (currentTimelineReply) {
+            replyHtml = `
+                <div class="reply-context-msg">
+                    <strong>${currentTimelineReply.author}</strong>
+                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${currentTimelineReply.text}</div>
+                </div>
+            `;
+        }
+
+        const html = `
+            <div>
+                <i class="fas fa-user bg-gray"></i>
+                <div class="timeline-item whatsapp-outgoing">
+                    <span class="time"><i class="far fa-clock"></i> ${timeString}</span>
+                    <h3 class="timeline-header">
+                        <a href="#">Karthi Keyan</a> replied
+                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                    </h3>
+                    <div class="timeline-body" id="${msgId}">
+                        ${replyHtml}
+                        ${text}
+                        <div class="added-reactions" id="reactions_${msgId}"></div>
+                    </div>
+                    <div class="timeline-footer">
+                         <button class="reaction-btn" onclick="addReaction('${msgId}', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        $('.timeline > div:last-child').before(html);
+
+        $('#timeline-reply-input').val('');
+        clearReplyContext();
+    }
+
+    function addReaction(msgId, emoji) {
+        const container = $('#reactions_' + msgId);
+        let exists = false;
+        container.find('.reaction-pill').each(function() {
+            if ($(this).data('emoji') === emoji) {
+                exists = true;
+                return false;
+            }
+        });
+
+        if (!exists) {
+            const pill = `<span class="reaction-pill" data-emoji="${emoji}">${emoji} <span class="count">1</span></span>`;
+            container.append(pill);
+        }
+    }
+</script>
+</body>
+</html>
