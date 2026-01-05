@@ -3,95 +3,96 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Faveo Ticket - WhatsApp Timeline</title>
+    <title>Faveo Ticket - Email Timeline</title>
     <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
     <style>
         .info-row { border-top: 1px solid #f4f4f4; padding: 10px; }
 
-        /* WhatsApp Specifics */
-        .timeline-icon-whatsapp {
-            background-color: #25D366 !important;
+        /* Email Specifics */
+        .timeline-icon-email {
+            background-color: #007bff !important;
             color: white !important;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .timeline-item.whatsapp-incoming {
-            border-top: 3px solid #25D366;
+        .timeline-item.email-incoming {
+            border-top: 3px solid #007bff;
             background-color: #fff;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .timeline-item.whatsapp-outgoing {
-            border-top: 3px solid #128C7E;
-            background-color: #e6ffde;
+        .timeline-item.email-outgoing {
+            border-top: 3px solid #6c757d;
+            background-color: #f8f9fa;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .wa-source-badge {
-            background-color: #e6ffde;
-            color: #128C7E;
+        .email-source-badge {
+            background-color: #e7f3ff;
+            color: #007bff;
             padding: 2px 8px;
             border-radius: 12px;
             font-size: 11px;
             margin-left: 8px;
-            border: 1px solid #a3d9a5;
+            border: 1px solid #b3d7ff;
             font-weight: 600;
         }
 
-        /* Improved Reply Box */
-        .wa-reply-box {
+        /* Reply Editor */
+        .email-reply-box {
             background: #fff;
             border: 1px solid #d2d6de;
-            border-top: 3px solid #25D366;
+            border-top: 3px solid #007bff;
             border-radius: 4px;
             padding: 0;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             overflow: hidden;
         }
-
-        .wa-reply-header {
+        .email-reply-header {
             background-color: #f8f9fa;
             padding: 10px 15px;
             border-bottom: 1px solid #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #128C7E;
+            color: #007bff;
             font-weight: bold;
         }
-
-        .wa-reply-context {
-            background-color: #e6ffde;
-            border-left: 4px solid #25D366;
-            padding: 8px 15px;
-            display: none;
-            position: relative;
-        }
-
-        .wa-reply-context .close-context {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .wa-reply-body { padding: 15px; }
-
-        .wa-reply-footer {
+        .email-reply-body { padding: 15px; }
+        .email-reply-footer {
             padding: 10px 15px;
             background-color: #f8f9fa;
             border-top: 1px solid #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        /* Threading */
+        .thread-ellipsis {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #f4f4f4;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 10px;
+            color: #555;
+        }
+        .nested-quote.collapsed { display: none; }
+        blockquote {
+            border-left: 3px solid #ddd;
+            margin: 10px 0;
+            padding-left: 15px;
+            color: #666;
         }
 
         /* Reaction Styles */
@@ -108,9 +109,33 @@
 
         .reaction-btn:hover {
             background-color: #f0f2f5;
-            color: #128C7E;
+            color: #007bff;
             border-color: #e0e0e0;
         }
+
+        .reaction-picker-popover {
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            padding: 6px 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 100;
+            white-space: nowrap;
+            top: -45px;
+            left: 50px;
+        }
+
+        .reaction-option {
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 4px;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .reaction-option:hover { transform: scale(1.3); }
 
         .added-reactions { margin-top: 8px; display: flex; gap: 5px; }
 
@@ -135,7 +160,7 @@
             margin-top: 10px;
         }
 
-        .btn-reply-wa {
+        .btn-reply-email {
             color: #555;
             background: #fff;
             border: 1px solid #ddd;
@@ -144,22 +169,16 @@
             border-radius: 4px;
         }
 
-        .btn-reply-wa:hover {
+        .btn-reply-email:hover {
             background: #f4f4f4;
             color: #333;
         }
 
-        /* Reply Context inside Message */
-        .reply-context-msg {
-            background-color: rgba(0, 0, 0, 0.05);
-            border-left: 3px solid #25D366;
-            padding: 4px 8px;
-            margin-bottom: 6px;
-            border-radius: 4px;
-            font-size: 12px;
-            display: block;
-            text-align: left;
-        }
+        /* Redaction */
+        #popup { position: absolute; background: white; border: 1px solid #ccc; display: none; z-index: 1000; }
+        redact { border: 1px solid rgb(204, 51, 64); background-color: rgba(204, 51, 64, 0.08); cursor: pointer; }
+        .redacted { border: none !important; background-color: unset !important; user-select: none !important; cursor: unset !important; }
+        .editable-timeline-body { border: 2px solid #495057; border-radius: 0.25rem; margin: 3px; user-select: text; padding: 5px; }
 
     </style>
 </head>
@@ -173,11 +192,11 @@
     </nav>
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="#" class="brand-link text-center"><span class="brand-text font-weight-light">Faveo</span></a>
+        <a href="javascript:void(0)" class="brand-link text-center"><span class="brand-text font-weight-light">Faveo</span></a>
         <div class="sidebar">
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image"><img src="../../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image"></div>
-                <div class="info"><a href="#" class="d-block">Karthi Keyan</a></div>
+                <div class="info"><a href="javascript:void(0)" class="d-block">Karthi Keyan</a></div>
             </div>
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
@@ -265,26 +284,26 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fab fa-whatsapp"></i>
                             <p>Whatsapp <i class="right fas fa-angle-left"></i></p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="whatsapp_source_view.html" class="nav-link">
+                                <a href="../Whatsapp/whatsapp_source_view.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Whatsapp Source View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="whatsapp_timeline_view.html" class="nav-link active">
+                                <a href="../Whatsapp/whatsapp_timeline_view.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Whatsapp Timeline View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="whatsapp_style.html" class="nav-link">
+                                <a href="../Whatsapp/whatsapp_style.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Whatsapp Style</p>
                                 </a>
@@ -369,26 +388,26 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-envelope"></i>
                             <p>Email <i class="right fas fa-angle-left"></i></p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="../Email/email_source_view.html" class="nav-link">
+                                <a href="email_source_view.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Email Source View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../Email/email_timeline_view.html" class="nav-link">
+                                <a href="email_timeline_view.html" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Email Timeline View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../Email/email_style.html" class="nav-link">
+                                <a href="email_style.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Email Style</p>
                                 </a>
@@ -411,6 +430,8 @@
 
         <div class="content">
             <div class="container-fluid">
+                <div id="popup" class="rounded shadow-sm"><a class="dropdown-item" href="javascript:void(0)" id="redactButton">Mark for permanent redaction</a><a class="dropdown-item" id="t_redactButton" href="javascript:void(0)">Mark for temporary redaction</a></div>
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card card-light">
@@ -422,26 +443,20 @@
                                 <div class="row mt-3">
                                     <div class="col-sm-8">
 
-                                        <!-- WhatsApp Reply Box (Top) -->
-                                        <div class="wa-reply-box" id="main-reply-box">
-                                            <div class="wa-reply-header">
-                                                <span><i class="fab fa-whatsapp"></i> Reply via WhatsApp</span>
-                                                <small class="text-muted">To: +1 555 0123 456</small>
+                                        <!-- Email Reply Box -->
+                                        <div class="email-reply-box" id="main-reply-box">
+                                            <div class="email-reply-header">
+                                                <span><i class="fas fa-reply"></i> Reply via Email</span>
+                                                <small class="text-muted">To: John Doe</small>
                                             </div>
-                                            <div class="wa-reply-context" id="reply-context-preview">
-                                                <i class="fas fa-times close-context" onclick="clearReplyContext()"></i>
-                                                <small class="d-block text-primary font-weight-bold" id="reply-context-author">Replying to...</small>
-                                                <span class="text-muted" id="reply-context-text">Message text...</span>
+                                            <div class="email-reply-body">
+                                                <textarea id="email-editor"></textarea>
                                             </div>
-                                            <div class="wa-reply-body">
-                                                <textarea class="form-control" id="timeline-reply-input" rows="3" placeholder="Type your WhatsApp message here..."></textarea>
-                                            </div>
-                                            <div class="wa-reply-footer">
+                                            <div class="email-reply-footer">
                                                 <div>
                                                     <button class="btn btn-default btn-sm"><i class="fas fa-paperclip"></i> Attach</button>
-                                                    <button class="btn btn-default btn-sm"><i class="far fa-smile"></i> Emoji</button>
                                                 </div>
-                                                <button class="btn btn-success btn-sm" onclick="sendTimelineMessage()"><i class="fab fa-whatsapp"></i> Send</button>
+                                                <button class="btn btn-primary btn-sm" onclick="sendEmailReply()"><i class="fas fa-paper-plane"></i> Send</button>
                                             </div>
                                         </div>
 
@@ -458,41 +473,66 @@
                                                         <div class="timeline">
                                                             <div class="time-label"><span class="bg-light border">Today</span></div>
 
-                                                            <!-- Incoming WhatsApp Message -->
+                                                            <!-- Incoming Email -->
                                                             <div>
-                                                                <i class="fab fa-whatsapp timeline-icon-whatsapp"></i>
-                                                                <div class="timeline-item whatsapp-incoming">
-                                                                    <span class="time"><i class="far fa-clock"></i> 12:05 PM</span>
+                                                                <i class="fas fa-envelope timeline-icon-email"></i>
+                                                                <div class="timeline-item email-incoming">
+                                                                    <span class="time"><i class="far fa-clock"></i> 10:30 AM</span>
                                                                     <h3 class="timeline-header">
-                                                                        <a href="#">John Doe</a> sent a message
-                                                                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                                                                        <a href="#">John Doe</a> sent an email
+                                                                        <span class="email-source-badge"><i class="fas fa-envelope"></i> Email</span>
                                                                     </h3>
                                                                     <div class="timeline-body" id="msg_1">
-                                                                        Hello, I need help with my order #12345.
+                                                                        This is the original email content.
                                                                         <div class="added-reactions" id="reactions_msg_1"></div>
                                                                     </div>
-                                                                    <div class="timeline-footer">
-                                                                        <button class="btn-reply-wa" onclick="setReplyContext('John Doe', 'Hello, I need help with my order #12345.')"><i class="fas fa-reply"></i> Reply</button>
-                                                                        <button class="reaction-btn ml-2" onclick="addReaction('msg_1', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                    <div class="timeline-footer" style="position: relative;">
+                                                                        <button class="btn-reply-email" onclick="setReplyContext('John Doe', 'This is the original email content.')"><i class="fas fa-reply"></i> Reply</button>
+                                                                        <button class="reaction-btn ml-2" onclick="toggleReactionPicker('msg_1')"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                        <button class="reaction-btn" onclick="onRedact('msg_1')"><i class="fas fa-eraser"></i> Redact</button>
+
+                                                                        <div class="reaction-picker-popover" id="picker_msg_1">
+                                                                            <span class="reaction-option" onclick="addReaction('msg_1', '👍')">👍</span>
+                                                                            <span class="reaction-option" onclick="addReaction('msg_1', '❤️')">❤️</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="timeline-footer" id="msg_1_footer" style="display: none; border-top: 1px dashed #ccc;">
+                                                                        <button type="button" id="msg_1_cancelBtn" class="btn btn-light border btn-sm"><i class="fas fa-times"></i> Cancel</button>
+                                                                        <button type="button" id="msg_1_redactBtn" class="btn btn-light border btn-sm"><i class="fas fa-check"></i> Confirm Redact</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
 
-                                                            <!-- Outgoing WhatsApp Message -->
+                                                            <!-- Outgoing Email -->
                                                             <div>
                                                                 <i class="fas fa-user bg-gray"></i>
-                                                                <div class="timeline-item whatsapp-outgoing">
-                                                                    <span class="time"><i class="far fa-clock"></i> 12:10 PM</span>
+                                                                <div class="timeline-item email-outgoing">
+                                                                    <span class="time"><i class="far fa-clock"></i> 11:00 AM</span>
                                                                     <h3 class="timeline-header">
                                                                         <a href="#">Karthi Keyan</a> replied
-                                                                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                                                                        <span class="email-source-badge"><i class="fas fa-envelope"></i> Email</span>
                                                                     </h3>
                                                                     <div class="timeline-body" id="msg_2">
-                                                                        Hi John, we received your message.
+                                                                        This is the agent's reply.
+                                                                        <div class="thread-ellipsis" onclick="toggleThread(this)"><i class="fas fa-ellipsis-h"></i></div>
+                                                                        <div class="nested-quote collapsed">
+                                                                            On 10:30 AM <strong>John Doe</strong> wrote:
+                                                                            <blockquote>
+                                                                                This is the original email content.
+                                                                            </blockquote>
+                                                                        </div>
                                                                         <div class="added-reactions" id="reactions_msg_2"></div>
                                                                     </div>
-                                                                    <div class="timeline-footer">
-                                                                         <button class="reaction-btn" onclick="addReaction('msg_2', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                    <div class="timeline-footer" style="position: relative;">
+                                                                         <button class="reaction-btn" onclick="toggleReactionPicker('msg_2')"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                         <button class="reaction-btn" onclick="onRedact('msg_2')"><i class="fas fa-eraser"></i> Redact</button>
+                                                                         <div class="reaction-picker-popover" id="picker_msg_2">
+                                                                            <span class="reaction-option" onclick="addReaction('msg_2', '👍')">👍</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="timeline-footer" id="msg_2_footer" style="display: none; border-top: 1px dashed #ccc;">
+                                                                        <button type="button" id="msg_2_cancelBtn" class="btn btn-light border btn-sm"><i class="fas fa-times"></i> Cancel</button>
+                                                                        <button type="button" id="msg_2_redactBtn" class="btn btn-light border btn-sm"><i class="fas fa-check"></i> Confirm Redact</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -500,7 +540,27 @@
                                                             <div><i class="far fa-clock bg-gray"></i></div>
                                                         </div>
                                                     </div>
-                                                    <div class="tab-pane fade" id="activity-tab-content" role="tabpanel"><div class="p-3">Activity Log...</div></div>
+                                                    <div class="tab-pane fade" id="activity-tab-content" role="tabpanel">
+                                                        <div class="timeline">
+                                                            <div>
+                                                                <i class="fas fa-user bg-blue"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="far fa-clock"></i> 12:05 PM</span>
+                                                                    <h3 class="timeline-header"><a href="#">System</a> changed status to Open</h3>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <i class="fas fa-envelope bg-blue"></i>
+                                                                <div class="timeline-item">
+                                                                    <span class="time"><i class="far fa-clock"></i> 12:00 PM</span>
+                                                                    <h3 class="timeline-header"><a href="#">John Doe</a> created ticket via Email</h3>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <i class="far fa-clock bg-gray"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -510,8 +570,9 @@
                                             <div class="card-header"><div class="card-tools"><button type="button" class="btn btn-xs btn-default"><i class="far fa-edit"></i> Edit</button></div></div>
                                             <div class="card-body">
                                                 <div class="row">
+                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Created At</label><a href="javascript:;" class="col-sm-6">January 05, 2024</a></div></div>
                                                     <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Status</label><a href="javascript:;" class="col-sm-6">Open</a></div></div>
-                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Source</label><a href="javascript:;" class="col-sm-6"><i class="fab fa-whatsapp text-success"></i> WhatsApp</a></div></div>
+                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Source</label><a href="javascript:;" class="col-sm-6"><i class="fas fa-envelope text-primary"></i> Email</a></div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -534,71 +595,86 @@
 <script src="../../../plugins/jquery/jquery.min.js"></script>
 <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../../../dist/js/adminlte.min.js"></script>
-
 <script>
-    let currentTimelineReply = null;
+    tinymce.init({
+        selector: '#email-editor',
+        height: 250,
+        menubar: false,
+        plugins: 'autolink lists link',
+        toolbar: 'undo redo | bold italic | bullist numlist | link',
+        content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }'
+    });
 
     function setReplyContext(author, text) {
-        currentTimelineReply = { author: author, text: text };
-        $('#reply-context-author').text('Replying to ' + author);
-        $('#reply-context-text').text(text);
-        $('#reply-context-preview').slideDown();
-
+        const quoteHeader = `<p><br><br>On ${new Date().toLocaleString()} <strong>${author}</strong> wrote:</p>`;
+        const fullQuoteContent = quoteHeader + `<blockquote>${text}</blockquote><p></p>`;
+        tinymce.get('email-editor').setContent(fullQuoteContent);
+        tinymce.get('email-editor').focus();
         $('html, body').animate({
             scrollTop: $("#main-reply-box").offset().top - 100
         }, 500);
-
-        $('#timeline-reply-input').focus();
     }
 
-    function clearReplyContext() {
-        currentTimelineReply = null;
-        $('#reply-context-preview').slideUp();
+    function toggleThread(ellipsisBtn) {
+        const quoteContainer = ellipsisBtn.nextElementSibling;
+        if (quoteContainer && quoteContainer.classList.contains('nested-quote')) {
+            quoteContainer.classList.toggle('collapsed');
+            ellipsisBtn.innerHTML = quoteContainer.classList.contains('collapsed') ? '<i class="fas fa-ellipsis-h"></i>' : '<i class="fas fa-chevron-up"></i>';
+        }
     }
 
-    function sendTimelineMessage() {
-        const text = $('#timeline-reply-input').val().trim();
-        if (!text) return;
+    function sendEmailReply() {
+        const content = tinymce.get('email-editor').getContent();
+        if (!content) return;
 
         const msgId = 'msg_' + Date.now();
         const timeString = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        let replyHtml = '';
-        if (currentTimelineReply) {
-            replyHtml = `
-                <div class="reply-context-msg">
-                    <strong>${currentTimelineReply.author}</strong>
-                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${currentTimelineReply.text}</div>
-                </div>
-            `;
-        }
-
         const html = `
             <div>
                 <i class="fas fa-user bg-gray"></i>
-                <div class="timeline-item whatsapp-outgoing">
+                <div class="timeline-item email-outgoing">
                     <span class="time"><i class="far fa-clock"></i> ${timeString}</span>
                     <h3 class="timeline-header">
                         <a href="#">Karthi Keyan</a> replied
-                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                        <span class="email-source-badge"><i class="fas fa-envelope"></i> Email</span>
                     </h3>
                     <div class="timeline-body" id="${msgId}">
-                        ${replyHtml}
-                        ${text}
+                        ${content}
                         <div class="added-reactions" id="reactions_${msgId}"></div>
                     </div>
-                    <div class="timeline-footer">
-                         <button class="reaction-btn" onclick="addReaction('${msgId}', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                    <div class="timeline-footer" style="position: relative;">
+                         <button class="reaction-btn" onclick="toggleReactionPicker('${msgId}')"><i class="far fa-thumbs-up"></i> Like</button>
+                         <button class="reaction-btn" onclick="onRedact('${msgId}')"><i class="fas fa-eraser"></i> Redact</button>
+                         <div class="reaction-picker-popover" id="picker_${msgId}">
+                            <span class="reaction-option" onclick="addReaction('${msgId}', '👍')">👍</span>
+                            <span class="reaction-option" onclick="addReaction('${msgId}', '❤️')">❤️</span>
+                        </div>
+                    </div>
+                    <div class="timeline-footer" id="${msgId}_footer" style="display: none; border-top: 1px dashed #ccc;">
+                        <button type="button" id="${msgId}_cancelBtn" class="btn btn-light border btn-sm"><i class="fas fa-times"></i> Cancel</button>
+                        <button type="button" id="${msgId}_redactBtn" class="btn btn-light border btn-sm"><i class="fas fa-check"></i> Confirm Redact</button>
                     </div>
                 </div>
             </div>
         `;
 
         $('.timeline > div:last-child').before(html);
-
-        $('#timeline-reply-input').val('');
-        clearReplyContext();
+        tinymce.get('email-editor').setContent('');
     }
+
+    // --- Reaction Logic ---
+    function toggleReactionPicker(msgId) {
+        $('.reaction-picker-popover').hide();
+        const picker = $('#picker_' + msgId);
+        picker.toggle();
+    }
+
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.reaction-btn').length && !$(e.target).closest('.reaction-picker-popover').length) {
+            $('.reaction-picker-popover').hide();
+        }
+    });
 
     function addReaction(msgId, emoji) {
         const container = $('#reactions_' + msgId);
@@ -614,6 +690,86 @@
             const pill = `<span class="reaction-pill" data-emoji="${emoji}">${emoji} <span class="count">1</span></span>`;
             container.append(pill);
         }
+        $('#picker_' + msgId).hide();
+    }
+
+    // --- Redaction Logic ---
+    document.addEventListener('mousedown', function (e) {
+        const popup = document.getElementById('popup');
+        if (popup && !popup.contains(e.target)) {
+            popup.style.display = 'none';
+        }
+    });
+
+    function onRedact(value) {
+        const editableDiv = document.getElementById(value);
+        const timelineFooter = document.getElementById(value + '_footer');
+        if (!editableDiv || !timelineFooter) return;
+        const originalContent = editableDiv.innerHTML;
+
+        function showTimelineFooter() {
+            if (editableDiv.contentEditable === "true") {
+                timelineFooter.style.display = 'flex';
+                editableDiv.classList.add('editable-timeline-body');
+            } else {
+                timelineFooter.style.display = 'none';
+                editableDiv.classList.remove('editable-timeline-body');
+            }
+        }
+
+        function cancelRedaction() {
+            editableDiv.contentEditable = "false";
+            editableDiv.innerHTML = originalContent;
+            showTimelineFooter();
+        }
+
+        const cancelBtn = document.getElementById(value + '_cancelBtn');
+        const redactBtn = document.getElementById(value + '_redactBtn');
+
+        cancelBtn.onclick = function () { cancelRedaction(); };
+
+        redactBtn.onclick = function () {
+            const redactTags = editableDiv.getElementsByTagName('redact');
+            for (const redactTag of redactTags) {
+                let originalContent = redactTag.textContent;
+                const replacement = originalContent.replace(/\S/g, '█');
+                redactTag.innerHTML = replacement;
+                redactTag.classList.add('redacted');
+            }
+            editableDiv.contentEditable = "false";
+            showTimelineFooter();
+        };
+
+        document.getElementById(value).contentEditable = "true";
+        showTimelineFooter(value);
+        editableDiv.focus();
+
+        editableDiv.onmouseup = function (e) {
+            const selection = window.getSelection();
+            if (!selection.isCollapsed && editableDiv.contains(selection.anchorNode)) {
+                const popup = document.getElementById('popup');
+                const range = selection.getRangeAt(0);
+                const rect = range.getBoundingClientRect();
+                popup.style.display = 'block';
+                popup.style.top = `${rect.top + window.scrollY - popup.offsetHeight - 5}px`;
+                popup.style.left = `${rect.left + window.scrollX}px`;
+
+                document.getElementById('redactButton').onclick = function () {
+                    const redactNode = document.createElement('redact');
+                    try { range.surroundContents(redactNode); } catch (err) {
+                        document.execCommand('insertHTML', false, '<redact>' + selection.toString() + '</redact>');
+                    }
+                    popup.style.display = 'none';
+                    selection.removeAllRanges();
+                };
+
+                document.getElementById('t_redactButton').onclick = function () {
+                    document.execCommand('hiliteColor', false, 'red');
+                    popup.style.display = 'none';
+                    selection.removeAllRanges();
+                };
+            }
+        };
     }
 </script>
 </body>

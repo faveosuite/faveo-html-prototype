@@ -3,54 +3,74 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Faveo Ticket Reply - Twitter Style</title>
+    <title>Faveo Ticket - Chat Source View</title>
     <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
-
     <style>
-        /* --- Existing Styles (Preserved) --- */
-        .info-row {
-            border-top: 1px solid #f4f4f4;
-            padding: 10px;
-        }
-
-        /* --- Twitter Style Chat --- */
-        .chat-container {
+        .chat-conversation-container {
             background-color: #fff;
-            padding: 20px;
+            border: 1px solid #d2d6de;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
             height: 600px;
+        }
+        .chat-header {
+            background: #fff;
+            color: #000;
+            padding: 10px 15px;
+            border-bottom: 1px solid #dbdbdb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .chat-header .source-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
             overflow-y: auto;
-            border-radius: 8px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            background-color: #f4f6f9;
         }
-
         .message-row {
             display: flex;
             align-items: flex-end;
             gap: 8px;
             max-width: 75%;
         }
-
-        .message-row.incoming {
-            align-self: flex-start;
-        }
-
-        .message-row.outgoing {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-        }
-
+        .message-row.incoming { align-self: flex-start; }
+        .message-row.outgoing { align-self: flex-end; flex-direction: row-reverse; }
         .message-avatar {
             width: 32px;
             height: 32px;
             border-radius: 50%;
             object-fit: cover;
         }
-
+        .source-badge {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            background: #6f42c1;
+            color: white;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            font-size: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid white;
+        }
         .message-bubble {
             padding: 10px 15px;
             border-radius: 20px;
@@ -59,20 +79,18 @@
             line-height: 1.4;
             user-select: none;
         }
-
         .message-row.incoming .message-bubble {
-            background-color: #eff3f4;
-            color: #0f1419;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #e0e0e0;
             border-bottom-left-radius: 4px;
         }
-
         .message-row.outgoing .message-bubble {
-            background-color: #1DA1F2;
-            color: white;
+            background-color: #f4f2f7;
+            color: #333;
+            border: 1px solid #e1bee7;
             border-bottom-right-radius: 4px;
         }
-
-        /* Actions */
         .message-actions {
             opacity: 0;
             transition: opacity 0.2s;
@@ -81,11 +99,7 @@
             align-self: center;
             position: relative;
         }
-
-        .message-row:hover .message-actions {
-            opacity: 1;
-        }
-
+        .message-row:hover .message-actions { opacity: 1; }
         .btn-action-icon {
             color: #536471;
             cursor: pointer;
@@ -93,46 +107,15 @@
             padding: 6px;
             border-radius: 50%;
         }
-
-        .btn-action-icon:hover {
-            background-color: #e8f5fe;
-            color: #1DA1F2;
-        }
-
-        /* Input Area */
+        .btn-action-icon:hover { background-color: #f4f2f7; color: #6f42c1; }
         .chat-input-container {
             background-color: #fff;
             padding: 10px;
             border-top: 1px solid #eff3f4;
         }
-
-        .input-group-tw {
-            display: flex;
-            align-items: center;
-            background-color: #eff3f4;
-            border-radius: 20px;
-            padding: 5px 10px;
-        }
-
-        .chat-input {
-            flex-grow: 1;
-            border: none;
-            outline: none;
-            background: transparent;
-            padding: 5px;
-        }
-
-        .chat-input-icons i {
-            margin: 0 8px;
-            cursor: pointer;
-            color: #1DA1F2;
-            font-size: 18px;
-        }
-
-        /* Reply Preview */
         .reply-preview {
             background: #f7f9fa;
-            border-left: 3px solid #1DA1F2;
+            border-left: 3px solid #6f42c1;
             padding: 8px 12px;
             margin-bottom: 10px;
             border-radius: 4px;
@@ -140,7 +123,6 @@
             position: relative;
             font-size: 12px;
         }
-
         .reply-preview .close-btn {
             position: absolute;
             top: 5px;
@@ -148,11 +130,9 @@
             cursor: pointer;
             color: #536471;
         }
-
-        /* Reply Context (Inside Bubble) */
         .reply-context {
             background-color: rgba(0, 0, 0, 0.05);
-            border-left: 3px solid #1DA1F2;
+            border-left: 3px solid #6f42c1;
             padding: 4px 8px;
             margin-bottom: 6px;
             border-radius: 4px;
@@ -163,12 +143,9 @@
             color: #536471;
         }
         .message-row.outgoing .reply-context {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-left-color: #fff;
-            color: #fff;
+            background-color: rgba(111, 66, 193, 0.1);
+            border-left-color: #6f42c1;
         }
-
-        /* Reactions */
         .reactions-display {
             position: absolute;
             bottom: -10px;
@@ -181,11 +158,7 @@
             gap: 2px;
             border: 1px solid #fff;
         }
-
-        .reactions-display:empty {
-            display: none;
-        }
-
+        .reactions-display:empty { display: none; }
         .reaction-picker-popover {
             position: absolute;
             background: white;
@@ -201,7 +174,6 @@
             transform: translateX(-50%);
             margin-bottom: 5px;
         }
-
         .reaction-option {
             font-size: 20px;
             cursor: pointer;
@@ -209,54 +181,20 @@
             transition: transform 0.1s;
             display: inline-block;
         }
-
-        .reaction-option:hover {
-            transform: scale(1.3);
-        }
-
-        .reaction-pill {
-            background-color: #f0f2f5;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 2px 8px;
-            font-size: 12px;
-            display: inline-flex;
-            align-items: center;
-            color: #333;
-        }
-
-        .reaction-pill .count {
-            margin-left: 4px;
-            font-size: 10px;
-            color: #666;
-        }
-
-        /* Redaction Styles */
+        .reaction-option:hover { transform: scale(1.3); }
         #popup { position: absolute; background: white; border: 1px solid #ccc; display: none; z-index: 1000; }
         redact { border: 1px solid rgb(204, 51, 64); background-color: rgba(204, 51, 64, 0.08); cursor: pointer; }
         .redacted { border: none !important; background-color: unset !important; user-select: none !important; cursor: unset !important; }
         .editable-bubble { border: 2px solid #495057; user-select: text; }
-
     </style>
 </head>
-
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="javascript:void(0)" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="javascript:void(0)" role="button">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                </a>
-            </li>
+            <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="javascript:void(0)" role="button"><i class="fas fa-bars"></i></a></li>
         </ul>
     </nav>
-
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="javascript:void(0)" class="brand-link text-center"><span class="brand-text font-weight-light">Faveo</span></a>
         <div class="sidebar">
@@ -269,7 +207,7 @@
                 </div>
             </div>
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
                         <a href="../index.html" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -302,8 +240,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fab fa-twitter"></i>
                             <p>Twitter <i class="right fas fa-angle-left"></i></p>
                         </a>
@@ -321,7 +259,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../Twitter/twitter_style.html" class="nav-link active">
+                                <a href="../Twitter/twitter_style.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Twitter Style</p>
                                 </a>
@@ -432,26 +370,26 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-comments"></i>
                             <p>Chat <i class="right fas fa-angle-left"></i></p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="../Chat/chat_source_view.html" class="nav-link">
+                                <a href="chat_source_view.html" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Chat Source View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../Chat/chat_timeline_view.html" class="nav-link">
+                                <a href="chat_timeline_view.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Chat Timeline View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../Chat/chat_style.html" class="nav-link">
+                                <a href="chat_style.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Chat Style</p>
                                 </a>
@@ -497,138 +435,63 @@
                 </div>
             </div>
         </div>
-
         <div class="content">
             <div class="container-fluid">
-                <!-- Redaction Popups -->
-                <div id="popup" class="rounded shadow-sm"><a class="dropdown-item" href="javascript:void(0)" id="redactButton">Mark for permanent redaction</a><a class="dropdown-item" id="t_redactButton" href="javascript:void(0)">Mark for temporary redaction</a></div>
-
+                <div id="popup" class="rounded shadow-sm"><a class="dropdown-item" href="javascript:void(0)" id="redactButton">Mark for permanent redaction</a></div>
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card card-light">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    <i class="fas fa-ticket-alt"></i>&nbsp;#HDSK-AAAA-0930
-                                </h3>
+                    <div class="col-sm-8">
+                        <div class="card card-light card-tabs">
+                            <div class="card-header p-0 pt-1">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#conversation-tab" role="tab"><i class="fas fa-comments"></i>&nbsp; Chat Conversation</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#activity-tab-content" role="tab"><i class="fas fa-history"></i>&nbsp; Ticket Activity</a></li>
+                                </ul>
                             </div>
                             <div class="card-body">
-                                <h5 class="mr-1">Prototype for sources functionality in ticket threads&nbsp;
-                                    <span class="badge badge-warning mr-1">Prototype</span>
-                                </h5>
-                                <div class="row mt-3">
-                                    <div class="col-sm-8">
-                                        <div class="card card-light card-tabs">
-                                            <div class="card-header p-0 pt-1">
-                                                <ul class="nav nav-tabs" role="tablist">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link active" data-toggle="pill" href="#conversation-tab" role="tab">
-                                                            <i class="fab fa-twitter"></i>&nbsp; Twitter Conversation
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="pill" href="#activity-tab-content" role="tab">
-                                                            <i class="fas fa-history"></i>&nbsp; Ticket Activity
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade active show" id="conversation-tab" role="tabpanel">
+                                        <div class="chat-conversation-container">
+                                            <div class="chat-header">
+                                                <div class="source-info"><img src="../../../dist/img/avatar3.png" class="img-circle" width="35" height="35" style="margin-right: 10px;"><span>John Doe</span></div>
                                             </div>
-                                            <div class="card-body p-0">
-                                                <div class="tab-content">
-                                                    <div class="tab-pane fade active show" id="conversation-tab" role="tabpanel">
-
-                                                        <!-- Twitter Conversation Wrapper -->
-                                                        <div class="chat-container" id="chat-messages">
-
-                                                            <!-- Incoming Message -->
-                                                            <div class="message-row incoming" id="msg_1_row">
-                                                                <div style="position: relative;">
-                                                                    <img src="../../../dist/img/avatar3.png" class="message-avatar" alt="User">
-                                                                </div>
-                                                                <div class="message-bubble" id="msg_1">
-                                                                    I'm having trouble logging into my account. Can anyone help? #support
-                                                                    <div class="reactions-display" id="reacts_msg_1"></div>
-                                                                </div>
-                                                                <div class="message-actions">
-                                                                    <i class="fas fa-eraser btn-action-icon" onclick="onRedact('msg_1')"></i>
-                                                                    <i class="far fa-heart btn-action-icon" onclick="toggleReactionPicker('msg_1')"></i>
-                                                                    <i class="fas fa-reply btn-action-icon" onclick="replyTo('msg_1', 'John Doe', 'I\'m having trouble...')"></i>
-                                                                    <div class="reaction-picker-popover" id="picker_msg_1">
-                                                                        <span class="reaction-option" onclick="addReaction('msg_1', '❤️')">❤️</span>
-                                                                        <span class="reaction-option" onclick="addReaction('msg_1', '😂')">😂</span>
-                                                                        <span class="reaction-option" onclick="addReaction('msg_1', '😮')">😮</span>
-                                                                        <span class="reaction-option" onclick="addReaction('msg_1', '😢')">😢</span>
-                                                                        <span class="reaction-option" onclick="addReaction('msg_1', '🙏')">🙏</span>
-                                                                        <span class="reaction-option" onclick="addReaction('msg_1', '🔥')">🔥</span>
-                                                                        <span class="reaction-option" onclick="addReaction('msg_1', '👍')">👍</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- Outgoing Message -->
-                                                            <div class="message-row outgoing" id="msg_2_row">
-                                                                <div class="message-actions">
-                                                                    <i class="fas fa-eraser btn-action-icon" onclick="onRedact('msg_2')"></i>
-                                                                    <i class="far fa-heart btn-action-icon" onclick="toggleReactionPicker('msg_2')"></i>
-                                                                    <i class="fas fa-reply btn-action-icon" onclick="replyTo('msg_2', 'Karthi Keyan', 'Hi John, please DM us...')"></i>
-                                                                    <div class="reaction-picker-popover" id="picker_msg_2">
-                                                                        <span class="reaction-option" onclick="addReaction('msg_2', '❤️')">❤️</span>
-                                                                        <span class="reaction-option" onclick="addReaction('msg_2', '👍')">👍</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="message-bubble" id="msg_2">
-                                                                    Hi John, please DM us your email address so we can look into this for you.
-                                                                    <div class="reactions-display" id="reacts_msg_2"></div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <!-- Input Area -->
-                                                        <div class="chat-input-container">
-                                                            <div class="reply-preview" id="input-reply-preview">
-                                                                <i class="fas fa-times close-btn" onclick="cancelReply()"></i>
-                                                                <strong id="reply-author">Author</strong><br>
-                                                                <span style="color: #536471;" id="reply-text">Text</span>
-                                                            </div>
-
-                                                            <div class="input-group-tw">
-                                                                <div class="chat-input-icons">
-                                                                    <i class="far fa-image"></i>
-                                                                    <i class="far fa-smile"></i>
-                                                                </div>
-                                                                <input type="text" id="chat-input" class="chat-input" placeholder="Start a new message">
-                                                                <div class="chat-input-icons">
-                                                                    <i class="fas fa-paper-plane" onclick="sendMessage()"></i>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="tab-pane fade" id="activity-tab-content" role="tabpanel">
-                                                        <div class="p-3">Activity Log...</div>
+                                            <div class="chat-messages" id="chat-messages">
+                                                <div class="message-row incoming" id="msg_1_row">
+                                                    <div style="position: relative;"><img src="../../../dist/img/avatar3.png" class="message-avatar" alt="User"><div class="source-badge"><i class="fas fa-comments"></i></div></div>
+                                                    <div class="message-bubble" id="msg_1">Hello, I need help with my subscription.<div class="reactions-display" id="reacts_msg_1"></div></div>
+                                                    <div class="message-actions">
+                                                        <i class="fas fa-eraser btn-action-icon" onclick="onRedact('msg_1')"></i>
+                                                        <i class="far fa-smile btn-action-icon" onclick="toggleReactionPicker('msg_1')"></i>
+                                                        <i class="fas fa-reply btn-action-icon" onclick="replyTo('msg_1', 'John Doe', 'Hello, I need help with my subscription.')"></i>
+                                                        <div class="reaction-picker-popover" id="picker_msg_1"><span class="reaction-option" onclick="addReaction('msg_1', '👍')">👍</span><span class="reaction-option" onclick="addReaction('msg_1', '❤️')">❤️</span></div>
                                                     </div>
                                                 </div>
+                                                <div class="message-row outgoing" id="msg_2_row">
+                                                    <div class="message-actions">
+                                                        <i class="fas fa-eraser btn-action-icon" onclick="onRedact('msg_2')"></i>
+                                                        <i class="far fa-smile btn-action-icon" onclick="toggleReactionPicker('msg_2')"></i>
+                                                        <div class="reaction-picker-popover" id="picker_msg_2"><span class="reaction-option" onclick="addReaction('msg_2', '👍')">👍</span></div>
+                                                    </div>
+                                                    <div class="message-bubble" id="msg_2">Sure, I can help you with that.<div class="reactions-display" id="reacts_msg_2"></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="chat-input-container">
+                                                <div class="reply-preview" id="input-reply-preview"><i class="fas fa-times close-btn" onclick="cancelReply()"></i><strong id="reply-author">Author</strong><br><span style="color: #65676b;" id="reply-text">Text</span></div>
+                                                <div class="input-group"><input type="text" id="chat-input" class="form-control" placeholder="Type a message..."><div class="input-group-append"><button class="btn btn-primary" style="background-color: #6f42c1; border-color: #6f42c1;" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button></div></div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <!-- Right Sidebar (Ticket Info) -->
-                                    <div class="col-sm-4">
-                                        <div class="card card-light">
-                                            <div class="card-header">
-                                                <div class="card-tools">
-                                                    <button type="button" class="btn btn-xs btn-default"><i class="far fa-edit"></i> Edit</button>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Created At</label><a href="javascript:;" class="col-sm-6">January 05, 2024</a></div></div>
-                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Status</label><a href="javascript:;" class="col-sm-6">Open</a></div></div>
-                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Source</label><a href="javascript:;" class="col-sm-6"><i class="fab fa-twitter" style="color: #1DA1F2;"></i> Twitter</a></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="tab-pane fade" id="activity-tab-content" role="tabpanel"><div class="p-3">Activity Log...</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card card-light">
+                            <div class="card-header"><div class="card-tools"><button type="button" class="btn btn-xs btn-default"><i class="far fa-edit"></i> Edit</button></div></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Status</label><a href="javascript:;" class="col-sm-6">Open</a></div></div>
+                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Source</label><a href="javascript:;" class="col-sm-6"><i class="fas fa-comments" style="color: #6f42c1;"></i> Chat</a></div></div>
                                 </div>
                             </div>
                         </div>
@@ -637,20 +500,12 @@
             </div>
         </div>
     </div>
-
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-inline">Version 1.0.0</div>
-        <strong>Copyright &copy; 2023-2024 <a href="https://support.faveohelpdesk.com">Faveo</a>.</strong> All rights reserved.
-    </footer>
 </div>
-
 <script src="../../../plugins/jquery/jquery.min.js"></script>
 <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../../../dist/js/adminlte.min.js"></script>
-
 <script>
     let currentReply = null;
-
     function replyTo(msgId, author, text) {
         currentReply = { id: msgId, author: author, text: text };
         $('#reply-author').text('Replying to ' + author);
@@ -658,120 +513,40 @@
         $('#input-reply-preview').slideDown();
         $('#chat-input').focus();
     }
-
     function cancelReply() {
         currentReply = null;
         $('#input-reply-preview').slideUp();
     }
-
     function toggleReactionPicker(msgId) {
         $('.reaction-picker-popover').hide();
-        const picker = $('#picker_' + msgId);
-        picker.toggle();
+        $('#picker_' + msgId).toggle();
     }
-
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('.btn-action-icon').length && !$(e.target).closest('.reaction-picker-popover').length) {
-            $('.reaction-picker-popover').hide();
-        }
-    });
-
     function addReaction(msgId, emoji) {
         const container = $('#reacts_' + msgId);
-        let exists = false;
-        container.find('.reaction-pill').each(function() {
-            if ($(this).data('emoji') === emoji) {
-                exists = true;
-                return false;
-            }
-        });
-
-        if (!exists) {
-            const pill = `<span class="reaction-pill" data-emoji="${emoji}">${emoji} <span class="count">1</span></span>`;
-            container.append(pill);
+        if (!container.find(`.reaction-pill[data-emoji="${emoji}"]`).length) {
+            container.append(`<span class="reaction-pill" data-emoji="${emoji}">${emoji} <span class="count">1</span></span>`);
         }
         $('#picker_' + msgId).hide();
     }
-
-    function scrollToMessage(msgId) {
-        const element = document.getElementById(msgId + '_row');
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            $(element).find('.message-bubble').css('transition', 'background-color 0.5s').css('background-color', '#a5d8ff');
-            setTimeout(() => {
-                $(element).find('.message-bubble').css('background-color', '');
-            }, 1500);
-        }
-    }
-
-    function sendMessage(content) {
-        const text = content || $('#chat-input').val().trim();
+    function sendMessage() {
+        const text = $('#chat-input').val().trim();
         if (!text) return;
-
         const msgId = 'msg_' + Date.now();
-
         let replyHtml = '';
         if (currentReply) {
-            replyHtml = `
-                <div class="reply-context" onclick="scrollToMessage('${currentReply.id}')">
-                    <strong>${currentReply.author}</strong>
-                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${currentReply.text}</div>
-                </div>
-            `;
+            replyHtml = `<div class="reply-context" onclick="scrollToMessage('${currentReply.id}')"><strong>${currentReply.author}</strong><div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${currentReply.text}</div></div>`;
         }
-
-        const html = `
-            <div class="message-row outgoing" id="${msgId}_row">
-                <div class="message-actions">
-                    <i class="fas fa-eraser btn-action-icon" onclick="onRedact('${msgId}')"></i>
-                    <i class="far fa-heart btn-action-icon" onclick="toggleReactionPicker('${msgId}')"></i>
-                    <i class="fas fa-reply btn-action-icon" onclick="replyTo('${msgId}', 'Karthi Keyan', '${text.replace(/'/g, "\\'")}')"></i>
-                    <div class="reaction-picker-popover" id="picker_${msgId}">
-                        <span class="reaction-option" onclick="addReaction('${msgId}', '❤️')">❤️</span>
-                        <span class="reaction-option" onclick="addReaction('${msgId}', '👍')">👍</span>
-                        <span class="reaction-option" onclick="addReaction('${msgId}', '😂')">😂</span>
-                        <span class="reaction-option" onclick="addReaction('${msgId}', '😮')">😮</span>
-                        <span class="reaction-option" onclick="addReaction('${msgId}', '😢')">😢</span>
-                        <span class="reaction-option" onclick="addReaction('${msgId}', '🙏')">🙏</span>
-                        <span class="reaction-option" onclick="addReaction('${msgId}', '🔥')">🔥</span>
-                    </div>
-                </div>
-                <div class="message-bubble" id="${msgId}">
-                    ${replyHtml}
-                    ${text}
-                    <div class="reactions-display" id="reacts_${msgId}"></div>
-                </div>
-            </div>
-        `;
-
+        const html = `<div class="message-row outgoing" id="${msgId}_row"><div class="message-actions"><i class="fas fa-eraser btn-action-icon" onclick="onRedact('${msgId}')"></i><i class="far fa-smile btn-action-icon" onclick="toggleReactionPicker('${msgId}')"></i><div class="reaction-picker-popover" id="picker_${msgId}"><span class="reaction-option" onclick="addReaction('${msgId}', '👍')">👍</span></div></div><div class="message-bubble" id="${msgId}">${replyHtml}${text}<div class="reactions-display" id="reacts_${msgId}"></div></div></div>`;
         $('#chat-messages').append(html);
         $('#chat-input').val('');
         cancelReply();
-
-        const chatDiv = document.getElementById('chat-messages');
-        chatDiv.scrollTop = chatDiv.scrollHeight;
+        document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
     }
-
-    $('#chat-input').on('keypress', function(e) {
-        if(e.which == 13) sendMessage();
-    });
-
-    // --- Redaction Logic ---
-    document.addEventListener('mousedown', function (e) {
-        const popup = document.getElementById('popup');
-        if (popup && !popup.contains(e.target)) {
-            popup.style.display = 'none';
-        }
-    });
-
     function onRedact(value) {
         const editableDiv = document.getElementById(value);
-        if (!editableDiv) return;
-
         editableDiv.contentEditable = "true";
         editableDiv.classList.add('editable-bubble');
         editableDiv.focus();
-
         editableDiv.onmouseup = function (e) {
             const selection = window.getSelection();
             if (!selection.isCollapsed && editableDiv.contains(selection.anchorNode)) {
@@ -781,7 +556,6 @@
                 popup.style.display = 'block';
                 popup.style.top = `${rect.top + window.scrollY - popup.offsetHeight - 5}px`;
                 popup.style.left = `${rect.left + window.scrollX}px`;
-
                 document.getElementById('redactButton').onclick = function () {
                     const redactNode = document.createElement('redact');
                     try { range.surroundContents(redactNode); } catch (err) {

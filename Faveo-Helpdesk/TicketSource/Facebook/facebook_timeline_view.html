@@ -347,6 +347,84 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>Web <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Web/web_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Web Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Web/web_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Web Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Web/web_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Web Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-comments"></i>
+                            <p>Chat <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Chat/chat_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Chat Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Chat/chat_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Chat Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Chat/chat_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Chat Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-envelope"></i>
+                            <p>Email <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Email/email_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Email Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Email/email_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Email Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Email/email_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Email Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -683,8 +761,12 @@
                     }
                     popup.style.display = 'none';
                     selection.removeAllRanges();
-                    editableDiv.contentEditable = "false";
-                    editableDiv.classList.remove('editable-timeline-body');
+                };
+
+                document.getElementById('t_redactButton').onclick = function () {
+                    document.execCommand('hiliteColor', false, 'red');
+                    popup.style.display = 'none';
+                    selection.removeAllRanges();
                 };
             }
         };

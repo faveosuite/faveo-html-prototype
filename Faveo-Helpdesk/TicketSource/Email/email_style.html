@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Faveo Ticket - Email Style</title>
+    <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+    <style>
+        .chat-container {
+            background-color: #f4f6f9;
+            padding: 20px;
+            height: 600px;
+            overflow-y: auto;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .message-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            max-width: 75%;
+        }
+        .message-row.incoming {
+            align-self: flex-start;
+        }
+        .message-row.outgoing {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+        .message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .message-bubble {
+            padding: 8px 12px;
+            border-radius: 15px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.4;
+            user-select: none;
+        }
+        .message-row.incoming .message-bubble {
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #ddd;
+        }
+        .message-row.outgoing .message-bubble {
+            background-color: #e7f3ff;
+            color: #000;
+            border: 1px solid #b3d7ff;
+        }
+        .chat-input-container {
+            background-color: #fff;
+            padding: 10px;
+            border-top: 1px solid #d2d6de;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- Navbar & Sidebar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="javascript:void(0)" class="brand-link text-center"><span class="brand-text font-weight-light">Faveo</span></a>
+        <div class="sidebar">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image"><img src="../../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image"></div>
+                <div class="info"><a href="javascript:void(0)" class="d-block">Karthi Keyan</a></div>
+            </div>
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Ticket Details</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-line"></i>
+                            <p>Line <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Line/line_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Line/line_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Line/line_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Line Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-twitter"></i>
+                            <p>Twitter <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Twitter/twitter_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Twitter Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-facebook"></i>
+                            <p>Facebook <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Facebook/facebook_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Facebook Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-whatsapp"></i>
+                            <p>Whatsapp <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Whatsapp/whatsapp_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Whatsapp/whatsapp_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Whatsapp/whatsapp_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Whatsapp Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-instagram"></i>
+                            <p>Instagram <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Instagram/instagram_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Instagram Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>Web <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Web/web_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Web Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Web/web_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Web Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Web/web_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Web Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-comments"></i>
+                            <p>Chat <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../Chat/chat_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Chat Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Chat/chat_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Chat Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Chat/chat_style.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Chat Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-envelope"></i>
+                            <p>Email <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="email_source_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Email Source View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="email_timeline_view.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Email Timeline View</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="email_style.html" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Email Style</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6"><h1 class="m-0">Email Style Guide</h1></div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Email Conversation Style</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chat-container">
+                            <div class="message-row incoming">
+                                <img src="../../../dist/img/avatar3.png" alt="user" class="message-avatar">
+                                <div class="message-bubble">
+                                    This is an example of an incoming email message.
+                                </div>
+                            </div>
+                            <div class="message-row outgoing">
+                                <div class="message-bubble">
+                                    This is an example of an outgoing email reply.
+                                </div>
+                                <img src="../../../dist/img/avatar5.png" alt="agent" class="message-avatar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../dist/js/adminlte.min.js"></script>
+</body>
+</html>

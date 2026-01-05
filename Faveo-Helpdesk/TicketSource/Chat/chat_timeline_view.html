@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Faveo Ticket - WhatsApp Timeline</title>
+    <title>Faveo Ticket - Chat Timeline</title>
     <link href="https://support.faveohelpdesk.com/themes/default/common/images/favicon.ico" rel="shortcut icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
@@ -12,80 +12,61 @@
     <style>
         .info-row { border-top: 1px solid #f4f4f4; padding: 10px; }
 
-        /* WhatsApp Specifics */
-        .timeline-icon-whatsapp {
-            background-color: #25D366 !important;
+        /* Chat Specifics */
+        .timeline-icon-chat {
+            background-color: #6f42c1 !important;
             color: white !important;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .timeline-item.whatsapp-incoming {
-            border-top: 3px solid #25D366;
+        .timeline-item.chat-incoming {
+            border-top: 3px solid #6f42c1;
             background-color: #fff;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .timeline-item.whatsapp-outgoing {
-            border-top: 3px solid #128C7E;
-            background-color: #e6ffde;
+        .timeline-item.chat-outgoing {
+            border-top: 3px solid #5a359a;
+            background-color: #f4f2f7;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .wa-source-badge {
-            background-color: #e6ffde;
-            color: #128C7E;
+        .chat-source-badge {
+            background-color: #f3e5f5;
+            color: #6f42c1;
             padding: 2px 8px;
             border-radius: 12px;
             font-size: 11px;
             margin-left: 8px;
-            border: 1px solid #a3d9a5;
+            border: 1px solid #e1bee7;
             font-weight: 600;
         }
 
-        /* Improved Reply Box */
-        .wa-reply-box {
+        /* Chat Reply Box */
+        .chat-reply-box {
             background: #fff;
             border: 1px solid #d2d6de;
-            border-top: 3px solid #25D366;
+            border-top: 3px solid #6f42c1;
             border-radius: 4px;
             padding: 0;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             overflow: hidden;
         }
-
-        .wa-reply-header {
+        .chat-reply-header {
             background-color: #f8f9fa;
             padding: 10px 15px;
             border-bottom: 1px solid #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #128C7E;
+            color: #6f42c1;
             font-weight: bold;
         }
-
-        .wa-reply-context {
-            background-color: #e6ffde;
-            border-left: 4px solid #25D366;
-            padding: 8px 15px;
-            display: none;
-            position: relative;
-        }
-
-        .wa-reply-context .close-context {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .wa-reply-body { padding: 15px; }
-
-        .wa-reply-footer {
+        .chat-reply-body { padding: 15px; }
+        .chat-reply-footer {
             padding: 10px 15px;
             background-color: #f8f9fa;
             border-top: 1px solid #f0f0f0;
@@ -108,9 +89,33 @@
 
         .reaction-btn:hover {
             background-color: #f0f2f5;
-            color: #128C7E;
+            color: #6f42c1;
             border-color: #e0e0e0;
         }
+
+        .reaction-picker-popover {
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            padding: 6px 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 100;
+            white-space: nowrap;
+            top: -45px;
+            left: 50px;
+        }
+
+        .reaction-option {
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 4px;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .reaction-option:hover { transform: scale(1.3); }
 
         .added-reactions { margin-top: 8px; display: flex; gap: 5px; }
 
@@ -135,7 +140,7 @@
             margin-top: 10px;
         }
 
-        .btn-reply-wa {
+        .btn-reply-chat {
             color: #555;
             background: #fff;
             border: 1px solid #ddd;
@@ -144,7 +149,7 @@
             border-radius: 4px;
         }
 
-        .btn-reply-wa:hover {
+        .btn-reply-chat:hover {
             background: #f4f4f4;
             color: #333;
         }
@@ -152,7 +157,7 @@
         /* Reply Context inside Message */
         .reply-context-msg {
             background-color: rgba(0, 0, 0, 0.05);
-            border-left: 3px solid #25D366;
+            border-left: 3px solid #6f42c1;
             padding: 4px 8px;
             margin-bottom: 6px;
             border-radius: 4px;
@@ -160,6 +165,12 @@
             display: block;
             text-align: left;
         }
+
+        /* Redaction */
+        #popup { position: absolute; background: white; border: 1px solid #ccc; display: none; z-index: 1000; }
+        redact { border: 1px solid rgb(204, 51, 64); background-color: rgba(204, 51, 64, 0.08); cursor: pointer; }
+        .redacted { border: none !important; background-color: unset !important; user-select: none !important; cursor: unset !important; }
+        .editable-timeline-body { border: 2px solid #495057; border-radius: 0.25rem; margin: 3px; user-select: text; padding: 5px; }
 
     </style>
 </head>
@@ -173,14 +184,14 @@
     </nav>
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="#" class="brand-link text-center"><span class="brand-text font-weight-light">Faveo</span></a>
+        <a href="javascript:void(0)" class="brand-link text-center"><span class="brand-text font-weight-light">Faveo</span></a>
         <div class="sidebar">
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image"><img src="../../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image"></div>
-                <div class="info"><a href="#" class="d-block">Karthi Keyan</a></div>
+                <div class="info"><a href="javascript:void(0)" class="d-block">Karthi Keyan</a></div>
             </div>
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
                         <a href="../index.html" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -265,26 +276,26 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fab fa-whatsapp"></i>
                             <p>Whatsapp <i class="right fas fa-angle-left"></i></p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="whatsapp_source_view.html" class="nav-link">
+                                <a href="../Whatsapp/whatsapp_source_view.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Whatsapp Source View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="whatsapp_timeline_view.html" class="nav-link active">
+                                <a href="../Whatsapp/whatsapp_timeline_view.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Whatsapp Timeline View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="whatsapp_style.html" class="nav-link">
+                                <a href="../Whatsapp/whatsapp_style.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Whatsapp Style</p>
                                 </a>
@@ -343,26 +354,26 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-comments"></i>
                             <p>Chat <i class="right fas fa-angle-left"></i></p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="../Chat/chat_source_view.html" class="nav-link">
+                                <a href="chat_source_view.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Chat Source View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../Chat/chat_timeline_view.html" class="nav-link">
+                                <a href="chat_timeline_view.html" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Chat Timeline View</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../Chat/chat_style.html" class="nav-link">
+                                <a href="chat_style.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Chat Style</p>
                                 </a>
@@ -411,6 +422,8 @@
 
         <div class="content">
             <div class="container-fluid">
+                <div id="popup" class="rounded shadow-sm"><a class="dropdown-item" href="javascript:void(0)" id="redactButton">Mark for permanent redaction</a><a class="dropdown-item" id="t_redactButton" href="javascript:void(0)">Mark for temporary redaction</a></div>
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card card-light">
@@ -422,26 +435,20 @@
                                 <div class="row mt-3">
                                     <div class="col-sm-8">
 
-                                        <!-- WhatsApp Reply Box (Top) -->
-                                        <div class="wa-reply-box" id="main-reply-box">
-                                            <div class="wa-reply-header">
-                                                <span><i class="fab fa-whatsapp"></i> Reply via WhatsApp</span>
-                                                <small class="text-muted">To: +1 555 0123 456</small>
+                                        <!-- Chat Reply Box -->
+                                        <div class="chat-reply-box" id="main-reply-box">
+                                            <div class="chat-reply-header">
+                                                <span><i class="fas fa-reply"></i> Reply via Chat</span>
+                                                <small class="text-muted">To: John Doe</small>
                                             </div>
-                                            <div class="wa-reply-context" id="reply-context-preview">
-                                                <i class="fas fa-times close-context" onclick="clearReplyContext()"></i>
-                                                <small class="d-block text-primary font-weight-bold" id="reply-context-author">Replying to...</small>
-                                                <span class="text-muted" id="reply-context-text">Message text...</span>
+                                            <div class="chat-reply-body">
+                                                <textarea class="form-control" id="chat-reply-input" rows="3" placeholder="Type your message..."></textarea>
                                             </div>
-                                            <div class="wa-reply-body">
-                                                <textarea class="form-control" id="timeline-reply-input" rows="3" placeholder="Type your WhatsApp message here..."></textarea>
-                                            </div>
-                                            <div class="wa-reply-footer">
+                                            <div class="chat-reply-footer">
                                                 <div>
                                                     <button class="btn btn-default btn-sm"><i class="fas fa-paperclip"></i> Attach</button>
-                                                    <button class="btn btn-default btn-sm"><i class="far fa-smile"></i> Emoji</button>
                                                 </div>
-                                                <button class="btn btn-success btn-sm" onclick="sendTimelineMessage()"><i class="fab fa-whatsapp"></i> Send</button>
+                                                <button class="btn btn-primary btn-sm" style="background-color: #6f42c1; border-color: #6f42c1;" onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i> Send</button>
                                             </div>
                                         </div>
 
@@ -458,41 +465,59 @@
                                                         <div class="timeline">
                                                             <div class="time-label"><span class="bg-light border">Today</span></div>
 
-                                                            <!-- Incoming WhatsApp Message -->
+                                                            <!-- Incoming Chat Message -->
                                                             <div>
-                                                                <i class="fab fa-whatsapp timeline-icon-whatsapp"></i>
-                                                                <div class="timeline-item whatsapp-incoming">
-                                                                    <span class="time"><i class="far fa-clock"></i> 12:05 PM</span>
+                                                                <i class="fas fa-comments timeline-icon-chat"></i>
+                                                                <div class="timeline-item chat-incoming">
+                                                                    <span class="time"><i class="far fa-clock"></i> 10:30 AM</span>
                                                                     <h3 class="timeline-header">
                                                                         <a href="#">John Doe</a> sent a message
-                                                                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                                                                        <span class="chat-source-badge"><i class="fas fa-comments"></i> Chat</span>
                                                                     </h3>
                                                                     <div class="timeline-body" id="msg_1">
-                                                                        Hello, I need help with my order #12345.
+                                                                        Hello, I need help with my subscription.
                                                                         <div class="added-reactions" id="reactions_msg_1"></div>
                                                                     </div>
-                                                                    <div class="timeline-footer">
-                                                                        <button class="btn-reply-wa" onclick="setReplyContext('John Doe', 'Hello, I need help with my order #12345.')"><i class="fas fa-reply"></i> Reply</button>
-                                                                        <button class="reaction-btn ml-2" onclick="addReaction('msg_1', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                    <div class="timeline-footer" style="position: relative;">
+                                                                        <button class="btn-reply-chat" onclick="setReplyContext('John Doe', 'Hello, I need help with my subscription.')"><i class="fas fa-reply"></i> Reply</button>
+                                                                        <button class="reaction-btn ml-2" onclick="toggleReactionPicker('msg_1')"><i class="far fa-smile"></i> React</button>
+                                                                        <button class="reaction-btn" onclick="onRedact('msg_1')"><i class="fas fa-eraser"></i> Redact</button>
+
+                                                                        <div class="reaction-picker-popover" id="picker_msg_1">
+                                                                            <span class="reaction-option" onclick="addReaction('msg_1', '👍')">👍</span>
+                                                                            <span class="reaction-option" onclick="addReaction('msg_1', '❤️')">❤️</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="timeline-footer" id="msg_1_footer" style="display: none; border-top: 1px dashed #ccc;">
+                                                                        <button type="button" id="msg_1_cancelBtn" class="btn btn-light border btn-sm"><i class="fas fa-times"></i> Cancel</button>
+                                                                        <button type="button" id="msg_1_redactBtn" class="btn btn-light border btn-sm"><i class="fas fa-check"></i> Confirm Redact</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
 
-                                                            <!-- Outgoing WhatsApp Message -->
+                                                            <!-- Outgoing Chat Message -->
                                                             <div>
                                                                 <i class="fas fa-user bg-gray"></i>
-                                                                <div class="timeline-item whatsapp-outgoing">
-                                                                    <span class="time"><i class="far fa-clock"></i> 12:10 PM</span>
+                                                                <div class="timeline-item chat-outgoing">
+                                                                    <span class="time"><i class="far fa-clock"></i> 10:32 AM</span>
                                                                     <h3 class="timeline-header">
                                                                         <a href="#">Karthi Keyan</a> replied
-                                                                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                                                                        <span class="chat-source-badge"><i class="fas fa-comments"></i> Chat</span>
                                                                     </h3>
                                                                     <div class="timeline-body" id="msg_2">
-                                                                        Hi John, we received your message.
+                                                                        Sure, I can help you with that.
                                                                         <div class="added-reactions" id="reactions_msg_2"></div>
                                                                     </div>
-                                                                    <div class="timeline-footer">
-                                                                         <button class="reaction-btn" onclick="addReaction('msg_2', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                                                                    <div class="timeline-footer" style="position: relative;">
+                                                                         <button class="reaction-btn" onclick="toggleReactionPicker('msg_2')"><i class="far fa-smile"></i> React</button>
+                                                                         <button class="reaction-btn" onclick="onRedact('msg_2')"><i class="fas fa-eraser"></i> Redact</button>
+                                                                         <div class="reaction-picker-popover" id="picker_msg_2">
+                                                                            <span class="reaction-option" onclick="addReaction('msg_2', '👍')">👍</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="timeline-footer" id="msg_2_footer" style="display: none; border-top: 1px dashed #ccc;">
+                                                                        <button type="button" id="msg_2_cancelBtn" class="btn btn-light border btn-sm"><i class="fas fa-times"></i> Cancel</button>
+                                                                        <button type="button" id="msg_2_redactBtn" class="btn btn-light border btn-sm"><i class="fas fa-check"></i> Confirm Redact</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -511,7 +536,7 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Status</label><a href="javascript:;" class="col-sm-6">Open</a></div></div>
-                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Source</label><a href="javascript:;" class="col-sm-6"><i class="fab fa-whatsapp text-success"></i> WhatsApp</a></div></div>
+                                                    <div class="col-md-12 info-row"><div class="row"><label class="col-sm-6">Source</label><a href="javascript:;" class="col-sm-6"><i class="fas fa-comments" style="color: #6f42c1;"></i> Chat</a></div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -534,30 +559,18 @@
 <script src="../../../plugins/jquery/jquery.min.js"></script>
 <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../../../dist/js/adminlte.min.js"></script>
-
 <script>
+    // --- Reply Logic ---
     let currentTimelineReply = null;
 
     function setReplyContext(author, text) {
         currentTimelineReply = { author: author, text: text };
-        $('#reply-context-author').text('Replying to ' + author);
-        $('#reply-context-text').text(text);
-        $('#reply-context-preview').slideDown();
-
-        $('html, body').animate({
-            scrollTop: $("#main-reply-box").offset().top - 100
-        }, 500);
-
-        $('#timeline-reply-input').focus();
+        // You can add a preview for chat replies if needed
+        $('#chat-reply-input').focus();
     }
 
-    function clearReplyContext() {
-        currentTimelineReply = null;
-        $('#reply-context-preview').slideUp();
-    }
-
-    function sendTimelineMessage() {
-        const text = $('#timeline-reply-input').val().trim();
+    function sendChatMessage() {
+        const text = $('#chat-reply-input').val().trim();
         if (!text) return;
 
         const msgId = 'msg_' + Date.now();
@@ -576,29 +589,50 @@
         const html = `
             <div>
                 <i class="fas fa-user bg-gray"></i>
-                <div class="timeline-item whatsapp-outgoing">
+                <div class="timeline-item chat-outgoing">
                     <span class="time"><i class="far fa-clock"></i> ${timeString}</span>
                     <h3 class="timeline-header">
                         <a href="#">Karthi Keyan</a> replied
-                        <span class="wa-source-badge"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+                        <span class="chat-source-badge"><i class="fas fa-comments"></i> Chat</span>
                     </h3>
                     <div class="timeline-body" id="${msgId}">
                         ${replyHtml}
                         ${text}
                         <div class="added-reactions" id="reactions_${msgId}"></div>
                     </div>
-                    <div class="timeline-footer">
-                         <button class="reaction-btn" onclick="addReaction('${msgId}', '👍')"><i class="far fa-thumbs-up"></i> Like</button>
+                    <div class="timeline-footer" style="position: relative;">
+                         <button class="reaction-btn" onclick="toggleReactionPicker('${msgId}')"><i class="far fa-smile"></i> React</button>
+                         <button class="reaction-btn" onclick="onRedact('${msgId}')"><i class="fas fa-eraser"></i> Redact</button>
+                         <div class="reaction-picker-popover" id="picker_${msgId}">
+                            <span class="reaction-option" onclick="addReaction('${msgId}', '👍')">👍</span>
+                            <span class="reaction-option" onclick="addReaction('${msgId}', '❤️')">❤️</span>
+                        </div>
+                    </div>
+                    <div class="timeline-footer" id="${msgId}_footer" style="display: none; border-top: 1px dashed #ccc;">
+                        <button type="button" id="${msgId}_cancelBtn" class="btn btn-light border btn-sm"><i class="fas fa-times"></i> Cancel</button>
+                        <button type="button" id="${msgId}_redactBtn" class="btn btn-light border btn-sm"><i class="fas fa-check"></i> Confirm Redact</button>
                     </div>
                 </div>
             </div>
         `;
 
         $('.timeline > div:last-child').before(html);
-
-        $('#timeline-reply-input').val('');
-        clearReplyContext();
+        $('#chat-reply-input').val('');
+        currentTimelineReply = null;
     }
+
+    // --- Reaction Logic ---
+    function toggleReactionPicker(msgId) {
+        $('.reaction-picker-popover').hide();
+        const picker = $('#picker_' + msgId);
+        picker.toggle();
+    }
+
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.reaction-btn').length && !$(e.target).closest('.reaction-picker-popover').length) {
+            $('.reaction-picker-popover').hide();
+        }
+    });
 
     function addReaction(msgId, emoji) {
         const container = $('#reactions_' + msgId);
@@ -614,6 +648,86 @@
             const pill = `<span class="reaction-pill" data-emoji="${emoji}">${emoji} <span class="count">1</span></span>`;
             container.append(pill);
         }
+        $('#picker_' + msgId).hide();
+    }
+
+    // --- Redaction Logic ---
+    document.addEventListener('mousedown', function (e) {
+        const popup = document.getElementById('popup');
+        if (popup && !popup.contains(e.target)) {
+            popup.style.display = 'none';
+        }
+    });
+
+    function onRedact(value) {
+        const editableDiv = document.getElementById(value);
+        const timelineFooter = document.getElementById(value + '_footer');
+        if (!editableDiv || !timelineFooter) return;
+        const originalContent = editableDiv.innerHTML;
+
+        function showTimelineFooter() {
+            if (editableDiv.contentEditable === "true") {
+                timelineFooter.style.display = 'flex';
+                editableDiv.classList.add('editable-timeline-body');
+            } else {
+                timelineFooter.style.display = 'none';
+                editableDiv.classList.remove('editable-timeline-body');
+            }
+        }
+
+        function cancelRedaction() {
+            editableDiv.contentEditable = "false";
+            editableDiv.innerHTML = originalContent;
+            showTimelineFooter();
+        }
+
+        const cancelBtn = document.getElementById(value + '_cancelBtn');
+        const redactBtn = document.getElementById(value + '_redactBtn');
+
+        cancelBtn.onclick = function () { cancelRedaction(); };
+
+        redactBtn.onclick = function () {
+            const redactTags = editableDiv.getElementsByTagName('redact');
+            for (const redactTag of redactTags) {
+                let originalContent = redactTag.textContent;
+                const replacement = originalContent.replace(/\S/g, '█');
+                redactTag.innerHTML = replacement;
+                redactTag.classList.add('redacted');
+            }
+            editableDiv.contentEditable = "false";
+            showTimelineFooter();
+        };
+
+        document.getElementById(value).contentEditable = "true";
+        showTimelineFooter(value);
+        editableDiv.focus();
+
+        editableDiv.onmouseup = function (e) {
+            const selection = window.getSelection();
+            if (!selection.isCollapsed && editableDiv.contains(selection.anchorNode)) {
+                const popup = document.getElementById('popup');
+                const range = selection.getRangeAt(0);
+                const rect = range.getBoundingClientRect();
+                popup.style.display = 'block';
+                popup.style.top = `${rect.top + window.scrollY - popup.offsetHeight - 5}px`;
+                popup.style.left = `${rect.left + window.scrollX}px`;
+
+                document.getElementById('redactButton').onclick = function () {
+                    const redactNode = document.createElement('redact');
+                    try { range.surroundContents(redactNode); } catch (err) {
+                        document.execCommand('insertHTML', false, '<redact>' + selection.toString() + '</redact>');
+                    }
+                    popup.style.display = 'none';
+                    selection.removeAllRanges();
+                };
+
+                document.getElementById('t_redactButton').onclick = function () {
+                    document.execCommand('hiliteColor', false, 'red');
+                    popup.style.display = 'none';
+                    selection.removeAllRanges();
+                };
+            }
+        };
     }
 </script>
 </body>
