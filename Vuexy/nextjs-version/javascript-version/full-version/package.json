@@ -77,7 +77,7 @@
     "react-use": "17.6.0",
     "recharts": "2.15.0",
     "server-only": "0.0.1",
-    "valibot": "0.42.1"
+    "valibot": "1.2.0"
   },
   "devDependencies": {
     "@iconify/json": "2.2.286",
