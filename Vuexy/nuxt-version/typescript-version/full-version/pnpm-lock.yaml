@@ -11,22 +11,22 @@ overrides:
 
 dependencies:
   '@casl/ability':
-    specifier: ^6.7.2
+    specifier: 6.7.2
     version: 6.7.2
   '@casl/vue':
-    specifier: ^2.2.2
+    specifier: 2.2.2
     version: 2.2.2(@casl/ability@6.7.2)(vue@3.5.13)
   '@floating-ui/dom':
     specifier: 1.6.8
     version: 1.6.8
   '@formkit/drag-and-drop':
-    specifier: ^0.1.6
+    specifier: 0.1.6
     version: 0.1.6
   '@nuxtjs/i18n':
-    specifier: ^9.1.1
+    specifier: 9.1.1
     version: 9.1.1(eslint@8.57.1)(rollup@4.28.1)(typescript@5.7.2)(vue@3.5.13)
   '@sindresorhus/is':
-    specifier: ^7.0.1
+    specifier: 7.0.1
     version: 7.0.1
   '@tiptap/extension-highlight':
     specifier: ^2.10.3
@@ -50,28 +50,28 @@ dependencies:
     specifier: ^2.10.3
     version: 2.10.3(@tiptap/core@2.10.3)(@tiptap/pm@2.10.3)(vue@3.5.13)
   '@vueuse/core':
-    specifier: ^10.11.1
+    specifier: 10.11.1
     version: 10.11.1(vue@3.5.13)
   '@vueuse/math':
-    specifier: ^10.11.1
+    specifier: 10.11.1
     version: 10.11.1(vue@3.5.13)
   apexcharts:
-    specifier: ^3.54.1
+    specifier: 3.54.1
     version: 3.54.1
   chart.js:
-    specifier: ^4.4.7
+    specifier: 4.4.7
     version: 4.4.7
   cookie-es:
-    specifier: ^1.2.2
+    specifier: 1.2.2
     version: 1.2.2
   destr:
-    specifier: ^2.0.3
+    specifier: 2.0.3
     version: 2.0.3
   eslint-plugin-regexp:
-    specifier: ^2.7.0
+    specifier: 2.7.0
     version: 2.7.0(eslint@8.57.1)
   jwt-decode:
-    specifier: ^4.0.0
+    specifier: 4.0.0
     version: 4.0.0
   mapbox-gl:
     specifier: 3.5.2
@@ -80,114 +80,114 @@ dependencies:
     specifier: 4.21.1
     version: 4.21.1(next@13.5.7)(react-dom@18.3.1)(react@18.3.1)
   nuxt:
-    specifier: ^3.14.1592
+    specifier: 3.14.1592
     version: 3.14.1592(@types/node@22.10.2)(eslint@8.57.1)(rollup@4.28.1)(sass@1.76.0)(stylelint@16.8.0)(typescript@5.7.2)(vite@5.4.11)
   ofetch:
-    specifier: ^1.4.1
+    specifier: 1.4.1
     version: 1.4.1
   pinia:
-    specifier: ^2.3.0
+    specifier: 2.3.0
     version: 2.3.0(typescript@5.7.2)(vue@3.5.13)
   prismjs:
-    specifier: ^1.29.0
+    specifier: 1.29.0
     version: 1.29.0
   roboto-fontface:
-    specifier: ^0.10.0
+    specifier: 0.10.0
     version: 0.10.0
   shepherd.js:
-    specifier: ^13.0.3
+    specifier: 13.0.3
     version: 13.0.3
   swiper:
-    specifier: ^11.1.15
+    specifier: 11.1.15
     version: 11.1.15
   ufo:
-    specifier: ^1.5.4
+    specifier: 1.5.4
     version: 1.5.4
   unplugin-vue-define-options:
-    specifier: ^1.5.3
+    specifier: 1.5.3
     version: 1.5.3(rollup@4.28.1)(vue@3.5.13)
   vue-chartjs:
-    specifier: ^5.3.2
+    specifier: 5.3.2
     version: 5.3.2(chart.js@4.4.7)(vue@3.5.13)
   vue-flatpickr-component:
     specifier: 11.0.5
     version: 11.0.5(vue@3.5.13)
   vue-prism-component:
-    specifier: ^2.0.0
+    specifier: 2.0.0
     version: 2.0.0
   vue3-apexcharts:
-    specifier: ^1.8.0
+    specifier: 1.8.0
     version: 1.8.0(apexcharts@3.54.1)(vue@3.5.13)
   vue3-perfect-scrollbar:
-    specifier: ^2.0.0
+    specifier: 2.0.0
     version: 2.0.0(vue@3.5.13)
   vuetify:
     specifier: 3.7.5
     version: 3.7.5(typescript@5.7.2)(vite-plugin-vuetify@2.0.3)(vue@3.5.13)
   webfontloader:
-    specifier: ^1.6.28
+    specifier: 1.6.28
     version: 1.6.28
 
 devDependencies:
   '@antfu/eslint-config-vue':
-    specifier: ^0.43.1
+    specifier: 0.43.1
     version: 0.43.1(@typescript-eslint/eslint-plugin@7.18.0)(@typescript-eslint/parser@7.18.0)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)(typescript@5.7.2)
   '@antfu/utils':
-    specifier: ^0.7.10
+    specifier: 0.7.10
     version: 0.7.10
   '@fullcalendar/core':
-    specifier: ^6.1.15
+    specifier: 6.1.15
     version: 6.1.15
   '@fullcalendar/daygrid':
-    specifier: ^6.1.15
+    specifier: 6.1.15
     version: 6.1.15(@fullcalendar/core@6.1.15)
   '@fullcalendar/interaction':
-    specifier: ^6.1.15
+    specifier: 6.1.15
     version: 6.1.15(@fullcalendar/core@6.1.15)
   '@fullcalendar/list':
-    specifier: ^6.1.15
+    specifier: 6.1.15
     version: 6.1.15(@fullcalendar/core@6.1.15)
   '@fullcalendar/timegrid':
-    specifier: ^6.1.15
+    specifier: 6.1.15
     version: 6.1.15(@fullcalendar/core@6.1.15)
   '@fullcalendar/vue3':
-    specifier: ^6.1.15
+    specifier: 6.1.15
     version: 6.1.15(@fullcalendar/core@6.1.15)(vue@3.5.13)
   '@iconify-json/fa':
-    specifier: ^1.2.1
+    specifier: 1.2.1
     version: 1.2.1
   '@iconify-json/mdi':
-    specifier: ^1.2.2
+    specifier: 1.2.2
     version: 1.2.2
   '@iconify-json/tabler':
-    specifier: ^1.2.13
+    specifier: 1.2.13
     version: 1.2.13
   '@iconify/tools':
-    specifier: ^4.1.1
+    specifier: 4.1.1
     version: 4.1.1
   '@iconify/utils':
-    specifier: ^2.2.1
+    specifier: 2.2.1
     version: 2.2.1
   '@iconify/vue':
     specifier: 4.1.2
     version: 4.1.2(vue@3.5.13)
   '@intlify/unplugin-vue-i18n':
-    specifier: ^5.3.1
+    specifier: 5.3.1
     version: 5.3.1(eslint@8.57.1)(rollup@4.28.1)(typescript@5.7.2)(vue@3.5.13)
   '@nuxtjs/device':
-    specifier: ^3.2.4
+    specifier: 3.2.4
     version: 3.2.4
   '@pinia/nuxt':
-    specifier: ^0.9.0
+    specifier: 0.9.0
     version: 0.9.0(pinia@2.3.0)(rollup@4.28.1)
   '@sidebase/nuxt-auth':
-    specifier: ^0.10.0
+    specifier: 0.10.0
     version: 0.10.0(next-auth@4.21.1)(rollup@4.28.1)(typescript@5.7.2)
   '@stylistic/stylelint-config':
-    specifier: ^1.0.1
+    specifier: 1.0.1
     version: 1.0.1(stylelint@16.8.0)
   '@stylistic/stylelint-plugin':
-    specifier: ^2.1.3
+    specifier: 2.1.3
     version: 2.1.3(stylelint@16.8.0)
   '@tiptap/extension-character-count':
     specifier: ^2.10.3
@@ -205,67 +205,67 @@ devDependencies:
     specifier: ^2.10.3
     version: 2.10.3(@tiptap/core@2.10.3)
   '@types/mapbox-gl':
-    specifier: ^3.4.1
+    specifier: 3.4.1
     version: 3.4.1
   '@types/node':
-    specifier: ^22.10.2
+    specifier: 22.10.2
     version: 22.10.2
   '@types/webfontloader':
-    specifier: ^1.6.38
+    specifier: 1.6.38
     version: 1.6.38
   '@typescript-eslint/eslint-plugin':
-    specifier: ^7.18.0
+    specifier: 7.18.0
     version: 7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.1)(typescript@5.7.2)
   '@typescript-eslint/parser':
-    specifier: ^7.18.0
+    specifier: 7.18.0
     version: 7.18.0(eslint@8.57.1)(typescript@5.7.2)
   '@videojs-player/vue':
-    specifier: ^1.0.0
+    specifier: 1.0.0
     version: 1.0.0(@types/video.js@7.3.58)(video.js@8.6.0)(vue@3.5.13)
   '@vueuse/nuxt':
-    specifier: ^12.0.0
+    specifier: 12.0.0
     version: 12.0.0(nuxt@3.14.1592)(rollup@4.28.1)(typescript@5.7.2)
   eslint:
-    specifier: ^8.57.1
+    specifier: 8.57.1
     version: 8.57.1
   eslint-config-airbnb-base:
-    specifier: ^15.0.0
+    specifier: 15.0.0
     version: 15.0.0(eslint-plugin-import@2.31.0)(eslint@8.57.1)
   eslint-import-resolver-typescript:
-    specifier: ^3.7.0
+    specifier: 3.7.0
     version: 3.7.0(eslint-plugin-import@2.31.0)(eslint@8.57.1)
   eslint-plugin-case-police:
-    specifier: ^0.6.1
+    specifier: 0.6.1
     version: 0.6.1(eslint@8.57.1)(typescript@5.7.2)
   eslint-plugin-import:
-    specifier: ^2.31.0
+    specifier: 2.31.0
     version: 2.31.0(@typescript-eslint/parser@7.18.0)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)
   eslint-plugin-promise:
-    specifier: ^6.6.0
+    specifier: 6.6.0
     version: 6.6.0(eslint@8.57.1)
   eslint-plugin-regex:
-    specifier: ^1.10.0
+    specifier: 1.10.0
     version: 1.10.0(eslint@8.57.1)
   eslint-plugin-sonarjs:
-    specifier: ^0.24.0
+    specifier: 0.24.0
     version: 0.24.0(eslint@8.57.1)
   eslint-plugin-unicorn:
-    specifier: ^51.0.1
+    specifier: 51.0.1
     version: 51.0.1(eslint@8.57.1)
   eslint-plugin-vue:
-    specifier: ^9.32.0
+    specifier: 9.32.0
     version: 9.32.0(eslint@8.57.1)
   postcss-html:
-    specifier: ^1.7.0
+    specifier: 1.7.0
     version: 1.7.0
   postcss-scss:
-    specifier: ^4.0.9
+    specifier: 4.0.9
     version: 4.0.9(postcss@8.4.49)
   sass:
-    specifier: ~1.76.0
+    specifier: 1.76.0
     version: 1.76.0
   shiki:
-    specifier: ^1.24.2
+    specifier: 1.24.2
     version: 1.24.2
   stylelint:
     specifier: 16.8.0
@@ -280,28 +280,28 @@ devDependencies:
     specifier: 5.0.1
     version: 5.0.1(stylelint@16.8.0)
   tsx:
-    specifier: ^4.19.2
+    specifier: 4.19.2
     version: 4.19.2
   type-fest:
-    specifier: ^4.30.2
+    specifier: 4.30.2
     version: 4.30.2
   typescript:
-    specifier: ^5.7.2
+    specifier: 5.7.2
     version: 5.7.2
   video.js:
     specifier: 8.6.0
     version: 8.6.0
   vite:
-    specifier: ^5.4.11
+    specifier: 5.4.11
     version: 5.4.11(@types/node@22.10.2)(sass@1.76.0)
   vite-plugin-vuetify:
     specifier: 2.0.3
     version: 2.0.3(vite@5.4.11)(vue@3.5.13)(vuetify@3.7.5)
   vite-svg-loader:
-    specifier: ^5.1.0
+    specifier: 5.1.0
     version: 5.1.0(vue@3.5.13)
   vue-shepherd:
-    specifier: ^3.0.0
+    specifier: 3.0.0
     version: 3.0.0(vue@3.5.13)
 
 packages:
@@ -315,6 +315,7 @@ packages:
 
   /@antfu/eslint-config-basic@0.43.1(@typescript-eslint/eslint-plugin@6.21.0)(@typescript-eslint/parser@6.21.0)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)(typescript@5.7.2):
     resolution: {integrity: sha512-SW6hmGmqI985fsCJ+oivo4MbiMmRMgCJ0Ne8j/hwCB6O6Mc0m5bDqYeKn5HqFhvZhG84GEg5jPDKNiHrBYnQjw==}
+    deprecated: Deprecated, please migrate to @antfu/eslint-config with the flat config
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
@@ -347,6 +348,7 @@ packages:
 
   /@antfu/eslint-config-basic@0.43.1(@typescript-eslint/eslint-plugin@7.18.0)(@typescript-eslint/parser@7.18.0)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)(typescript@5.7.2):
     resolution: {integrity: sha512-SW6hmGmqI985fsCJ+oivo4MbiMmRMgCJ0Ne8j/hwCB6O6Mc0m5bDqYeKn5HqFhvZhG84GEg5jPDKNiHrBYnQjw==}
+    deprecated: Deprecated, please migrate to @antfu/eslint-config with the flat config
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
@@ -379,6 +381,7 @@ packages:
 
   /@antfu/eslint-config-ts@0.43.1(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)(typescript@5.7.2):
     resolution: {integrity: sha512-s3zItBSopYbM/3eii/JKas1PmWR+wCPRNS89qUi4zxPvpuIgN5mahkBvbsCiWacrNFtLxe1zGgo5qijBhVfuvA==}
+    deprecated: Deprecated, please migrate to @antfu/eslint-config with the flat config
     peerDependencies:
       eslint: '>=7.4.0'
       typescript: '>=3.9'
@@ -400,6 +403,7 @@ packages:
 
   /@antfu/eslint-config-vue@0.43.1(@typescript-eslint/eslint-plugin@7.18.0)(@typescript-eslint/parser@7.18.0)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)(typescript@5.7.2):
     resolution: {integrity: sha512-HxOfe8Vl+DPrzssbs5LHRDCnBtCy1LSA1DIeV71IC+iTpzoASFahSsVX5qckYu1InFgUm93XOhHCWm34LzPsvg==}
+    deprecated: Deprecated, please migrate to @antfu/eslint-config with the flat config
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
@@ -1566,8 +1570,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 11.0.0-rc.1
-      '@intlify/shared': 11.0.0-rc.1
+      '@intlify/message-compiler': 12.0.0-alpha.3
+      '@intlify/shared': 12.0.0-alpha.3
       acorn: 8.14.0
       escodegen: 2.1.0
       estree-walker: 2.0.2
@@ -1590,8 +1594,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 11.0.0-rc.1
-      '@intlify/shared': 11.0.0-rc.1
+      '@intlify/message-compiler': 12.0.0-alpha.3
+      '@intlify/shared': 12.0.0-alpha.3
       acorn: 8.14.0
       escodegen: 2.1.0
       estree-walker: 2.0.2
@@ -1631,19 +1635,23 @@ packages:
       '@intlify/shared': 10.0.5
       source-map-js: 1.2.1
 
-  /@intlify/message-compiler@11.0.0-rc.1:
-    resolution: {integrity: sha512-TGw2uBfuTFTegZf/BHtUQBEKxl7Q/dVGLoqRIdw8lFsp9g/53sYn5iD+0HxIzdYjbWL6BTJMXCPUHp9PxDTRPw==}
+  /@intlify/message-compiler@12.0.0-alpha.3:
+    resolution: {integrity: sha512-mDDTN3gfYOHhBnpnlby19UHyvMaOnzdlpsIrxUfs44R/vCATfn8pMOkE8PXD2t410xkocEj3FpDcC9XC/0v4Dg==}
     engines: {node: '>= 16'}
     dependencies:
-      '@intlify/shared': 11.0.0-rc.1
+      '@intlify/shared': 12.0.0-alpha.3
       source-map-js: 1.2.1
 
   /@intlify/shared@10.0.5:
     resolution: {integrity: sha512-bmsP4L2HqBF6i6uaMqJMcFBONVjKt+siGluRq4Ca4C0q7W2eMaVZr8iCgF9dKbcVXutftkC7D6z2SaSMmLiDyA==}
     engines: {node: '>= 16'}
 
-  /@intlify/shared@11.0.0-rc.1:
-    resolution: {integrity: sha512-8tR1xe7ZEbkabTuE/tNhzpolygUn9OaYp9yuYAF4MgDNZg06C3Qny80bes2/e9/Wm3aVkPUlCw6WgU7mQd0yEg==}
+  /@intlify/shared@11.2.8:
+    resolution: {integrity: sha512-l6e4NZyUgv8VyXXH4DbuucFOBmxLF56C/mqh2tvApbzl2Hrhi1aTDcuv5TKdxzfHYmpO3UB0Cz04fgDT9vszfw==}
+    engines: {node: '>= 16'}
+
+  /@intlify/shared@12.0.0-alpha.3:
+    resolution: {integrity: sha512-ryaNYBvxQjyJUmVuBBg+HHUsmGnfxcEUPR0NCeG4/K9N2qtyFE35C80S15IN6iYFE2MGWLN7HfOSyg0MXZIc9w==}
     engines: {node: '>= 16'}
 
   /@intlify/unplugin-vue-i18n@5.3.1(eslint@8.57.1)(rollup@4.28.1)(typescript@5.7.2)(vue@3.5.13):
@@ -1661,8 +1669,8 @@ packages:
     dependencies:
       '@eslint-community/eslint-utils': 4.4.1(eslint@8.57.1)
       '@intlify/bundle-utils': 9.0.0
-      '@intlify/shared': 10.0.5
-      '@intlify/vue-i18n-extensions': 7.0.0(@intlify/shared@10.0.5)(vue-i18n@10.0.5)(vue@3.5.13)
+      '@intlify/shared': 11.2.8
+      '@intlify/vue-i18n-extensions': 7.0.0(@intlify/shared@11.2.8)(vue-i18n@10.0.5)(vue@3.5.13)
       '@rollup/pluginutils': 5.1.4(rollup@4.28.1)
       '@typescript-eslint/scope-manager': 8.18.1
       '@typescript-eslint/typescript-estree': 8.18.1(typescript@5.7.2)
@@ -1698,8 +1706,8 @@ packages:
     dependencies:
       '@eslint-community/eslint-utils': 4.4.1(eslint@8.57.1)
       '@intlify/bundle-utils': 10.0.0(vue-i18n@10.0.5)
-      '@intlify/shared': 10.0.5
-      '@intlify/vue-i18n-extensions': 7.0.0(@intlify/shared@10.0.5)(vue-i18n@10.0.5)(vue@3.5.13)
+      '@intlify/shared': 11.2.8
+      '@intlify/vue-i18n-extensions': 7.0.0(@intlify/shared@11.2.8)(vue-i18n@10.0.5)(vue@3.5.13)
       '@rollup/pluginutils': 5.1.4(rollup@4.28.1)
       '@typescript-eslint/scope-manager': 8.18.1
       '@typescript-eslint/typescript-estree': 8.18.1(typescript@5.7.2)
@@ -1726,7 +1734,7 @@ packages:
     engines: {node: '>= 18'}
     dev: false
 
-  /@intlify/vue-i18n-extensions@7.0.0(@intlify/shared@10.0.5)(vue-i18n@10.0.5)(vue@3.5.13):
+  /@intlify/vue-i18n-extensions@7.0.0(@intlify/shared@11.2.8)(vue-i18n@10.0.5)(vue@3.5.13):
     resolution: {integrity: sha512-MtvfJnb4aklpCU5Q/dkWkBT/vGsp3qERiPIwtTq5lX4PCLHtUprAJZp8wQj5ZcwDaFCU7+yVMjYbeXpIf927cA==}
     engines: {node: '>= 18'}
     peerDependencies:
@@ -1745,7 +1753,7 @@ packages:
         optional: true
     dependencies:
       '@babel/parser': 7.26.3
-      '@intlify/shared': 10.0.5
+      '@intlify/shared': 11.2.8
       vue: 3.5.13(typescript@5.7.2)
       vue-i18n: 10.0.5(vue@3.5.13)
 
@@ -5729,6 +5737,7 @@ packages:
   /eslint-plugin-i@2.28.1(@typescript-eslint/parser@6.21.0)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1):
     resolution: {integrity: sha512-a4oVt0j3ixNhGhvV4XF6NS7OWRFK2rrJ0Q5C4S2dSRb8FxZi31J0uUd5WJLL58wnVJ/OiQ1BxiXnFA4dWQO1Cg==}
     engines: {node: '>=12'}
+    deprecated: Please migrate to the brand new `eslint-plugin-import-x` instead
     peerDependencies:
       eslint: ^7.2.0 || ^8
     dependencies:
@@ -5752,6 +5761,7 @@ packages:
   /eslint-plugin-i@2.28.1(@typescript-eslint/parser@7.18.0)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1):
     resolution: {integrity: sha512-a4oVt0j3ixNhGhvV4XF6NS7OWRFK2rrJ0Q5C4S2dSRb8FxZi31J0uUd5WJLL58wnVJ/OiQ1BxiXnFA4dWQO1Cg==}
     engines: {node: '>=12'}
+    deprecated: Please migrate to the brand new `eslint-plugin-import-x` instead
     peerDependencies:
       eslint: ^7.2.0 || ^8
     dependencies:
@@ -5872,6 +5882,7 @@ packages:
   /eslint-plugin-markdown@3.0.1(eslint@8.57.1):
     resolution: {integrity: sha512-8rqoc148DWdGdmYF6WSQFT3uQ6PO7zXYgeBpHAOAakX/zpq+NvFYbDA/H7PYzHajwtmaOzAwfxyl++x0g1/N9A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: Please use @eslint/markdown instead
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
@@ -7908,6 +7919,7 @@ packages:
   /next@13.5.7(@babel/core@7.26.0)(react-dom@18.3.1)(react@18.3.1)(sass@1.76.0):
     resolution: {integrity: sha512-W7KIRTE+hPcgGdq89P3mQLDX3m7pJ6nxSyC+YxYaUExE+cS4UledB+Ntk98tKoyhsv6fjb2TRAnD7VDvoqmeFg==}
     engines: {node: '>=16.14.0'}
+    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -10302,6 +10314,7 @@ packages:
   /tar@6.2.1:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
     dependencies:
       chownr: 2.0.0
       fs-minipass: 2.1.0
@@ -10313,6 +10326,7 @@ packages:
   /tar@7.4.3:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
@@ -11216,6 +11230,7 @@ packages:
   /vue-i18n@10.0.5(vue@3.5.13):
     resolution: {integrity: sha512-9/gmDlCblz3i8ypu/afiIc/SUIfTTE1mr0mZhb9pk70xo2csHAM9mp2gdQ3KD2O0AM3Hz/5ypb+FycTj/lHlPQ==}
     engines: {node: '>= 16'}
+    deprecated: v9 and v10 no longer supported. please migrate to v11. about maintenance status, see https://vue-i18n.intlify.dev/guide/maintenance.html
     peerDependencies:
       vue: ^3.0.0
     dependencies:
@@ -11322,6 +11337,7 @@ packages:
   /whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
     dependencies:
       iconv-lite: 0.6.3
     dev: true
