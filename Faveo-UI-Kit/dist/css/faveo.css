@@ -1,0 +1,43 @@
+/* Faveo UI Kit — base styles */
+
+/* ── Icon-only sidebar nav ── */
+.icon-nav {
+  width: 49px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #4A5565;
+  font-size: 17px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.icon-nav:hover { background-color: rgba(61,166,215,0.10); color: #3DA6D7; }
+.icon-nav.active { background-color: rgba(61,166,215,0.15); color: #3DA6D7; }
+
+/* ── Views panel items ── */
+.view-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #4A5565;
+  font-weight: 400;
+  transition: background-color 0.15s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.view-item:hover { background-color: #F7F9FA; }
+.view-item.active { background-color: #EBF6FC; color: #3DA6D7; }
+.view-item.active i { color: #3DA6D7; }
+.view-item i { width: 18px; text-align: center; color: #4A5565; font-size: 12px; flex-shrink: 0; }
+.view-item.muted { color: #6A7282; font-weight: 500; }
+.view-item.muted i { color: #6A7282; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D1D5DC; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #848484; }

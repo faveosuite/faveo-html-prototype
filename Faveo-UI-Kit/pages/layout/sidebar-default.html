@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout — Default | Faveo</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'faveo-blue':   '#3DA6D7',
+            'faveo-slate':  '#4A5565',
+            'faveo-bg':     '#F7F9FA',
+            'faveo-border': '#D1D5DC',
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="../../dist/css/faveo.css" />
+</head>
+
+<body class="font-sans antialiased bg-faveo-bg text-faveo-slate h-screen flex flex-col overflow-hidden">
+
+  <!-- ── Banner: Subscription expiry ─────────────────────── -->
+  <div id="banner-red" class="flex-shrink-0 relative flex items-center justify-center px-4 py-[10px] bg-[#FFDFDF]" style="box-shadow:0 2px 4px -2px rgba(0,0,0,.10),0 4px 6px -1px rgba(0,0,0,.10)">
+    <div class="flex items-center gap-2">
+      <i class="fa-solid fa-triangle-exclamation text-[#FF0000]"></i>
+      <span class="text-sm font-medium text-[#FF0000]">Your subscription expires in 3 days.</span>
+      <button class="ml-4 px-4 py-1 rounded-[10px] bg-[rgba(255,0,0,0.80)] text-white text-xs font-bold hover:bg-red-600 transition">Renew Now</button>
+    </div>
+    <button id="close-red" class="absolute right-4 top-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white rounded-full flex items-center justify-center text-[#4A5565] hover:text-red-600 transition" style="box-shadow:0 0 4px rgba(0,0,0,.20)">
+      <i class="fa-solid fa-xmark text-xs"></i>
+    </button>
+  </div>
+
+  <!-- ── Banner: Expert connect ───────────────────────────── -->
+  <div id="banner-yellow" class="flex-shrink-0 relative flex items-center justify-center px-4 py-[10px] bg-[#FFCE1B]" style="box-shadow:0 2px 4px -2px rgba(0,0,0,.10),0 4px 6px -1px rgba(0,0,0,.10)">
+    <div class="flex items-center gap-2">
+      <i class="fa-solid fa-user text-white"></i>
+      <span class="text-sm font-medium text-white">Connect with an expert get an advice on Faveo helpdesk</span>
+      <button class="ml-4 px-4 py-1 rounded-[10px] bg-[#CDA206] text-white text-xs font-bold hover:bg-yellow-700 transition">Contact</button>
+    </div>
+    <button id="close-yellow" class="absolute right-4 top-1/2 -translate-y-1/2 w-[22px] h-[22px] bg-white rounded-full flex items-center justify-center text-[#4A5565] hover:opacity-70 transition" style="box-shadow:0 0 4px rgba(0,0,0,.20)">
+      <i class="fa-solid fa-xmark text-xs"></i>
+    </button>
+  </div>
+
+  <!-- ── Main area (sidebar + right) ─────────────────────── -->
+  <div class="flex flex-1 min-h-0">
+
+    <!-- ── Icon sidebar ──────────────────────────────────── -->
+    <aside class="w-[69px] flex-shrink-0 bg-faveo-bg flex flex-col">
+
+      <!-- Logo (same height as header bar) -->
+      <div class="h-[55px] flex-shrink-0 flex flex-col items-center justify-center px-1">
+        <span class="text-faveo-blue font-bold text-[11px] tracking-[0.18em] leading-none">FAVEO</span>
+        <div class="w-full border-t border-faveo-blue mt-[3px] mb-[3px]"></div>
+        <span class="text-[6px] text-faveo-slate text-center leading-tight">Simplifying Customer Support</span>
+      </div>
+
+      <!-- Nav icons -->
+      <nav class="flex-1 flex flex-col items-center py-3 gap-[2px] overflow-y-auto">
+        <a href="#" class="icon-nav active" title="Dashboard">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </a>
+        <a href="#" class="icon-nav" title="Tickets">
+          <i class="fa-solid fa-list-check"></i>
+        </a>
+        <a href="#" class="icon-nav" title="Monitor">
+          <i class="fa-solid fa-desktop"></i>
+        </a>
+        <a href="#" class="icon-nav" title="Contacts">
+          <i class="fa-solid fa-users"></i>
+        </a>
+        <a href="#" class="icon-nav" title="Knowledge Base">
+          <i class="fa-solid fa-lightbulb"></i>
+        </a>
+        <a href="#" class="icon-nav" title="Reports">
+          <i class="fa-solid fa-clipboard-list"></i>
+        </a>
+        <a href="#" class="icon-nav" title="User">
+          <i class="fa-solid fa-user-plus"></i>
+        </a>
+        <a href="#" class="icon-nav" title="Analytics">
+          <i class="fa-solid fa-chart-line"></i>
+        </a>
+        <a href="#" class="icon-nav" title="Admin">
+          <i class="fa-solid fa-user-gear"></i>
+        </a>
+      </nav>
+
+      <!-- Collapse button -->
+      <div class="flex justify-center py-3">
+        <button class="icon-nav" title="Collapse">
+          <i class="fa-solid fa-bars-staggered text-sm"></i>
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- ── Right column ───────────────────────────────────── -->
+    <div class="flex-1 flex flex-col min-w-0">
+
+      <!-- Header (same row as sidebar logo) -->
+      <header class="h-[55px] flex-shrink-0 bg-faveo-bg flex items-center justify-between px-5 gap-3">
+
+        <!-- Filter button -->
+        <button class="w-6 h-6 bg-white rounded-[6px] flex items-center justify-center text-[#525252] hover:text-faveo-blue transition" style="box-shadow:0 0 6px rgba(0,0,0,.20)">
+          <i class="fa-solid fa-filter text-xs"></i>
+        </button>
+
+        <!-- Right controls -->
+        <div class="flex items-center gap-[10px]">
+
+          <!-- + New -->
+          <button class="flex items-center gap-2 px-3 py-[6px] bg-white border border-faveo-border rounded-[10px] text-sm font-medium text-[#525252] hover:border-faveo-blue transition">
+            <i class="fa-solid fa-plus text-xs"></i>
+            <span>New</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+
+          <!-- Search -->
+          <div class="relative w-[256px]">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[#525252] text-xs pointer-events-none"></i>
+            <input type="text" placeholder="Search"
+              class="w-full pl-9 pr-4 py-[6px] bg-white border border-faveo-border rounded-[10px] text-sm text-[#0A0A0A] placeholder-[#848484] outline-none focus:border-faveo-blue transition" />
+          </div>
+
+          <!-- Notifications -->
+          <button class="relative p-[6px] text-[#525252] hover:text-faveo-blue transition">
+            <i class="fa-solid fa-bell text-lg"></i>
+            <span class="absolute top-[5px] right-[4px] w-2 h-2 bg-[#525252] rounded-full border-2 border-faveo-bg"></span>
+          </button>
+
+          <!-- Apps -->
+          <button class="flex items-center gap-[6px] px-[6px] py-[6px] bg-white border border-faveo-border rounded-[10px] hover:border-faveo-blue transition">
+            <i class="fa-solid fa-table-cells text-[#525252] text-lg"></i>
+            <span class="text-sm font-medium text-faveo-blue">Apps</span>
+          </button>
+
+          <!-- Avatar -->
+          <button class="w-8 h-8 bg-white border border-[#D4D4D4] rounded-full flex items-center justify-center text-[#525252] hover:border-faveo-blue transition">
+            <i class="fa-solid fa-user text-sm"></i>
+          </button>
+
+        </div>
+      </header>
+
+      <!-- ── Content slot ─────────────────────────────────── -->
+      <div class="flex-1 min-h-0 bg-faveo-bg">
+        <div class="h-full bg-white rounded-t-[20px] overflow-y-auto shadow-sm">
+          <!-- page content goes here -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer class="flex-shrink-0 h-[40px] bg-white border-t border-faveo-border flex items-center px-5 gap-[6px]">
+    <span class="text-[10px] font-medium text-faveo-slate">Copyright</span>
+    <i class="fa-regular fa-copyright text-[10px] text-faveo-slate"></i>
+    <span class="text-[10px] font-medium text-faveo-slate">2026 .</span>
+    <span class="text-[10px] font-medium text-faveo-slate">All rights reserved. Powered by</span>
+    <span class="text-[10px] font-semibold text-faveo-blue">Faveo</span>
+    <div class="flex-1 text-right">
+      <span class="text-[10px] font-semibold text-faveo-slate">Version </span>
+      <span class="text-[10px] font-medium text-faveo-slate">Faveo Helpdesk Enterprise Pro v9.4.3.5</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="../../dist/js/faveo.js"></script>
+  <script>
+    $(function () {
+      $('#close-red').on('click', function () { $('#banner-red').slideUp(150); });
+      $('#close-yellow').on('click', function () { $('#banner-yellow').slideUp(150); });
+    });
+  </script>
+
+</body>
+</html>
