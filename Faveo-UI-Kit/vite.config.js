@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
+  base: '/sakthi/faveo-html-prototype/Faveo-UI-Kit/',
   build: {
     rollupOptions: {
       input: {
