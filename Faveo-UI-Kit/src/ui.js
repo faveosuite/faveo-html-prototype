@@ -18,6 +18,7 @@ $(document).on('click', '[data-toggle="dropdown"]', function (e) {
   })
   $menu.toggleClass('hidden')
   $(this).toggleClass('dropdown-open', !$menu.hasClass('hidden'))
+  $(this).attr('aria-expanded', !$menu.hasClass('hidden') ? 'true' : 'false')
 })
 
 // Click outside the toggle button → close
@@ -30,6 +31,7 @@ $(document).on('click', function (e) {
     if ($menu.is('[data-persistent]')) return
     $menu.addClass('hidden')
     $(this).removeClass('dropdown-open')
+    $(this).attr('aria-expanded', 'false')
   })
 })
 
@@ -57,4 +59,9 @@ $(document).on('click', '[data-dismiss]', function () {
   const target = $(this).data('dismiss')
   const $el = target === 'parent' ? $(this).parent() : $(target)
   $el.addClass('hidden')
+})
+
+// Mobile menu — triggers same sidebar-expanded overlay as desktop toggle
+$(document).on('click', '#btn-mobile-menu', function () {
+  $('#btn-toggle-sidebar').trigger('click')
 })
