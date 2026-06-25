@@ -82,6 +82,18 @@
 /* ── Expanded sidebar shadow (not a reusable component — ID rule) ── */
 #sidebar-expanded { box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12); }
 
+/* ── Views panel: overlay full-width on mobile instead of splitting layout ── */
+@media (max-width: 767px) {
+  #views-panel:not(.hidden) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 30;
+  }
+}
+
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar       { width: 2px; height: 2px; }

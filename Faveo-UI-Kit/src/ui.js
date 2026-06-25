@@ -61,7 +61,7 @@ $(document).on('click', '[data-dismiss]', function () {
   $el.addClass('hidden')
 })
 
-// Mobile menu — triggers same sidebar-expanded overlay as desktop toggle
+// Mobile menu — directly toggles sidebar-expanded overlay
 $(document).on('click', '#btn-mobile-menu', function () {
-  $('#btn-toggle-sidebar').trigger('click')
+  $('#sidebar-expanded').toggleClass('hidden')
 })

@@ -346,7 +346,7 @@
       </header>
 
       <!-- Content body: views panel (inside) + ticket area -->
-      <div id="main-content" role="main" class="flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-tl-[14px] rounded-tr-[14px]">
+      <div id="main-content" role="main" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-tl-[14px] rounded-tr-[14px]">
 
         <!-- Views panel — opens INSIDE content when filter icon clicked -->
         <div id="views-panel" role="region" aria-label="Ticket views" class="w-60 bg-white border-r border-gray-100 flex flex-col shrink-0 overflow-hidden hidden">
@@ -405,8 +405,8 @@
           <ul class="overflow-y-auto flex-1 flex flex-col" role="list" aria-label="Ticket list">
 
             <!-- Row 1: Authentication failure #3 — Low, Closed -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
@@ -415,22 +415,28 @@
                 <img src="https://www.figma.com/api/mcp/asset/ecf15187-d62d-498e-b7f3-85b0417c6545"
                      alt="User avatar" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-full border border-white object-cover" />
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div>
                   <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
                 </div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Authentication failure #3</div>
+                <div class="text-[#404040] text-xs font-medium">Authentication failure #3</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>Test (Faveohelpdesk)</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Agent responded 21 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
-                  <span>Resolution due in 6 days</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>Test (Faveohelpdesk)</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Agent responded 21 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
+                    <span>Resolution due in 6 days</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
                   Low <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -447,8 +453,8 @@
             </li>
 
             <!-- Row 2: Authentication failure #2 — Medium, Open -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
@@ -457,22 +463,28 @@
                 <img src="https://www.figma.com/api/mcp/asset/ecf15187-d62d-498e-b7f3-85b0417c6545"
                      alt="User avatar" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-full border border-white object-cover" />
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div>
                   <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
                 </div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Authentication failure #2</div>
+                <div class="text-[#404040] text-xs font-medium">Authentication failure #2</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>Test name (company)</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 21 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
-                  <span>First response overdue by 20 hours</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>Test name (company)</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 21 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
+                    <span>First response overdue by 20 hours</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
                   Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -489,8 +501,8 @@
             </li>
 
             <!-- Row 3: 404 error #1 — High, Open -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
@@ -499,22 +511,28 @@
                 <img src="https://www.figma.com/api/mcp/asset/75bf14d1-6055-40d0-96c8-fed4a97cb493"
                      alt="User avatar" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-[6px] border border-white object-cover" />
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div>
                   <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
                 </div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">404 error when on a specific page #1</div>
+                <div class="text-[#404040] text-xs font-medium">404 error when on a specific page #1</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>Test name (company)</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 21 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
-                  <span>First response overdue by 20 hours</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>Test name (company)</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 21 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
+                    <span>First response overdue by 20 hours</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
                   High <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -531,27 +549,33 @@
             </li>
 
             <!-- Row 4a: Login page crashes on Safari — Medium, Pending -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-purple-400 flex items-center justify-center text-white font-semibold text-base">R</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Login page crashes on Safari</div>
+                <div class="text-[#404040] text-xs font-medium">Login page crashes on Safari</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>Acme Corp</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 2 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
-                  <span>Resolution due in 2 days</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>Acme Corp</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 2 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
+                    <span>Resolution due in 2 days</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
                   Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -568,27 +592,33 @@
             </li>
 
             <!-- Row 4b: Email notifications not sent — High, Open -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-teal-400 flex items-center justify-center text-white font-semibold text-base">M</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Email notifications not being sent to customers</div>
+                <div class="text-[#404040] text-xs font-medium">Email notifications not being sent to customers</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>GlobalTech Ltd</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 5 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
-                  <span>First response overdue by 3 hours</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>GlobalTech Ltd</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 5 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
+                    <span>First response overdue by 3 hours</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
                   High <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -605,27 +635,33 @@
             </li>
 
             <!-- Row 4c: API rate limit exceeded — Urgent, Open -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-orange-400 flex items-center justify-center text-white font-semibold text-base">K</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div><span class="bg-[#fff3cd] text-[#856404] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution due</span></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">API rate limit exceeded — integration broken</div>
+                <div class="text-[#404040] text-xs font-medium">API rate limit exceeded — integration broken</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>DevStream Inc</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 1 day ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
-                  <span>Resolution overdue by 4 hours</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>DevStream Inc</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 1 day ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
+                    <span>Resolution overdue by 4 hours</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
                   Urgent <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -642,27 +678,33 @@
             </li>
 
             <!-- Row 4d: Password reset not working — Low, Resolved -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-sky-400 flex items-center justify-center text-white font-semibold text-base">A</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
-                <div class="h-[22px]"></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Password reset link not working for new users</div>
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
+
+                <div class="text-[#404040] text-xs font-medium">Password reset link not working for new users</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>Bright Solutions</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Agent responded 3 days ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
-                  <span>Resolved</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>Bright Solutions</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Agent responded 3 days ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
+                    <span>Resolved</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
                   Low <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -679,27 +721,33 @@
             </li>
 
             <!-- Row 4e: Billing discrepancy — High, Open -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-pink-400 flex items-center justify-center text-white font-semibold text-base">S</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Billing discrepancy in last month's invoice</div>
+                <div class="text-[#404040] text-xs font-medium">Billing discrepancy in last month's invoice</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>FinServe Group</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 6 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
-                  <span>First response overdue by 1 hour</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>FinServe Group</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 6 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
+                    <span>First response overdue by 1 hour</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
                   High <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -716,27 +764,33 @@
             </li>
 
             <!-- Row 4f: Dashboard slow loading — Medium, Pending -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-indigo-400 flex items-center justify-center text-white font-semibold text-base">T</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
-                <div class="h-[22px]"></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Dashboard taking too long to load</div>
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
+
+                <div class="text-[#404040] text-xs font-medium">Dashboard taking too long to load</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>NexaCloud</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Agent responded 8 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
-                  <span>Resolution due in 1 day</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>NexaCloud</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Agent responded 8 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
+                    <span>Resolution due in 1 day</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
                   Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -753,27 +807,33 @@
             </li>
 
             <!-- Row 4g: CSV export broken — Low, Closed -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-white font-semibold text-base">L</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
-                <div class="h-[22px]"></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">CSV export not generating correct data</div>
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
+
+                <div class="text-[#404040] text-xs font-medium">CSV export not generating correct data</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>DataPulse</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Agent responded 2 days ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-solid fa-check text-[9px]" aria-hidden="true"></i>
-                  <span>Closed</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>DataPulse</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Agent responded 2 days ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-solid fa-check text-[9px]" aria-hidden="true"></i>
+                    <span>Closed</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
                   Low <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -790,27 +850,33 @@
             </li>
 
             <!-- Row 4h: 2FA setup failing — Urgent, Open -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-rose-500 flex items-center justify-center text-white font-semibold text-base">N</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Two-factor authentication setup keeps failing</div>
+                <div class="text-[#404040] text-xs font-medium">Two-factor authentication setup keeps failing</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>SecureOps</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 30 minutes ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
-                  <span>First response overdue by 30 min</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>SecureOps</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 30 minutes ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
+                    <span>First response overdue by 30 min</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
                   Urgent <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -827,27 +893,33 @@
             </li>
 
             <!-- Row 4i: Webhook not triggering — High, Open -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-white font-semibold text-base">J</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div><span class="bg-[#fff3cd] text-[#856404] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution due</span></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Webhook events not triggering on order completion</div>
+                <div class="text-[#404040] text-xs font-medium">Webhook events not triggering on order completion</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>ShopEase</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 12 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
-                  <span>Resolution due in 3 hours</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>ShopEase</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 12 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
+                    <span>Resolution due in 3 hours</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
                   High <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -864,27 +936,33 @@
             </li>
 
             <!-- Row 4j: Mobile app sync issue — Medium, Pending -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
                 <div class="w-12 h-12 rounded-full bg-violet-500 flex items-center justify-center text-white font-semibold text-base">P</div>
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
-                <div class="h-[22px]"></div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">Mobile app not syncing with web dashboard</div>
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
+
+                <div class="text-[#404040] text-xs font-medium">Mobile app not syncing with web dashboard</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>MobileFirst Co</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Agent responded 4 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
-                  <span>Resolution due in 5 hours</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>MobileFirst Co</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Agent responded 4 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-regular fa-clock text-[9px]" aria-hidden="true"></i>
+                    <span>Resolution due in 5 hours</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
                   Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
@@ -901,8 +979,8 @@
             </li>
 
             <!-- Row 4: 404 error #1 — Urgent, Open -->
-            <li class="flex items-center h-[98px] shrink-0 border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer list-none" role="listitem">
-              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
               <div class="ml-[15px] relative shrink-0">
@@ -911,22 +989,28 @@
                 <img src="https://www.figma.com/api/mcp/asset/75bf14d1-6055-40d0-96c8-fed4a97cb493"
                      alt="User avatar" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-[6px] border border-white object-cover" />
               </div>
-              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div>
                   <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
                 </div>
-                <div class="text-[#404040] text-xs font-medium mt-0.5">404 error when on a specific page #1</div>
+                <div class="text-[#404040] text-xs font-medium">404 error when on a specific page #1</div>
                 <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
-                  <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
-                  <span>Test name (company)</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <span>Created 21 hours ago</span>
-                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
-                  <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
-                  <span>First response overdue by 20 hours</span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
+                    <span>Test name (company)</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <span>Created 21 hours ago</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 shrink-0">
+                    <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                    <i class="fa-solid fa-reply text-[9px]" aria-hidden="true"></i>
+                    <span>First response overdue by 20 hours</span>
+                  </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
                 <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
                   Urgent <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>

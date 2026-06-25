@@ -161,6 +161,7 @@ let _submenuTimer = null
 let _$activeSubmenu = null
 
 function showSubmenu($el, navKey) {
+  if (window.innerWidth < 768) return
   const $menu = $(`#submenu-${navKey}`)
   if (!$menu.length) return
   clearTimeout(_submenuTimer)
@@ -199,11 +200,37 @@ $(document).on('click', '.submenu-item', function () {
 // ── Nav icon click ────────────────────────────────────────────────
 $(document).on('click', '[data-nav]', function () {
   const navKey = $(this).data('nav')
+  const $submenu = $(`#submenu-${navKey}`)
+
+  // Mobile: show submenu items inline in the expanded sidebar (accordion)
+  if (window.innerWidth < 768 && $submenu.length) {
+    const $existing = $(this).next('.mobile-subnav')
+    // Collapse any other open mobile subnavs
+    $('.mobile-subnav').not($existing).addClass('hidden')
+    if ($existing.length) {
+      $existing.toggleClass('hidden')
+    } else {
+      const items = $submenu.find('.submenu-item').map(function () { return $(this).text().trim() }).get()
+      const html = '<div class="mobile-subnav flex flex-col pb-1">' +
+        items.map(label =>
+          '<button class="mobile-subnav-item text-left text-[12px] text-[#4a5565] py-2 pl-14 pr-3 rounded-[8px] hover:bg-[#e8e8e8] bg-transparent border-none w-full cursor-pointer font-medium">' + label + '</button>'
+        ).join('') +
+        '</div>'
+      $(this).after(html)
+    }
+    return // Keep sidebar open so user can pick a sub-item
+  }
+
+  // Desktop or nav items without submenus
   $('.sidebar-nav[data-nav]').removeClass('active')
   $(`[data-nav="${navKey}"]`).addClass('active')
   renderViews(navKey)
   $('#views-search').val('')
-  $('#views-panel').removeClass('hidden')
+  $('#sidebar-expanded').addClass('hidden')
+})
+
+// Mobile subnav item click → close sidebar
+$(document).on('click', '.mobile-subnav-item', function () {
   $('#sidebar-expanded').addClass('hidden')
 })
 
@@ -226,7 +253,7 @@ $('#btn-collapse-sidebar').on('click', function () {
   $('#sidebar-expanded').addClass('hidden')
 })
 $(document).on('click', function (e) {
-  if (!$(e.target).closest('#sidebar-expanded, #btn-toggle-sidebar').length) {
+  if (!$(e.target).closest('#sidebar-expanded, #btn-toggle-sidebar, #btn-mobile-menu').length) {
     $('#sidebar-expanded').addClass('hidden')
   }
 })
