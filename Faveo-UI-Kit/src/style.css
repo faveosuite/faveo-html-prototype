@@ -82,8 +82,9 @@
 /* ── Expanded sidebar shadow (not a reusable component — ID rule) ── */
 #sidebar-expanded { box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12); }
 
+
 /* ── Scrollbar ── */
-::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar       { width: 2px; height: 2px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { @apply bg-gray-300 rounded; }
-::-webkit-scrollbar-thumb:hover { @apply bg-gray-400; }
+::-webkit-scrollbar-thumb { background: #e2e4e7; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #d1d5dc; }
