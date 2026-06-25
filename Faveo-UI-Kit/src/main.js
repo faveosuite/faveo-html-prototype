@@ -245,6 +245,18 @@ $(document).on('input', '#views-search', function () {
 
 // ── Banner dismiss handled by ui.js [data-dismiss] ───────────────
 
+// ── Renew flyout: position below #banner-red before showing ──────
+$('[data-target="#panel-renew"]').on('click', function () {
+  const top = document.getElementById('banner-red').getBoundingClientRect().bottom
+  $('#panel-renew').css('top', top + 'px')
+  // ui.js data-toggle="modal" handler removes hidden after this fires
+})
+
+// Closing the red banner also closes the renew panel
+$('[data-dismiss="#banner-red"]').on('click', function () {
+  $('#panel-renew').addClass('hidden')
+})
+
 // ── Default active nav (render views but keep panel hidden) ──────
 $('.sidebar-nav[data-nav="tickets"]').addClass('active')
 renderViews('tickets')

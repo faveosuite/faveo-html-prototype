@@ -17,8 +17,8 @@
     <div class="flex items-center gap-2">
       <i class="fa-solid fa-triangle-exclamation text-red-500 text-sm"></i>
       <span class="text-red-500 font-medium text-sm">Your subscription expires in 3 days.</span>
-      <div class="pl-4">
-        <button class="bg-[rgba(255,0,0,0.8)] text-white text-xs font-bold px-4 py-1 rounded-[10px]">Renew Now</button>
+      <div class="pl-2">
+        <button data-toggle="modal" data-target="#panel-renew" class="bg-[rgba(255,0,0,0.8)] text-white text-xs font-bold px-4 py-1 rounded-[10px] cursor-pointer">Renew Now</button>
       </div>
     </div>
     <button data-dismiss="#banner-red" class="absolute right-5 bg-white shadow-[0_0_2px_rgba(0,0,0,0.2)] rounded-full w-[22px] h-[22px] flex items-center justify-center cursor-pointer">
@@ -30,10 +30,60 @@
   <div id="banner-yellow" class="bg-[#ffce1b] flex items-center justify-center px-4 py-2.5 relative shrink-0">
     <div class="absolute inset-0 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] bg-transparent pointer-events-none"></div>
     <div class="flex items-center gap-2">
-      <i class="fa-solid fa-circle-info text-white text-base"></i>
-      <span class="text-white font-medium text-sm">Connect with an expert get an advice on Faveo helpdesk</span>
-      <div class="pl-4">
-        <button class="bg-[#cda206] text-white text-xs font-bold px-4 py-1 rounded-[10px]">Contact</button>
+      <i class="fa-solid fa-circle-info text-black text-base"></i>
+      <span class="text-black font-medium text-sm">Connect with an expert get an advice on Faveo helpdesk</span>
+      <div class="pl-2 relative">
+        <button data-toggle="dropdown" data-target="#contact-dropdown"
+                class="bg-[#cda206] text-white text-xs font-bold px-4 py-1 rounded-[10px] cursor-pointer">Contact</button>
+
+        <!-- Contact dropdown -->
+        <div id="contact-dropdown" data-persistent class="absolute left-1/2 -translate-x-1/2 top-[calc(100%+8px)] z-50 w-[303px] bg-white rounded-[10px] shadow-[0_0_10px_rgba(0,0,0,0.2)] overflow-hidden hidden">
+
+          <!-- Bot header (orange/cream) -->
+          <div class="bg-[#fef3e2] border-b border-[#d2d2d2]/30 p-3">
+            <div class="flex gap-2 items-start">
+              <div class="shrink-0 pt-0.5">
+                <div class="w-7 h-7 rounded-full border-2 border-[#ffb86a] bg-[#fff7ed] flex items-center justify-center shrink-0">
+                  <span class="text-[#ff8904] font-bold text-sm leading-none">{</span>
+                </div>
+              </div>
+              <div class="px-2.5 flex flex-col gap-2">
+                <p class="text-[#1e3a5f] text-[12px] font-semibold italic leading-[1.375]">Hi, I'm faveo. My default demo link is https://faveo.com/sai-ladybird-faveo/helpdesk-demo and the talk-to-sales link is https://faveo.com/sai-ladybird-faveo/helpdesk/product-consultation-faveo.</p>
+                <p class="text-[#99a1af] text-[12px] italic leading-normal">I will be helping you out if you have any questions about Faveo Helpdesk.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="p-4 flex flex-col gap-2.5">
+            <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 border border-[#d2d2d2] rounded-[10px] text-[#4a5565] text-[12px] hover:bg-gray-50 transition-colors bg-white cursor-pointer">
+              <i class="fa-solid fa-circle-play text-sm shrink-0"></i>
+              <span class="flex-1 text-left">Book a 1:1 product demo</span>
+              <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            </button>
+            <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 border border-[#d2d2d2] rounded-[10px] text-[#4a5565] text-[12px] hover:bg-gray-50 transition-colors bg-white cursor-pointer">
+              <i class="fa-solid fa-calendar-days text-sm shrink-0"></i>
+              <span class="flex-1 text-left">Schedule a meeting with faveo</span>
+              <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            </button>
+            <p class="text-[#99a1af] text-[12px] px-0.5 mt-0.5">Or contact me via</p>
+            <div class="flex items-center gap-2.5 px-2.5 py-1.5 border border-[#d2d2d2] rounded-[10px] text-[#4a5565] text-[12px]">
+              <i class="fa-solid fa-phone text-sm shrink-0"></i>
+              <input readonly value="+91 1234567809" class="flex-1 bg-transparent outline-none cursor-default text-[12px] text-[#4a5565]">
+              <button class="text-[#99a1af] hover:text-gray-500 transition-colors cursor-pointer">
+                <i class="fa-regular fa-copy text-xs"></i>
+              </button>
+            </div>
+            <div class="flex items-center gap-2.5 px-2.5 py-1.5 border border-[#d2d2d2] rounded-[10px] text-[#4a5565] text-[12px]">
+              <i class="fa-solid fa-envelope text-sm shrink-0"></i>
+              <input readonly value="sakthi@faveo.com" class="flex-1 bg-transparent outline-none cursor-default text-[12px] text-[#4a5565]">
+              <button class="text-[#99a1af] hover:text-gray-500 transition-colors cursor-pointer">
+                <i class="fa-regular fa-copy text-xs"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
     <button data-dismiss="#banner-yellow" class="absolute right-5 bg-white shadow-[0_0_2px_rgba(0,0,0,0.2)] rounded-full w-[22px] h-[22px] flex items-center justify-center cursor-pointer">
@@ -116,26 +166,26 @@
         <div class="flex items-center gap-2.5 flex-1 justify-end min-w-0">
           <!-- New dropdown -->
           <div class="relative shrink-0">
-            <button data-toggle="dropdown" data-target="#new-dropdown" class="bg-white border border-[#d1d5dc] rounded-[10px] flex items-center gap-2 px-3 py-[6.5px] text-[#525252] text-sm font-medium whitespace-nowrap cursor-pointer">
-              <i class="fa-solid fa-plus text-xs"></i>
+            <button data-toggle="dropdown" data-target="#new-dropdown" class="bg-white border border-[#d1d5dc] rounded-[10px] flex items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium whitespace-nowrap cursor-pointer">
+              <i class="fa-solid fa-plus text-[10px]"></i>
               New
-              <i class="fa-solid fa-chevron-down text-[10px]"></i>
+              <i class="fa-solid fa-chevron-down text-[9px]"></i>
             </button>
-            <div id="new-dropdown" class="absolute right-0 top-[calc(100%+6px)] z-50 min-w-[190px] bg-white rounded-[14px] shadow-lg p-2 hidden">
-              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                <i class="fa-regular fa-ticket text-[18px] w-[22px] text-center shrink-0"></i><span>Ticket</span>
+            <div id="new-dropdown" class="absolute right-0 top-[calc(100%+6px)] z-50 min-w-[160px] bg-white rounded-[10px] shadow-lg p-1.5 hidden">
+              <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fas fa-ticket text-sm shrink-0"></i><span>Ticket</span>
               </button>
-              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                <i class="fa-regular fa-envelope text-[18px] w-[22px] text-center shrink-0"></i><span>Email</span>
+              <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-envelope text-sm shrink-0"></i><span>Email</span>
               </button>
-              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                <i class="fa-regular fa-message text-[18px] w-[22px] text-center shrink-0"></i><span>Message</span>
+              <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-message text-sm shrink-0"></i><span>Message</span>
               </button>
-              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                <i class="fa-regular fa-address-card text-[18px] w-[22px] text-center shrink-0"></i><span>Contact</span>
+              <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-address-card text-sm shrink-0"></i><span>Contact</span>
               </button>
-              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                <i class="fa-regular fa-building text-[18px] w-[22px] text-center shrink-0"></i><span>Company</span>
+              <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-building text-sm shrink-0"></i><span>Company</span>
               </button>
             </div>
           </div>
@@ -143,21 +193,136 @@
           <div class="relative shrink-0">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
             <input type="text" placeholder="Search"
-                   class="bg-white border border-[#d1d5dc] rounded-[10px] pl-9 pr-4 py-[7px] text-sm text-[#0a0a0a] w-64 outline-none focus:border-sky-400" />
+                   class="bg-white border border-[#d1d5dc] rounded-[10px] pl-8 pr-3 py-1.5 text-xs text-[#0a0a0a] w-52 outline-none focus:border-sky-400" />
           </div>
           <!-- Notification bell -->
-          <div class="relative p-1.5 shrink-0">
-            <i class="fa-solid fa-bell text-[#525252] text-lg"></i>
-            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-[#525252] rounded-full border border-white block"></span>
+          <div class="relative p-1 shrink-0">
+            <i class="fa-solid fa-bell text-[#525252] text-sm"></i>
+            <span class="absolute top-1 right-1 w-1.5 h-1.5 bg-[#525252] rounded-full border border-white block"></span>
           </div>
-          <!-- Apps button -->
-          <button class="bg-white border border-[#d1d5dc] rounded-[10px] flex items-center gap-1.5 px-2.5 py-[6.5px] text-[#3da6d7] text-sm font-medium shrink-0">
-            <i class="fa-solid fa-grip text-[#3da6d7] text-base"></i>
-            Apps
-          </button>
+          <!-- Apps button + dropdown -->
+          <div class="relative shrink-0">
+            <button data-toggle="dropdown" data-target="#apps-dropdown" class="bg-white border border-[#d1d5dc] rounded-[10px] flex items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium cursor-pointer">
+              <i class="fa-solid fa-store text-[#525252] text-sm"></i>
+              Apps
+            </button>
+
+            <div id="apps-dropdown" class="absolute right-0 top-[calc(100%+6px)] z-50 w-[343px] bg-white rounded-[10px] shadow-[0_0_10px_rgba(0,0,0,0.2)] overflow-hidden hidden">
+
+              <!-- Explore Marketplace Apps -->
+              <div class="flex gap-3 items-start px-4 py-4 border-b border-[#f3f4f6] cursor-pointer hover:bg-gray-50 transition-colors">
+                <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-grip text-[#4a5565] text-lg"></i>
+                </div>
+                <div class="flex flex-col gap-0.5 flex-1">
+                  <div class="flex items-center gap-1">
+                    <span class="text-[#1e2939] text-[14px] font-semibold">Explore Marketplace Apps</span>
+                    <i class="fa-solid fa-chevron-right text-[#1e2939] text-[10px]"></i>
+                  </div>
+                  <p class="text-[#6a7282] text-[12px] leading-4">Explore apps that enhance your work experience</p>
+                </div>
+              </div>
+
+              <!-- Recommended apps -->
+              <div class="px-4 pt-3 pb-1">
+                <p class="text-[#4a5565] text-[12px] font-medium">Recommended apps for you</p>
+              </div>
+              <div class="px-4 pb-2 flex flex-col">
+                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[10px] hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
+                    <span class="text-white text-[12px] font-bold leading-none">D</span>
+                  </div>
+                  <span class="flex-1 text-[#4a5565] text-[12px] font-medium">App name</span>
+                  <i class="fa-regular fa-circle-check text-green-500 text-[14px] shrink-0"></i>
+                  <div class="border border-[#e5e7eb] rounded flex items-center gap-0.5 px-1.5 py-0.5 shrink-0">
+                    <i class="fa-solid fa-arrow-down text-[#99a1af] text-[10px]"></i>
+                    <span class="text-[#99a1af] text-[11px]">700+</span>
+                  </div>
+                  <div class="flex items-center gap-0.5 shrink-0">
+                    <i class="fa-solid fa-star text-yellow-400 text-[11px]"></i>
+                    <span class="text-[#4a5565] text-[12px]">4.4</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[10px] hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
+                    <span class="text-white text-[12px] font-bold leading-none">D</span>
+                  </div>
+                  <span class="flex-1 text-[#4a5565] text-[12px] font-medium">App name</span>
+                  <i class="fa-regular fa-circle-check text-green-500 text-[14px] shrink-0"></i>
+                  <div class="border border-[#e5e7eb] rounded flex items-center gap-0.5 px-1.5 py-0.5 shrink-0">
+                    <i class="fa-solid fa-arrow-down text-[#99a1af] text-[10px]"></i>
+                    <span class="text-[#99a1af] text-[11px]">700+</span>
+                  </div>
+                  <div class="flex items-center gap-0.5 shrink-0">
+                    <i class="fa-solid fa-star text-yellow-400 text-[11px]"></i>
+                    <span class="text-[#4a5565] text-[12px]">4.4</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[10px] hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
+                    <span class="text-white text-[12px] font-bold leading-none">D</span>
+                  </div>
+                  <span class="flex-1 text-[#4a5565] text-[12px] font-medium">App name</span>
+                  <i class="fa-regular fa-circle-check text-green-500 text-[14px] shrink-0"></i>
+                  <div class="border border-[#e5e7eb] rounded flex items-center gap-0.5 px-1.5 py-0.5 shrink-0">
+                    <i class="fa-solid fa-arrow-down text-[#99a1af] text-[10px]"></i>
+                    <span class="text-[#99a1af] text-[11px]">700+</span>
+                  </div>
+                  <div class="flex items-center gap-0.5 shrink-0">
+                    <i class="fa-solid fa-star text-yellow-400 text-[11px]"></i>
+                    <span class="text-[#4a5565] text-[12px]">4.4</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[10px] hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
+                    <span class="text-white text-[12px] font-bold leading-none">D</span>
+                  </div>
+                  <span class="flex-1 text-[#4a5565] text-[12px] font-medium">App name</span>
+                  <i class="fa-regular fa-circle-check text-green-500 text-[14px] shrink-0"></i>
+                  <div class="border border-[#e5e7eb] rounded flex items-center gap-0.5 px-1.5 py-0.5 shrink-0">
+                    <i class="fa-solid fa-arrow-down text-[#99a1af] text-[10px]"></i>
+                    <span class="text-[#99a1af] text-[11px]">700+</span>
+                  </div>
+                  <div class="flex items-center gap-0.5 shrink-0">
+                    <i class="fa-solid fa-star text-yellow-400 text-[11px]"></i>
+                    <span class="text-[#4a5565] text-[12px]">4.4</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Manage Apps -->
+              <div class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-gray-50 transition-colors">
+                <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-sliders text-[#4a5565] text-lg"></i>
+                </div>
+                <div class="flex flex-col gap-0.5 flex-1">
+                  <div class="flex items-center gap-1">
+                    <span class="text-[#1e2939] text-[14px] font-semibold">Manage Apps</span>
+                    <i class="fa-solid fa-chevron-right text-[#1e2939] text-[10px]"></i>
+                  </div>
+                  <p class="text-[#6a7282] text-[12px] leading-4">Easily manage, upgrade, and configure your apps</p>
+                </div>
+              </div>
+
+              <!-- Developer Portal -->
+              <div class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-gray-50 transition-colors">
+                <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-code text-[#4a5565] text-lg"></i>
+                </div>
+                <div class="flex flex-col gap-0.5 flex-1">
+                  <div class="flex items-center gap-1">
+                    <span class="text-[#1e2939] text-[14px] font-semibold">Developer Portal</span>
+                    <i class="fa-solid fa-chevron-right text-[#1e2939] text-[10px]"></i>
+                  </div>
+                  <p class="text-[#6a7282] text-[12px] leading-4">Build tools to help thousands of businesses worldwide</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
           <!-- Avatar -->
-          <div class="w-8 h-8 rounded-full border border-[#d4d4d4] bg-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-            <i class="fa-solid fa-user text-gray-500 text-sm"></i>
+          <div class="w-7 h-7 rounded-full border border-[#d4d4d4] bg-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+            <i class="fa-solid fa-user text-gray-500 text-xs"></i>
           </div>
         </div>
       </div>
@@ -567,5 +732,105 @@
     <span>Copyright &copy; 2026 . All rights reserved. Powered by <a href="#" class="text-[#3da6d7] hover:underline">Faveo</a> .</span>
     <span>Version Faveo Helpdesk Enterprise Pro v9.4.3.5</span>
   </footer>
+
+  <!-- ── Renew flyout panel ────────────────────────────────────────
+       position:fixed, top set by JS to bottom of #banner-red
+       Drops right below the red alert, overlays everything below it  -->
+  <div id="panel-renew" class="fixed left-0 right-0 bottom-0 z-[200] hidden flex flex-col">
+    <!-- Content panel -->
+    <div class="w-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
+      <div class="grid grid-cols-3 divide-x divide-[rgba(219,219,219,0.5)]">
+
+        <!-- Col 1: Regain access -->
+        <div class="bg-[#f3fbff] px-6 py-5">
+          <h3 class="font-semibold text-[#1e2939] text-sm leading-5">Regain access to your helpdesk</h3>
+          <p class="text-[10px] text-[#6a7282] mt-1 leading-4">Your helpdesk is <strong class="font-bold text-[#1e2939]">locked</strong>. Select a plan to regain access to your team.</p>
+          <div class="mt-4 flex flex-col gap-2">
+            <div class="bg-white border border-[rgba(219,219,219,0.87)] rounded-[10px] flex items-center gap-2 px-3 py-2">
+              <div class="bg-[#ededed] rounded-[4px] w-5 h-5 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-comment-slash text-[7px] text-[#6a7282]"></i>
+              </div>
+              <p class="text-[10px] text-[#4a5565]">Your team won't be able to respond to customer questions</p>
+            </div>
+            <div class="bg-white border border-[rgba(219,219,219,0.87)] rounded-[10px] flex items-center gap-2 px-3 py-2">
+              <div class="bg-[#ededed] rounded-[4px] w-5 h-5 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-circle-pause text-[7px] text-[#6a7282]"></i>
+              </div>
+              <p class="text-[10px] text-[#4a5565]">Any configured workflows will be paused</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Stats -->
+        <div class="bg-[#f3fbff] px-6 py-5">
+          <h3 class="font-semibold text-[#1e2939] text-sm leading-5">Achieve industry-leading results with Faveo Helpdesk</h3>
+          <div class="mt-3 grid grid-cols-2 gap-x-4 gap-y-4">
+            <div class="flex items-start gap-2">
+              <div class="bg-[#dbeafe] rounded-full w-6 h-6 flex items-center justify-center shrink-0 mt-px">
+                <i class="fa-solid fa-bolt text-[8px] text-blue-500"></i>
+              </div>
+              <div>
+                <p class="font-bold text-[#1e2939] text-sm leading-5">10s</p>
+                <p class="text-[10px] text-[#6a7282] leading-4">Avg. first response time</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <div class="bg-[#dcfce7] rounded-full w-6 h-6 flex items-center justify-center shrink-0 mt-px">
+                <i class="fa-solid fa-check text-[8px] text-green-500"></i>
+              </div>
+              <div>
+                <p class="font-bold text-[#1e2939] text-sm leading-5">~2mins</p>
+                <p class="text-[10px] text-[#6a7282] leading-4">Avg. resolution time</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <div class="bg-[#f3e8ff] rounded-full w-6 h-6 flex items-center justify-center shrink-0 mt-px">
+                <i class="fa-solid fa-brain text-[8px] text-purple-500"></i>
+              </div>
+              <div>
+                <p class="font-bold text-[#1e2939] text-sm leading-5">75% improved</p>
+                <p class="text-[10px] text-[#6a7282] leading-4">Response quality with Freddy AI Copilot</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <div class="bg-[#ffedd4] rounded-full w-6 h-6 flex items-center justify-center shrink-0 mt-px">
+                <i class="fa-solid fa-robot text-[8px] text-orange-400"></i>
+              </div>
+              <div>
+                <p class="font-bold text-[#1e2939] text-sm leading-5">Upto 65%</p>
+                <p class="text-[10px] text-[#6a7282] leading-4">Resolutions with Freddy AI Agent</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-[10px] text-[#99a1af] mt-3">Source: Customer Service Benchmark Report 2025</p>
+        </div>
+
+        <!-- Col 3: Choose plan -->
+        <div class="bg-[#f3fbff] px-6 py-5">
+          <h3 class="font-semibold text-[#1e2939] text-sm leading-5">Choose a plan to keep your helpdesk running</h3>
+          <p class="text-[10px] text-[#6a7282] mt-1 leading-4">Keep your team, workflows, and AI-assisted support running without interruption.</p>
+          <div class="mt-4 flex flex-col gap-2.5">
+            <button class="w-full bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-sm font-semibold py-2.5 rounded-[10px] transition-colors cursor-pointer border-none">Buy now</button>
+            <button class="w-full border border-[#d1d5dc] hover:bg-gray-50 text-[#364153] text-sm font-medium py-2.5 rounded-[10px] transition-colors cursor-pointer bg-transparent">Contact sales</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- Trial-ended bar -->
+      <div class="bg-[#ffdfdf] px-4 py-2.5 flex items-center justify-center relative">
+        <p class="text-sm text-red-600 font-normal">
+          <strong>Hi Sakthi,</strong> your trial has ended.
+          <span class="font-semibold cursor-pointer hover:underline">Choose a plan</span>
+          to continue using Faveo Helpdesk
+        </p>
+        <button data-dismiss="#panel-renew" class="absolute right-5 bg-white shadow-[0_0_2px_rgba(0,0,0,0.2)] rounded-full w-[22px] h-[22px] flex items-center justify-center cursor-pointer">
+          <i class="fa-solid fa-xmark text-[10px] text-gray-500"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Dim backdrop — clicking closes the panel -->
+    <div data-dismiss="#panel-renew" class="flex-1 bg-black/20"></div>
+  </div>
+
 </body>
 </html>

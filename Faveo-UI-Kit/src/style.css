@@ -22,6 +22,9 @@
   .sidebar-nav:hover  { @apply bg-[#e8e8e8]; }
   .sidebar-nav.active { @apply bg-[#cfcfcf]; }
 
+  /* Toolbar dropdown toggle — highlighted while its dropdown is open */
+  [data-toggle="dropdown"].dropdown-open { @apply border-[#9ca3af] bg-gray-100; }
+
   /* Views panel section header */
   .view-section-header {
     @apply flex items-center justify-between p-2.5 bg-white rounded-[10px]
