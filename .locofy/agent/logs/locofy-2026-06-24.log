@@ -1,0 +1,16 @@
+
+================================================================================
+SESSION STARTED AT: 24/6/2026, 11:02:02 am
+================================================================================
+[11:02:02 am] [INFO] ──────── Environment ────────
+OS:          linux (#124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 21:05:19 UTC )
+Arch:        x64
+Node:        v22.21.1
+CLI:         1.0.6 (123de7f)
+CPU:         11th Gen Intel(R) Core(TM) i5-11300H @ 3.10GHz × 8 @ 3290 MHz
+RAM:         2.63 GB free / 15.41 GB total
+Disk:        18.56 GB free / 271.42 GB total
+─────────────────────────────
+[11:02:02 am] [SPIN] Please log in to your Locofy account in the browser window that just opened.
+[11:17:04 am] [ERROR] Convert failed: Login failed. Cannot continue.
+[11:17:04 am] [DEBUG] [LogUpload] No project id available; skipping log upload

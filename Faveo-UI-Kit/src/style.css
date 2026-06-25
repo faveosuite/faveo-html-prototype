@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+/* ── Faveo design tokens (Tailwind v4 @theme) ── */
+@theme {
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* ── Custom component classes inside @layer components ──────────
+   Utilities (@layer utilities) always override components, so
+   classes like text-[14px] / w-full on expanded nav work correctly. */
+@layer components {
+
+  /* Sidebar nav button (icon rail) */
+  .sidebar-nav {
+    @apply flex items-center justify-center rounded-[10px] text-[#4a5565] cursor-pointer
+           border-none bg-transparent outline-none no-underline shrink-0 transition-colors duration-150
+           text-[18px];
+    height: 40px;
+    width: 48px;
+  }
+  .sidebar-nav:hover  { @apply bg-[#e8e8e8]; }
+  .sidebar-nav.active { @apply bg-[#cfcfcf]; }
+
+  /* Views panel section header */
+  .view-section-header {
+    @apply flex items-center justify-between p-2.5 bg-white rounded-[10px]
+           text-sm text-gray-600 font-normal cursor-pointer w-full border-none
+           outline-none transition-colors duration-150;
+  }
+  .view-section-header:hover { @apply bg-gray-50; }
+
+  /* Views panel item */
+  .view-item {
+    @apply flex items-center gap-2.5 h-9 px-2.5 bg-white rounded-[10px]
+           text-sm text-gray-600 font-normal no-underline w-full transition-colors duration-150;
+  }
+  .view-item:hover  { @apply bg-gray-50; }
+  .view-item.active { @apply bg-sky-50 text-sky-400; }
+
+  /* Filter panel selects */
+  .filter-select {
+    @apply w-full border border-[#d1d5dc] rounded-lg px-3 py-2 text-xs text-[#6a7282]
+           outline-none bg-white cursor-pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236a7282'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
+  /* Nav second-level submenu */
+  .nav-submenu-panel {
+    position: fixed;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.14);
+    padding: 6px;
+    z-index: 300;
+    min-width: 170px;
+  }
+  .submenu-item {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    color: #1a2332;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    transition: background 0.15s;
+  }
+  .submenu-item:hover { background: #f1f5f9; }
+
+}
+
+/* ── Expanded sidebar shadow (not a reusable component — ID rule) ── */
+#sidebar-expanded { box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gray-300 rounded; }
+::-webkit-scrollbar-thumb:hover { @apply bg-gray-400; }

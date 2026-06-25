@@ -3,143 +3,569 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | Faveo</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'faveo-blue':   '#3DA6D7',
-            'faveo-slate':  '#4A5565',
-            'faveo-bg':     '#F7F9FA',
-            'faveo-yellow': '#CCA105',
-            'faveo-dark':   '#1E2A38',
-          },
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-        },
-      },
-    }
-  </script>
+  <title>Faveo — All Tickets</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <link rel="stylesheet" href="dist/css/faveo.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-faveo-bg font-sans text-faveo-slate antialiased">
+<body class="flex flex-col h-screen overflow-hidden bg-white font-sans">
 
-  <div class="flex h-screen overflow-hidden">
-
-    <!-- Sidebar -->
-    <aside id="sidebar" class="w-64 flex-shrink-0 bg-faveo-dark flex flex-col transition-all duration-300">
-      <div class="h-16 flex items-center px-6 border-b border-white/10">
-        <span class="text-faveo-blue font-bold text-xl tracking-wide">Faveo</span>
-        <span class="text-white font-light text-xl ml-1">Helpdesk</span>
+  <!-- Red subscription banner -->
+  <div id="banner-red" class="bg-[#ffdfdf] flex items-center justify-center px-4 py-2.5 relative shrink-0">
+    <div class="absolute inset-0 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] bg-transparent pointer-events-none"></div>
+    <div class="flex items-center gap-2">
+      <i class="fa-solid fa-triangle-exclamation text-red-500 text-sm"></i>
+      <span class="text-red-500 font-medium text-sm">Your subscription expires in 3 days.</span>
+      <div class="pl-4">
+        <button class="bg-[rgba(255,0,0,0.8)] text-white text-xs font-bold px-4 py-1 rounded-[10px]">Renew Now</button>
       </div>
-      <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-        <a href="index.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-gauge-high w-5 text-center"></i><span>Dashboard</span>
-        </a>
-        <div class="nav-group">
-          <button class="nav-group-toggle w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-            <span class="flex items-center gap-3"><i class="fa-solid fa-ticket w-5 text-center"></i>Tickets</span>
-            <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
-          </button>
-          <div class="nav-group-items mt-1 ml-8 space-y-1 hidden">
-            <a href="pages/tickets/list.html" class="block px-3 py-1.5 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/10 transition">All Tickets</a>
-            <a href="pages/tickets/create.html" class="block px-3 py-1.5 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/10 transition">Create Ticket</a>
-          </div>
-        </div>
-        <div class="nav-group">
-          <button class="nav-group-toggle w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-            <span class="flex items-center gap-3"><i class="fa-solid fa-users w-5 text-center"></i>Users</span>
-            <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
-          </button>
-          <div class="nav-group-items mt-1 ml-8 space-y-1 hidden">
-            <a href="pages/users/list.html" class="block px-3 py-1.5 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/10 transition">All Users</a>
-            <a href="pages/users/profile.html" class="block px-3 py-1.5 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/10 transition">Profile</a>
-          </div>
-        </div>
-        <a href="pages/organizations/list.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-building w-5 text-center"></i><span>Organizations</span>
-        </a>
-        <div class="pt-4 pb-1 px-3"><span class="text-xs font-semibold uppercase tracking-widest text-gray-500">Components</span></div>
-        <a href="pages/UI/general.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-palette w-5 text-center"></i><span>UI General</span>
-        </a>
-        <a href="pages/UI/icons.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-icons w-5 text-center"></i><span>Icons</span>
-        </a>
-        <a href="pages/forms/general.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-file-lines w-5 text-center"></i><span>Forms</span>
-        </a>
-        <a href="pages/tables/simple.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-table w-5 text-center"></i><span>Tables</span>
-        </a>
-        <a href="pages/widgets/cards.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-square-poll-vertical w-5 text-center"></i><span>Widgets</span>
-        </a>
-        <div class="pt-4 pb-1 px-3"><span class="text-xs font-semibold uppercase tracking-widest text-gray-500">Admin</span></div>
-        <a href="pages/admin/agents.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-headset w-5 text-center"></i><span>Agents</span>
-        </a>
-        <a href="pages/admin/roles.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-shield-halved w-5 text-center"></i><span>Roles</span>
-        </a>
-        <a href="pages/admin/settings.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
-          <i class="fa-solid fa-gear w-5 text-center"></i><span>Settings</span>
-        </a>
-      </nav>
-      <div class="border-t border-white/10 p-4 flex items-center gap-3">
-        <div class="w-8 h-8 rounded-full bg-faveo-blue flex items-center justify-center text-white text-xs font-bold">A</div>
-        <div class="flex-1 min-w-0">
-          <p class="text-sm text-white font-medium truncate">Admin User</p>
-          <p class="text-xs text-gray-400 truncate">admin@faveo.com</p>
-        </div>
-        <a href="pages/examples/login.html" class="text-gray-400 hover:text-white transition">
-          <i class="fa-solid fa-arrow-right-from-bracket text-sm"></i>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Main -->
-    <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
-      <header class="h-16 flex-shrink-0 bg-white border-b border-gray-200 flex items-center justify-between px-6">
-        <div class="flex items-center gap-4">
-          <button id="sidebarToggle" class="text-gray-500 hover:text-faveo-blue transition">
-            <i class="fa-solid fa-bars text-lg"></i>
-          </button>
-          <nav class="text-sm text-gray-400">
-            <span>Home</span><span class="mx-2">/</span>
-            <span class="text-faveo-slate font-medium">Dashboard</span>
-          </nav>
-        </div>
-        <div class="flex items-center gap-4">
-          <button class="text-gray-400 hover:text-faveo-blue transition"><i class="fa-solid fa-magnifying-glass"></i></button>
-          <button class="relative text-gray-400 hover:text-faveo-blue transition">
-            <i class="fa-solid fa-bell"></i>
-            <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-white text-[10px] flex items-center justify-center">3</span>
-          </button>
-          <div class="w-8 h-8 rounded-full bg-faveo-blue flex items-center justify-center text-white text-xs font-bold cursor-pointer">A</div>
-        </div>
-      </header>
-
-      <main class="flex-1 overflow-y-auto p-6">
-        <div class="mb-6">
-          <h1 class="text-xl font-semibold text-faveo-dark">Dashboard</h1>
-          <p class="text-sm text-gray-400 mt-0.5">This page is under construction.</p>
-        </div>
-        <div class="bg-white rounded-xl border border-gray-200 p-12 text-center">
-          <i class="fa-solid fa-hammer text-4xl text-gray-200 mb-3"></i>
-          <p class="text-gray-400 text-sm">Content coming soon.</p>
-        </div>
-      </main>
     </div>
-
+    <button data-dismiss="#banner-red" class="absolute right-5 bg-white shadow-[0_0_2px_rgba(0,0,0,0.2)] rounded-full w-[22px] h-[22px] flex items-center justify-center cursor-pointer">
+      <i class="fa-solid fa-xmark text-[10px] text-gray-500"></i>
+    </button>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="dist/js/faveo.js"></script>
+  <!-- Yellow expert banner -->
+  <div id="banner-yellow" class="bg-[#ffce1b] flex items-center justify-center px-4 py-2.5 relative shrink-0">
+    <div class="absolute inset-0 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] bg-transparent pointer-events-none"></div>
+    <div class="flex items-center gap-2">
+      <i class="fa-solid fa-circle-info text-white text-base"></i>
+      <span class="text-white font-medium text-sm">Connect with an expert get an advice on Faveo helpdesk</span>
+      <div class="pl-4">
+        <button class="bg-[#cda206] text-white text-xs font-bold px-4 py-1 rounded-[10px]">Contact</button>
+      </div>
+    </div>
+    <button data-dismiss="#banner-yellow" class="absolute right-5 bg-white shadow-[0_0_2px_rgba(0,0,0,0.2)] rounded-full w-[22px] h-[22px] flex items-center justify-center cursor-pointer">
+      <i class="fa-solid fa-xmark text-[10px] text-gray-500"></i>
+    </button>
+  </div>
+
+  <!-- App layout -->
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- Icon rail (69px, always in flow — content never moves) -->
+    <nav id="sidebar" class="w-[69px] bg-[#f7f9fa] flex flex-col items-center shrink-0 overflow-hidden py-2">
+      <div class="w-full h-[55px] flex items-center justify-center px-[7px] shrink-0">
+        <img src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
+             alt="Faveo" class="w-full max-h-[31px] object-contain" />
+      </div>
+      <div class="flex flex-col w-full items-center pt-[10px] gap-y-[10px]">
+        <button class="sidebar-nav" data-nav="dashboard" title="AI Insights"><i class="fa-solid fa-wand-magic-sparkles"></i></button>
+        <button class="sidebar-nav" data-nav="views"     title="Dashboard">  <i class="fa-solid fa-gauge-high"></i></button>
+        <button class="sidebar-nav" data-nav="tickets"   title="Tickets">    <i class="fa-solid fa-ticket"></i></button>
+        <button class="sidebar-nav" data-nav="contacts"  title="Contacts">   <i class="fa-solid fa-users"></i></button>
+        <button class="sidebar-nav" data-nav="kb"        title="Solutions">  <i class="fa-solid fa-lightbulb"></i></button>
+        <button class="sidebar-nav" data-nav="reports"   title="Reporting">  <i class="fa-solid fa-clipboard-list"></i></button>
+        <button class="sidebar-nav" data-nav="agents"    title="AI Agent Studio"><i class="fa-solid fa-user-plus"></i></button>
+        <button class="sidebar-nav" data-nav="analytics" title="Analytics">  <i class="fa-solid fa-chart-line"></i></button>
+        <button class="sidebar-nav" data-nav="admin"     title="Admin">      <i class="fa-solid fa-gear"></i></button>
+      </div>
+      <div class="mt-auto flex flex-col items-center w-full">
+        <div class="w-[49px] border-t border-gray-200 my-2"></div>
+        <button id="btn-toggle-sidebar" class="sidebar-nav mb-1" title="Expand sidebar">
+          <i class="fa-solid fa-indent"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Expanded sidebar (absolute overlay — same bg as rail, content stays put) -->
+    <div id="sidebar-expanded" class="absolute left-0 top-0 bottom-0 w-[295px] bg-[#f7f9fa] flex flex-col z-50 py-2 hidden">
+      <div class="w-full h-[55px] flex items-center px-[7px] shrink-0">
+        <div class="w-[55px] flex items-center justify-center shrink-0">
+          <img src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
+               alt="Faveo" class="w-full max-h-[31px] object-contain" />
+        </div>
+        <span class="ml-2 text-[#3a4a5a] text-[19px] font-semibold leading-none whitespace-nowrap">Support Center</span>
+      </div>
+      <div class="flex flex-col flex-1 overflow-y-auto px-3 gap-y-[10px] pt-[10px]">
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="dashboard"><i class="fa-solid fa-wand-magic-sparkles w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">AI Insights</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="views">    <i class="fa-solid fa-gauge-high w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Dashboard</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="tickets">  <i class="fa-solid fa-ticket w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Tickets</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="contacts"> <i class="fa-solid fa-users w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Contacts</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="kb">       <i class="fa-solid fa-lightbulb w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Solutions</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="reports">  <i class="fa-solid fa-clipboard-list w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Reporting</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="agents">   <i class="fa-solid fa-user-plus w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">AI Agent Studio</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="analytics"><i class="fa-solid fa-chart-line w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Analytics</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="admin">    <i class="fa-solid fa-gear w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Admin</span></button>
+      </div>
+      <div class="px-3 mt-auto">
+        <div class="border-t border-gray-200 my-2"></div>
+        <button id="btn-collapse-sidebar" class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[14px] font-medium mb-1">
+          <i class="fa-solid fa-outdent w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Collapse</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main content (toolbar + body) -->
+    <div class="flex flex-col flex-1 overflow-hidden">
+
+      <!-- Toolbar -->
+      <div class="bg-[#f7f9fa] h-[55px] flex items-center gap-2 px-5 shrink-0">
+        <!-- Filter icon (toggles views panel inside content) + title -->
+        <div class="flex items-center gap-5 shrink-0">
+          <button id="btn-toggle-views"
+                  class="flex items-center justify-center cursor-pointer text-[#4a5565] hover:text-sky-500 transition-colors">
+            <i class="fa-solid fa-filter text-sm"></i>
+          </button>
+          <span class="text-[#333] text-base font-semibold whitespace-nowrap">All tickets</span>
+        </div>
+        <span class="text-[#333] text-base font-semibold">3</span>
+
+        <!-- Right controls -->
+        <div class="flex items-center gap-2.5 flex-1 justify-end min-w-0">
+          <!-- New dropdown -->
+          <div class="relative shrink-0">
+            <button data-toggle="dropdown" data-target="#new-dropdown" class="bg-white border border-[#d1d5dc] rounded-[10px] flex items-center gap-2 px-3 py-[6.5px] text-[#525252] text-sm font-medium whitespace-nowrap cursor-pointer">
+              <i class="fa-solid fa-plus text-xs"></i>
+              New
+              <i class="fa-solid fa-chevron-down text-[10px]"></i>
+            </button>
+            <div id="new-dropdown" class="absolute right-0 top-[calc(100%+6px)] z-50 min-w-[190px] bg-white rounded-[14px] shadow-lg p-2 hidden">
+              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-ticket text-[18px] w-[22px] text-center shrink-0"></i><span>Ticket</span>
+              </button>
+              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-envelope text-[18px] w-[22px] text-center shrink-0"></i><span>Email</span>
+              </button>
+              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-message text-[18px] w-[22px] text-center shrink-0"></i><span>Message</span>
+              </button>
+              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-address-card text-[18px] w-[22px] text-center shrink-0"></i><span>Contact</span>
+              </button>
+              <button class="flex items-center gap-[14px] w-full px-[14px] py-[10px] rounded-[10px] text-[#1e3a5f] text-[14px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-regular fa-building text-[18px] w-[22px] text-center shrink-0"></i><span>Company</span>
+              </button>
+            </div>
+          </div>
+          <!-- Search -->
+          <div class="relative shrink-0">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+            <input type="text" placeholder="Search"
+                   class="bg-white border border-[#d1d5dc] rounded-[10px] pl-9 pr-4 py-[7px] text-sm text-[#0a0a0a] w-64 outline-none focus:border-sky-400" />
+          </div>
+          <!-- Notification bell -->
+          <div class="relative p-1.5 shrink-0">
+            <i class="fa-solid fa-bell text-[#525252] text-lg"></i>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-[#525252] rounded-full border border-white block"></span>
+          </div>
+          <!-- Apps button -->
+          <button class="bg-white border border-[#d1d5dc] rounded-[10px] flex items-center gap-1.5 px-2.5 py-[6.5px] text-[#3da6d7] text-sm font-medium shrink-0">
+            <i class="fa-solid fa-grip text-[#3da6d7] text-base"></i>
+            Apps
+          </button>
+          <!-- Avatar -->
+          <div class="w-8 h-8 rounded-full border border-[#d4d4d4] bg-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+            <i class="fa-solid fa-user text-gray-500 text-sm"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content body: views panel (inside) + ticket area -->
+      <div class="flex flex-1 overflow-hidden">
+
+        <!-- Views panel — opens INSIDE content when filter icon clicked -->
+        <div id="views-panel" class="w-60 bg-white border-r border-gray-100 flex flex-col shrink-0 overflow-hidden hidden">
+          <div class="px-3 py-2.5 border-b border-gray-100">
+            <div class="relative">
+              <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-[10px]"></i>
+              <input id="views-search" type="text" placeholder="Search views…"
+                     class="w-full text-xs border border-gray-200 rounded-lg pl-7 pr-3 py-1.5 outline-none focus:border-sky-400 bg-gray-50" />
+            </div>
+          </div>
+          <div id="views-content" class="flex-1 overflow-y-auto p-2 flex flex-col gap-px"></div>
+        </div>
+
+        <!-- Ticket area -->
+        <div class="flex-1 bg-white flex flex-col overflow-hidden min-w-0">
+
+          <!-- Inner sort/view controls -->
+          <div class="flex items-center gap-4 px-6 border-b border-[#d1d5dc] h-[57px] shrink-0">
+            <!-- Checkbox + sort -->
+            <input type="checkbox" class="w-3.5 h-3.5 border-gray-300 rounded shrink-0 accent-sky-400" />
+            <div class="flex items-center gap-1.5 text-[#4a5565] text-xs shrink-0">
+              <i class="fa-solid fa-sort text-xs"></i>
+              <span>sort by:</span>
+            </div>
+            <button class="flex items-center gap-1 text-[#4a5565] text-xs shrink-0">
+              <span>Date created</span>
+              <i class="fa-solid fa-chevron-down text-[#4a5565] text-[10px]"></i>
+            </button>
+
+            <div class="flex-1"></div>
+
+            <!-- Right controls -->
+            <div class="flex items-center gap-4 text-xs text-[#4a5565] shrink-0">
+              <button class="flex items-center gap-1 whitespace-nowrap">
+                <span>Layout card</span>
+                <i class="fa-solid fa-chevron-down text-[10px]"></i>
+              </button>
+              <div class="border border-[#d2d2d2] rounded px-2 py-0.5 cursor-pointer">
+                <span class="font-medium text-[#4a5565]">Export</span>
+              </div>
+              <span class="whitespace-nowrap">1 - 3 of 3</span>
+              <button class="text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+              <button class="text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+              <button class="border border-[#d2d2d2] rounded px-2 py-0.5 flex items-center gap-1.5">
+                <i class="fa-solid fa-filter text-[#525252] text-xs"></i>
+                <span class="text-[#525252] font-semibold text-base leading-none"> Filters</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Ticket rows -->
+          <div class="overflow-y-auto flex-1 flex flex-col">
+
+            <!-- Row 1: Authentication failure #3 — Low, Closed -->
+            <div class="flex items-center h-[98px] border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+                <input type="checkbox" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+              </div>
+              <div class="ml-[15px] relative shrink-0">
+                <img src="https://www.figma.com/api/mcp/asset/6a1efae7-11d0-4fb8-9de3-f36fbc4b435f"
+                     alt="" class="w-12 h-12 rounded-full object-cover" />
+                <img src="https://www.figma.com/api/mcp/asset/ecf15187-d62d-498e-b7f3-85b0417c6545"
+                     alt="" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-full border border-white object-cover" />
+              </div>
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+                <div>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                </div>
+                <div class="text-[#404040] text-xs font-medium mt-0.5">Authentication failure #3</div>
+                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                  <i class="fa-solid fa-building text-[9px]"></i>
+                  <span>Test (Faveohelpdesk)</span>
+                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                  <span>Agent responded 21 hours ago</span>
+                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                  <i class="fa-regular fa-clock text-[9px]"></i>
+                  <span>Resolution due in 6 days</span>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
+                  Low <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-user text-[10px]"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-check text-[9px]"></i>
+                  Closed <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Row 2: Authentication failure #2 — Medium, Open -->
+            <div class="flex items-center h-[98px] border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+                <input type="checkbox" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+              </div>
+              <div class="ml-[15px] relative shrink-0">
+                <img src="https://www.figma.com/api/mcp/asset/3233e0ea-8d42-437d-9b14-79c5423cbbed"
+                     alt="" class="w-12 h-12 rounded-full object-cover" />
+                <img src="https://www.figma.com/api/mcp/asset/ecf15187-d62d-498e-b7f3-85b0417c6545"
+                     alt="" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-full border border-white object-cover" />
+              </div>
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+                <div>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                </div>
+                <div class="text-[#404040] text-xs font-medium mt-0.5">Authentication failure #2</div>
+                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                  <i class="fa-solid fa-building text-[9px]"></i>
+                  <span>Test name (company)</span>
+                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                  <span>Created 21 hours ago</span>
+                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                  <i class="fa-solid fa-reply text-[9px]"></i>
+                  <span>First response overdue by 20 hours</span>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
+                  Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-user text-[10px]"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-envelope-open text-[9px]"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Row 3: 404 error #1 — High, Open -->
+            <div class="flex items-center h-[98px] border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+                <input type="checkbox" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+              </div>
+              <div class="ml-[15px] relative shrink-0">
+                <img src="https://www.figma.com/api/mcp/asset/f4875b4d-1346-488a-af80-d9adcd8ea081"
+                     alt="" class="w-12 h-12 rounded-full object-cover" />
+                <img src="https://www.figma.com/api/mcp/asset/75bf14d1-6055-40d0-96c8-fed4a97cb493"
+                     alt="" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-[6px] border border-white object-cover" />
+              </div>
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+                <div>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                </div>
+                <div class="text-[#404040] text-xs font-medium mt-0.5">404 error when on a specific page #1</div>
+                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                  <i class="fa-solid fa-building text-[9px]"></i>
+                  <span>Test name (company)</span>
+                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                  <span>Created 21 hours ago</span>
+                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                  <i class="fa-solid fa-reply text-[9px]"></i>
+                  <span>First response overdue by 20 hours</span>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
+                  High <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-user text-[10px]"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-envelope-open text-[9px]"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Row 4: 404 error #1 — Urgent, Open -->
+            <div class="flex items-center h-[98px] border-b border-[#d1d5dc] overflow-hidden hover:bg-gray-50 transition-colors cursor-pointer">
+              <div class="flex items-center justify-center w-[23px] shrink-0 ml-6">
+                <input type="checkbox" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+              </div>
+              <div class="ml-[15px] relative shrink-0">
+                <img src="https://www.figma.com/api/mcp/asset/f70ca40a-4aad-442a-8909-22973a7825a1"
+                     alt="" class="w-12 h-12 rounded-full object-cover" />
+                <img src="https://www.figma.com/api/mcp/asset/75bf14d1-6055-40d0-96c8-fed4a97cb493"
+                     alt="" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-[6px] border border-white object-cover" />
+              </div>
+              <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0 py-[15px]">
+                <div>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                </div>
+                <div class="text-[#404040] text-xs font-medium mt-0.5">404 error when on a specific page #1</div>
+                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                  <i class="fa-solid fa-building text-[9px]"></i>
+                  <span>Test name (company)</span>
+                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                  <span>Created 21 hours ago</span>
+                  <span class="text-[#d4d4d4] text-base leading-none">•</span>
+                  <i class="fa-solid fa-reply text-[9px]"></i>
+                  <span>First response overdue by 20 hours</span>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 py-4 min-w-[80px]">
+                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
+                  Urgent <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-user text-[10px]"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-envelope-open text-[9px]"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right filter panel -->
+        <div class="w-[290px] bg-white border-l border-[#d1d5dc] shrink-0 flex flex-col overflow-hidden">
+          <!-- Header -->
+          <div class="px-4 py-3 border-b border-[#d1d5dc] flex items-center justify-between shrink-0">
+            <span class="text-[#333] text-sm font-semibold">Filters</span>
+            <button class="text-[#3da6d7] text-xs font-medium hover:underline">Show applied filters</button>
+          </div>
+
+          <!-- Search fields -->
+          <div class="px-4 pt-3 pb-2 shrink-0">
+            <div class="relative">
+              <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+              <input type="text" placeholder="Search fields"
+                     class="w-full border border-[#d1d5dc] rounded-lg pl-8 pr-3 py-2 text-xs text-[#6a7282] outline-none focus:border-sky-400 bg-white" />
+            </div>
+          </div>
+
+          <!-- Scrollable filter sections -->
+          <div class="overflow-y-auto flex-1 px-4 flex flex-col gap-0">
+
+            <!-- Agent include -->
+            <div class="py-2.5 border-b border-gray-100">
+              <button class="flex items-center gap-1 text-[#333] text-xs font-semibold mb-2 w-full text-left">
+                Agent include
+                <i class="fa-solid fa-chevron-down text-[9px] text-[#4a5565] ml-0.5"></i>
+              </button>
+              <select class="filter-select focus:border-sky-400">
+                <option>Any agent</option>
+                <option>Me</option>
+                <option>Unassigned</option>
+                <option>My group</option>
+              </select>
+            </div>
+
+            <!-- Group -->
+            <div class="py-2.5 border-b border-gray-100">
+              <button class="flex items-center gap-1 text-[#333] text-xs font-semibold mb-2 w-full text-left">
+                Group
+                <i class="fa-solid fa-chevron-down text-[9px] text-[#4a5565] ml-0.5"></i>
+              </button>
+              <select class="filter-select focus:border-sky-400">
+                <option>Any group</option>
+              </select>
+            </div>
+
+            <!-- Status -->
+            <div class="py-2.5 border-b border-gray-100">
+              <button class="flex items-center gap-1 text-[#333] text-xs font-semibold mb-2 w-full text-left">
+                Status
+                <i class="fa-solid fa-chevron-down text-[9px] text-[#4a5565] ml-0.5"></i>
+              </button>
+              <select class="filter-select focus:border-sky-400">
+                <option value="">Status</option>
+                <option>Open</option>
+                <option>Pending</option>
+                <option>Resolved</option>
+                <option>Closed</option>
+                <option>Waiting on customer</option>
+                <option>Waiting on third party</option>
+              </select>
+            </div>
+
+            <!-- Sentiment -->
+            <div class="py-2.5 border-b border-gray-100">
+              <label class="block text-[#333] text-xs font-semibold mb-2">Sentiment</label>
+              <select class="filter-select focus:border-sky-400">
+                <option>Any</option>
+                <option>Positive</option>
+                <option>Neutral</option>
+                <option>Negative</option>
+              </select>
+            </div>
+
+            <!-- Created -->
+            <div class="py-2.5 border-b border-gray-100">
+              <label class="block text-[#333] text-xs font-semibold mb-2">Created</label>
+              <select class="filter-select focus:border-sky-400">
+                <option>Any time</option>
+                <option>Today</option>
+                <option>Yesterday</option>
+                <option>This week</option>
+                <option>Last 7 days</option>
+                <option>This month</option>
+                <option>Last 30 days</option>
+              </select>
+            </div>
+
+            <!-- Closed at -->
+            <div class="py-2.5 border-b border-gray-100">
+              <label class="block text-[#333] text-xs font-semibold mb-2">Closed at</label>
+              <select class="filter-select focus:border-sky-400">
+                <option>Any time</option>
+                <option>Today</option>
+                <option>Yesterday</option>
+                <option>This week</option>
+                <option>Last 7 days</option>
+              </select>
+            </div>
+
+            <!-- Resolved at -->
+            <div class="py-2.5 border-b border-gray-100">
+              <label class="block text-[#333] text-xs font-semibold mb-2">Resolved at</label>
+              <select class="filter-select focus:border-sky-400">
+                <option>Any time</option>
+                <option>Today</option>
+                <option>Yesterday</option>
+                <option>This week</option>
+                <option>Last 7 days</option>
+              </select>
+            </div>
+
+            <!-- Resolution due by -->
+            <div class="py-2.5">
+              <label class="block text-[#333] text-xs font-semibold mb-2">Resolution due by</label>
+              <select class="filter-select focus:border-sky-400">
+                <option>Any time</option>
+                <option>Today</option>
+                <option>This week</option>
+                <option>This month</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Apply button -->
+          <div class="px-4 py-3 border-t border-[#d1d5dc] shrink-0">
+            <button class="w-full bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-sm font-medium py-2.5 rounded-lg transition-colors">
+              Apply
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav second-level submenus (static HTML, JS only positions + shows/hides) -->
+  <div id="submenu-contacts" class="nav-submenu-panel hidden">
+    <button class="submenu-item">Contacts</button>
+    <button class="submenu-item">Companies</button>
+  </div>
+  <div id="submenu-kb" class="nav-submenu-panel hidden">
+    <button class="submenu-item">Articles</button>
+    <button class="submenu-item">Categories</button>
+    <button class="submenu-item">Tags</button>
+  </div>
+  <div id="submenu-reports" class="nav-submenu-panel hidden">
+    <button class="submenu-item">Overview</button>
+    <button class="submenu-item">Ticket Reports</button>
+    <button class="submenu-item">Agent Reports</button>
+    <button class="submenu-item">Canned Responses</button>
+  </div>
+  <div id="submenu-agents" class="nav-submenu-panel hidden">
+    <button class="submenu-item">All Agents</button>
+    <button class="submenu-item">Roles</button>
+    <button class="submenu-item">Teams</button>
+    <button class="submenu-item">Departments</button>
+  </div>
+  <div id="submenu-analytics" class="nav-submenu-panel hidden">
+    <button class="submenu-item">Dashboard</button>
+    <button class="submenu-item">Custom Reports</button>
+    <button class="submenu-item">Export</button>
+  </div>
+  <div id="submenu-admin" class="nav-submenu-panel hidden">
+    <button class="submenu-item">Settings</button>
+    <button class="submenu-item">Email Settings</button>
+    <button class="submenu-item">Plugins</button>
+    <button class="submenu-item">Integrations</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-[#d1d5dc] flex items-center justify-between px-6 py-2.5 shrink-0 text-[11px] text-[#6a7282]">
+    <span>Copyright &copy; 2026 . All rights reserved. Powered by <a href="#" class="text-[#3da6d7] hover:underline">Faveo</a> .</span>
+    <span>Version Faveo Helpdesk Enterprise Pro v9.4.3.5</span>
+  </footer>
 </body>
 </html>
