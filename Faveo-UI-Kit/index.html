@@ -211,14 +211,276 @@
           <!-- Search -->
           <div class="relative shrink-0 hidden sm:block">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" aria-hidden="true"></i>
-            <input type="text" placeholder="Search" aria-label="Search tickets"
-                   class="bg-white border border-[#d1d5dc] rounded-[4px] pl-8 pr-3 py-1.5 text-xs text-[#0a0a0a] w-52 outline-none focus:border-sky-400" />
+            <input id="search-trigger" type="text" placeholder="Search" aria-label="Search tickets" readonly
+                   class="bg-white border border-[#d1d5dc] rounded-[4px] pl-8 pr-3 py-1.5 text-xs text-[#0a0a0a] w-32 outline-none focus:border-sky-400 cursor-pointer" />
+
+            <!-- Search panel (single) -->
+            <div id="search-overlay" role="dialog" aria-label="Search" class="hidden absolute top-0 right-0 w-[400px] bg-white rounded-[10px] shadow-[0_0_8px_rgba(0,0,0,0.2)] z-50 overflow-hidden">
+              <!-- Search input — always visible -->
+              <div class="p-3">
+                <div class="relative">
+                  <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" aria-hidden="true"></i>
+                  <input id="search-overlay-input" type="text" placeholder="Search" aria-label="Search"
+                         class="w-full border border-[#d1d5dc] rounded-[10px] pl-8 pr-3 py-1.5 text-xs text-[#0a0a0a] outline-none focus:border-sky-400" />
+                </div>
+              </div>
+
+              <!-- Main content: tabs + recently viewed -->
+              <div id="search-main-content">
+                <div class="px-3 pb-2.5 flex items-center gap-2 border-b border-[#d1d5dc]">
+                  <button data-toggle="tab" data-tab="all" data-target="#recently-viewed-list" class="search-tab search-tab-active px-2 py-0.5 text-xs border border-[#d1d5dc] rounded-[4px] text-[#525252] hover:bg-[#f1f5f9] transition-colors">All</button>
+                  <button data-toggle="tab" data-tab="tickets" data-target="#recently-viewed-list" class="search-tab px-2 py-0.5 text-xs border border-[#d1d5dc] rounded-[4px] text-[#525252] hover:bg-[#f1f5f9] transition-colors">Tickets</button>
+                  <button data-toggle="tab" data-tab="contacts" data-target="#recently-viewed-list" class="search-tab px-2 py-0.5 text-xs border border-[#d1d5dc] rounded-[4px] text-[#525252] hover:bg-[#f1f5f9] transition-colors">Contacts</button>
+                  <button data-toggle="tab" data-tab="forums" data-target="#recently-viewed-list" class="search-tab px-2 py-0.5 text-xs border border-[#d1d5dc] rounded-[4px] text-[#525252] hover:bg-[#f1f5f9] transition-colors">Forums</button>
+                  <button id="btn-search-prefs" aria-label="Search preferences" class="ml-auto flex items-center justify-center w-7 h-7 rounded-[4px] text-[#525252] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
+                    <i class="fa-solid fa-gear text-base" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="px-4 pt-2 pb-1 flex items-center justify-between">
+                  <span class="text-xs text-[#525252] font-medium">Recently viewed</span>
+                  <button class="text-xs text-[#3da6d7] font-medium">Clear</button>
+                </div>
+                <ul id="recently-viewed-list" role="list" aria-label="Recently viewed items" class="overflow-y-auto max-h-[260px] flex flex-col">
+                  <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-ticket text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <span class="text-xs text-[#525252] font-medium">Issues with reports #3</span>
+                  </li>
+                  <li data-item-type="contacts" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-user text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-xs text-[#525252] font-medium">Bob Tree</span>
+                      <span class="text-xs text-[#525252]">bob.tree@freshdesk.com</span>
+                      <span class="text-xs text-[#525252]">Freshworks</span>
+                    </div>
+                  </li>
+                  <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-ticket text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <span class="text-xs text-[#525252] font-medium">Authentication failure #3</span>
+                  </li>
+                  <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-ticket text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <span class="text-xs text-[#525252] font-medium">Login page crashes on Safari</span>
+                  </li>
+                  <li data-item-type="contacts" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-user text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-xs text-[#525252] font-medium">Alice Johnson</span>
+                      <span class="text-xs text-[#525252]">alice.j@acmecorp.com</span>
+                      <span class="text-xs text-[#525252]">Acme Corp</span>
+                    </div>
+                  </li>
+                  <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-ticket text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <span class="text-xs text-[#525252] font-medium">Email notifications not being sent</span>
+                  </li>
+                  <li data-item-type="contacts" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-user text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                      <span class="text-xs text-[#525252] font-medium">Mark Spencer</span>
+                      <span class="text-xs text-[#525252]">mark.s@globex.com</span>
+                      <span class="text-xs text-[#525252]">Globex</span>
+                    </div>
+                  </li>
+                  <li data-item-type="forums" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-comments text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <span class="text-xs text-[#525252] font-medium">How to reset API keys</span>
+                  </li>
+                  <li data-item-type="forums" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-comments text-[#525252] text-xs" aria-hidden="true"></i>
+                    </div>
+                    <span class="text-xs text-[#525252] font-medium">Best practices for SLA configuration</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Preferences content -->
+              <div id="search-prefs-content" class="hidden flex flex-col max-h-[420px]">
+                <div class="px-4 pb-1 shrink-0">
+                  <span class="text-xs text-[#525252]">Search preferences</span>
+                </div>
+                <div class="overflow-y-auto flex-1">
+                  <div class="px-4 pb-2 border-b border-[#d1d5dc]">
+                    <span class="text-xs text-[#525252] font-semibold">Tickets</span>
+                  </div>
+                  <ul role="list" class="flex flex-col divide-y divide-[#d1d5dc]">
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Subject</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Description</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Ticket properties</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Notes &amp; replies</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Attachments (file name)</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Include spam tickets</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Agent replies</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Tags</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Custom fields</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                    <li class="flex items-center justify-between px-4 py-2 list-none">
+                      <span class="text-xs text-[#525252]">Requester name</span>
+                      <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+                    </li>
+                  </ul>
+                </div>
+                <div class="flex items-center justify-center gap-3 px-4 py-3 border-t border-[#d1d5dc] bg-white shrink-0 sticky bottom-0">
+                  <button id="btn-search-prefs-cancel" class="px-8 py-2 rounded-[4px] bg-[#e9e9e9] text-[#525252] text-xs font-semibold hover:bg-[#d1d5dc] transition-colors">Cancel</button>
+                  <button class="px-8 py-2 rounded-[4px] bg-[rgba(61,166,215,0.4)] text-white text-xs font-semibold hover:bg-[#3da6d7] transition-colors">Apply</button>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- Notification bell -->
-          <button class="relative p-1 shrink-0 cursor-pointer" aria-label="Notifications">
-            <i class="fa-solid fa-bell text-[#525252] text-sm" aria-hidden="true"></i>
-            <span class="absolute top-1 right-1 w-1.5 h-1.5 bg-[#525252] rounded-full border border-white block"></span>
-          </button>
+          <div class="relative shrink-0">
+            <button data-toggle="dropdown" data-target="#notifications-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="notifications-dropdown" aria-label="Notifications" class="relative flex items-center justify-center w-8 h-8 rounded-[6px] text-[#525252] cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+              <i class="fa-solid fa-bell text-sm" aria-hidden="true"></i>
+              <span class="absolute top-1 right-1.5 w-1.5 h-1.5 bg-red-500 rounded-full border border-white block"></span>
+            </button>
+
+            <div id="notifications-dropdown" role="dialog" aria-label="Notifications" class="absolute right-0 top-[calc(100%+4px)] z-50 w-[360px] bg-white rounded-[10px] shadow-[0_4px_20px_rgba(0,0,0,0.15)] border border-[#e5e7eb] overflow-hidden hidden">
+              <!-- Header -->
+              <div class="flex items-center justify-between px-4 py-3 border-b border-[#e5e7eb]">
+                <span class="text-sm font-semibold text-[#0a0a0a]">Notifications</span>
+                <button class="text-xs text-[#3da6d7] font-medium">Mark all as read</button>
+              </div>
+
+              <!-- Notification list -->
+              <ul role="list" class="flex flex-col overflow-y-auto max-h-[380px]">
+
+                <!-- Unread -->
+                <li class="flex items-start gap-3 px-4 py-3 hover:bg-[#f1f5f9] cursor-pointer transition-colors border-b border-[#f1f5f9] bg-[#f8fbfe] list-none">
+                  <span class="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-ticket text-[#3da6d7] text-xs" aria-hidden="true"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-semibold text-[#0a0a0a] leading-snug">New ticket assigned to you</p>
+                    <p class="text-xs text-[#6a7282] leading-snug mt-0.5 truncate">Login issue on Chrome — Jane Cooper</p>
+                    <span class="text-[11px] text-[#9ca3af] mt-1 block">2 min ago</span>
+                  </div>
+                  <span class="w-2 h-2 rounded-full bg-[#3da6d7] shrink-0 mt-1.5" aria-label="Unread"></span>
+                </li>
+
+                <!-- Unread -->
+                <li class="flex items-start gap-3 px-4 py-3 hover:bg-[#f1f5f9] cursor-pointer transition-colors border-b border-[#f1f5f9] bg-[#f8fbfe] list-none">
+                  <span class="w-8 h-8 rounded-full bg-[#dcfce7] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-comment text-[#22c55e] text-xs" aria-hidden="true"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-semibold text-[#0a0a0a] leading-snug">New reply on ticket #1042</p>
+                    <p class="text-xs text-[#6a7282] leading-snug mt-0.5 truncate">Robert Fox replied: "I checked and the issue..."</p>
+                    <span class="text-[11px] text-[#9ca3af] mt-1 block">15 min ago</span>
+                  </div>
+                  <span class="w-2 h-2 rounded-full bg-[#3da6d7] shrink-0 mt-1.5" aria-label="Unread"></span>
+                </li>
+
+                <!-- Unread -->
+                <li class="flex items-start gap-3 px-4 py-3 hover:bg-[#f1f5f9] cursor-pointer transition-colors border-b border-[#f1f5f9] bg-[#f8fbfe] list-none">
+                  <span class="w-8 h-8 rounded-full bg-[#fef9c3] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-clock text-[#eab308] text-xs" aria-hidden="true"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-semibold text-[#0a0a0a] leading-snug">Ticket #987 is overdue</p>
+                    <p class="text-xs text-[#6a7282] leading-snug mt-0.5 truncate">SLA breach in 10 minutes — Email notifications</p>
+                    <span class="text-[11px] text-[#9ca3af] mt-1 block">32 min ago</span>
+                  </div>
+                  <span class="w-2 h-2 rounded-full bg-[#3da6d7] shrink-0 mt-1.5" aria-label="Unread"></span>
+                </li>
+
+                <!-- Read -->
+                <li class="flex items-start gap-3 px-4 py-3 hover:bg-[#f1f5f9] cursor-pointer transition-colors border-b border-[#f1f5f9] list-none">
+                  <span class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-user-plus text-[#9ca3af] text-xs" aria-hidden="true"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-medium text-[#525252] leading-snug">Agent Alice added to your team</p>
+                    <p class="text-xs text-[#9ca3af] leading-snug mt-0.5 truncate">Support Team — added by Admin</p>
+                    <span class="text-[11px] text-[#9ca3af] mt-1 block">1 hour ago</span>
+                  </div>
+                </li>
+
+                <!-- Read -->
+                <li class="flex items-start gap-3 px-4 py-3 hover:bg-[#f1f5f9] cursor-pointer transition-colors border-b border-[#f1f5f9] list-none">
+                  <span class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-circle-check text-[#9ca3af] text-xs" aria-hidden="true"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-medium text-[#525252] leading-snug">Ticket #1038 resolved</p>
+                    <p class="text-xs text-[#9ca3af] leading-snug mt-0.5 truncate">Password reset request — closed by Mark</p>
+                    <span class="text-[11px] text-[#9ca3af] mt-1 block">3 hours ago</span>
+                  </div>
+                </li>
+
+                <!-- Read -->
+                <li class="flex items-start gap-3 px-4 py-3 hover:bg-[#f1f5f9] cursor-pointer transition-colors border-b border-[#f1f5f9] list-none">
+                  <span class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-at text-[#9ca3af] text-xs" aria-hidden="true"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-medium text-[#525252] leading-snug">You were mentioned in ticket #1031</p>
+                    <p class="text-xs text-[#9ca3af] leading-snug mt-0.5 truncate">Can you take a look at this? — Emily Davis</p>
+                    <span class="text-[11px] text-[#9ca3af] mt-1 block">Yesterday</span>
+                  </div>
+                </li>
+
+                <!-- Read -->
+                <li class="flex items-start gap-3 px-4 py-3 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
+                  <span class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-rotate text-[#9ca3af] text-xs" aria-hidden="true"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-medium text-[#525252] leading-snug">Ticket #1025 reopened</p>
+                    <p class="text-xs text-[#9ca3af] leading-snug mt-0.5 truncate">Customer replied after resolution</p>
+                    <span class="text-[11px] text-[#9ca3af] mt-1 block">Yesterday</span>
+                  </div>
+                </li>
+
+              </ul>
+
+              <!-- Footer -->
+              <div class="border-t border-[#e5e7eb] px-4 py-2.5 text-center">
+                <button class="text-xs text-[#3da6d7] font-medium">View all notifications</button>
+              </div>
+            </div>
+          </div>
           <!-- Apps button + dropdown -->
           <div class="relative shrink-0 hidden sm:block">
             <button data-toggle="dropdown" data-target="#apps-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="apps-dropdown" aria-label="Apps marketplace" class="bg-white border border-[#d1d5dc] rounded-[6px] flex items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium cursor-pointer hover:bg-[#f1f5f9] transition-colors">
@@ -228,8 +490,10 @@
 
             <div id="apps-dropdown" role="dialog" aria-label="Apps marketplace" class="absolute right-0 top-[calc(100%+2px)] z-50 w-[343px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] overflow-hidden hidden">
 
+              <!-- Apps nav list -->
+              <ul role="list" class="flex flex-col">
               <!-- Explore Marketplace Apps -->
-              <div class="flex gap-3 items-start px-4 py-4 border-b border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+              <li class="flex gap-3 items-start px-4 py-4 border-b border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors list-none">
                 <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-grip text-[#4a5565] text-lg"></i>
                 </div>
@@ -240,14 +504,14 @@
                   </div>
                   <p class="text-[#6a7282] text-[12px] leading-4">Explore apps that enhance your work experience</p>
                 </div>
-              </div>
+              </li>
 
               <!-- Recommended apps -->
               <div class="px-4 pt-3 pb-1">
                 <p class="text-[#4a5565] text-[12px] font-medium">Recommended apps for you</p>
               </div>
-              <div class="px-4 pb-2 flex flex-col">
-                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
+              <ul role="list" class="px-4 pb-2 flex flex-col">
+                <li class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer list-none">
                   <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
                     <span class="text-white text-[12px] font-bold leading-none">D</span>
                   </div>
@@ -261,8 +525,8 @@
                     <i class="fa-solid fa-star text-yellow-400 text-[11px]"></i>
                     <span class="text-[#4a5565] text-[12px]">4.4</span>
                   </div>
-                </div>
-                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
+                </li>
+                <li class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer list-none">
                   <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
                     <span class="text-white text-[12px] font-bold leading-none">D</span>
                   </div>
@@ -276,8 +540,8 @@
                     <i class="fa-solid fa-star text-yellow-400 text-[11px]"></i>
                     <span class="text-[#4a5565] text-[12px]">4.4</span>
                   </div>
-                </div>
-                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
+                </li>
+                <li class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer list-none">
                   <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
                     <span class="text-white text-[12px] font-bold leading-none">D</span>
                   </div>
@@ -291,8 +555,8 @@
                     <i class="fa-solid fa-star text-yellow-400 text-[11px]"></i>
                     <span class="text-[#4a5565] text-[12px]">4.4</span>
                   </div>
-                </div>
-                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
+                </li>
+                <li class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer list-none">
                   <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
                     <span class="text-white text-[12px] font-bold leading-none">D</span>
                   </div>
@@ -306,11 +570,11 @@
                     <i class="fa-solid fa-star text-yellow-400 text-[11px]"></i>
                     <span class="text-[#4a5565] text-[12px]">4.4</span>
                   </div>
-                </div>
-              </div>
+                </li>
+              </ul>
 
               <!-- Manage Apps -->
-              <div class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+              <li class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors list-none">
                 <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-sliders text-[#4a5565] text-lg"></i>
                 </div>
@@ -321,10 +585,10 @@
                   </div>
                   <p class="text-[#6a7282] text-[12px] leading-4">Easily manage, upgrade, and configure your apps</p>
                 </div>
-              </div>
+              </li>
 
               <!-- Developer Portal -->
-              <div class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+              <li class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors list-none">
                 <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-code text-[#4a5565] text-lg"></i>
                 </div>
@@ -335,13 +599,168 @@
                   </div>
                   <p class="text-[#6a7282] text-[12px] leading-4">Build tools to help thousands of businesses worldwide</p>
                 </div>
-              </div>
+              </li>
+              </ul>
 
             </div>
           </div>
           <!-- Avatar -->
-          <div role="button" tabindex="0" aria-label="User profile" class="w-7 h-7 rounded-full border border-[#d4d4d4] bg-gray-200 flex items-center justify-center overflow-hidden shrink-0">
-            <i class="fa-solid fa-user text-gray-500 text-xs" aria-hidden="true"></i>
+          <div class="relative shrink-0">
+            <button data-toggle="dropdown" data-target="#profile-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="profile-dropdown" aria-label="User profile" class="w-7 h-7 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center overflow-hidden cursor-pointer transition-colors">
+              <i class="fa-solid fa-user text-[#0a0a0a] text-xs" aria-hidden="true"></i>
+            </button>
+
+            <div id="profile-dropdown" role="dialog" aria-label="User profile menu" class="absolute right-0 top-[calc(100%+4px)] z-50 w-[260px] bg-white rounded-[10px] shadow-[0_0_10px_rgba(0,0,0,0.2)] overflow-hidden hidden">
+
+              <!-- Main panel -->
+              <div id="profile-main" class="flex flex-col">
+                <!-- Profile info -->
+                <div class="px-4 py-3 border-b border-[#e5e7eb]">
+                  <p class="text-xs font-semibold text-[#333]">Sakthivel</p>
+                  <p class="text-[11px] text-[#777] mt-0.5">sakthi@gmail.com</p>
+                </div>
+                <!-- Profile settings -->
+                <a href="#" class="px-4 py-3 flex items-center gap-3 hover:bg-[#f1f5f9] transition-colors no-underline border-b border-[#e5e7eb]">
+                  <i class="fa-solid fa-user-gear text-[#444] text-xs w-4 text-center shrink-0" aria-hidden="true"></i>
+                  <span class="text-xs text-[#333]">Profile settings</span>
+                </a>
+                <!-- Theme -->
+                <button id="btn-profile-theme" class="px-4 py-3 flex items-center gap-3 w-full hover:bg-[#f1f5f9] transition-colors cursor-pointer border-b border-[#e5e7eb]">
+                  <i class="fa-solid fa-circle-half-stroke text-[#444] text-xs w-4 text-center shrink-0" aria-hidden="true"></i>
+                  <span class="text-xs text-[#333] flex-1 text-left">Theme</span>
+                  <i class="fa-solid fa-chevron-right text-[#9ca3af] text-xs" aria-hidden="true"></i>
+                </button>
+                <!-- Go to customer portal -->
+                <a href="#" class="px-4 py-3 flex items-center hover:bg-[#f1f5f9] transition-colors no-underline border-b border-[#e5e7eb]">
+                  <span class="text-xs text-[#333]">Go to customer portal</span>
+                </a>
+                <!-- Schedule out of office -->
+                <a href="#" class="px-4 py-3 flex items-center gap-3 hover:bg-[#f1f5f9] transition-colors no-underline border-b border-[#e5e7eb]">
+                  <i class="fa-solid fa-calendar-days text-[#444] text-xs w-4 text-center shrink-0" aria-hidden="true"></i>
+                  <span class="text-xs text-[#333]">Schedule out of office</span>
+                </a>
+                <!-- Sign out -->
+                <a href="#" class="px-4 py-3 flex items-center gap-3 hover:bg-[#f1f5f9] transition-colors no-underline">
+                  <i class="fa-solid fa-right-from-bracket text-[#444] text-xs w-4 text-center shrink-0" aria-hidden="true"></i>
+                  <span class="text-xs text-[#333]">Sign out</span>
+                </a>
+              </div>
+
+              <!-- Theme panel -->
+              <div id="profile-theme-panel" class="hidden flex-col">
+                <!-- Back header -->
+                <button id="btn-profile-theme-back" class="flex items-center gap-2.5 px-4 py-3 border-b border-[rgba(0,0,0,0.1)] w-full cursor-pointer">
+                  <i class="fa-solid fa-arrow-left text-[#0a0a0a] text-xs" aria-hidden="true"></i>
+                  <span class="text-sm font-medium text-[#0a0a0a]">Back</span>
+                </button>
+                <!-- Theme options -->
+                <ul role="list" class="flex flex-col divide-y divide-[rgba(0,0,0,0.1)]">
+                  <!-- Light -->
+                  <li class="flex items-center gap-3 px-4 py-3 list-none">
+                    <input type="radio" name="theme" value="light" aria-label="Light theme" class="theme-radio shrink-0">
+                    <div class="w-24 h-16 rounded-[10px] border border-[rgba(0,0,0,0.1)] shadow-sm overflow-hidden shrink-0 bg-[#f0f2f5]">
+                      <div class="flex flex-col gap-0.5 p-1 h-full">
+                        <div class="bg-white rounded-[4px] flex items-center gap-1 px-1 py-0.5 shrink-0">
+                          <div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:linear-gradient(135deg,#ff6467 0%,#fdc700 50%,#2b7fff 100%)"></div>
+                          <div class="bg-[#c8d3e0] h-1 rounded-full w-10 shrink-0"></div>
+                        </div>
+                        <div class="flex gap-0.5 flex-1 min-h-0">
+                          <div class="bg-white rounded-[4px] w-8 shrink-0 p-1 flex flex-col gap-0.5">
+                            <div class="bg-[#d0d8e4] h-1 rounded-full w-3 mx-auto shrink-0"></div>
+                            <div class="bg-[#e2e8f0] h-px rounded-full w-6 shrink-0"></div>
+                            <div class="mt-auto bg-[#4f8ef7] h-1.5 rounded-[2px] w-6 shrink-0"></div>
+                          </div>
+                          <div class="flex-1 flex flex-col gap-0.5 min-w-0">
+                            <div class="bg-white rounded-[4px] p-1 shrink-0 flex flex-col gap-0.5">
+                              <div class="bg-[#c8d3e0] h-1 rounded-full w-8 shrink-0"></div>
+                              <div class="bg-[#e2e8f0] h-0.5 rounded-full w-full shrink-0"></div>
+                            </div>
+                            <div class="bg-white rounded-[4px] p-1 shrink-0 flex flex-col gap-0.5">
+                              <div class="bg-[#c8d3e0] h-1 rounded-full w-6 shrink-0"></div>
+                              <div class="bg-[#e2e8f0] h-0.5 rounded-full w-full shrink-0"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-sm font-semibold text-[#0a0a0a]">Light</span>
+                  </li>
+                  <!-- Dark -->
+                  <li class="flex items-center gap-3 px-4 py-3 list-none">
+                    <input type="radio" name="theme" value="dark" aria-label="Dark theme" class="theme-radio shrink-0">
+                    <div class="w-24 h-16 rounded-[10px] border border-[rgba(0,0,0,0.1)] shadow-sm overflow-hidden shrink-0 bg-[#1a1d23]">
+                      <div class="flex flex-col gap-0.5 p-1 h-full">
+                        <div class="bg-[#23272f] rounded-[4px] flex items-center gap-1 px-1 py-0.5 shrink-0">
+                          <div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:linear-gradient(135deg,#ff6467 0%,#fdc700 50%,#2b7fff 100%)"></div>
+                          <div class="bg-[#3a4155] h-1 rounded-full w-10 shrink-0"></div>
+                        </div>
+                        <div class="flex gap-0.5 flex-1 min-h-0">
+                          <div class="bg-[#23272f] rounded-[4px] w-8 shrink-0 p-1 flex flex-col gap-0.5">
+                            <div class="bg-[#3a4155] h-1 rounded-full w-3 mx-auto shrink-0"></div>
+                            <div class="bg-[#2e3442] h-px rounded-full w-6 shrink-0"></div>
+                            <div class="mt-auto bg-[#2563eb] h-1.5 rounded-[2px] w-6 shrink-0"></div>
+                          </div>
+                          <div class="flex-1 flex flex-col gap-0.5 min-w-0">
+                            <div class="bg-[#23272f] rounded-[4px] p-1 shrink-0 flex flex-col gap-0.5">
+                              <div class="bg-[#3a4155] h-1 rounded-full w-8 shrink-0"></div>
+                              <div class="bg-[#2e3442] h-0.5 rounded-full w-full shrink-0"></div>
+                            </div>
+                            <div class="bg-[#23272f] rounded-[4px] p-1 shrink-0 flex flex-col gap-0.5">
+                              <div class="bg-[#3a4155] h-1 rounded-full w-6 shrink-0"></div>
+                              <div class="bg-[#2e3442] h-0.5 rounded-full w-full shrink-0"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-sm font-semibold text-[#0a0a0a]">Dark</span>
+                  </li>
+                  <!-- Auto -->
+                  <li class="flex items-center gap-3 px-4 py-3 list-none">
+                    <input type="radio" name="theme" value="auto" checked aria-label="Auto theme" class="theme-radio shrink-0">
+                    <div class="w-24 h-16 rounded-[10px] border border-[rgba(0,0,0,0.1)] shadow-sm overflow-hidden shrink-0 flex">
+                      <div class="flex-1 bg-[#f0f2f5] flex flex-col gap-0.5 p-0.5">
+                        <div class="bg-white rounded-[3px] flex items-center gap-0.5 px-0.5 py-0.5 shrink-0">
+                          <div class="w-2 h-2 rounded-full shrink-0" style="background:linear-gradient(135deg,#ff6467 0%,#fdc700 50%,#2b7fff 100%)"></div>
+                          <div class="bg-[#c8d3e0] h-0.5 rounded-full flex-1"></div>
+                        </div>
+                        <div class="flex gap-0.5 flex-1 min-h-0">
+                          <div class="bg-white rounded-[3px] w-5 shrink-0 p-0.5 flex flex-col gap-0.5">
+                            <div class="bg-[#d0d8e4] w-2 h-2 rounded-full mx-auto shrink-0"></div>
+                            <div class="mt-auto bg-[#4f8ef7] h-1 rounded-[1px] w-4 shrink-0"></div>
+                          </div>
+                          <div class="flex-1 flex flex-col gap-0.5 min-w-0">
+                            <div class="bg-white rounded-[3px] p-0.5 shrink-0"><div class="bg-[#c8d3e0] h-1 rounded-full w-full"></div></div>
+                            <div class="bg-white rounded-[3px] p-0.5 shrink-0"><div class="bg-[#c8d3e0] h-1 rounded-full w-2/3"></div></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-1 bg-[#1a1d23] flex flex-col gap-0.5 p-0.5">
+                        <div class="bg-[#23272f] rounded-[3px] flex items-center gap-0.5 px-0.5 py-0.5 shrink-0">
+                          <div class="w-2 h-2 rounded-full shrink-0" style="background:linear-gradient(135deg,#ff6467 0%,#fdc700 50%,#2b7fff 100%)"></div>
+                          <div class="bg-[#3a4155] h-0.5 rounded-full flex-1"></div>
+                        </div>
+                        <div class="flex gap-0.5 flex-1 min-h-0">
+                          <div class="bg-[#23272f] rounded-[3px] w-5 shrink-0 p-0.5 flex flex-col gap-0.5">
+                            <div class="bg-[#3a4155] w-2 h-2 rounded-full mx-auto shrink-0"></div>
+                            <div class="mt-auto bg-[#2563eb] h-1 rounded-[1px] w-4 shrink-0"></div>
+                          </div>
+                          <div class="flex-1 flex flex-col gap-0.5 min-w-0">
+                            <div class="bg-[#23272f] rounded-[3px] p-0.5 shrink-0"><div class="bg-[#3a4155] h-1 rounded-full w-full"></div></div>
+                            <div class="bg-[#23272f] rounded-[3px] p-0.5 shrink-0"><div class="bg-[#3a4155] h-1 rounded-full w-2/3"></div></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="text-sm font-semibold text-[#0a0a0a]">Auto</span>
+                      <span class="text-xs text-[#717182]">(System Default)</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
           </div>
         </div>
       </header>
@@ -1079,144 +1498,124 @@
             </li>
 
           </ul>
-          <aside id="filter-aside" class="w-[290px] bg-white border-l border-[#d1d5dc] shrink-0 hidden flex-col overflow-hidden" aria-label="Ticket filters">
-          <!-- Scrollable area: header + search + filter sections -->
-          <div class="overflow-y-auto flex-1 flex flex-col">
+          <aside id="filter-aside" class="w-[260px] bg-white border-l border-[#d1d5dc] shrink-0 hidden flex-col overflow-hidden" aria-label="Ticket filters">
 
-          <!-- Header -->
-          <div class="px-4 py-3 border-b border-[#d1d5dc] flex items-center justify-between shrink-0">
-            <span class="text-[#333] text-sm font-semibold">Filters</span>
-            <div class="flex items-center gap-2">
-              <button aria-label="Show applied filters" class="text-[#3da6d7] text-xs font-medium hover:underline">Show applied filters</button>
-              <button id="btn-close-filters" aria-label="Close filters" class="xl:hidden flex items-center justify-center w-6 h-6 rounded text-[#6a7282] hover:bg-[#f1f5f9] transition-colors">
-                <i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
+            <!-- Scrollable area -->
+            <div class="overflow-y-auto flex-1 flex flex-col">
 
-          <!-- Search fields -->
-          <div class="px-4 pt-3 pb-2 shrink-0">
-            <div class="relative">
-              <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" aria-hidden="true"></i>
-              <input type="text" placeholder="Search fields" aria-label="Search filter options"
-                     class="w-full border border-[#d1d5dc] rounded-[4px] pl-8 pr-3 py-2 text-xs text-[#6a7282] outline-none focus:border-sky-400 bg-white" />
-            </div>
-          </div>
+              <!-- Header -->
+              <div class="px-4 py-3 border-b border-[#d1d5dc] flex items-center justify-between shrink-0">
+                <span class="text-[#333] text-sm font-semibold">Filters</span>
+                <div class="flex items-center gap-2">
+                  <button id="btn-show-all-filters" class="text-[#3da6d7] text-xs font-medium">Show applied filters</button>
+                  <button id="btn-close-filters" aria-label="Close filters" class="xl:hidden flex items-center justify-center w-6 h-6 rounded text-[#6a7282] hover:bg-[#f1f5f9] transition-colors">
+                    <i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
 
-          <!-- Filter sections -->
-          <div class="px-4 flex flex-col gap-0">
+              <!-- Applied filters view (default) -->
+              <div id="applied-filters-view" class="hidden flex-col flex-1 px-4 py-3 gap-4">
 
-            <!-- Agent include -->
-            <div class="py-2.5 border-b border-gray-100">
-              <button class="flex items-center gap-1 text-[#333] text-xs font-semibold mb-2 w-full text-left">
-                Agent include
-                <i class="fa-solid fa-chevron-down text-[9px] text-[#4a5565] ml-0.5"></i>
-              </button>
-              <select class="filter-select focus:border-sky-400">
-                <option>Any agent</option>
-                <option>Me</option>
-                <option>Unassigned</option>
-                <option>My group</option>
-              </select>
-            </div>
+                <!-- Applied filter rows (dynamic) -->
+                <div id="applied-filters-list" class="flex flex-col gap-4">
+                  <!-- Default: Created row -->
+                  <div class="filter-row flex flex-col gap-1.5" data-filter="created">
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-medium text-[#333]">Created</span>
+                      <button class="btn-remove-filter text-red-400 hover:text-red-600 transition-colors" aria-label="Remove filter">
+                        <i class="fa-solid fa-circle-minus text-sm" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <select class="filter-select focus:border-sky-400">
+                      <option>Any time</option>
+                      <option>Today</option>
+                      <option>Yesterday</option>
+                      <option>This week</option>
+                      <option>Last 7 days</option>
+                      <option>This month</option>
+                      <option>Last 30 days</option>
+                    </select>
+                  </div>
+                </div>
 
-            <!-- Group -->
-            <div class="py-2.5 border-b border-gray-100">
-              <button class="flex items-center gap-1 text-[#333] text-xs font-semibold mb-2 w-full text-left">
-                Group
-                <i class="fa-solid fa-chevron-down text-[9px] text-[#4a5565] ml-0.5"></i>
-              </button>
-              <select class="filter-select focus:border-sky-400">
-                <option>Any group</option>
-              </select>
-            </div>
+                <!-- Add filters button + dropdown -->
+                <div class="relative mt-2">
+                  <button id="btn-add-filter" class="flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] border border-[#d1d5dc] text-[#3da6d7] text-xs font-medium hover:bg-[#f1f5f9] transition-colors cursor-pointer">
+                    <i class="fa-solid fa-circle-plus" aria-hidden="true"></i>
+                    Add filters
+                  </button>
+                  <!-- Dropdown -->
+                  <div id="add-filter-dropdown" class="hidden absolute left-0 top-[calc(100%+4px)] w-full bg-white rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-[#e5e7eb] z-20">
+                    <div class="p-2">
+                      <input id="filter-option-search" type="text" placeholder="Search..." aria-label="Search filter fields"
+                             class="w-full border border-[#d1d5dc] rounded-[6px] px-3 py-1.5 text-xs outline-none focus:border-sky-400" />
+                    </div>
+                    <ul id="filter-options-list" role="listbox" class="flex flex-col py-1 max-h-48 overflow-y-auto">
+                      <li role="option" data-filter="agent"      class="filter-option px-4 py-2 text-xs text-[#333] hover:bg-[#f1f5f9] cursor-pointer">Agent</li>
+                      <li role="option" data-filter="group"      class="filter-option px-4 py-2 text-xs text-[#333] hover:bg-[#f1f5f9] cursor-pointer">Group</li>
+                      <li role="option" data-filter="status"     class="filter-option px-4 py-2 text-xs text-[#333] hover:bg-[#f1f5f9] cursor-pointer">Status</li>
+                      <li role="option" data-filter="sentiment"  class="filter-option px-4 py-2 text-xs text-[#333] hover:bg-[#f1f5f9] cursor-pointer">Sentiment</li>
+                      <li role="option" data-filter="priority"   class="filter-option px-4 py-2 text-xs text-[#333] hover:bg-[#f1f5f9] cursor-pointer">Priority</li>
+                      <li role="option" data-filter="closed-at"  class="filter-option px-4 py-2 text-xs text-[#333] hover:bg-[#f1f5f9] cursor-pointer">Closed at</li>
+                      <li role="option" data-filter="resolved-at" class="filter-option px-4 py-2 text-xs text-[#333] hover:bg-[#f1f5f9] cursor-pointer">Resolved at</li>
+                      <li role="option" data-filter="due-by"     class="filter-option px-4 py-2 text-xs text-[#333] hover:bg-[#f1f5f9] cursor-pointer">Resolution due by</li>
+                    </ul>
+                  </div>
+                </div>
 
-            <!-- Status -->
-            <div class="py-2.5 border-b border-gray-100">
-              <button class="flex items-center gap-1 text-[#333] text-xs font-semibold mb-2 w-full text-left">
-                Status
-                <i class="fa-solid fa-chevron-down text-[9px] text-[#4a5565] ml-0.5"></i>
-              </button>
-              <select class="filter-select focus:border-sky-400">
-                <option value="">Status</option>
-                <option>Open</option>
-                <option>Pending</option>
-                <option>Resolved</option>
-                <option>Closed</option>
-                <option>Waiting on customer</option>
-                <option>Waiting on third party</option>
-              </select>
-            </div>
+              </div>
 
-            <!-- Sentiment -->
-            <div class="py-2.5 border-b border-gray-100">
-              <label class="block text-[#333] text-xs font-semibold mb-2">Sentiment</label>
-              <select class="filter-select focus:border-sky-400">
-                <option>Any</option>
-                <option>Positive</option>
-                <option>Neutral</option>
-                <option>Negative</option>
-              </select>
-            </div>
+              <!-- All filters view (hidden by default) -->
+              <div id="all-filters-view" class="flex flex-1 flex-col px-4 py-3 gap-3">
+                <div class="flex flex-col gap-3">
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Agent</span>
+                    <select class="filter-select focus:border-sky-400"><option>Any agent</option><option>Me</option><option>Unassigned</option></select>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Group</span>
+                    <select class="filter-select focus:border-sky-400"><option>Any group</option></select>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Status</span>
+                    <select class="filter-select focus:border-sky-400"><option>Status</option><option>Open</option><option>Pending</option><option>Resolved</option><option>Closed</option></select>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Sentiment</span>
+                    <select class="filter-select focus:border-sky-400"><option>Any</option><option>Positive</option><option>Neutral</option><option>Negative</option></select>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Created</span>
+                    <select class="filter-select focus:border-sky-400"><option>Any time</option><option>Today</option><option>Yesterday</option><option>This week</option><option>Last 7 days</option></select>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Priority</span>
+                    <select class="filter-select focus:border-sky-400"><option>Any</option><option>Low</option><option>Medium</option><option>High</option><option>Urgent</option></select>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Closed at</span>
+                    <select class="filter-select focus:border-sky-400"><option>Any time</option><option>Today</option><option>Yesterday</option><option>This week</option></select>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Resolved at</span>
+                    <select class="filter-select focus:border-sky-400"><option>Any time</option><option>Today</option><option>Yesterday</option><option>This week</option></select>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-xs font-medium text-[#333]">Resolution due by</span>
+                    <select class="filter-select focus:border-sky-400"><option>Any time</option><option>Today</option><option>This week</option><option>This month</option></select>
+                  </div>
+                </div>
+              </div>
 
-            <!-- Created -->
-            <div class="py-2.5 border-b border-gray-100">
-              <label class="block text-[#333] text-xs font-semibold mb-2">Created</label>
-              <select class="filter-select focus:border-sky-400">
-                <option>Any time</option>
-                <option>Today</option>
-                <option>Yesterday</option>
-                <option>This week</option>
-                <option>Last 7 days</option>
-                <option>This month</option>
-                <option>Last 30 days</option>
-              </select>
-            </div>
+            </div><!-- end scrollable -->
 
-            <!-- Closed at -->
-            <div class="py-2.5 border-b border-gray-100">
-              <label class="block text-[#333] text-xs font-semibold mb-2">Closed at</label>
-              <select class="filter-select focus:border-sky-400">
-                <option>Any time</option>
-                <option>Today</option>
-                <option>Yesterday</option>
-                <option>This week</option>
-                <option>Last 7 days</option>
-              </select>
-            </div>
-
-            <!-- Resolved at -->
-            <div class="py-2.5 border-b border-gray-100">
-              <label class="block text-[#333] text-xs font-semibold mb-2">Resolved at</label>
-              <select class="filter-select focus:border-sky-400">
-                <option>Any time</option>
-                <option>Today</option>
-                <option>Yesterday</option>
-                <option>This week</option>
-                <option>Last 7 days</option>
-              </select>
-            </div>
-
-            <!-- Resolution due by -->
-            <div class="py-2.5">
-              <label class="block text-[#333] text-xs font-semibold mb-2">Resolution due by</label>
-              <select class="filter-select focus:border-sky-400">
-                <option>Any time</option>
-                <option>Today</option>
-                <option>This week</option>
-                <option>This month</option>
-              </select>
+            <!-- Sticky footer: Reset + Apply -->
+            <div class="px-4 py-3 shrink-0 flex gap-2">
+              <button aria-label="Reset filters" class="flex-1 bg-[#e5e7eb] hover:bg-[#d1d5dc] text-[#525252] text-xs font-medium py-2.5 rounded-[6px] transition-colors">Reset</button>
+              <button aria-label="Apply filters" class="flex-1 bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-xs font-medium py-2.5 rounded-[6px] transition-colors">Apply</button>
             </div>
 
-          </div>
-          </div><!-- end scrollable area -->
-
-          <!-- Apply button -->
-          <div class="px-4 py-3 shrink-0">
-            <button aria-label="Apply selected filters" class="w-full bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-sm font-medium py-2.5 rounded-[4px] transition-colors">
-              Apply
-            </button>
-          </div>
           </aside>
           </div>
         </div>
@@ -1261,7 +1660,7 @@
 
   <!-- Footer -->
   <footer role="contentinfo" class="bg-white border-t border-[#d1d5dc] flex items-center justify-between px-6 py-2.5 shrink-0 text-[11px] text-[#6a7282]">
-    <span>Copyright &copy; 2026 . All rights reserved. Powered by <a href="#" class="text-[#3da6d7] hover:underline">Faveo</a> .</span>
+    <span>Copyright &copy; 2026 . All rights reserved. Powered by <a href="#" class="text-[#3da6d7]">Faveo</a> .</span>
     <span>Version Faveo Helpdesk Enterprise Pro v9.4.3.5</span>
   </footer>
 
@@ -1352,7 +1751,7 @@
       <div class="bg-[#ffdfdf] px-4 py-2.5 flex items-center justify-center relative">
         <p class="text-sm text-red-600 font-normal">
           <strong>Hi Sakthi,</strong> your trial has ended.
-          <span class="font-semibold cursor-pointer hover:underline">Choose a plan</span>
+          <span class="font-semibold cursor-pointer">Choose a plan</span>
           to continue using Faveo Helpdesk
         </p>
         <button data-dismiss="#panel-renew" aria-label="Close renewal panel" class="absolute right-5 bg-white shadow-[0_0_2px_rgba(0,0,0,0.2)] rounded-full w-[22px] h-[22px] flex items-center justify-center cursor-pointer">

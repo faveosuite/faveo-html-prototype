@@ -112,6 +112,37 @@
 .sidebar-scroll { scrollbar-width: none !important; }
 .sidebar-scroll::-webkit-scrollbar { display: none !important; }
 
+/* ── Search tab active ── */
+.search-tab-active { @apply bg-[#cfcfcf] border-[#9ca3af]; }
+
+/* ── Toggle switch ── */
+.toggle-switch { position: relative; display: inline-block; width: 36px; height: 18px; flex-shrink: 0; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-slider {
+  position: absolute; inset: 0; background: #e9e9e9; border-radius: 50px; cursor: pointer;
+  box-shadow: inset 0 4px 6px 2px rgba(0,0,0,0.1); transition: background 0.2s;
+}
+.toggle-slider::after {
+  content: ''; position: absolute; width: 14px; height: 14px; left: 2px; top: 2px;
+  background: white; border-radius: 50%; box-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+  transition: transform 0.2s;
+}
+.toggle-switch input:checked + .toggle-slider { background: #3da6d7; }
+.toggle-switch input:checked + .toggle-slider::after { transform: translateX(18px); }
+
+/* ── Profile menu theme radio ── */
+.theme-radio {
+  appearance: none; width: 20px; height: 20px; border-radius: 50%; border: 1.7px solid #c4cad4;
+  background: white; cursor: pointer; flex-shrink: 0; transition: border-color 0.15s, border-width 0.15s;
+}
+.theme-radio:checked { border: 6px solid #3da6d7; }
+
+/* Pointer cursor on all interactive elements */
+button, [role="button"] { cursor: pointer; }
+
+/* Suppress underline on anchor hover globally */
+a:hover { text-decoration: none; }
+
 /* Keyboard focus ring */
 :focus-visible {
   outline: 2px solid #3da6d7;

@@ -10,6 +10,7 @@ import $ from 'jquery'
 
 $(document).on('click', '[data-toggle="dropdown"]', function (e) {
   e.stopPropagation()
+  $('#search-overlay').addClass('hidden')
   const $menu = $($(this).data('target'))
   // Close every other open dropdown and remove their active highlight
   $('[data-toggle="dropdown"]').not(this).each(function () {
@@ -59,6 +60,29 @@ $(document).on('click', '[data-dismiss]', function () {
   const target = $(this).data('dismiss')
   const $el = target === 'parent' ? $(this).parent() : $(target)
   $el.addClass('hidden')
+})
+
+// ── Tab filter ────────────────────────────────────────────────────
+// Usage: <button data-toggle="tab" data-tab="tickets" data-target="#list-id">
+//        <li data-item-type="tickets">...</li>
+// Marks clicked button active within its group; shows/hides target list items.
+// Tab group = all [data-toggle="tab"] sharing the same data-target value.
+
+$(document).on('click', '[data-toggle="tab"]', function () {
+  const tab     = $(this).attr('data-tab')
+  const target  = $(this).attr('data-target')
+  $(`[data-toggle="tab"][data-target="${target}"]`).removeClass('search-tab-active')
+  $(this).addClass('search-tab-active')
+  const $items = $(target).find('[data-item-type]')
+  if (tab === 'all') {
+    $items.removeClass('hidden')
+  } else {
+    $items.each(function () {
+      $(this).attr('data-item-type') === tab
+        ? $(this).removeClass('hidden')
+        : $(this).addClass('hidden')
+    })
+  }
 })
 
 // Mobile menu — directly toggles sidebar-expanded overlay
