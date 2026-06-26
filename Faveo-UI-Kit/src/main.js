@@ -136,7 +136,7 @@ function renderViews(navKey) {
           <span class="size-6 flex items-center justify-center flex-shrink-0">
             <i class="fa-solid ${item.icon} text-xs text-gray-600"></i>
           </span>
-          <span class="flex-1 text-sm text-gray-600">${item.label}</span>
+          <span class="flex-1 text-[13px] text-gray-600">${item.label}</span>
         </a>`
       })
       html += '</div>'
@@ -234,9 +234,10 @@ $(document).on('click', '.mobile-subnav-item', function () {
   $('#sidebar-expanded').addClass('hidden')
 })
 
-// ── View item click → hide views panel ──────────────────────────
+// ── View item click → highlight selected ────────────────────────
 $(document).on('click', '.view-item', function () {
-  $('#views-panel').addClass('hidden')
+  $('#views-content .view-item').removeClass('active')
+  $(this).addClass('active')
 })
 
 // ── Filter icon → toggle views panel ────────────────────────────
@@ -283,6 +284,24 @@ $('[data-target="#panel-renew"]').on('click', function () {
 $('[data-dismiss="#banner-red"]').on('click', function () {
   $('#panel-renew').addClass('hidden')
 })
+
+// ── Filters panel toggle ─────────────────────────────────────────
+function showFilterPanel () {
+  $('#filter-aside').removeClass('hidden').addClass('flex')
+  $('#btn-toggle-filters').attr('aria-expanded', 'true')
+}
+function hideFilterPanel () {
+  $('#filter-aside').removeClass('flex').addClass('hidden')
+  $('#btn-toggle-filters').attr('aria-expanded', 'false')
+}
+// Auto-show at xl+ (≥1280px) on load
+if (window.innerWidth >= 1280) showFilterPanel()
+
+$('#btn-toggle-filters').on('click', function () {
+  if ($('#filter-aside').hasClass('hidden')) showFilterPanel()
+  else hideFilterPanel()
+})
+$('#btn-close-filters').on('click', hideFilterPanel)
 
 // ── Default active nav (render views but keep panel hidden) ──────
 $('.sidebar-nav[data-nav="tickets"]').addClass('active')

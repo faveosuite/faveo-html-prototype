@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Faveo — All Tickets</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -20,7 +21,7 @@
       <i class="fa-solid fa-triangle-exclamation text-red-500 text-sm" aria-hidden="true"></i>
       <span class="text-red-500 font-medium text-sm hidden sm:inline">Your subscription expires in 3 days.</span>
       <div class="pl-2">
-        <button data-toggle="modal" data-target="#panel-renew" class="bg-[rgba(255,0,0,0.8)] text-white text-xs font-bold px-4 py-1 rounded-[10px] cursor-pointer">Renew Now</button>
+        <button data-toggle="modal" data-target="#panel-renew" class="bg-[rgba(255,0,0,0.8)] text-white text-xs font-bold px-4 py-1 rounded-[6px] cursor-pointer">Renew Now</button>
       </div>
     </div>
     <button data-dismiss="#banner-red" aria-label="Dismiss alert" class="absolute right-5 bg-white shadow-[0_0_2px_rgba(0,0,0,0.2)] rounded-full w-[22px] h-[22px] flex items-center justify-center cursor-pointer">
@@ -36,10 +37,10 @@
       <span class="text-black font-medium text-sm hidden sm:inline">Connect with an expert get an advice on Faveo helpdesk</span>
       <div class="pl-2 relative">
         <button data-toggle="dropdown" data-target="#contact-dropdown"
-                class="bg-[#cda206] text-white text-xs font-bold px-4 py-1 rounded-[10px] cursor-pointer">Contact</button>
+                class="bg-[#cda206] text-white text-xs font-bold px-4 py-1 rounded-[6px] cursor-pointer">Contact</button>
 
         <!-- Contact dropdown -->
-        <div id="contact-dropdown" data-persistent class="absolute left-1/2 -translate-x-1/2 top-[calc(100%+8px)] z-50 w-[303px] bg-white rounded-[10px] shadow-[0_0_10px_rgba(0,0,0,0.2)] overflow-hidden hidden">
+        <div id="contact-dropdown" data-persistent class="absolute left-1/2 -translate-x-1/2 top-[calc(100%+2px)] z-50 w-[303px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] overflow-hidden hidden">
 
           <!-- Bot header (orange/cream) -->
           <div class="bg-[#fef3e2] border-b border-[#d2d2d2]/30 p-3">
@@ -58,25 +59,25 @@
 
           <!-- Actions -->
           <div class="p-4 flex flex-col gap-2.5">
-            <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 border border-[#d2d2d2] rounded-[10px] text-[#4a5565] text-[12px] hover:bg-gray-50 transition-colors bg-white cursor-pointer">
+            <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 border border-[#d2d2d2] rounded-[6px] text-[#4a5565] text-[12px] hover:bg-[#f1f5f9] transition-colors bg-white cursor-pointer">
               <i class="fa-solid fa-circle-play text-sm shrink-0"></i>
               <span class="flex-1 text-left">Book a 1:1 product demo</span>
               <i class="fa-solid fa-chevron-right text-[9px]"></i>
             </button>
-            <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 border border-[#d2d2d2] rounded-[10px] text-[#4a5565] text-[12px] hover:bg-gray-50 transition-colors bg-white cursor-pointer">
+            <button class="flex items-center gap-2.5 w-full px-2.5 py-1.5 border border-[#d2d2d2] rounded-[6px] text-[#4a5565] text-[12px] hover:bg-[#f1f5f9] transition-colors bg-white cursor-pointer">
               <i class="fa-solid fa-calendar-days text-sm shrink-0"></i>
               <span class="flex-1 text-left">Schedule a meeting with faveo</span>
               <i class="fa-solid fa-chevron-right text-[9px]"></i>
             </button>
             <p class="text-[#99a1af] text-[12px] px-0.5 mt-0.5">Or contact me via</p>
-            <div class="flex items-center gap-2.5 px-2.5 py-1.5 border border-[#d2d2d2] rounded-[10px] text-[#4a5565] text-[12px]">
+            <div class="flex items-center gap-2.5 px-2.5 py-1.5 border border-[#d2d2d2] rounded-[6px] text-[#4a5565] text-[12px]">
               <i class="fa-solid fa-phone text-sm shrink-0"></i>
               <input readonly value="+91 1234567809" class="flex-1 bg-transparent outline-none cursor-default text-[12px] text-[#4a5565]">
               <button class="text-[#99a1af] hover:text-gray-500 transition-colors cursor-pointer">
                 <i class="fa-regular fa-copy text-xs"></i>
               </button>
             </div>
-            <div class="flex items-center gap-2.5 px-2.5 py-1.5 border border-[#d2d2d2] rounded-[10px] text-[#4a5565] text-[12px]">
+            <div class="flex items-center gap-2.5 px-2.5 py-1.5 border border-[#d2d2d2] rounded-[6px] text-[#4a5565] text-[12px]">
               <i class="fa-solid fa-envelope text-sm shrink-0"></i>
               <input readonly value="sakthi@faveo.com" class="flex-1 bg-transparent outline-none cursor-default text-[12px] text-[#4a5565]">
               <button class="text-[#99a1af] hover:text-gray-500 transition-colors cursor-pointer">
@@ -102,7 +103,7 @@
         <img src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
              alt="Faveo" class="w-full max-h-[31px] object-contain" />
       </div>
-      <div class="flex flex-col w-full items-center pt-[10px] gap-y-[10px] flex-1 overflow-y-auto">
+      <div class="sidebar-scroll flex flex-col w-full items-center pt-[10px] gap-y-[10px] flex-1 overflow-y-auto">
         <button class="sidebar-nav" data-nav="dashboard" title="AI Insights" aria-label="AI Insights"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></button>
         <button class="sidebar-nav" data-nav="views" title="Dashboard" aria-label="Dashboard"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></button>
         <button class="sidebar-nav" data-nav="tickets" title="Tickets" aria-label="Tickets"><i class="fa-solid fa-ticket" aria-hidden="true"></i></button>
@@ -136,7 +137,7 @@
         </div>
         <span class="ml-2 text-[#3a4a5a] text-[19px] font-semibold leading-none whitespace-nowrap">Support Center</span>
       </div>
-      <div class="flex flex-col flex-1 overflow-y-auto px-3 gap-y-[10px] pt-[10px]">
+      <div class="sidebar-scroll flex flex-col flex-1 overflow-y-auto px-3 gap-y-[10px] pt-[10px]">
         <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="dashboard" aria-label="AI Insights"><i class="fa-solid fa-wand-magic-sparkles w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">AI Insights</span></button>
         <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="views" aria-label="Dashboard"><i class="fa-solid fa-gauge-high w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Dashboard</span></button>
         <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="tickets" aria-label="Tickets"><i class="fa-solid fa-ticket w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Tickets</span></button>
@@ -170,39 +171,39 @@
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
         <!-- Filter icon (toggles views panel inside content) + title -->
-        <div class="flex items-center gap-5 shrink-0">
+        <div class="flex items-center gap-2 min-w-0 shrink">
           <button id="btn-toggle-views"
                   aria-label="Toggle views panel" aria-expanded="false" aria-controls="views-panel"
-                  class="flex items-center justify-center cursor-pointer text-[#4a5565] hover:text-sky-500 transition-colors">
-            <i class="fa-solid fa-filter text-sm" aria-hidden="true"></i>
+                  class="flex items-center justify-center w-[30px] h-[30px] rounded-[6px] border border-[#d1d5dc] bg-white cursor-pointer text-[#525252] hover:bg-[#f1f5f9] transition-colors shrink-0">
+            <i class="fa-solid fa-filter text-xs" aria-hidden="true"></i>
           </button>
-          <span class="text-[#333] text-base font-semibold whitespace-nowrap">All tickets</span>
+          <span class="text-[#333] text-base font-semibold truncate">All tickets</span>
+          <span class="text-[#333] text-base font-semibold shrink-0">3</span>
         </div>
-        <span class="text-[#333] text-base font-semibold">3</span>
 
         <!-- Right controls -->
         <div class="flex items-center gap-2.5 flex-1 justify-end min-w-0">
           <!-- New dropdown -->
-          <div class="relative shrink-0">
-            <button data-toggle="dropdown" data-target="#new-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="new-dropdown" aria-label="Create new" class="bg-white border border-[#d1d5dc] rounded-[10px] flex items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium whitespace-nowrap cursor-pointer">
+          <div class="relative shrink-0 hidden sm:block">
+            <button data-toggle="dropdown" data-target="#new-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="new-dropdown" aria-label="Create new" class="bg-white border border-[#d1d5dc] rounded-[6px] flex items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium whitespace-nowrap cursor-pointer hover:bg-[#f1f5f9] transition-colors">
               <i class="fa-solid fa-plus text-[10px]" aria-hidden="true"></i>
               New
               <i class="fa-solid fa-chevron-down text-[9px]" aria-hidden="true"></i>
             </button>
-            <div id="new-dropdown" role="menu" aria-label="Create new item" class="absolute right-0 top-[calc(100%+6px)] z-50 min-w-[160px] bg-white rounded-[10px] shadow-lg p-1.5 hidden">
-              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+            <div id="new-dropdown" role="menu" aria-label="Create new item" class="absolute right-0 top-[calc(100%+2px)] z-50 min-w-[160px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] p-1.5 hidden">
+              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
                 <i class="fas fa-ticket text-sm shrink-0" aria-hidden="true"></i><span>Ticket</span>
               </button>
-              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
                 <i class="fa-regular fa-envelope text-sm shrink-0" aria-hidden="true"></i><span>Email</span>
               </button>
-              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
                 <i class="fa-regular fa-message text-sm shrink-0" aria-hidden="true"></i><span>Message</span>
               </button>
-              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
                 <i class="fa-regular fa-address-card text-sm shrink-0" aria-hidden="true"></i><span>Contact</span>
               </button>
-              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[8px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+              <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
                 <i class="fa-regular fa-building text-sm shrink-0" aria-hidden="true"></i><span>Company</span>
               </button>
             </div>
@@ -211,7 +212,7 @@
           <div class="relative shrink-0 hidden sm:block">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" aria-hidden="true"></i>
             <input type="text" placeholder="Search" aria-label="Search tickets"
-                   class="bg-white border border-[#d1d5dc] rounded-[10px] pl-8 pr-3 py-1.5 text-xs text-[#0a0a0a] w-52 outline-none focus:border-sky-400" />
+                   class="bg-white border border-[#d1d5dc] rounded-[4px] pl-8 pr-3 py-1.5 text-xs text-[#0a0a0a] w-52 outline-none focus:border-sky-400" />
           </div>
           <!-- Notification bell -->
           <button class="relative p-1 shrink-0 cursor-pointer" aria-label="Notifications">
@@ -220,15 +221,15 @@
           </button>
           <!-- Apps button + dropdown -->
           <div class="relative shrink-0 hidden sm:block">
-            <button data-toggle="dropdown" data-target="#apps-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="apps-dropdown" aria-label="Apps marketplace" class="bg-white border border-[#d1d5dc] rounded-[10px] flex items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium cursor-pointer">
+            <button data-toggle="dropdown" data-target="#apps-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="apps-dropdown" aria-label="Apps marketplace" class="bg-white border border-[#d1d5dc] rounded-[6px] flex items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium cursor-pointer hover:bg-[#f1f5f9] transition-colors">
               <i class="fa-solid fa-store text-[#525252] text-sm" aria-hidden="true"></i>
               Apps
             </button>
 
-            <div id="apps-dropdown" role="dialog" aria-label="Apps marketplace" class="absolute right-0 top-[calc(100%+6px)] z-50 w-[343px] bg-white rounded-[10px] shadow-[0_0_10px_rgba(0,0,0,0.2)] overflow-hidden hidden">
+            <div id="apps-dropdown" role="dialog" aria-label="Apps marketplace" class="absolute right-0 top-[calc(100%+2px)] z-50 w-[343px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] overflow-hidden hidden">
 
               <!-- Explore Marketplace Apps -->
-              <div class="flex gap-3 items-start px-4 py-4 border-b border-[#f3f4f6] cursor-pointer hover:bg-gray-50 transition-colors">
+              <div class="flex gap-3 items-start px-4 py-4 border-b border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors">
                 <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-grip text-[#4a5565] text-lg"></i>
                 </div>
@@ -246,7 +247,7 @@
                 <p class="text-[#4a5565] text-[12px] font-medium">Recommended apps for you</p>
               </div>
               <div class="px-4 pb-2 flex flex-col">
-                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[10px] hover:bg-gray-50 transition-colors cursor-pointer">
+                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
                   <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
                     <span class="text-white text-[12px] font-bold leading-none">D</span>
                   </div>
@@ -261,7 +262,7 @@
                     <span class="text-[#4a5565] text-[12px]">4.4</span>
                   </div>
                 </div>
-                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[10px] hover:bg-gray-50 transition-colors cursor-pointer">
+                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
                   <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
                     <span class="text-white text-[12px] font-bold leading-none">D</span>
                   </div>
@@ -276,7 +277,7 @@
                     <span class="text-[#4a5565] text-[12px]">4.4</span>
                   </div>
                 </div>
-                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[10px] hover:bg-gray-50 transition-colors cursor-pointer">
+                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
                   <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
                     <span class="text-white text-[12px] font-bold leading-none">D</span>
                   </div>
@@ -291,7 +292,7 @@
                     <span class="text-[#4a5565] text-[12px]">4.4</span>
                   </div>
                 </div>
-                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[10px] hover:bg-gray-50 transition-colors cursor-pointer">
+                <div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-[6px] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
                   <div class="w-6 h-6 bg-[#6b7280] rounded-[8px] flex items-center justify-center shrink-0">
                     <span class="text-white text-[12px] font-bold leading-none">D</span>
                   </div>
@@ -309,7 +310,7 @@
               </div>
 
               <!-- Manage Apps -->
-              <div class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-gray-50 transition-colors">
+              <div class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors">
                 <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-sliders text-[#4a5565] text-lg"></i>
                 </div>
@@ -323,7 +324,7 @@
               </div>
 
               <!-- Developer Portal -->
-              <div class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-gray-50 transition-colors">
+              <div class="flex gap-4 items-center px-4 py-4 border-t border-[#f3f4f6] cursor-pointer hover:bg-[#f1f5f9] transition-colors">
                 <div class="w-10 h-10 bg-[#f3f4f6] rounded-[14px] flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-code text-[#4a5565] text-lg"></i>
                 </div>
@@ -346,15 +347,15 @@
       </header>
 
       <!-- Content body: views panel (inside) + ticket area -->
-      <div id="main-content" role="main" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-tl-[14px] rounded-tr-[14px]">
+      <div id="main-content" role="main" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-tl-[4px] rounded-tr-[4px]">
 
         <!-- Views panel — opens INSIDE content when filter icon clicked -->
-        <div id="views-panel" role="region" aria-label="Ticket views" class="w-60 bg-white border-r border-gray-100 flex flex-col shrink-0 overflow-hidden hidden">
-          <div class="px-3 py-2.5 border-b border-gray-100">
+        <div id="views-panel" role="region" aria-label="Ticket views" class="w-72 bg-white border-r border-gray-100 flex flex-col shrink-0 overflow-hidden hidden">
+          <div class="px-3 py-3">
             <div class="relative">
-              <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-[10px]" aria-hidden="true"></i>
+              <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" aria-hidden="true"></i>
               <input id="views-search" type="text" placeholder="Search views…" aria-label="Search views"
-                     class="w-full text-xs border border-gray-200 rounded-lg pl-7 pr-3 py-1.5 outline-none focus:border-sky-400 bg-gray-50" />
+                     class="w-full text-sm border border-gray-200 rounded-[6px] pl-8 pr-3 py-2 outline-none focus:border-sky-400 bg-gray-50" />
             </div>
           </div>
           <div id="views-content" class="flex-1 overflow-y-auto p-2 flex flex-col gap-px"></div>
@@ -364,44 +365,95 @@
         <div class="flex-1 bg-white flex flex-col overflow-hidden min-w-0">
 
           <!-- Inner sort/view controls -->
-          <div role="toolbar" aria-label="Ticket list controls" class="flex items-center gap-4 px-6 border-b border-[#d1d5dc] h-[57px] shrink-0">
-            <!-- Checkbox + sort -->
+          <div role="toolbar" aria-label="Ticket list controls" class="flex items-center gap-3 px-4 border-b border-[#d1d5dc] h-[57px] shrink-0">
+            <!-- Checkbox -->
             <input type="checkbox" aria-label="Select all tickets" class="w-3.5 h-3.5 border-gray-300 rounded shrink-0 accent-sky-400" />
-            <div class="flex items-center gap-1.5 text-[#4a5565] text-xs shrink-0">
-              <i class="fa-solid fa-sort text-xs"></i>
-              <span>sort by:</span>
+
+            <!-- Sort by -->
+            <div class="flex items-center gap-1 shrink-0">
+            <div class="flex items-center gap-1.5 text-[#4a5565] text-xs">
+              <i class="fa-solid fa-sort text-xs" aria-hidden="true"></i>
+              <span>Sort by:</span>
             </div>
-            <button class="flex items-center gap-1 text-[#4a5565] text-xs shrink-0">
-              <span>Date created</span>
-              <i class="fa-solid fa-chevron-down text-[#4a5565] text-[10px]"></i>
-            </button>
+            <div class="relative">
+              <button data-toggle="dropdown" data-target="#sort-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="sort-dropdown"
+                      class="flex items-center gap-1.5 rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium whitespace-nowrap cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+                <span>Date created</span>
+                <i class="fa-solid fa-chevron-down text-[10px]" aria-hidden="true"></i>
+              </button>
+              <div id="sort-dropdown" role="menu" aria-label="Sort options" class="absolute left-0 top-[calc(100%+2px)] z-50 min-w-[200px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] p-1.5 hidden">
+                <button role="menuitem" class="flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[12px] font-medium cursor-pointer border-none text-left transition-colors bg-[#cfcfcf] text-[#4a5565]">
+                  <span>Date created</span><i class="fa-solid fa-check text-[10px]" aria-hidden="true"></i>
+                </button>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Due by time</button>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Last modified</button>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Priority</button>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Status</button>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Sentiment</button>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">First response due</button>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Next response due</button>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Closed time</button>
+                <div class="border-t border-[#e5e7eb] my-1"></div>
+                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Ascending</button>
+                <button role="menuitem" class="flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[12px] font-medium cursor-pointer border-none text-left transition-colors bg-[#cfcfcf] text-[#4a5565]">
+                  <span>Descending</span><i class="fa-solid fa-check text-[10px]" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            </div>
 
             <div class="flex-1"></div>
 
             <!-- Right controls -->
-            <div class="flex items-center gap-4 text-xs text-[#4a5565] shrink-0">
-              <button class="flex items-center gap-1 whitespace-nowrap">
-                <span>Layout card</span>
-                <i class="fa-solid fa-chevron-down text-[10px]"></i>
-              </button>
-              <div class="border border-[#d2d2d2] rounded px-2 py-0.5 cursor-pointer">
-                <span class="font-medium text-[#4a5565]">Export</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <!-- Layout -->
+              <div class="hidden sm:flex items-center gap-1">
+              <span class="text-[#4a5565] text-xs shrink-0">Layout:</span>
+              <div class="relative">
+                <button data-toggle="dropdown" data-target="#layout-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="layout-dropdown"
+                        class="flex items-center gap-1.5 rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium whitespace-nowrap cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+                  <span>Card</span>
+                  <i class="fa-solid fa-chevron-down text-[10px]" aria-hidden="true"></i>
+                </button>
+                <div id="layout-dropdown" role="menu" aria-label="Layout options" class="absolute right-0 top-[calc(100%+2px)] z-50 min-w-[130px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] p-1.5 hidden">
+                  <button role="menuitem" class="flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[12px] font-medium cursor-pointer border-none text-left transition-colors bg-[#cfcfcf] text-[#4a5565]">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-table-cells-large text-xs" aria-hidden="true"></i>Card</span>
+                    <i class="fa-solid fa-check text-[10px]" aria-hidden="true"></i>
+                  </button>
+                  <button role="menuitem" class="flex items-center gap-2 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                    <i class="fa-solid fa-list text-xs" aria-hidden="true"></i>Inbox
+                  </button>
+                  <button role="menuitem" class="flex items-center gap-2 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                    <i class="fa-solid fa-table-list text-xs" aria-hidden="true"></i>Table
+                  </button>
+                </div>
               </div>
-              <span class="whitespace-nowrap">1 - 3 of 3</span>
-              <button class="text-gray-400 hover:text-gray-600">
-                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </div>
+
+              <!-- Export -->
+              <button class="hidden sm:flex bg-white border border-[#d1d5dc] rounded-[6px] items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium whitespace-nowrap cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-solid fa-file-export text-xs" aria-hidden="true"></i>Export
               </button>
-              <button class="text-gray-400 hover:text-gray-600">
-                <i class="fa-solid fa-chevron-right text-xs"></i>
+
+              <!-- Pagination -->
+              <span class="hidden sm:inline whitespace-nowrap text-[#4a5565] text-xs px-1">1 - 3 of 3</span>
+              <button class="hidden sm:flex bg-white border border-[#d1d5dc] rounded-[6px] w-[28px] h-[28px] items-center justify-center text-[#4a5565] hover:bg-[#f1f5f9] transition-colors cursor-pointer" aria-label="Previous page">
+                <i class="fa-solid fa-chevron-left text-xs" aria-hidden="true"></i>
               </button>
-              <button class="border border-[#d2d2d2] rounded px-2 py-0.5 flex items-center gap-1.5">
-                <i class="fa-solid fa-filter text-[#525252] text-xs"></i>
-                <span class="text-[#525252] font-semibold text-base leading-none"> Filters</span>
+              <button class="hidden sm:flex bg-white border border-[#d1d5dc] rounded-[6px] w-[28px] h-[28px] items-center justify-center text-[#4a5565] hover:bg-[#f1f5f9] transition-colors cursor-pointer" aria-label="Next page">
+                <i class="fa-solid fa-chevron-right text-xs" aria-hidden="true"></i>
+              </button>
+
+              <!-- Filters -->
+              <button id="btn-toggle-filters" aria-controls="filter-aside" aria-expanded="false" class="bg-white border border-[#d1d5dc] rounded-[6px] flex items-center gap-1.5 px-2.5 py-1.5 text-[#525252] text-xs font-medium cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-solid fa-filter text-xs" aria-hidden="true"></i>
+                <span>Filters</span>
               </button>
             </div>
           </div>
 
-          <!-- Ticket rows -->
+          <!-- Ticket rows + filter panel -->
+          <div class="flex flex-1 overflow-hidden">
           <ul class="overflow-y-auto flex-1 flex flex-col" role="list" aria-label="Ticket list">
 
             <!-- Row 1: Authentication failure #3 — Low, Closed -->
@@ -417,10 +469,10 @@
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div>
-                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
                 </div>
-                <div class="text-[#404040] text-xs font-medium">Authentication failure #3</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div class="text-[#404040] text-[13px] font-bold">Authentication failure #3</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>Test (Faveohelpdesk)</span>
@@ -436,18 +488,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
-                  Low <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Low <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-check text-[9px]" aria-hidden="true"></i>
-                  Closed <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Closed <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -465,10 +517,10 @@
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div>
-                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
                 </div>
-                <div class="text-[#404040] text-xs font-medium">Authentication failure #2</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div class="text-[#404040] text-[13px] font-bold">Authentication failure #2</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>Test name (company)</span>
@@ -484,18 +536,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
-                  Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Medium <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -513,10 +565,10 @@
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div>
-                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
                 </div>
-                <div class="text-[#404040] text-xs font-medium">404 error when on a specific page #1</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div class="text-[#404040] text-[13px] font-bold">404 error when on a specific page #1</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>Test name (company)</span>
@@ -532,18 +584,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
-                  High <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  High <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -557,9 +609,9 @@
                 <div class="w-12 h-12 rounded-full bg-purple-400 flex items-center justify-center text-white font-semibold text-base">R</div>
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
-                <div class="text-[#404040] text-xs font-medium">Login page crashes on Safari</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
+                <div class="text-[#404040] text-[13px] font-bold">Login page crashes on Safari</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>Acme Corp</span>
@@ -575,18 +627,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
-                  Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Medium <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
-                  Pending <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Pending <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -600,9 +652,9 @@
                 <div class="w-12 h-12 rounded-full bg-teal-400 flex items-center justify-center text-white font-semibold text-base">M</div>
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
-                <div class="text-[#404040] text-xs font-medium">Email notifications not being sent to customers</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
+                <div class="text-[#404040] text-[13px] font-bold">Email notifications not being sent to customers</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>GlobalTech Ltd</span>
@@ -618,18 +670,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
-                  High <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  High <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  John D. <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  John D. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -643,9 +695,9 @@
                 <div class="w-12 h-12 rounded-full bg-orange-400 flex items-center justify-center text-white font-semibold text-base">K</div>
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div><span class="bg-[#fff3cd] text-[#856404] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution due</span></div>
-                <div class="text-[#404040] text-xs font-medium">API rate limit exceeded — integration broken</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div><span class="bg-[#fff3cd] text-[#856404] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution due</span></div>
+                <div class="text-[#404040] text-[13px] font-bold">API rate limit exceeded — integration broken</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>DevStream Inc</span>
@@ -661,18 +713,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
-                  Urgent <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Urgent <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Sara K. <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Sara K. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -687,8 +739,8 @@
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
 
-                <div class="text-[#404040] text-xs font-medium">Password reset link not working for new users</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div class="text-[#404040] text-[13px] font-bold">Password reset link not working for new users</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>Bright Solutions</span>
@@ -704,18 +756,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
-                  Low <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Low <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Alex P. <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Alex P. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-circle-check text-[9px]" aria-hidden="true"></i>
-                  Resolved <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Resolved <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -729,9 +781,9 @@
                 <div class="w-12 h-12 rounded-full bg-pink-400 flex items-center justify-center text-white font-semibold text-base">S</div>
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
-                <div class="text-[#404040] text-xs font-medium">Billing discrepancy in last month's invoice</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
+                <div class="text-[#404040] text-[13px] font-bold">Billing discrepancy in last month's invoice</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>FinServe Group</span>
@@ -747,18 +799,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
-                  High <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  High <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -773,8 +825,8 @@
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
 
-                <div class="text-[#404040] text-xs font-medium">Dashboard taking too long to load</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div class="text-[#404040] text-[13px] font-bold">Dashboard taking too long to load</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>NexaCloud</span>
@@ -790,18 +842,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
-                  Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Medium <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Tom R. <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Tom R. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
-                  Pending <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Pending <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -816,8 +868,8 @@
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
 
-                <div class="text-[#404040] text-xs font-medium">CSV export not generating correct data</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div class="text-[#404040] text-[13px] font-bold">CSV export not generating correct data</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>DataPulse</span>
@@ -833,18 +885,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
-                  Low <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Low <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Lisa M. <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Lisa M. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-check text-[9px]" aria-hidden="true"></i>
-                  Closed <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Closed <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -858,9 +910,9 @@
                 <div class="w-12 h-12 rounded-full bg-rose-500 flex items-center justify-center text-white font-semibold text-base">N</div>
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
-                <div class="text-[#404040] text-xs font-medium">Two-factor authentication setup keeps failing</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span></div>
+                <div class="text-[#404040] text-[13px] font-bold">Two-factor authentication setup keeps failing</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>SecureOps</span>
@@ -876,18 +928,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
-                  Urgent <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Urgent <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -901,9 +953,9 @@
                 <div class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-white font-semibold text-base">J</div>
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div><span class="bg-[#fff3cd] text-[#856404] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution due</span></div>
-                <div class="text-[#404040] text-xs font-medium">Webhook events not triggering on order completion</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div><span class="bg-[#fff3cd] text-[#856404] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution due</span></div>
+                <div class="text-[#404040] text-[13px] font-bold">Webhook events not triggering on order completion</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>ShopEase</span>
@@ -919,18 +971,18 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
-                  High <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  High <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  James W. <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  James W. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -945,8 +997,8 @@
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
 
-                <div class="text-[#404040] text-xs font-medium">Mobile app not syncing with web dashboard</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div class="text-[#404040] text-[13px] font-bold">Mobile app not syncing with web dashboard</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>MobileFirst Co</span>
@@ -962,24 +1014,24 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
-                  Medium <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Medium <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Priya S. <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Priya S. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
-                  Pending <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Pending <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
 
             <!-- Row 4: 404 error #1 — Urgent, Open -->
-            <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+            <li class="flex items-start md:items-center min-h-[98px] shrink-0 hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
               <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
               </div>
@@ -991,10 +1043,10 @@
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
                 <div>
-                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[10px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
                 </div>
-                <div class="text-[#404040] text-xs font-medium">404 error when on a specific page #1</div>
-                <div class="flex items-center gap-1.5 text-[10px] text-[#404040] font-medium flex-wrap">
+                <div class="text-[#404040] text-[13px] font-bold">404 error when on a specific page #1</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
                     <i class="fa-solid fa-building text-[9px]" aria-hidden="true"></i>
                     <span>Test name (company)</span>
@@ -1010,31 +1062,36 @@
                   </span>
                 </div>
               </div>
-              <div class="flex flex-col gap-1.5 items-start shrink-0 mr-6 min-w-[80px]">
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
-                  Urgent <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Urgent <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[10px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
                   <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[8px] ml-px" aria-hidden="true"></i>
+                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
 
           </ul>
-        </div>
+          <aside id="filter-aside" class="w-[290px] bg-white border-l border-[#d1d5dc] shrink-0 hidden flex-col overflow-hidden" aria-label="Ticket filters">
+          <!-- Scrollable area: header + search + filter sections -->
+          <div class="overflow-y-auto flex-1 flex flex-col">
 
-        <!-- Right filter panel -->
-        <aside class="w-[290px] bg-white border-l border-[#d1d5dc] shrink-0 hidden xl:flex flex-col overflow-hidden" aria-label="Ticket filters">
           <!-- Header -->
           <div class="px-4 py-3 border-b border-[#d1d5dc] flex items-center justify-between shrink-0">
             <span class="text-[#333] text-sm font-semibold">Filters</span>
-            <button aria-label="Show applied filters" class="text-[#3da6d7] text-xs font-medium hover:underline">Show applied filters</button>
+            <div class="flex items-center gap-2">
+              <button aria-label="Show applied filters" class="text-[#3da6d7] text-xs font-medium hover:underline">Show applied filters</button>
+              <button id="btn-close-filters" aria-label="Close filters" class="xl:hidden flex items-center justify-center w-6 h-6 rounded text-[#6a7282] hover:bg-[#f1f5f9] transition-colors">
+                <i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>
+              </button>
+            </div>
           </div>
 
           <!-- Search fields -->
@@ -1042,12 +1099,12 @@
             <div class="relative">
               <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" aria-hidden="true"></i>
               <input type="text" placeholder="Search fields" aria-label="Search filter options"
-                     class="w-full border border-[#d1d5dc] rounded-lg pl-8 pr-3 py-2 text-xs text-[#6a7282] outline-none focus:border-sky-400 bg-white" />
+                     class="w-full border border-[#d1d5dc] rounded-[4px] pl-8 pr-3 py-2 text-xs text-[#6a7282] outline-none focus:border-sky-400 bg-white" />
             </div>
           </div>
 
-          <!-- Scrollable filter sections -->
-          <div class="overflow-y-auto flex-1 px-4 flex flex-col gap-0">
+          <!-- Filter sections -->
+          <div class="px-4 flex flex-col gap-0">
 
             <!-- Agent include -->
             <div class="py-2.5 border-b border-gray-100">
@@ -1152,14 +1209,17 @@
             </div>
 
           </div>
+          </div><!-- end scrollable area -->
 
           <!-- Apply button -->
-          <div class="px-4 py-3 border-t border-[#d1d5dc] shrink-0">
-            <button aria-label="Apply selected filters" class="w-full bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-sm font-medium py-2.5 rounded-lg transition-colors">
+          <div class="px-4 py-3 shrink-0">
+            <button aria-label="Apply selected filters" class="w-full bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-sm font-medium py-2.5 rounded-[4px] transition-colors">
               Apply
             </button>
           </div>
-        </aside>
+          </aside>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -1210,21 +1270,21 @@
        Drops right below the red alert, overlays everything below it  -->
   <div id="panel-renew" role="dialog" aria-modal="true" aria-label="Subscription renewal" class="fixed left-0 right-0 bottom-0 z-[200] hidden flex flex-col">
     <!-- Content panel -->
-    <div class="w-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
-      <div class="grid grid-cols-3 divide-x divide-[rgba(219,219,219,0.5)]">
+    <div class="w-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.12)] overflow-y-auto max-h-[80vh] md:max-h-none md:overflow-visible">
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[rgba(219,219,219,0.5)]">
 
         <!-- Col 1: Regain access -->
         <div class="bg-[#f3fbff] px-6 py-5">
           <h3 class="font-semibold text-[#1e2939] text-sm leading-5">Regain access to your helpdesk</h3>
           <p class="text-[10px] text-[#6a7282] mt-1 leading-4">Your helpdesk is <strong class="font-bold text-[#1e2939]">locked</strong>. Select a plan to regain access to your team.</p>
           <div class="mt-4 flex flex-col gap-2">
-            <div class="bg-white border border-[rgba(219,219,219,0.87)] rounded-[10px] flex items-center gap-2 px-3 py-2">
+            <div class="bg-white border border-[rgba(219,219,219,0.87)] rounded-[6px] flex items-center gap-2 px-3 py-2">
               <div class="bg-[#ededed] rounded-[4px] w-5 h-5 flex items-center justify-center shrink-0">
                 <i class="fa-solid fa-comment-slash text-[7px] text-[#6a7282]"></i>
               </div>
               <p class="text-[10px] text-[#4a5565]">Your team won't be able to respond to customer questions</p>
             </div>
-            <div class="bg-white border border-[rgba(219,219,219,0.87)] rounded-[10px] flex items-center gap-2 px-3 py-2">
+            <div class="bg-white border border-[rgba(219,219,219,0.87)] rounded-[6px] flex items-center gap-2 px-3 py-2">
               <div class="bg-[#ededed] rounded-[4px] w-5 h-5 flex items-center justify-center shrink-0">
                 <i class="fa-solid fa-circle-pause text-[7px] text-[#6a7282]"></i>
               </div>
@@ -1236,7 +1296,7 @@
         <!-- Col 2: Stats -->
         <div class="bg-[#f3fbff] px-6 py-5">
           <h3 class="font-semibold text-[#1e2939] text-sm leading-5">Achieve industry-leading results with Faveo Helpdesk</h3>
-          <div class="mt-3 grid grid-cols-2 gap-x-4 gap-y-4">
+          <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
             <div class="flex items-start gap-2">
               <div class="bg-[#dbeafe] rounded-full w-6 h-6 flex items-center justify-center shrink-0 mt-px">
                 <i class="fa-solid fa-bolt text-[8px] text-blue-500"></i>
@@ -1282,8 +1342,8 @@
           <h3 class="font-semibold text-[#1e2939] text-sm leading-5">Choose a plan to keep your helpdesk running</h3>
           <p class="text-[10px] text-[#6a7282] mt-1 leading-4">Keep your team, workflows, and AI-assisted support running without interruption.</p>
           <div class="mt-4 flex flex-col gap-2.5">
-            <button class="w-full bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-sm font-semibold py-2.5 rounded-[10px] transition-colors cursor-pointer border-none">Buy now</button>
-            <button class="w-full border border-[#d1d5dc] hover:bg-gray-50 text-[#364153] text-sm font-medium py-2.5 rounded-[10px] transition-colors cursor-pointer bg-transparent">Contact sales</button>
+            <button class="w-full bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-sm font-semibold py-2.5 rounded-[6px] transition-colors cursor-pointer border-none">Buy now</button>
+            <button class="w-full border border-[#d1d5dc] hover:bg-gray-50 text-[#364153] text-sm font-medium py-2.5 rounded-[6px] transition-colors cursor-pointer bg-transparent">Contact sales</button>
           </div>
         </div>
 

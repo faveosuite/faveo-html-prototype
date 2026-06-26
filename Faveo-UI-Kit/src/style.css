@@ -23,12 +23,12 @@
   .sidebar-nav.active { @apply bg-[#cfcfcf]; }
 
   /* Toolbar dropdown toggle — highlighted while its dropdown is open */
-  [data-toggle="dropdown"].dropdown-open { @apply border-[#9ca3af] bg-gray-100; }
+  [data-toggle="dropdown"].dropdown-open { @apply border border-[#d1d5dc] bg-[#f1f5f9]; }
 
   /* Views panel section header */
   .view-section-header {
     @apply flex items-center justify-between p-2.5 bg-white rounded-[10px]
-           text-sm text-gray-600 font-normal cursor-pointer w-full border-none
+           text-sm text-gray-700 font-semibold cursor-pointer w-full border-none
            outline-none transition-colors duration-150;
   }
   .view-section-header:hover { @apply bg-gray-50; }
@@ -39,14 +39,15 @@
            text-sm text-gray-600 font-normal no-underline w-full transition-colors duration-150;
   }
   .view-item:hover  { @apply bg-gray-50; }
-  .view-item.active { @apply bg-sky-50 text-sky-400; }
+  .view-item.active { @apply bg-[#cfcfcf] text-[#4a5565]; }
 
   /* Filter panel selects */
   .filter-select {
-    @apply w-full border border-[#d1d5dc] rounded-lg px-3 py-2 text-xs text-[#6a7282]
+    @apply w-full border border-[#d1d5dc] rounded-[6px] px-3 text-xs text-[#6a7282]
            outline-none bg-white cursor-pointer;
+    height: 37px;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236a7282'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236a7282' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 10px center;
   }
@@ -94,12 +95,22 @@
   }
 }
 
+/* ── Filter panel: overlay from right on mobile/tablet ── */
+@media (max-width: 1279px) {
+  #filter-aside:not(.hidden) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 30;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+  }
+}
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar       { width: 2px; height: 2px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #e2e4e7; border-radius: 9999px; }
-::-webkit-scrollbar-thumb:hover { background: #d1d5dc; }
+
+/* Sidebar — scrollable but no visible scrollbar */
+.sidebar-scroll { scrollbar-width: none !important; }
+.sidebar-scroll::-webkit-scrollbar { display: none !important; }
 
 /* Keyboard focus ring */
 :focus-visible {
