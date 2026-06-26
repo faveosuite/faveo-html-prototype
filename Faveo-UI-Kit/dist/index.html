@@ -8,8 +8,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="./assets/main-ScCmzC-L.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-DHFneBv0.css">
+  <!-- Apply theme + nav color before first paint to prevent flash -->
+  <script>
+    (function () {
+      var p = localStorage.getItem('faveo-theme') || 'auto'
+      var dark = p === 'dark' || (p === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+      var sc = localStorage.getItem('faveo-sidebar-color')
+      if (sc && sc !== 'default') document.documentElement.setAttribute('data-sidebar-color', sc)
+      var tc = localStorage.getItem('faveo-topnav-color')
+      if (tc && tc !== 'default') document.documentElement.setAttribute('data-topnav-color', tc)
+    })()
+  </script>
+  <script type="module" crossorigin src="./assets/main-CSs-gKJj.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-DRUQkn2r.css">
 </head>
 <body class="flex flex-col h-screen overflow-hidden bg-white font-sans">
 
@@ -102,7 +114,7 @@
     <nav id="sidebar" aria-label="Main navigation" class="w-[69px] bg-[#f7f9fa] hidden md:flex flex-col items-center shrink-0 overflow-x-hidden py-2">
       <div class="w-full h-[55px] flex items-center justify-center px-[7px] shrink-0">
         <img src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
-             alt="Faveo" class="w-full max-h-[31px] object-contain" />
+             alt="Faveo" class="max-w-[50px] max-h-[31px] object-contain" />
       </div>
       <div class="sidebar-scroll flex flex-col w-full items-center pt-[10px] gap-y-[10px] flex-1 overflow-y-auto">
         <button class="sidebar-nav" data-nav="dashboard" title="AI Insights" aria-label="AI Insights"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></button>
@@ -131,12 +143,11 @@
 
     <!-- Expanded sidebar (absolute overlay — same bg as rail, content stays put) -->
     <div id="sidebar-expanded" role="navigation" aria-label="Expanded navigation" class="absolute left-0 top-0 bottom-0 w-[295px] bg-[#f7f9fa] flex flex-col z-50 py-2 hidden">
-      <div class="w-full h-[55px] flex items-center px-[7px] shrink-0">
-        <div class="w-[55px] flex items-center justify-center shrink-0">
-          <img src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
-               alt="Faveo" class="w-full max-h-[31px] object-contain" />
-        </div>
-        <span class="ml-2 text-[#3a4a5a] text-[19px] font-semibold leading-none whitespace-nowrap">Support Center</span>
+      <div class="w-full h-[55px] flex items-center justify-center px-3 shrink-0">
+        <img id="sidebar-logo" src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
+             alt="Faveo" class="max-h-[31px] max-w-[55px] object-contain" />
+        <!-- Shown only when logo fails to load -->
+        <span id="sidebar-logo-fallback" class="hidden text-[#3a4a5a] text-[19px] font-semibold leading-none whitespace-nowrap sidebar-adaptive">Support Center</span>
       </div>
       <div class="sidebar-scroll flex flex-col flex-1 overflow-y-auto px-3 gap-y-[10px] pt-[10px]">
         <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="dashboard" aria-label="AI Insights"><i class="fa-solid fa-wand-magic-sparkles w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">AI Insights</span></button>
@@ -178,8 +189,8 @@
                   class="flex items-center justify-center w-[30px] h-[30px] rounded-[6px] border border-[#d1d5dc] bg-white cursor-pointer text-[#525252] hover:bg-[#f1f5f9] transition-colors shrink-0">
             <i class="fa-solid fa-filter text-xs" aria-hidden="true"></i>
           </button>
-          <span class="text-[#333] text-base font-semibold truncate">All tickets</span>
-          <span class="text-[#333] text-base font-semibold shrink-0">3</span>
+          <span class="text-[#333] text-base font-semibold truncate topnav-adaptive">All tickets</span>
+          <span class="text-[#333] text-base font-semibold shrink-0 topnav-adaptive">3</span>
         </div>
 
         <!-- Right controls -->
@@ -243,13 +254,13 @@
                 </div>
                 <ul id="recently-viewed-list" role="list" aria-label="Recently viewed items" class="overflow-y-auto max-h-[260px] flex flex-col">
                   <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-ticket text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <span class="text-xs text-[#525252] font-medium">Issues with reports #3</span>
                   </li>
                   <li data-item-type="contacts" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-user text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <div class="flex flex-col gap-0.5">
@@ -259,19 +270,19 @@
                     </div>
                   </li>
                   <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-ticket text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <span class="text-xs text-[#525252] font-medium">Authentication failure #3</span>
                   </li>
                   <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-ticket text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <span class="text-xs text-[#525252] font-medium">Login page crashes on Safari</span>
                   </li>
                   <li data-item-type="contacts" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-user text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <div class="flex flex-col gap-0.5">
@@ -281,13 +292,13 @@
                     </div>
                   </li>
                   <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-ticket text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <span class="text-xs text-[#525252] font-medium">Email notifications not being sent</span>
                   </li>
                   <li data-item-type="contacts" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-user text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <div class="flex flex-col gap-0.5">
@@ -297,13 +308,13 @@
                     </div>
                   </li>
                   <li data-item-type="forums" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-comments text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <span class="text-xs text-[#525252] font-medium">How to reset API keys</span>
                   </li>
                   <li data-item-type="forums" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
-                    <div class="w-8 h-8 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-[#f8f9fa] flex items-center justify-center shrink-0">
                       <i class="fa-solid fa-comments text-[#525252] text-xs" aria-hidden="true"></i>
                     </div>
                     <span class="text-xs text-[#525252] font-medium">Best practices for SLA configuration</span>
@@ -372,7 +383,7 @@
           </div>
           <!-- Notification bell -->
           <div class="relative shrink-0">
-            <button data-toggle="dropdown" data-target="#notifications-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="notifications-dropdown" aria-label="Notifications" class="relative flex items-center justify-center w-8 h-8 rounded-[6px] text-[#525252] cursor-pointer hover:bg-[#f1f5f9] transition-colors">
+            <button data-toggle="dropdown" data-target="#notifications-dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="notifications-dropdown" aria-label="Notifications" class="relative flex items-center justify-center w-8 h-8 rounded-[6px] text-[#525252] cursor-pointer hover:bg-[#f1f5f9] transition-colors topnav-adaptive">
               <i class="fa-solid fa-bell text-sm" aria-hidden="true"></i>
               <span class="absolute top-1 right-1.5 w-1.5 h-1.5 bg-red-500 rounded-full border border-white block"></span>
             </button>
@@ -631,6 +642,12 @@
                   <span class="text-xs text-[#333] flex-1 text-left">Theme</span>
                   <i class="fa-solid fa-chevron-right text-[#9ca3af] text-xs" aria-hidden="true"></i>
                 </button>
+                <!-- Color scheme -->
+                <button id="btn-profile-color" class="px-4 py-3 flex items-center gap-3 w-full hover:bg-[#f1f5f9] transition-colors cursor-pointer border-b border-[#e5e7eb]">
+                  <i class="fa-solid fa-palette text-[#444] text-xs w-4 text-center shrink-0" aria-hidden="true"></i>
+                  <span class="text-xs text-[#333] flex-1 text-left">Color scheme</span>
+                  <i class="fa-solid fa-chevron-right text-[#9ca3af] text-xs" aria-hidden="true"></i>
+                </button>
                 <!-- Go to customer portal -->
                 <a href="#" class="px-4 py-3 flex items-center hover:bg-[#f1f5f9] transition-colors no-underline border-b border-[#e5e7eb]">
                   <span class="text-xs text-[#333]">Go to customer portal</span>
@@ -668,17 +685,17 @@
                         <div class="flex gap-0.5 flex-1 min-h-0">
                           <div class="bg-white rounded-[4px] w-8 shrink-0 p-1 flex flex-col gap-0.5">
                             <div class="bg-[#d0d8e4] h-1 rounded-full w-3 mx-auto shrink-0"></div>
-                            <div class="bg-[#e2e8f0] h-px rounded-full w-6 shrink-0"></div>
+                            <div class="bg-[#f8f9fa] h-px rounded-full w-6 shrink-0"></div>
                             <div class="mt-auto bg-[#4f8ef7] h-1.5 rounded-[2px] w-6 shrink-0"></div>
                           </div>
                           <div class="flex-1 flex flex-col gap-0.5 min-w-0">
                             <div class="bg-white rounded-[4px] p-1 shrink-0 flex flex-col gap-0.5">
                               <div class="bg-[#c8d3e0] h-1 rounded-full w-8 shrink-0"></div>
-                              <div class="bg-[#e2e8f0] h-0.5 rounded-full w-full shrink-0"></div>
+                              <div class="bg-[#f8f9fa] h-0.5 rounded-full w-full shrink-0"></div>
                             </div>
                             <div class="bg-white rounded-[4px] p-1 shrink-0 flex flex-col gap-0.5">
                               <div class="bg-[#c8d3e0] h-1 rounded-full w-6 shrink-0"></div>
-                              <div class="bg-[#e2e8f0] h-0.5 rounded-full w-full shrink-0"></div>
+                              <div class="bg-[#f8f9fa] h-0.5 rounded-full w-full shrink-0"></div>
                             </div>
                           </div>
                         </div>
@@ -761,13 +778,107 @@
                 </ul>
               </div>
 
+              <!-- Color scheme panel -->
+              <div id="profile-color-panel" class="hidden flex-col overflow-y-auto max-h-[420px]">
+                <button id="btn-profile-color-back" class="flex items-center gap-2.5 px-4 py-3 border-b border-[rgba(0,0,0,0.1)] w-full shrink-0">
+                  <i class="fa-solid fa-arrow-left text-[#0a0a0a] text-xs" aria-hidden="true"></i>
+                  <span class="text-sm font-medium text-[#0a0a0a]">Back</span>
+                </button>
+                <!-- Sidebar color -->
+                <div class="px-4 pt-3 pb-2">
+                  <p class="text-[11px] font-semibold text-[#525252] uppercase tracking-wide mb-2.5">Sidebar</p>
+                  <div class="grid grid-cols-4 gap-3" data-swatch-group="sidebar">
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="default" aria-label="Default">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#f7f9fa] border-2 border-[#d1d5dc] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Default</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="blue" aria-label="Blue">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#1e40af] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Blue</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="green" aria-label="Green">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#16a34a] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Green</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="black" aria-label="Black">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#111827] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Black</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="purple" aria-label="Purple">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#7c3aed] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Purple</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="yellow" aria-label="Yellow">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ffce1b] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Yellow</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="red" aria-label="Red">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#dc2626] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Red</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="orange" aria-label="Orange">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ea580c] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Orange</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="white" aria-label="White">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-white border-2 border-[#d1d5dc] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">White</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- Divider -->
+                <div class="mx-4 border-t border-[#e5e7eb]"></div>
+                <!-- Top navigation color -->
+                <div class="px-4 pt-3 pb-4">
+                  <p class="text-[11px] font-semibold text-[#525252] uppercase tracking-wide mb-2.5">Top navigation</p>
+                  <div class="grid grid-cols-4 gap-3" data-swatch-group="topnav">
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="default" aria-label="Default">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#f7f9fa] border-2 border-[#d1d5dc] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Default</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="blue" aria-label="Blue">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#1e40af] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Blue</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="green" aria-label="Green">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#16a34a] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Green</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="black" aria-label="Black">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#111827] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Black</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="purple" aria-label="Purple">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#7c3aed] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Purple</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="yellow" aria-label="Yellow">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ffce1b] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Yellow</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="red" aria-label="Red">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#dc2626] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Red</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="orange" aria-label="Orange">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ea580c] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Orange</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="white" aria-label="White">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-white border-2 border-[#d1d5dc] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">White</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
       </header>
 
       <!-- Content body: views panel (inside) + ticket area -->
-      <div id="main-content" role="main" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-tl-[4px] rounded-tr-[4px]">
+      <div id="main-content" role="main" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-tr-[10px]">
 
         <!-- Views panel — opens INSIDE content when filter icon clicked -->
         <div id="views-panel" role="region" aria-label="Ticket views" class="w-72 bg-white border-r border-gray-100 flex flex-col shrink-0 overflow-hidden hidden">

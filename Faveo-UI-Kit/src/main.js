@@ -246,6 +246,12 @@ $('#btn-toggle-views').on('click', function () {
 })
 
 // ── Sidebar expand/collapse (overlay — content never moves) ──────
+// Sidebar logo fallback — show text if image fails to load
+$('#sidebar-logo').on('error', function () {
+  $(this).addClass('hidden')
+  $('#sidebar-logo-fallback').removeClass('hidden')
+})
+
 $('#btn-toggle-sidebar').on('click', function (e) {
   e.stopPropagation()
   $('#sidebar-expanded').removeClass('hidden')
@@ -336,6 +342,7 @@ $(document).on('click', function (e) {
 // ── Profile menu: reset to main panel on every open ─────────────
 $('[data-target="#profile-dropdown"]').on('click', function () {
   $('#profile-theme-panel').addClass('hidden').removeClass('flex')
+  $('#profile-color-panel').addClass('hidden').removeClass('flex')
   $('#profile-main').removeClass('hidden')
 })
 
@@ -349,6 +356,90 @@ $('#btn-profile-theme-back').on('click', function (e) {
   e.stopPropagation()
   $('#profile-theme-panel').addClass('hidden').removeClass('flex')
   $('#profile-main').removeClass('hidden')
+})
+
+// ── Theme switcher ───────────────────────────────────────────────
+function applyTheme (pref) {
+  const html = document.documentElement
+  if (pref === 'dark') {
+    html.setAttribute('data-theme', 'dark')
+  } else if (pref === 'light') {
+    html.setAttribute('data-theme', 'light')
+  } else {
+    // auto — follow system
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    html.setAttribute('data-theme', prefersDark ? 'dark' : 'light')
+  }
+}
+
+// Sync radio to saved preference on load
+const savedTheme = localStorage.getItem('faveo-theme') || 'auto'
+$(`input[name="theme"][value="${savedTheme}"]`).prop('checked', true)
+applyTheme(savedTheme)
+
+// Change handler
+$(document).on('change', 'input[name="theme"]', function () {
+  const pref = $(this).val()
+  localStorage.setItem('faveo-theme', pref)
+  applyTheme(pref)
+})
+
+// Re-apply on system theme change (for auto mode)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+  if ((localStorage.getItem('faveo-theme') || 'auto') === 'auto') applyTheme('auto')
+})
+
+// ── Profile menu: color scheme panel ────────────────────────────
+$('#btn-profile-color').on('click', function (e) {
+  e.stopPropagation()
+  $('#profile-main').addClass('hidden')
+  $('#profile-color-panel').removeClass('hidden').addClass('flex')
+})
+$('#btn-profile-color-back').on('click', function (e) {
+  e.stopPropagation()
+  $('#profile-color-panel').addClass('hidden').removeClass('flex')
+  $('#profile-main').removeClass('hidden')
+})
+
+// ── Color pickers: sidebar + topnav are independent ───────────────
+function applySidebarColor (color) {
+  if (color && color !== 'default') {
+    document.documentElement.setAttribute('data-sidebar-color', color)
+  } else {
+    document.documentElement.removeAttribute('data-sidebar-color')
+  }
+  $(`.color-swatch[data-target="sidebar"]`).removeClass('swatch-active')
+  $(`.color-swatch[data-target="sidebar"][data-color="${color || 'default'}"]`).addClass('swatch-active')
+}
+
+function applyTopnavColor (color) {
+  if (color && color !== 'default') {
+    document.documentElement.setAttribute('data-topnav-color', color)
+  } else {
+    document.documentElement.removeAttribute('data-topnav-color')
+  }
+  $(`.color-swatch[data-target="topnav"]`).removeClass('swatch-active')
+  $(`.color-swatch[data-target="topnav"][data-color="${color || 'default'}"]`).addClass('swatch-active')
+}
+
+applySidebarColor(localStorage.getItem('faveo-sidebar-color') || 'default')
+applyTopnavColor(localStorage.getItem('faveo-topnav-color') || 'default')
+
+$(document).on('click', '.color-swatch', function () {
+  const color  = $(this).attr('data-color')
+  const target = $(this).attr('data-target')
+  if (target === 'sidebar') {
+    localStorage.setItem('faveo-sidebar-color', color)
+    applySidebarColor(color)
+  } else if (target === 'topnav') {
+    localStorage.setItem('faveo-topnav-color', color)
+    applyTopnavColor(color)
+  }
+})
+
+// Reset color panel on dropdown open (same as theme panel)
+$('[data-target="#profile-dropdown"]').on('click', function () {
+  $('#profile-color-panel').addClass('hidden').removeClass('flex')
 })
 
 // ── Filter panel: Show all filters / Show applied filters toggle ─
