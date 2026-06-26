@@ -95,6 +95,19 @@
   }
 }
 
+/* ── Notifications dropdown: full-width on mobile ── */
+@media (max-width: 639px) {
+  #notifications-dropdown {
+    position: fixed;
+    left: 0.5rem;
+    right: 0.5rem;
+    top: auto;
+    width: auto;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+
 /* ── Filter panel: overlay from right on mobile/tablet ── */
 @media (max-width: 1279px) {
   #filter-aside:not(.hidden) {

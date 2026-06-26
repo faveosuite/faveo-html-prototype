@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="./assets/main-Bi3YRNL7.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-DYTRFdgO.css">
+  <script type="module" crossorigin src="./assets/main-ScCmzC-L.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-DHFneBv0.css">
 </head>
 <body class="flex flex-col h-screen overflow-hidden bg-white font-sans">
 
@@ -239,7 +239,7 @@
                 </div>
                 <div class="px-4 pt-2 pb-1 flex items-center justify-between">
                   <span class="text-xs text-[#525252] font-medium">Recently viewed</span>
-                  <button class="text-xs text-[#3da6d7] font-medium hover:underline">Clear</button>
+                  <button class="text-xs text-[#3da6d7] font-medium">Clear</button>
                 </div>
                 <ul id="recently-viewed-list" role="list" aria-label="Recently viewed items" class="overflow-y-auto max-h-[260px] flex flex-col">
                   <li data-item-type="tickets" class="flex items-center gap-3 px-4 py-2 hover:bg-[#f1f5f9] cursor-pointer transition-colors list-none">
@@ -381,7 +381,7 @@
               <!-- Header -->
               <div class="flex items-center justify-between px-4 py-3 border-b border-[#e5e7eb]">
                 <span class="text-sm font-semibold text-[#0a0a0a]">Notifications</span>
-                <button class="text-xs text-[#3da6d7] font-medium hover:underline">Mark all as read</button>
+                <button class="text-xs text-[#3da6d7] font-medium">Mark all as read</button>
               </div>
 
               <!-- Notification list -->
@@ -478,7 +478,7 @@
 
               <!-- Footer -->
               <div class="border-t border-[#e5e7eb] px-4 py-2.5 text-center">
-                <button class="text-xs text-[#3da6d7] font-medium hover:underline">View all notifications</button>
+                <button class="text-xs text-[#3da6d7] font-medium">View all notifications</button>
               </div>
             </div>
           </div>
@@ -1508,7 +1508,7 @@
               <div class="px-4 py-3 border-b border-[#d1d5dc] flex items-center justify-between shrink-0">
                 <span class="text-[#333] text-sm font-semibold">Filters</span>
                 <div class="flex items-center gap-2">
-                  <button id="btn-show-all-filters" class="text-[#3da6d7] text-xs font-medium hover:underline">Show all filters</button>
+                  <button id="btn-show-all-filters" class="text-[#3da6d7] text-xs font-medium">Show applied filters</button>
                   <button id="btn-close-filters" aria-label="Close filters" class="xl:hidden flex items-center justify-center w-6 h-6 rounded text-[#6a7282] hover:bg-[#f1f5f9] transition-colors">
                     <i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>
                   </button>
@@ -1516,7 +1516,7 @@
               </div>
 
               <!-- Applied filters view (default) -->
-              <div id="applied-filters-view" class="flex flex-col flex-1 px-4 py-3 gap-4">
+              <div id="applied-filters-view" class="hidden flex-col flex-1 px-4 py-3 gap-4">
 
                 <!-- Applied filter rows (dynamic) -->
                 <div id="applied-filters-list" class="flex flex-col gap-4">
@@ -1525,7 +1525,7 @@
                     <div class="flex items-center justify-between">
                       <span class="text-xs font-medium text-[#333]">Created</span>
                       <button class="btn-remove-filter text-red-400 hover:text-red-600 transition-colors" aria-label="Remove filter">
-                        <i class="fa-regular fa-circle-minus text-sm" aria-hidden="true"></i>
+                        <i class="fa-solid fa-circle-minus text-sm" aria-hidden="true"></i>
                       </button>
                     </div>
                     <select class="filter-select focus:border-sky-400">
@@ -1541,9 +1541,9 @@
                 </div>
 
                 <!-- Add filters button + dropdown -->
-                <div class="relative">
+                <div class="relative mt-2">
                   <button id="btn-add-filter" class="flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] border border-[#d1d5dc] text-[#3da6d7] text-xs font-medium hover:bg-[#f1f5f9] transition-colors cursor-pointer">
-                    <i class="fa-regular fa-circle-plus" aria-hidden="true"></i>
+                    <i class="fa-solid fa-circle-plus" aria-hidden="true"></i>
                     Add filters
                   </button>
                   <!-- Dropdown -->
@@ -1568,7 +1568,7 @@
               </div>
 
               <!-- All filters view (hidden by default) -->
-              <div id="all-filters-view" class="hidden flex-1 flex-col px-4 py-3 gap-3">
+              <div id="all-filters-view" class="flex flex-1 flex-col px-4 py-3 gap-3">
                 <div class="flex flex-col gap-3">
                   <div class="flex flex-col gap-1.5">
                     <span class="text-xs font-medium text-[#333]">Agent</span>
@@ -1612,14 +1612,9 @@
             </div><!-- end scrollable -->
 
             <!-- Sticky footer: Reset + Apply -->
-            <div class="px-4 py-3 border-t border-[#d1d5dc] shrink-0 flex gap-2">
+            <div class="px-4 py-3 shrink-0 flex gap-2">
               <button aria-label="Reset filters" class="flex-1 bg-[#e5e7eb] hover:bg-[#d1d5dc] text-[#525252] text-xs font-medium py-2.5 rounded-[6px] transition-colors">Reset</button>
               <button aria-label="Apply filters" class="flex-1 bg-[#3da6d7] hover:bg-[#2d96c7] text-white text-xs font-medium py-2.5 rounded-[6px] transition-colors">Apply</button>
-            </div>
-
-            <!-- Version footer -->
-            <div class="px-4 py-2 border-t border-[#d1d5dc] shrink-0 text-center">
-              <span class="text-[10px] text-[#9ca3af]"><strong>Version</strong> Faveo Helpdesk Enterprise Pro v9.4.3.5</span>
             </div>
 
           </aside>
@@ -1666,7 +1661,7 @@
 
   <!-- Footer -->
   <footer role="contentinfo" class="bg-white border-t border-[#d1d5dc] flex items-center justify-between px-6 py-2.5 shrink-0 text-[11px] text-[#6a7282]">
-    <span>Copyright &copy; 2026 . All rights reserved. Powered by <a href="#" class="text-[#3da6d7] hover:underline">Faveo</a> .</span>
+    <span>Copyright &copy; 2026 . All rights reserved. Powered by <a href="#" class="text-[#3da6d7]">Faveo</a> .</span>
     <span>Version Faveo Helpdesk Enterprise Pro v9.4.3.5</span>
   </footer>
 
@@ -1757,7 +1752,7 @@
       <div class="bg-[#ffdfdf] px-4 py-2.5 flex items-center justify-center relative">
         <p class="text-sm text-red-600 font-normal">
           <strong>Hi Sakthi,</strong> your trial has ended.
-          <span class="font-semibold cursor-pointer hover:underline">Choose a plan</span>
+          <span class="font-semibold cursor-pointer">Choose a plan</span>
           to continue using Faveo Helpdesk
         </p>
         <button data-dismiss="#panel-renew" aria-label="Close renewal panel" class="absolute right-5 bg-white shadow-[0_0_2px_rgba(0,0,0,0.2)] rounded-full w-[22px] h-[22px] flex items-center justify-center cursor-pointer">

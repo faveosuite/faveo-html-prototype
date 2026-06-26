@@ -13,7 +13,7 @@
     <div class="flex items-center justify-between">
       <span class="text-xs font-medium text-[#333]">${n.label}</span>
       <button class="btn-remove-filter text-red-400 hover:text-red-600 transition-colors" aria-label="Remove filter">
-        <i class="fa-regular fa-circle-minus text-sm" aria-hidden="true"></i>
+        <i class="fa-solid fa-circle-minus text-sm" aria-hidden="true"></i>
       </button>
     </div>
     <select class="filter-select focus:border-sky-400">${r}</select>
