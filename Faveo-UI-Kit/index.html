@@ -141,7 +141,7 @@
     </nav>
 
     <!-- Expanded sidebar (absolute overlay — same bg as rail, content stays put) -->
-    <div id="sidebar-expanded" role="navigation" aria-label="Expanded navigation" class="absolute left-0 top-0 bottom-0 w-[295px] bg-[#f7f9fa] flex flex-col z-50 py-2 hidden">
+    <nav id="sidebar-expanded" aria-label="Expanded navigation" class="absolute left-0 top-0 bottom-0 w-[295px] bg-[#f7f9fa] flex flex-col z-50 py-2 hidden">
       <div class="w-full h-[55px] flex items-center justify-center px-3 shrink-0">
         <img id="sidebar-logo" src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
              alt="Faveo" class="max-h-[31px] max-w-[55px] object-contain" />
@@ -171,13 +171,13 @@
           <i class="fa-solid fa-outdent w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Collapse</span>
         </button>
       </div>
-    </div>
+    </nav>
 
     <!-- Main content (toolbar + body) -->
     <div id="content-col" class="flex flex-col flex-1 overflow-hidden bg-[#f7f9fa]">
 
       <!-- Toolbar -->
-      <header class="bg-[#f7f9fa] h-[55px] flex items-center gap-2 px-5 shrink-0" role="toolbar" aria-label="Page toolbar">
+      <header class="bg-[#f7f9fa] h-[55px] flex items-center gap-2 px-5 shrink-0" aria-label="Page toolbar">
         <button id="btn-mobile-menu" class="md:hidden sidebar-nav mr-1" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar-expanded">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
@@ -653,15 +653,15 @@
                   <span class="text-xs text-[#333]">Go to customer portal</span>
                 </a>
                 <!-- Schedule out of office -->
-                <a href="#" class="px-4 py-3 flex items-center gap-3 hover:bg-[#f1f5f9] transition-colors no-underline border-b border-[#e5e7eb]">
+                <button class="px-4 py-3 flex items-center gap-3 w-full hover:bg-[#f1f5f9] transition-colors border-b border-[#e5e7eb]">
                   <i class="fa-solid fa-calendar-days text-[#444] text-xs w-4 text-center shrink-0" aria-hidden="true"></i>
                   <span class="text-xs text-[#333]">Schedule out of office</span>
-                </a>
+                </button>
                 <!-- Sign out -->
-                <a href="#" class="px-4 py-3 flex items-center gap-3 hover:bg-[#f1f5f9] transition-colors no-underline">
+                <button class="px-4 py-3 flex items-center gap-3 w-full hover:bg-[#f1f5f9] transition-colors">
                   <i class="fa-solid fa-right-from-bracket text-[#444] text-xs w-4 text-center shrink-0" aria-hidden="true"></i>
                   <span class="text-xs text-[#333]">Sign out</span>
-                </a>
+                </button>
               </div>
 
               <!-- Theme panel -->
@@ -878,7 +878,7 @@
       </header>
 
       <!-- Content body: views panel (inside) + ticket area -->
-      <div id="main-content" role="main" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-t-[10px]">
+      <main id="main-content" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-t-[10px]">
 
         <!-- Views panel — opens INSIDE content when filter icon clicked -->
         <div id="views-panel" role="region" aria-label="Ticket views" class="w-72 bg-white border-r border-gray-100 flex flex-col shrink-0 overflow-hidden hidden">
@@ -1023,18 +1023,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
-                  Low <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
+                  <span class="priority-label">Low</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Unassigned</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-check text-[9px]" aria-hidden="true"></i>
-                  Closed <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-check text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Closed</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1072,18 +1072,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
-                  Medium <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
+                  <span class="priority-label">Medium</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Unassigned</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Open</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1121,18 +1121,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
-                  High <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
+                  <span class="priority-label">High</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Unassigned</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Open</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1164,18 +1164,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
-                  Medium <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
+                  <span class="priority-label">Medium</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Unassigned</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
-                  Pending <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Pending</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1207,18 +1207,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
-                  High <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
+                  <span class="priority-label">High</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  John D. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / John D.</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Open</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1254,18 +1254,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
-                  Urgent <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
+                  <span class="priority-label">Urgent</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Sara K. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Sara K.</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Open</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1297,18 +1297,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
-                  Low <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
+                  <span class="priority-label">Low</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Alex P. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Alex P.</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-circle-check text-[9px]" aria-hidden="true"></i>
-                  Resolved <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-circle-check text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Resolved</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1340,18 +1340,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
-                  High <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
+                  <span class="priority-label">High</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Unassigned</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Open</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1383,18 +1383,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
-                  Medium <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
+                  <span class="priority-label">Medium</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Tom R. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Tom R.</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
-                  Pending <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Pending</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1426,18 +1426,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
-                  Low <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-green-500 inline-block shrink-0"></span>
+                  <span class="priority-label">Low</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Lisa M. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Lisa M.</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-check text-[9px]" aria-hidden="true"></i>
-                  Closed <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-check text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Closed</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1469,18 +1469,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
-                  Urgent <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
+                  <span class="priority-label">Urgent</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Unassigned</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Open</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1512,18 +1512,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
-                  High <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block shrink-0"></span>
+                  <span class="priority-label">High</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  James W. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / James W.</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Open</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1555,18 +1555,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
-                  Medium <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shrink-0"></span>
+                  <span class="priority-label">Medium</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  Priya S. <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Priya S.</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
-                  Pending <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-pause text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Pending</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1604,18 +1604,18 @@
                   </span>
                 </div>
               </div>
-              <div class="hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
-                  Urgent <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+              <div class="ticket-right-col hidden md:flex flex-col gap-1.5 items-start self-start shrink-0 mr-6 min-w-[280px] pt-3">
+                <button class="priority-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
+                  <span class="priority-dot w-2.5 h-2.5 rounded-full bg-red-500 inline-block shrink-0"></span>
+                  <span class="priority-label">Urgent</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
+                <button class="agent-btn flex items-center gap-1 text-[11px] text-[#525252] font-medium whitespace-nowrap">
                   <i class="fa-solid fa-user text-[10px]" aria-hidden="true"></i>
-                  --/ Name <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                  <span class="agent-label">-- / Unassigned</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
-                <button class="flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
-                  Open <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
+                <button class="status-btn flex items-center gap-1 text-[11px] text-[#404040] font-medium whitespace-nowrap">
+                  <i class="status-icon fa-solid fa-envelope-open text-[9px]" aria-hidden="true"></i>
+                  <span class="status-label">Open</span> <i class="fa-solid fa-chevron-down text-[9px] ml-px" aria-hidden="true"></i>
                 </button>
               </div>
             </li>
@@ -1743,7 +1743,7 @@
           </div>
         </div>
 
-      </div>
+      </main>
     </div>
   </div>
 
@@ -1782,7 +1782,7 @@
   </div>
 
   <!-- Footer -->
-  <footer role="contentinfo" class="bg-white border-t border-[#d1d5dc] flex items-center justify-between px-6 py-2.5 shrink-0 text-[11px] text-[#6a7282]">
+  <footer class="bg-white border-t border-[#d1d5dc] flex items-center justify-between px-6 py-2.5 shrink-0 text-[11px] text-[#6a7282]">
     <span>Copyright &copy; 2026 . All rights reserved. Powered by <a href="#" class="text-[#3da6d7]">Faveo</a> .</span>
     <span>Version Faveo Helpdesk Enterprise Pro v9.4.3.5</span>
   </footer>
@@ -1884,6 +1884,90 @@
     </div>
     <!-- Dim backdrop — clicking closes the panel -->
     <div data-dismiss="#panel-renew" class="flex-1 bg-black/20"></div>
+  </div>
+
+  <!-- ── Shared ticket dropdown panels ─────────────────────────────── -->
+  <!-- Priority panel -->
+  <div id="panel-priority" class="fixed z-[300] hidden bg-white rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.14)] border border-[#e5e7eb] p-1 min-w-[120px]">
+    <button class="priority-opt flex items-center gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Low" data-color="bg-green-500">
+      <span class="w-2.5 h-2.5 rounded-sm bg-green-500 shrink-0"></span>
+      <span class="flex-1 text-left">Low</span>
+    </button>
+    <button class="priority-opt flex items-center gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Medium" data-color="bg-blue-400">
+      <span class="w-2.5 h-2.5 rounded-sm bg-blue-400 shrink-0"></span>
+      <span class="flex-1 text-left">Medium</span>
+    </button>
+    <button class="priority-opt flex items-center gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="High" data-color="bg-yellow-400">
+      <span class="w-2.5 h-2.5 rounded-sm bg-yellow-400 shrink-0"></span>
+      <span class="flex-1 text-left">High</span>
+    </button>
+    <button class="priority-opt flex items-center gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Urgent" data-color="bg-red-500">
+      <span class="w-2.5 h-2.5 rounded-sm bg-red-500 shrink-0"></span>
+      <span class="flex-1 text-left">Urgent</span>
+    </button>
+  </div>
+
+  <!-- Status panel -->
+  <div id="panel-status" class="fixed z-[300] hidden bg-white rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.14)] border border-[#e5e7eb] p-1 min-w-[150px]">
+    <button class="status-opt flex items-center w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Open" data-icon="fa-envelope-open">Open</button>
+    <button class="status-opt flex items-center w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Pending" data-icon="fa-pause">Pending</button>
+    <button class="status-opt flex items-center w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Resolved" data-icon="fa-circle-check">Resolved</button>
+    <button class="status-opt flex items-center w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Closed" data-icon="fa-check">Closed</button>
+    <button class="status-opt flex items-center w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Waiting on Customer" data-icon="fa-hourglass-half">Waiting on Customer</button>
+  </div>
+
+  <!-- Agent panel -->
+  <div id="panel-agent" class="fixed z-[300] hidden bg-white rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.14)] border border-[#e5e7eb] min-w-[210px]">
+    <div class="px-2.5 pt-2.5 pb-0 border-b border-[#e5e7eb]">
+      <div class="flex gap-4 text-[10px] font-bold uppercase tracking-wide">
+        <span class="text-[#9ca3af] pb-2 cursor-pointer">Group</span>
+        <span class="text-blue-600 border-b-2 border-blue-600 pb-2 cursor-pointer">Agent</span>
+      </div>
+    </div>
+    <div class="px-1.5 py-1.5 border-b border-[#e5e7eb]">
+      <div class="relative">
+        <input id="agent-search-input" type="text" placeholder="Search agent" class="w-full pl-2.5 pr-7 py-1 text-[11px] rounded-[5px] border border-[#e5e7eb] focus:outline-none focus:border-blue-400 bg-transparent">
+        <i class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 text-[9px]" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div id="agent-list" class="p-1 max-h-[160px] overflow-y-auto">
+      <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Unassigned">
+        <div class="flex items-center gap-1.5">
+          <span class="w-5 h-5 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[9px] text-[#6a7282] font-semibold shrink-0">--</span>
+          <span>Unassigned</span>
+        </div>
+      </button>
+      <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Alice Johnson">
+        <div class="flex items-center gap-1.5">
+          <span class="w-5 h-5 rounded-full bg-blue-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">AJ</span>
+          <span>Alice Johnson</span>
+        </div>
+      </button>
+      <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Alex P.">
+        <div class="flex items-center gap-1.5">
+          <span class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">AP</span>
+          <span>Alex P.</span>
+        </div>
+      </button>
+      <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Ben Carter">
+        <div class="flex items-center gap-1.5">
+          <span class="w-5 h-5 rounded-full bg-purple-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">BC</span>
+          <span>Ben Carter</span>
+        </div>
+      </button>
+      <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Lisa M.">
+        <div class="flex items-center gap-1.5">
+          <span class="w-5 h-5 rounded-full bg-orange-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">LM</span>
+          <span>Lisa M.</span>
+        </div>
+      </button>
+      <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Sam Patel">
+        <div class="flex items-center gap-1.5">
+          <span class="w-5 h-5 rounded-full bg-pink-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">SP</span>
+          <span>Sam Patel</span>
+        </div>
+      </button>
+    </div>
   </div>
 
 </body>

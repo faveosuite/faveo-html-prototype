@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faveo — Ticket Timeline</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      var p = localStorage.getItem('faveo-theme') || 'auto'
+      var dark = p === 'dark' || (p === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+      var sc = localStorage.getItem('faveo-sidebar-color')
+      if (sc && sc !== 'default') document.documentElement.setAttribute('data-sidebar-color', sc)
+      var tc = localStorage.getItem('faveo-topnav-color')
+      if (tc && tc !== 'default') document.documentElement.setAttribute('data-topnav-color', tc)
+    })()
+  </script>
+  <script type="module" crossorigin src="./assets/main-BWiprLc-.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CzRHBTVk.css">
+</head>
+<body class="flex flex-col h-screen overflow-hidden bg-white font-sans">
+
+</body>
+</html>

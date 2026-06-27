@@ -9,6 +9,7 @@ import './js/color-scheme.js'
 import './js/profile.js'
 import './js/filters.js'
 import './js/renew.js'
+import './js/ticket-dropdowns.js'
 
 import $ from 'jquery'
 import { renderViews } from './js/views.js'

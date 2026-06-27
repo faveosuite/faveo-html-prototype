@@ -12,6 +12,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         starter: resolve(__dirname, 'starter.html'),
+        ticketTimeline: resolve(__dirname, 'ticket-timeline.html'),
       },
     },
   },
