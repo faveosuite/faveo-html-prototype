@@ -20,8 +20,8 @@
       if (tc && tc !== 'default') document.documentElement.setAttribute('data-topnav-color', tc)
     })()
   </script>
-  <script type="module" crossorigin src="./assets/main-C6FpfJAR.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-MSfBtkZc.css">
+  <script type="module" crossorigin src="./assets/main-BmcG61DA.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CdK94JTg.css">
 </head>
 <body class="flex flex-col h-screen overflow-hidden bg-white font-sans">
 
@@ -914,22 +914,26 @@
                 <i class="fa-solid fa-chevron-down text-[10px]" aria-hidden="true"></i>
               </button>
               <div id="sort-dropdown" role="menu" aria-label="Sort options" class="absolute left-0 top-[calc(100%+2px)] z-50 min-w-[200px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] p-1.5 hidden">
-                <button role="menuitem" class="flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[12px] font-medium cursor-pointer border-none text-left transition-colors bg-[#cfcfcf] text-[#4a5565]">
-                  <span>Date created</span><i class="fa-solid fa-check text-[10px]" aria-hidden="true"></i>
-                </button>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Due by time</button>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Last modified</button>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Priority</button>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Status</button>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Sentiment</button>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">First response due</button>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Next response due</button>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Closed time</button>
+                <div data-sort-group="field">
+                  <button role="menuitem" class="sort-item sort-active flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[12px] font-medium cursor-pointer border-none text-left transition-colors bg-[#cfcfcf] text-[#4a5565]">
+                    <span>Date created</span><i class="fa-solid fa-check text-[10px]" aria-hidden="true"></i>
+                  </button>
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Due by time</button>
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Last modified</button>
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Priority</button>
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Status</button>
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Sentiment</button>
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">First response due</button>
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Next response due</button>
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Closed time</button>
+                </div>
                 <div class="border-t border-[#e5e7eb] my-1"></div>
-                <button role="menuitem" class="flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Ascending</button>
-                <button role="menuitem" class="flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[12px] font-medium cursor-pointer border-none text-left transition-colors bg-[#cfcfcf] text-[#4a5565]">
-                  <span>Descending</span><i class="fa-solid fa-check text-[10px]" aria-hidden="true"></i>
-                </button>
+                <div data-sort-group="direction">
+                  <button role="menuitem" class="sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Ascending</button>
+                  <button role="menuitem" class="sort-item sort-active flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[12px] font-medium cursor-pointer border-none text-left transition-colors bg-[#cfcfcf] text-[#4a5565]">
+                    <span>Descending</span><i class="fa-solid fa-check text-[10px]" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
             </div>
             </div>
@@ -1048,8 +1052,9 @@
                      alt="User avatar" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-full border border-white object-cover" />
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div>
+                <div class="flex items-center gap-1.5 flex-wrap">
                   <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response overdue</span>
+                  <span class="bg-[#fff3cd] text-[#856404] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution: 4h left</span>
                 </div>
                 <div class="text-[#404040] text-[13px] font-bold">Authentication failure #2</div>
                 <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
@@ -1084,7 +1089,7 @@
               </div>
             </li>
 
-            <!-- Row 3: 404 error #1 — High, Open -->
+            <!-- Row 3: 404 error #1 — High, Open — TWO LABELS -->
             <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
               <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
                 <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
@@ -1096,8 +1101,9 @@
                      alt="User avatar" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-[6px] border border-white object-cover" />
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div>
+                <div class="flex items-center gap-1.5 flex-wrap">
                   <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response overdue</span>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution overdue</span>
                 </div>
                 <div class="text-[#404040] text-[13px] font-bold">404 error when on a specific page #1</div>
                 <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
@@ -1227,7 +1233,11 @@
                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">K</div>
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div><span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution overdue</span></div>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response overdue</span>
+                  <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution overdue</span>
+                  <span class="bg-[#f3e8ff] text-[#7c3aed] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">Escalated</span>
+                </div>
                 <div class="text-[#404040] text-[13px] font-bold">API rate limit exceeded — integration broken</div>
                 <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">
                   <span class="inline-flex items-center gap-1 shrink-0">
@@ -1574,8 +1584,9 @@
                      alt="User avatar" class="absolute -bottom-0 -right-0 w-3 h-3 rounded-[6px] border border-white object-cover" />
               </div>
               <div class="ml-7 flex flex-col gap-0.5 flex-1 min-w-0">
-                <div>
+                <div class="flex items-center gap-1.5 flex-wrap">
                   <span class="bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response overdue</span>
+                  <span class="bg-[#fff3cd] text-[#856404] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">Resolution: 2h left</span>
                 </div>
                 <div class="text-[#404040] text-[13px] font-bold">404 error when on a specific page #1</div>
                 <div class="flex items-center gap-1.5 text-[11px] text-[#404040] font-medium flex-wrap">

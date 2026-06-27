@@ -89,3 +89,26 @@ $(document).on('click', '[data-toggle="tab"]', function () {
 $(document).on('click', '#btn-mobile-menu', function () {
   $('#sidebar-expanded').toggleClass('hidden')
 })
+
+// ── Sort dropdown selection ────────────────────────────────────────
+// Moves active highlight within each group (field / direction) independently.
+// Updates the trigger button label when a field is selected.
+
+const SORT_INACTIVE = 'sort-item flex items-center w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors'
+const SORT_ACTIVE   = 'sort-item sort-active flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[12px] font-medium cursor-pointer border-none text-left transition-colors bg-[#cfcfcf] text-[#4a5565]'
+
+$(document).on('click', '#sort-dropdown .sort-item', function () {
+  const $item  = $(this)
+  const $group = $item.closest('[data-sort-group]')
+
+  $group.find('.sort-item').each(function () {
+    $(this).attr('class', SORT_INACTIVE).find('.fa-check').remove()
+  })
+
+  $item.attr('class', SORT_ACTIVE)
+  $item.append('<i class="fa-solid fa-check text-[10px]" aria-hidden="true"></i>')
+
+  if ($group.data('sort-group') === 'field') {
+    $('[data-target="#sort-dropdown"] span').text($item.text().trim())
+  }
+})
