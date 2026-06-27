@@ -1,0 +1,37 @@
+/* ── Faveo design tokens ── */
+@theme {
+  --font-sans: 'Inter', sans-serif;
+}
+
+:root {
+  --c-page:      #f7f9fa;
+  --c-surface:   #ffffff;
+  --c-raised:    #ffffff;
+  --c-hover:     #f1f5f9;
+  --c-active:    #cfcfcf;
+  --c-border:    #d1d5dc;
+  --c-border-lt: #e5e7eb;
+  --c-text-1:    #0a0a0a;
+  --c-text-2:    #525252;
+  --c-text-3:    #6a7282;
+  --c-text-4:    #9ca3af;
+  --c-brand:     #3da6d7;
+  --c-brand-hov: #2d96c7;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --c-page:      #1a1d23;
+  --c-surface:   #23272f;
+  --c-raised:    #2a2f3d;
+  --c-hover:     #2e3442;
+  --c-active:    #3a4155;
+  --c-border:    #3a4155;
+  --c-border-lt: #2e3442;
+  --c-text-1:    #e2e8f0;
+  --c-text-2:    #a8b4c0;
+  --c-text-3:    #6e7d8e;
+  --c-text-4:    #4a5568;
+  --c-brand:     #3da6d7;
+  --c-brand-hov: #4eb5e5;
+}

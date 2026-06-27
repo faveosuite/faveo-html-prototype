@@ -1,0 +1,57 @@
+/* ── Sidebar component styles ── */
+
+@layer components {
+  .sidebar-nav {
+    @apply flex items-center justify-center rounded-[10px] cursor-pointer
+           border-none bg-transparent outline-none no-underline shrink-0
+           transition-colors duration-150 text-[18px];
+    height: 40px;
+    width: 48px;
+    color: var(--c-text-3);
+  }
+  .sidebar-nav:hover  { background: var(--c-hover); }
+  .sidebar-nav.active { background: var(--c-active); }
+
+  .nav-submenu-panel {
+    position: fixed;
+    background: var(--c-raised);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
+    padding: 6px;
+    z-index: 300;
+    min-width: 170px;
+  }
+  .submenu-item {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    color: var(--c-text-1);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    transition: background 0.15s;
+  }
+  .submenu-item:hover { background: var(--c-hover); }
+}
+
+/* Expanded sidebar drop shadow */
+#sidebar-expanded { box-shadow: 4px 0 24px rgba(0, 0, 0, 0.18); }
+
+/* No visible scrollbar on sidebar */
+.sidebar-scroll { scrollbar-width: none !important; }
+.sidebar-scroll::-webkit-scrollbar { display: none !important; }
+
+/* Views panel: full-width overlay on mobile */
+@media (max-width: 767px) {
+  #views-panel:not(.hidden) {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 100%;
+    z-index: 30;
+  }
+}

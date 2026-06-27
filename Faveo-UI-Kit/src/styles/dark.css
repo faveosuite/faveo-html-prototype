@@ -1,0 +1,119 @@
+/* ══════════════════════════════════════════════════════════════
+   DARK THEME — structural & utility overrides
+   Unlayered CSS wins over @layer utilities (Tailwind v4 cascade)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Body & page chrome */
+[data-theme="dark"] body   { background: var(--c-page); color: var(--c-text-1); }
+[data-theme="dark"] footer { background: var(--c-surface); border-color: var(--c-border); color: var(--c-text-3); }
+
+/* Sidebar & toolbar — html prefix matches color-scheme specificity; dark.css loads last so it wins */
+html[data-theme="dark"] #sidebar,
+html[data-theme="dark"] #sidebar-expanded,
+html[data-theme="dark"] #content-col { background: var(--c-page); }
+html[data-theme="dark"] header { background: var(--c-page); border-color: var(--c-border); }
+
+/* Sidebar nav: override color-scheme text rules so icons/text stay visible in dark mode */
+html[data-theme="dark"] .sidebar-nav { color: var(--c-text-3); }
+html[data-theme="dark"] .sidebar-nav:hover  { background: var(--c-hover); color: var(--c-text-1); }
+html[data-theme="dark"] .sidebar-nav.active { background: var(--c-active); color: var(--c-text-1); }
+html[data-theme="dark"] #sidebar .bg-gray-200,
+html[data-theme="dark"] #sidebar-expanded .bg-gray-200 { background-color: var(--c-border); }
+html[data-theme="dark"] .sidebar-adaptive { color: var(--c-text-2); }
+html[data-theme="dark"] .topnav-adaptive  { color: var(--c-text-2); }
+
+/* Main layout containers */
+[data-theme="dark"] #main-content { border-color: var(--c-border); }
+[data-theme="dark"] #views-panel  { background: var(--c-surface); border-color: var(--c-border); }
+[data-theme="dark"] #filter-aside { background: var(--c-surface); border-color: var(--c-border); }
+
+/* Dropdowns & overlays */
+[data-theme="dark"] #search-overlay,
+[data-theme="dark"] #notifications-dropdown,
+[data-theme="dark"] #profile-dropdown,
+[data-theme="dark"] #add-filter-dropdown {
+  background: var(--c-raised);
+  border-color: var(--c-border);
+  color: var(--c-text-1);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ── Background utilities ── */
+[data-theme="dark"] .bg-white         { background-color: var(--c-surface); }
+[data-theme="dark"] .bg-\[\#f7f9fa\]  { background-color: var(--c-page); }
+[data-theme="dark"] .bg-\[\#f1f5f9\]  { background-color: var(--c-hover); }
+[data-theme="dark"] .bg-\[\#f8fbfe\]  { background-color: var(--c-hover); }
+[data-theme="dark"] .bg-\[\#f8fafc\]  { background-color: var(--c-hover); }
+[data-theme="dark"] .bg-\[\#f3f4f6\]  { background-color: var(--c-raised); }
+[data-theme="dark"] .bg-\[\#cfcfcf\]  { background-color: var(--c-active); }
+[data-theme="dark"] .bg-\[\#e9e9e9\]  { background-color: var(--c-active); }
+[data-theme="dark"] .bg-\[\#e5e7eb\]  { background-color: var(--c-border); }
+[data-theme="dark"] .bg-\[\#d1d5dc\]  { background-color: var(--c-border); }
+[data-theme="dark"] .bg-gray-50        { background-color: var(--c-hover); }
+[data-theme="dark"] .bg-gray-100      { background-color: var(--c-active); }
+[data-theme="dark"] .bg-gray-200      { background-color: var(--c-border); }
+[data-theme="dark"] .bg-\[\#dbeafe\]  { background-color: #1e3a5f; }
+[data-theme="dark"] .bg-green-100     { background-color: #14532d; }
+
+/* ── Text utilities ── */
+[data-theme="dark"] .text-\[\#0a0a0a\],
+[data-theme="dark"] .text-\[\#333\],
+[data-theme="dark"] .text-\[\#404040\],
+[data-theme="dark"] .text-\[\#1a2332\],
+[data-theme="dark"] .text-\[\#1e2939\] { color: var(--c-text-1); }
+
+[data-theme="dark"] .text-\[\#444\],
+[data-theme="dark"] .text-\[\#525252\],
+[data-theme="dark"] .text-\[\#4a5565\],
+[data-theme="dark"] .text-\[\#3a4a5a\] { color: var(--c-text-2); }
+
+[data-theme="dark"] .text-\[\#6a7282\],
+[data-theme="dark"] .text-\[\#777\],
+[data-theme="dark"] .text-gray-600,
+[data-theme="dark"] .text-gray-700  { color: var(--c-text-3); }
+
+[data-theme="dark"] .text-\[\#9ca3af\],
+[data-theme="dark"] .text-gray-500  { color: var(--c-text-4); }
+[data-theme="dark"] .text-gray-400  { color: var(--c-text-3); }
+
+/* ── Border utilities ── */
+[data-theme="dark"] .border-\[\#d1d5dc\] { border-color: var(--c-border); }
+[data-theme="dark"] .border-\[\#e5e7eb\] { border-color: var(--c-border-lt); }
+[data-theme="dark"] .border-\[\#f1f5f9\] { border-color: var(--c-border-lt); }
+[data-theme="dark"] .border-\[\#f3f4f6\] { border-color: var(--c-border-lt); }
+[data-theme="dark"] .border-gray-100,
+[data-theme="dark"] .border-gray-200  { border-color: var(--c-border-lt); }
+[data-theme="dark"] .divide-\[\#e5e7eb\] > :not(:last-child) { border-color: var(--c-border-lt); }
+[data-theme="dark"] .divide-\[\#d1d5dc\] > :not(:last-child) { border-color: var(--c-border); }
+[data-theme="dark"] .divide-y > :not(:last-child)             { border-color: var(--c-border-lt); }
+
+/* ── Hover states ── */
+[data-theme="dark"] .hover\:bg-\[\#f1f5f9\]:hover { background-color: var(--c-hover); }
+[data-theme="dark"] .hover\:bg-\[\#d1d5dc\]:hover  { background-color: var(--c-active); }
+[data-theme="dark"] .hover\:bg-gray-50:hover        { background-color: var(--c-hover); }
+
+/* ── Inputs & selects ── */
+[data-theme="dark"] input:not([type="radio"]):not([type="checkbox"]):not([type="range"]),
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background: var(--c-raised);
+  color: var(--c-text-1);
+  border-color: var(--c-border);
+}
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder { color: var(--c-text-2); }
+
+/* ── Profile dropdown internals ── */
+[data-theme="dark"] #profile-main,
+[data-theme="dark"] #profile-theme-panel { background: var(--c-raised); }
+
+/* ── Avatar icon ── */
+[data-theme="dark"] button[aria-label="User profile"] i { color: #92400e; }
+
+/* ── Filter: add-filter button ── */
+[data-theme="dark"] #btn-add-filter { border-color: var(--c-border); }
+[data-theme="dark"] #btn-add-filter:hover { background: var(--c-hover); }
+
+/* ── Scrollbar (WebKit) ── */
+[data-theme="dark"] ::-webkit-scrollbar       { background: var(--c-surface); width: 6px; height: 6px; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 3px; }

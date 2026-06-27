@@ -20,8 +20,8 @@
       if (tc && tc !== 'default') document.documentElement.setAttribute('data-topnav-color', tc)
     })()
   </script>
-  <script type="module" crossorigin src="./assets/main-CSs-gKJj.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-DRUQkn2r.css">
+  <script type="module" crossorigin src="./assets/main-Dalutmjx.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-Bdfkw5Bv.css">
 </head>
 <body class="flex flex-col h-screen overflow-hidden bg-white font-sans">
 
@@ -175,7 +175,7 @@
     </div>
 
     <!-- Main content (toolbar + body) -->
-    <div class="flex flex-col flex-1 overflow-hidden bg-[#f7f9fa]">
+    <div id="content-col" class="flex flex-col flex-1 overflow-hidden bg-[#f7f9fa]">
 
       <!-- Toolbar -->
       <header class="bg-[#f7f9fa] h-[55px] flex items-center gap-2 px-5 shrink-0" role="toolbar" aria-label="Page toolbar">
@@ -649,7 +649,8 @@
                   <i class="fa-solid fa-chevron-right text-[#9ca3af] text-xs" aria-hidden="true"></i>
                 </button>
                 <!-- Go to customer portal -->
-                <a href="#" class="px-4 py-3 flex items-center hover:bg-[#f1f5f9] transition-colors no-underline border-b border-[#e5e7eb]">
+                <a href="#" class="px-4 py-3 flex items-center gap-3 hover:bg-[#f1f5f9] transition-colors no-underline border-b border-[#e5e7eb]">
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[#6a7282] text-sm w-4 text-center" aria-hidden="true"></i>
                   <span class="text-xs text-[#333]">Go to customer portal</span>
                 </a>
                 <!-- Schedule out of office -->
@@ -792,37 +793,37 @@
                       <span class="swatch-circle w-8 h-8 rounded-full bg-[#f7f9fa] border-2 border-[#d1d5dc] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
                       <span class="text-[10px] text-[#6a7282]">Default</span>
                     </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="blue" aria-label="Blue">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#1e40af] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Blue</span>
-                    </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="green" aria-label="Green">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#16a34a] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Green</span>
-                    </button>
                     <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="black" aria-label="Black">
                       <span class="swatch-circle w-8 h-8 rounded-full bg-[#111827] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
                       <span class="text-[10px] text-[#6a7282]">Black</span>
                     </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="purple" aria-label="Purple">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#7c3aed] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Purple</span>
-                    </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="yellow" aria-label="Yellow">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ffce1b] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Yellow</span>
-                    </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="red" aria-label="Red">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#dc2626] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Red</span>
-                    </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="orange" aria-label="Orange">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ea580c] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Orange</span>
-                    </button>
                     <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="white" aria-label="White">
                       <span class="swatch-circle w-8 h-8 rounded-full bg-white border-2 border-[#d1d5dc] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
                       <span class="text-[10px] text-[#6a7282]">White</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="blue" aria-label="Blue">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#dbeafe] border-2 border-[#bfdbfe] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Blue</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="green" aria-label="Green">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#dcfce7] border-2 border-[#bbf7d0] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Green</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="red" aria-label="Red">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#fee2e2] border-2 border-[#fecaca] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Red</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="purple" aria-label="Purple">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#f3e8ff] border-2 border-[#e9d5ff] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Purple</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="orange" aria-label="Orange">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ffedd5] border-2 border-[#fed7aa] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Orange</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="sidebar" data-color="yellow" aria-label="Yellow">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#fef9c3] border-2 border-[#fde68a] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Yellow</span>
                     </button>
                   </div>
                 </div>
@@ -836,37 +837,37 @@
                       <span class="swatch-circle w-8 h-8 rounded-full bg-[#f7f9fa] border-2 border-[#d1d5dc] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
                       <span class="text-[10px] text-[#6a7282]">Default</span>
                     </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="blue" aria-label="Blue">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#1e40af] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Blue</span>
-                    </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="green" aria-label="Green">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#16a34a] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Green</span>
-                    </button>
                     <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="black" aria-label="Black">
                       <span class="swatch-circle w-8 h-8 rounded-full bg-[#111827] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
                       <span class="text-[10px] text-[#6a7282]">Black</span>
                     </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="purple" aria-label="Purple">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#7c3aed] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Purple</span>
-                    </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="yellow" aria-label="Yellow">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ffce1b] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Yellow</span>
-                    </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="red" aria-label="Red">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#dc2626] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Red</span>
-                    </button>
-                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="orange" aria-label="Orange">
-                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ea580c] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-white opacity-0" aria-hidden="true"></i></span>
-                      <span class="text-[10px] text-[#6a7282]">Orange</span>
-                    </button>
                     <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="white" aria-label="White">
                       <span class="swatch-circle w-8 h-8 rounded-full bg-white border-2 border-[#d1d5dc] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
                       <span class="text-[10px] text-[#6a7282]">White</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="blue" aria-label="Blue">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#dbeafe] border-2 border-[#bfdbfe] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Blue</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="green" aria-label="Green">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#dcfce7] border-2 border-[#bbf7d0] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Green</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="red" aria-label="Red">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#fee2e2] border-2 border-[#fecaca] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Red</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="purple" aria-label="Purple">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#f3e8ff] border-2 border-[#e9d5ff] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Purple</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="orange" aria-label="Orange">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#ffedd5] border-2 border-[#fed7aa] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Orange</span>
+                    </button>
+                    <button class="color-swatch flex flex-col items-center gap-1.5" data-target="topnav" data-color="yellow" aria-label="Yellow">
+                      <span class="swatch-circle w-8 h-8 rounded-full bg-[#fef9c3] border-2 border-[#fde68a] flex items-center justify-center"><i class="fa-solid fa-check text-[9px] text-[#333] opacity-0" aria-hidden="true"></i></span>
+                      <span class="text-[10px] text-[#6a7282]">Yellow</span>
                     </button>
                   </div>
                 </div>
@@ -878,7 +879,7 @@
       </header>
 
       <!-- Content body: views panel (inside) + ticket area -->
-      <div id="main-content" role="main" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-tr-[10px]">
+      <div id="main-content" role="main" class="relative flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-t-[10px]">
 
         <!-- Views panel — opens INSIDE content when filter icon clicked -->
         <div id="views-panel" role="region" aria-label="Ticket views" class="w-72 bg-white border-r border-gray-100 flex flex-col shrink-0 overflow-hidden hidden">

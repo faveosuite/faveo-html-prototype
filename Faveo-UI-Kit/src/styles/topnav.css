@@ -1,0 +1,27 @@
+/* ── Top navigation & toolbar styles ── */
+
+@layer components {
+  /* Toolbar dropdown toggle — highlighted while open */
+  [data-toggle="dropdown"].dropdown-open {
+    border: 1px solid var(--c-border);
+    background: var(--c-hover);
+  }
+
+  /* Search tab active state */
+  .search-tab-active {
+    background: var(--c-active);
+    border-color: var(--c-border);
+  }
+}
+
+/* Notifications dropdown: full-width on mobile */
+@media (max-width: 639px) {
+  #notifications-dropdown {
+    position: fixed;
+    left: 0.5rem; right: 0.5rem;
+    top: auto;
+    width: auto;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}

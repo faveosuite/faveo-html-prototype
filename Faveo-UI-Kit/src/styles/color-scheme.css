@@ -1,0 +1,79 @@
+/* ══════════════════════════════════════════════════════════════
+   NAV COLOR THEMES — sidebar and topnav are independent
+   data-sidebar-color on <html>  →  #sidebar + #sidebar-expanded + #content-col
+   data-topnav-color  on <html>  →  header
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Sidebar background ── */
+html[data-sidebar-color="black"]  #sidebar, html[data-sidebar-color="black"]  #sidebar-expanded, html[data-sidebar-color="black"]  #content-col { background: #111827; }
+html[data-sidebar-color="white"]  #sidebar, html[data-sidebar-color="white"]  #sidebar-expanded, html[data-sidebar-color="white"]  #content-col { background: #ffffff; }
+html[data-sidebar-color="blue"]   #sidebar, html[data-sidebar-color="blue"]   #sidebar-expanded, html[data-sidebar-color="blue"]   #content-col { background: #dbeafe; }
+html[data-sidebar-color="green"]  #sidebar, html[data-sidebar-color="green"]  #sidebar-expanded, html[data-sidebar-color="green"]  #content-col { background: #dcfce7; }
+html[data-sidebar-color="red"]    #sidebar, html[data-sidebar-color="red"]    #sidebar-expanded, html[data-sidebar-color="red"]    #content-col { background: #ffe9ee; }
+html[data-sidebar-color="purple"] #sidebar, html[data-sidebar-color="purple"] #sidebar-expanded, html[data-sidebar-color="purple"] #content-col { background: #f3e8ff; }
+html[data-sidebar-color="orange"] #sidebar, html[data-sidebar-color="orange"] #sidebar-expanded, html[data-sidebar-color="orange"] #content-col { background: #ffedd5; }
+html[data-sidebar-color="yellow"] #sidebar, html[data-sidebar-color="yellow"] #sidebar-expanded, html[data-sidebar-color="yellow"] #content-col { background: #fef9c3; }
+
+/* ── Sidebar nav: black → white text ── */
+html[data-sidebar-color="black"] .sidebar-nav { color: rgba(255,255,255,0.7); }
+html[data-sidebar-color="black"] .sidebar-nav:hover  { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.95); }
+html[data-sidebar-color="black"] .sidebar-nav.active { background: rgba(255,255,255,0.22); color: #fff; }
+html[data-sidebar-color="black"] #sidebar .bg-gray-200,
+html[data-sidebar-color="black"] #sidebar-expanded .bg-gray-200 { background-color: rgba(255,255,255,0.15); }
+
+/* ── Sidebar nav: light colors → dark text ── */
+html[data-sidebar-color="blue"] .sidebar-nav,
+html[data-sidebar-color="green"] .sidebar-nav,
+html[data-sidebar-color="red"] .sidebar-nav,
+html[data-sidebar-color="purple"] .sidebar-nav,
+html[data-sidebar-color="orange"] .sidebar-nav,
+html[data-sidebar-color="yellow"] .sidebar-nav { color: rgba(0,0,0,0.6); }
+
+html[data-sidebar-color="blue"] .sidebar-nav:hover,
+html[data-sidebar-color="green"] .sidebar-nav:hover,
+html[data-sidebar-color="red"] .sidebar-nav:hover,
+html[data-sidebar-color="purple"] .sidebar-nav:hover,
+html[data-sidebar-color="orange"] .sidebar-nav:hover,
+html[data-sidebar-color="yellow"] .sidebar-nav:hover { background: rgba(0,0,0,0.06); color: rgba(0,0,0,0.9); }
+
+html[data-sidebar-color="blue"] .sidebar-nav.active,
+html[data-sidebar-color="green"] .sidebar-nav.active,
+html[data-sidebar-color="red"] .sidebar-nav.active,
+html[data-sidebar-color="purple"] .sidebar-nav.active,
+html[data-sidebar-color="orange"] .sidebar-nav.active,
+html[data-sidebar-color="yellow"] .sidebar-nav.active { background: rgba(0,0,0,0.10); color: #000; }
+
+html[data-sidebar-color="blue"] #sidebar .bg-gray-200,    html[data-sidebar-color="blue"] #sidebar-expanded .bg-gray-200,
+html[data-sidebar-color="green"] #sidebar .bg-gray-200,   html[data-sidebar-color="green"] #sidebar-expanded .bg-gray-200,
+html[data-sidebar-color="red"] #sidebar .bg-gray-200,     html[data-sidebar-color="red"] #sidebar-expanded .bg-gray-200,
+html[data-sidebar-color="purple"] #sidebar .bg-gray-200,  html[data-sidebar-color="purple"] #sidebar-expanded .bg-gray-200,
+html[data-sidebar-color="orange"] #sidebar .bg-gray-200,  html[data-sidebar-color="orange"] #sidebar-expanded .bg-gray-200,
+html[data-sidebar-color="yellow"] #sidebar .bg-gray-200,  html[data-sidebar-color="yellow"] #sidebar-expanded .bg-gray-200 { background-color: rgba(0,0,0,0.08); }
+
+/* ── Top navigation background ── */
+html[data-topnav-color="black"]  header { background: #111827; }
+html[data-topnav-color="white"]  header { background: #ffffff; }
+html[data-topnav-color="blue"]   header { background: #dbeafe; }
+html[data-topnav-color="green"]  header { background: #dcfce7; }
+html[data-topnav-color="red"]    header { background: #ffe9ee; }
+html[data-topnav-color="purple"] header { background: #f3e8ff; }
+html[data-topnav-color="orange"] header { background: #ffedd5; }
+html[data-topnav-color="yellow"] header { background: #fef9c3; }
+
+/* ── Sidebar adaptive text ── */
+html[data-sidebar-color="black"] .sidebar-adaptive { color: rgba(255,255,255,0.85); }
+html[data-sidebar-color="blue"] .sidebar-adaptive,
+html[data-sidebar-color="green"] .sidebar-adaptive,
+html[data-sidebar-color="red"] .sidebar-adaptive,
+html[data-sidebar-color="purple"] .sidebar-adaptive,
+html[data-sidebar-color="orange"] .sidebar-adaptive,
+html[data-sidebar-color="yellow"] .sidebar-adaptive { color: rgba(0,0,0,0.7); }
+
+/* ── Topnav adaptive text ── */
+html[data-topnav-color="black"] .topnav-adaptive { color: rgba(255,255,255,0.9); }
+html[data-topnav-color="blue"] .topnav-adaptive,
+html[data-topnav-color="green"] .topnav-adaptive,
+html[data-topnav-color="red"] .topnav-adaptive,
+html[data-topnav-color="purple"] .topnav-adaptive,
+html[data-topnav-color="orange"] .topnav-adaptive,
+html[data-topnav-color="yellow"] .topnav-adaptive { color: rgba(0,0,0,0.75); }

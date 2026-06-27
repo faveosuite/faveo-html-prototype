@@ -1,0 +1,74 @@
+/* ── Shared UI components ── */
+
+@layer components {
+  /* Views panel section header */
+  .view-section-header {
+    @apply flex items-center justify-between p-2.5 rounded-[10px]
+           text-sm font-semibold cursor-pointer w-full border-none
+           outline-none transition-colors duration-150;
+    background: var(--c-surface);
+    color: var(--c-text-1);
+  }
+  .view-section-header:hover { background: var(--c-hover); }
+
+  /* Views panel item */
+  .view-item {
+    @apply flex items-center gap-2.5 h-9 px-2.5 rounded-[10px]
+           text-sm font-normal no-underline w-full transition-colors duration-150;
+    background: var(--c-surface);
+    color: var(--c-text-3);
+  }
+  .view-item:hover  { background: var(--c-hover); }
+  .view-item.active { background: var(--c-active); color: var(--c-text-2); }
+
+  /* Filter panel selects */
+  .filter-select {
+    @apply w-full rounded-[6px] px-3 text-xs outline-none cursor-pointer;
+    height: 37px;
+    appearance: none;
+    border: 1px solid var(--c-border);
+    background-color: var(--c-surface);
+    color: var(--c-text-3);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236a7282' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
+  /* Toggle switch */
+  .toggle-switch { position: relative; display: inline-block; width: 36px; height: 18px; flex-shrink: 0; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+  .toggle-slider {
+    position: absolute; inset: 0; background: var(--c-active); border-radius: 50px; cursor: pointer;
+    box-shadow: inset 0 4px 6px 2px rgba(0,0,0,0.1); transition: background 0.2s;
+  }
+  .toggle-slider::after {
+    content: ''; position: absolute; width: 14px; height: 14px; left: 2px; top: 2px;
+    background: white; border-radius: 50%; box-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+    transition: transform 0.2s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: var(--c-brand); }
+  .toggle-switch input:checked + .toggle-slider::after { transform: translateX(18px); }
+
+  /* Profile menu theme radio */
+  .theme-radio {
+    appearance: none; width: 20px; height: 20px; border-radius: 50%;
+    border: 1.7px solid var(--c-border); background: var(--c-surface);
+    cursor: pointer; flex-shrink: 0; transition: border-color 0.15s, border-width 0.15s;
+  }
+  .theme-radio:checked { border: 6px solid var(--c-brand); }
+
+  /* Color scheme swatch active state */
+  .color-swatch .swatch-circle { transition: box-shadow 0.15s; }
+  .color-swatch.swatch-active .swatch-circle { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #3da6d7; }
+  .color-swatch.swatch-active .swatch-circle i { opacity: 1 !important; }
+}
+
+/* Filter panel: overlay from right on mobile/tablet */
+@media (max-width: 1279px) {
+  #filter-aside:not(.hidden) {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    z-index: 30;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.18);
+  }
+}
