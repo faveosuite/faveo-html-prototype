@@ -116,21 +116,22 @@
              alt="Faveo" class="max-w-[50px] max-h-[31px] object-contain" />
       </div>
       <div class="sidebar-scroll flex flex-col w-full items-center pt-[10px] gap-y-[10px] flex-1 overflow-y-auto">
-        <button class="sidebar-nav" data-nav="dashboard" title="AI Insights" aria-label="AI Insights"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="views" title="Dashboard" aria-label="Dashboard"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="tickets" title="Tickets" aria-label="Tickets"><i class="fa-solid fa-ticket" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="contacts" title="Contacts" aria-label="Contacts"><i class="fa-solid fa-users" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="chat" title="Chat" aria-label="Chat"><i class="fa-solid fa-comment" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="kb" title="Solutions" aria-label="Solutions"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="tasks" title="Tasks" aria-label="Tasks"><i class="fa-solid fa-list-check" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="automations" title="Automations" aria-label="Automations"><i class="fa-solid fa-bolt" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="canned" title="Canned Responses" aria-label="Canned Responses"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="sla" title="SLA" aria-label="SLA"><i class="fa-solid fa-clock" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="reports" title="Reporting" aria-label="Reporting"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="agents" title="AI Agent Studio" aria-label="AI Agent Studio"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="analytics" title="Analytics" aria-label="Analytics"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="survey" title="Survey / CSAT" aria-label="Survey / CSAT"><i class="fa-solid fa-star" aria-hidden="true"></i></button>
-        <button class="sidebar-nav" data-nav="admin" title="Admin" aria-label="Admin"><i class="fa-solid fa-gear" aria-hidden="true"></i></button>
+        <button class="sidebar-nav" data-nav="nav-dashboard" title="Dashboard" aria-label="Dashboard"><i class="fas fa-tachometer-alt" aria-hidden="true"></i></button>
+        <a class="sidebar-nav" href="pages/widgets.html" title="Widgets" aria-label="Widgets"><i class="fas fa-th" aria-hidden="true"></i></a>
+        <button class="sidebar-nav" data-nav="nav-layout" title="Layout Options" aria-label="Layout Options"><i class="fas fa-copy" aria-hidden="true"></i></button>
+        <button class="sidebar-nav" data-nav="nav-charts" title="Charts" aria-label="Charts"><i class="fas fa-chart-pie" aria-hidden="true"></i></button>
+        <button class="sidebar-nav" data-nav="nav-ui" title="UI Elements" aria-label="UI Elements"><i class="fas fa-tree" aria-hidden="true"></i></button>
+        <button class="sidebar-nav" data-nav="nav-forms" title="Forms" aria-label="Forms"><i class="fas fa-edit" aria-hidden="true"></i></button>
+        <button class="sidebar-nav" data-nav="nav-tables" title="Tables" aria-label="Tables"><i class="fas fa-table" aria-hidden="true"></i></button>
+        <a class="sidebar-nav" href="pages/calendar.html" title="Calendar" aria-label="Calendar"><i class="far fa-calendar-alt" aria-hidden="true"></i></a>
+        <a class="sidebar-nav" href="pages/gallery.html" title="Gallery" aria-label="Gallery"><i class="far fa-image" aria-hidden="true"></i></a>
+        <a class="sidebar-nav" href="pages/kanban.html" title="Kanban Board" aria-label="Kanban Board"><i class="fas fa-columns" aria-hidden="true"></i></a>
+        <button class="sidebar-nav" data-nav="nav-mailbox" title="Mailbox" aria-label="Mailbox"><i class="far fa-envelope" aria-hidden="true"></i></button>
+        <button class="sidebar-nav" data-nav="nav-pages" title="Pages" aria-label="Pages"><i class="fas fa-book" aria-hidden="true"></i></button>
+        <button class="sidebar-nav" data-nav="nav-extras" title="Extras" aria-label="Extras"><i class="far fa-plus-square" aria-hidden="true"></i></button>
+        <button class="sidebar-nav" data-nav="nav-search" title="Search" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
+        <a class="sidebar-nav" href="pages/iframe.html" title="Tabbed IFrame Plugin" aria-label="Tabbed IFrame Plugin"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></a>
+        <a class="sidebar-nav" href="pages/documentation.html" title="Documentation" aria-label="Documentation"><i class="fas fa-file" aria-hidden="true"></i></a>
       </div>
       <div class="mt-auto flex flex-col items-center w-full">
         <div class="w-[49px] border-t border-gray-200 my-2"></div>
@@ -149,21 +150,28 @@
         <span id="sidebar-logo-fallback" class="hidden text-[#3a4a5a] text-[19px] font-semibold leading-none whitespace-nowrap sidebar-adaptive">Support Center</span>
       </div>
       <div class="sidebar-scroll flex flex-col flex-1 overflow-y-auto px-3 gap-y-[10px] pt-[10px]">
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="dashboard" aria-label="AI Insights"><i class="fa-solid fa-wand-magic-sparkles w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">AI Insights</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="views" aria-label="Dashboard"><i class="fa-solid fa-gauge-high w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Dashboard</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="tickets" aria-label="Tickets"><i class="fa-solid fa-ticket w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Tickets</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="contacts" aria-label="Contacts"><i class="fa-solid fa-users w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Contacts</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="chat" aria-label="Chat"><i class="fa-solid fa-comment w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Chat</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="kb" aria-label="Solutions"><i class="fa-solid fa-lightbulb w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Solutions</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="tasks" aria-label="Tasks"><i class="fa-solid fa-list-check w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Tasks</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="automations" aria-label="Automations"><i class="fa-solid fa-bolt w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Automations</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="canned" aria-label="Canned Responses"><i class="fa-solid fa-comment-dots w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Canned Responses</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="sla" aria-label="SLA"><i class="fa-solid fa-clock w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">SLA</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="reports" aria-label="Reporting"><i class="fa-solid fa-clipboard-list w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Reporting</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="agents" aria-label="AI Agent Studio"><i class="fa-solid fa-user-plus w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">AI Agent Studio</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="analytics" aria-label="Analytics"><i class="fa-solid fa-chart-line w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Analytics</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="survey" aria-label="Survey / CSAT"><i class="fa-solid fa-star w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Survey / CSAT</span></button>
-        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="admin" aria-label="Admin"><i class="fa-solid fa-gear w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Admin</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-dashboard" aria-label="Dashboard"><i class="fas fa-tachometer-alt w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Dashboard</span></button>
+        <a class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" href="pages/widgets.html" aria-label="Widgets"><i class="fas fa-th w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Widgets</span></a>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-layout" aria-label="Layout Options"><i class="fas fa-copy w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Layout Options</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-charts" aria-label="Charts"><i class="fas fa-chart-pie w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Charts</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-ui" aria-label="UI Elements"><i class="fas fa-tree w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">UI Elements</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-forms" aria-label="Forms"><i class="fas fa-edit w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Forms</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-tables" aria-label="Tables"><i class="fas fa-table w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Tables</span></button>
+        <p class="px-[10px] pt-1 pb-0 text-[10px] font-semibold uppercase tracking-wider text-[#99a1af]">Examples</p>
+        <a class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" href="pages/calendar.html" aria-label="Calendar"><i class="far fa-calendar-alt w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Calendar</span></a>
+        <a class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" href="pages/gallery.html" aria-label="Gallery"><i class="far fa-image w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Gallery</span></a>
+        <a class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" href="pages/kanban.html" aria-label="Kanban Board"><i class="fas fa-columns w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Kanban Board</span></a>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-mailbox" aria-label="Mailbox"><i class="far fa-envelope w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Mailbox</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-pages" aria-label="Pages"><i class="fas fa-book w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Pages</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-extras" aria-label="Extras"><i class="far fa-plus-square w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Extras</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="nav-search" aria-label="Search"><i class="fas fa-search w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Search</span></button>
+        <p class="px-[10px] pt-1 pb-0 text-[10px] font-semibold uppercase tracking-wider text-[#99a1af]">Miscellaneous</p>
+        <a class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" href="pages/iframe.html" aria-label="Tabbed IFrame Plugin"><i class="fas fa-ellipsis-h w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Tabbed IFrame Plugin</span></a>
+        <a class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" href="pages/documentation.html" aria-label="Documentation"><i class="fas fa-file w-[41px] text-center shrink-0 text-[16px]" aria-hidden="true"></i><span class="whitespace-nowrap">Documentation</span></a>
+        <p class="px-[10px] pt-1 pb-0 text-[10px] font-semibold uppercase tracking-wider text-[#99a1af]">Labels</p>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" aria-label="Important"><i class="far fa-circle w-[41px] text-center shrink-0 text-[16px] text-[#dc2626]" aria-hidden="true"></i><span class="whitespace-nowrap">Important</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" aria-label="Warning"><i class="far fa-circle w-[41px] text-center shrink-0 text-[16px] text-[#d97706]" aria-hidden="true"></i><span class="whitespace-nowrap">Warning</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" aria-label="Informational"><i class="far fa-circle w-[41px] text-center shrink-0 text-[16px] text-[#2563eb]" aria-hidden="true"></i><span class="whitespace-nowrap">Informational</span></button>
       </div>
       <div class="px-3 mt-auto">
         <div class="border-t border-gray-200 my-2"></div>
@@ -1779,6 +1787,82 @@
     <button class="submenu-item">Email Settings</button>
     <button class="submenu-item">Plugins</button>
     <button class="submenu-item">Integrations</button>
+  </div>
+  <div id="submenu-nav-dashboard" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/dashboard/v1.html">Dashboard v1</a>
+    <a class="submenu-item" href="pages/dashboard/v2.html">Dashboard v2</a>
+    <a class="submenu-item" href="pages/dashboard/v3.html">Dashboard v3</a>
+  </div>
+  <div id="submenu-nav-layout" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/layout/top-navigation.html">Top Navigation</a>
+    <a class="submenu-item" href="pages/layout/top-nav-sidebar.html">Top Navigation + Sidebar</a>
+    <a class="submenu-item" href="pages/layout/boxed.html">Boxed</a>
+    <a class="submenu-item" href="pages/layout/fixed-sidebar.html">Fixed Sidebar</a>
+    <a class="submenu-item" href="pages/layout/fixed-sidebar-custom.html">Fixed Sidebar + Custom Area</a>
+    <a class="submenu-item" href="pages/layout/fixed-navbar.html">Fixed Navbar</a>
+    <a class="submenu-item" href="pages/layout/fixed-footer.html">Fixed Footer</a>
+    <a class="submenu-item" href="pages/layout/sidebar-collapsed.html">Collapsed Sidebar</a>
+  </div>
+  <div id="submenu-nav-charts" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/charts/chartjs.html">ChartJS</a>
+    <a class="submenu-item" href="pages/charts/flot.html">Flot</a>
+    <a class="submenu-item" href="pages/charts/inline.html">Inline</a>
+    <a class="submenu-item" href="pages/charts/uplot.html">uPlot</a>
+  </div>
+  <div id="submenu-nav-ui" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/ui/general.html">General</a>
+    <a class="submenu-item" href="pages/ui/icons.html">Icons</a>
+    <a class="submenu-item" href="pages/ui/buttons.html">Buttons</a>
+    <a class="submenu-item" href="pages/ui/sliders.html">Sliders</a>
+    <a class="submenu-item" href="pages/ui/modals.html">Modals &amp; Alerts</a>
+    <a class="submenu-item" href="pages/ui/navbar-tabs.html">Navbar &amp; Tabs</a>
+    <a class="submenu-item" href="pages/ui/timeline.html">Timeline</a>
+    <a class="submenu-item" href="pages/ui/ribbons.html">Ribbons</a>
+  </div>
+  <div id="submenu-nav-forms" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/forms/general.html">General Elements</a>
+    <a class="submenu-item" href="pages/forms/advanced.html">Advanced Elements</a>
+    <a class="submenu-item" href="pages/forms/editors.html">Editors</a>
+    <a class="submenu-item" href="pages/forms/validation.html">Validation</a>
+  </div>
+  <div id="submenu-nav-tables" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/tables/simple.html">Simple Tables</a>
+    <a class="submenu-item" href="pages/tables/datatables.html">DataTables</a>
+    <a class="submenu-item" href="pages/tables/jsgrid.html">jsGrid</a>
+  </div>
+  <div id="submenu-nav-mailbox" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/mailbox/inbox.html">Inbox</a>
+    <a class="submenu-item" href="pages/mailbox/compose.html">Compose</a>
+    <a class="submenu-item" href="pages/mailbox/read.html">Read</a>
+  </div>
+  <div id="submenu-nav-pages" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/pages/invoice.html">Invoice</a>
+    <a class="submenu-item" href="pages/pages/profile.html">Profile</a>
+    <a class="submenu-item" href="pages/pages/ecommerce.html">E-commerce</a>
+    <a class="submenu-item" href="pages/pages/projects.html">Projects</a>
+    <a class="submenu-item" href="pages/pages/project-add.html">Project Add</a>
+    <a class="submenu-item" href="pages/pages/project-edit.html">Project Edit</a>
+    <a class="submenu-item" href="pages/pages/project-detail.html">Project Detail</a>
+    <a class="submenu-item" href="pages/pages/contacts.html">Contacts</a>
+    <a class="submenu-item" href="pages/pages/faq.html">FAQ</a>
+    <a class="submenu-item" href="pages/pages/contact-us.html">Contact us</a>
+  </div>
+  <div id="submenu-nav-extras" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/extras/login-v1.html">Login v1</a>
+    <a class="submenu-item" href="pages/extras/register-v1.html">Register v1</a>
+    <a class="submenu-item" href="pages/extras/forgot-password-v1.html">Forgot Password v1</a>
+    <a class="submenu-item" href="pages/extras/login-v2.html">Login v2</a>
+    <a class="submenu-item" href="pages/extras/register-v2.html">Register v2</a>
+    <a class="submenu-item" href="pages/extras/forgot-password-v2.html">Forgot Password v2</a>
+    <a class="submenu-item" href="pages/extras/lockscreen.html">Lockscreen</a>
+    <a class="submenu-item" href="pages/extras/error-404.html">Error 404</a>
+    <a class="submenu-item" href="pages/extras/error-500.html">Error 500</a>
+    <a class="submenu-item" href="pages/extras/blank.html">Blank Page</a>
+    <a class="submenu-item" href="pages/extras/starter-page.html">Starter Page</a>
+  </div>
+  <div id="submenu-nav-search" class="nav-submenu-panel hidden">
+    <a class="submenu-item" href="pages/search/simple.html">Simple Search</a>
+    <a class="submenu-item" href="pages/search/enhanced.html">Enhanced</a>
   </div>
 
   <!-- Footer -->

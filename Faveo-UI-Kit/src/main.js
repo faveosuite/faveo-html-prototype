@@ -10,10 +10,11 @@ import './js/profile.js'
 import './js/filters.js'
 import './js/renew.js'
 import './js/ticket-dropdowns.js'
-
 import $ from 'jquery'
 import { renderViews } from './js/views.js'
 
-// Default active nav on load
-$('.sidebar-nav[data-nav="tickets"]').addClass('active')
-renderViews('tickets')
+// Default active nav on load (tickets inbox only)
+if ($('ul[aria-label="Ticket list"]').length) {
+  $('.sidebar-nav[data-nav="tickets"]').addClass('active')
+  renderViews('tickets')
+}

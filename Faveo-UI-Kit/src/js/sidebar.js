@@ -16,7 +16,10 @@ function showSubmenu($el, navKey) {
   const r = $el[0].getBoundingClientRect()
   const $panel = $('#sidebar-expanded').hasClass('hidden') ? $('#sidebar') : $('#sidebar-expanded')
   const panelRight = $panel[0].getBoundingClientRect().right
-  $menu.css({ left: panelRight, top: r.top }).removeClass('hidden')
+  $menu.css({ left: panelRight, top: r.top, visibility: 'hidden' }).removeClass('hidden')
+  const menuH = $menu[0].offsetHeight
+  const top = Math.min(r.top, window.innerHeight - menuH - 8)
+  $menu.css({ top: Math.max(8, top), visibility: '' })
   _$activeSubmenu = $menu
 }
 

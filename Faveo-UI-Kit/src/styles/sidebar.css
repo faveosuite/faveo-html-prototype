@@ -21,6 +21,8 @@
     padding: 6px;
     z-index: 300;
     min-width: 170px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
   }
   .submenu-item {
     display: block;
@@ -34,6 +36,7 @@
     border: none;
     background: transparent;
     text-align: left;
+    text-decoration: none;
     transition: background 0.15s;
   }
   .submenu-item:hover { background: var(--c-hover); }
