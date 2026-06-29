@@ -39,7 +39,8 @@
     text-decoration: none;
     transition: background 0.15s;
   }
-  .submenu-item:hover { background: var(--c-hover); }
+  .submenu-item:hover  { background: var(--c-hover); }
+  .submenu-item.active { background: var(--c-active); }
 }
 
 /* Expanded sidebar drop shadow */
