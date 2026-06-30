@@ -13,13 +13,23 @@ $(document).on('click', '[data-toggle="dropdown"]', function (e) {
   $('#search-overlay').addClass('hidden')
   const $menu = $($(this).data('target'))
   // Close every other open dropdown and remove their active highlight
+  // Skip menus marked data-persistent — they only close via their own toggle
   $('[data-toggle="dropdown"]').not(this).each(function () {
-    $($(this).data('target')).addClass('hidden')
+    const $otherMenu = $($(this).data('target'))
+    if ($otherMenu.is('[data-persistent]')) return
+    $otherMenu.addClass('hidden')
     $(this).removeClass('dropdown-open')
   })
   $menu.toggleClass('hidden')
-  $(this).toggleClass('dropdown-open', !$menu.hasClass('hidden'))
-  $(this).attr('aria-expanded', !$menu.hasClass('hidden') ? 'true' : 'false')
+  const isOpen = !$menu.hasClass('hidden')
+  $(this).toggleClass('dropdown-open', isOpen)
+  $(this).attr('aria-expanded', isOpen ? 'true' : 'false')
+  // Optional icon swap: data-icon-open / data-icon-closed on the button
+  const iconOpen   = $(this).data('iconOpen')
+  const iconClosed = $(this).data('iconClosed')
+  if (iconOpen && iconClosed) {
+    $(this).find('i').toggleClass(iconOpen, isOpen).toggleClass(iconClosed, !isOpen)
+  }
 })
 
 // Click outside the toggle button → close
@@ -88,6 +98,35 @@ $(document).on('click', '[data-toggle="tab"]', function () {
 // Mobile menu — directly toggles sidebar-expanded overlay
 $(document).on('click', '#btn-mobile-menu', function () {
   $('#sidebar-expanded').toggleClass('hidden')
+})
+
+// ── Side-panel toggle (multiple triggers → one target) ────────────
+// Usage: <button data-toggle="panel" data-target="#panel-id">
+// Any number of buttons may target the same panel.
+$(document).on('click', '[data-toggle="panel"]', function () {
+  var target   = $(this).data('target')
+  var $panel   = $(target)
+  var opening  = $panel.hasClass('hidden')
+  $panel.toggleClass('hidden', !opening)
+  // Toggle companion strip (e.g. collapsed placeholder), if declared on the panel
+  var companion = $panel.data('companion')
+  if (companion) {
+    $(companion).toggleClass('hidden', opening).toggleClass('flex', !opening)
+  }
+  $('[data-toggle="panel"][data-target="' + target + '"]').attr('aria-expanded', opening ? 'true' : 'false')
+})
+
+// ── Contact info panel accordion ──────────────────────────────────
+// Usage: <button data-acc-toggle data-acc-target="#csec-foo">
+//        <div id="csec-foo" class="hidden">...</div>
+$(document).on('click', '[data-acc-toggle]', function () {
+  var $btn     = $(this)
+  var $body    = $($btn.data('accTarget'))
+  var $chevron = $btn.find('.acc-chevron')
+  var closing  = !$body.hasClass('hidden')
+  $body.toggleClass('hidden', closing)
+  $chevron.toggleClass('fa-chevron-down', closing).toggleClass('fa-chevron-up', !closing)
+  $btn.attr('aria-expanded', closing ? 'false' : 'true')
 })
 
 // ── Sort dropdown selection ────────────────────────────────────────
