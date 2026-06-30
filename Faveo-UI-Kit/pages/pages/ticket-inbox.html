@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Faveo — All Tickets</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -906,10 +906,103 @@
                 <!-- Inner sort/view controls -->
                 <div role="toolbar" aria-label="Ticket list controls" class="flex items-center gap-3 px-4 border-b border-[#d1d5dc] h-[57px] shrink-0">
                     <!-- Checkbox -->
-                    <input type="checkbox" aria-label="Select all tickets" class="w-3.5 h-3.5 border-gray-300 rounded shrink-0 accent-sky-400" />
+                    <input type="checkbox" id="select-all-tickets" aria-label="Select all tickets" class="w-3.5 h-3.5 border-gray-300 rounded shrink-0 accent-[#6b7280]" />
+
+                    <!-- Bulk action buttons (shown when tickets are selected) -->
+                    <div id="bulk-actions" class="hidden items-center gap-2">
+                        <div class="relative">
+                            <button id="btn-bulk-assign" aria-haspopup="menu" aria-expanded="false" aria-controls="panel-bulk-assign" class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                                <i class="fa-solid fa-user-plus text-[10px]" aria-hidden="true"></i>Assign
+                            </button>
+                            <div id="panel-bulk-assign" role="menu" aria-label="Assign tickets" class="absolute left-0 top-[calc(100%+4px)] z-50 w-[280px] bg-white rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.14)] border border-[#e5e7eb] overflow-hidden hidden">
+                                <!-- Tabs -->
+                                <div class="px-2.5 pt-2.5 pb-0 border-b border-[#e5e7eb]">
+                                    <div class="flex gap-4 text-[10px] font-bold uppercase tracking-wide">
+                                        <button id="bulk-assign-tab-group" class="pb-2 cursor-pointer text-[#9ca3af] transition-colors">Group</button>
+                                        <button id="bulk-assign-tab-agent" class="pb-2 cursor-pointer text-blue-600 border-b-2 border-blue-600 transition-colors">Agent</button>
+                                    </div>
+                                </div>
+
+                                <!-- Agent section -->
+                                <div id="bulk-assign-agent-section" class="p-2">
+                                    <input id="bulk-assign-search" type="text" placeholder="Search..." aria-label="Search agents"
+                                           class="w-full px-3 py-2 text-[13px] border border-[#d1d5dc] rounded-[6px] outline-none focus:border-blue-500 mb-1">
+                                    <div id="bulk-assign-agent-list" class="max-h-[200px] overflow-y-auto flex flex-col">
+                                        <button class="bulk-assign-agent-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left font-medium">
+                                            Assign to me
+                                        </button>
+                                        <button class="bulk-assign-agent-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-blue-400 flex items-center justify-center text-[10px] text-white font-semibold shrink-0">AJ</span>Alice Johnson
+                                        </button>
+                                        <button class="bulk-assign-agent-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-[10px] text-white font-semibold shrink-0">AP</span>Alex P.
+                                        </button>
+                                        <button class="bulk-assign-agent-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-purple-400 flex items-center justify-center text-[10px] text-white font-semibold shrink-0">BC</span>Ben Carter
+                                        </button>
+                                        <button class="bulk-assign-agent-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-orange-400 flex items-center justify-center text-[10px] text-white font-semibold shrink-0">LM</span>Lisa M.
+                                        </button>
+                                        <button class="bulk-assign-agent-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-pink-400 flex items-center justify-center text-[10px] text-white font-semibold shrink-0">SP</span>Sam Patel
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Group section -->
+                                <div id="bulk-assign-group-section" class="p-2 hidden">
+                                    <input id="bulk-assign-group-search" type="text" placeholder="Search..." aria-label="Search groups"
+                                           class="w-full px-3 py-2 text-[13px] border border-[#d1d5dc] rounded-[6px] outline-none focus:border-blue-500 mb-1">
+                                    <div id="bulk-assign-group-list" class="max-h-[200px] overflow-y-auto flex flex-col">
+                                        <button class="bulk-assign-group-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[10px] text-[#6a7282] font-semibold shrink-0">--</span>Support
+                                        </button>
+                                        <button class="bulk-assign-group-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-blue-400 flex items-center justify-center text-[10px] text-white font-semibold shrink-0">SA</span>Sales
+                                        </button>
+                                        <button class="bulk-assign-group-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-[10px] text-white font-semibold shrink-0">TC</span>Technical
+                                        </button>
+                                        <button class="bulk-assign-group-opt flex items-center gap-2.5 w-full px-3 py-2 rounded-[6px] text-[13px] text-[#1e2939] hover:bg-[#f1f5f9] transition-colors cursor-pointer border-none bg-transparent text-left">
+                                            <span class="w-6 h-6 rounded-full bg-purple-400 flex items-center justify-center text-[10px] text-white font-semibold shrink-0">BI</span>Billing
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="btn-bulk-close" class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                            <i class="fa-regular fa-circle-xmark text-[10px]" aria-hidden="true"></i>Close
+                        </button>
+                        <button class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                            <i class="fa-solid fa-arrows-rotate text-[10px]" aria-hidden="true"></i>Bulk update
+                        </button>
+                        <button class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                            <i class="fa-solid fa-code-merge text-[10px]" aria-hidden="true"></i>Merge
+                        </button>
+                        <div class="relative">
+                            <button data-toggle="dropdown" data-target="#bulk-more-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="bulk-more-dropdown" aria-label="More actions" class="flex items-center justify-center w-[28px] h-[28px] border border-[#d1d5dc] rounded-[6px] bg-white text-[#525252] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
+                                <i class="fa-solid fa-ellipsis-vertical text-xs" aria-hidden="true"></i>
+                            </button>
+                            <div id="bulk-more-dropdown" role="menu" aria-label="More actions" class="absolute left-0 top-[calc(100%+4px)] z-50 min-w-[160px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] p-1.5 hidden">
+                                <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                                    <i class="fa-solid fa-tag text-xs shrink-0" aria-hidden="true"></i><span>Add label</span>
+                                </button>
+                                <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                                    <i class="fa-solid fa-share text-xs shrink-0" aria-hidden="true"></i><span>Re-assign group</span>
+                                </button>
+                                <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                                    <i class="fa-solid fa-ban text-xs shrink-0" aria-hidden="true"></i><span>Mark as spam</span>
+                                </button>
+                                <div class="border-t border-[#e5e7eb] my-1"></div>
+                                <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-red-500 text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                                    <i class="fa-solid fa-trash text-xs shrink-0" aria-hidden="true"></i><span>Delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Sort by -->
-                    <div class="flex items-center gap-1 shrink-0">
+                    <div id="sort-controls" class="flex items-center gap-1 shrink-0">
                         <div class="flex items-center gap-1.5 text-[#4a5565] text-xs">
                             <i class="fa-solid fa-sort text-xs" aria-hidden="true"></i>
                             <span>Sort by:</span>
@@ -950,7 +1043,7 @@
                     <!-- Right controls -->
                     <div class="flex items-center gap-2 shrink-0">
                         <!-- Layout -->
-                        <div class="hidden sm:flex items-center gap-1">
+                        <div id="layout-control" class="hidden sm:flex items-center gap-1">
                             <span class="text-[#4a5565] text-xs shrink-0">Layout:</span>
                             <div class="relative">
                                 <button data-toggle="dropdown" data-target="#layout-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="layout-dropdown"
@@ -1000,9 +1093,9 @@
                     <ul class="overflow-y-auto flex-1 flex flex-col" role="list" aria-label="Ticket list">
 
                         <!-- Row 1: Authentication failure #3 — Low, Closed -->
-                        <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+                        <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] bg-[#f7f9fa] hover:bg-[#eef0f3] transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <img src="https://www.figma.com/api/mcp/asset/6a1efae7-11d0-4fb8-9de3-f36fbc4b435f"
@@ -1048,9 +1141,9 @@
                         </li>
 
                         <!-- Row 2: Authentication failure #2 — Medium, Open -->
-                        <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+                        <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] bg-[#f7f9fa] hover:bg-[#eef0f3] transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <img src="https://www.figma.com/api/mcp/asset/3233e0ea-8d42-437d-9b14-79c5423cbbed"
@@ -1097,9 +1190,9 @@
                         </li>
 
                         <!-- Row 3: 404 error #1 — High, Open — TWO LABELS -->
-                        <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
+                        <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] bg-[#f7f9fa] hover:bg-[#eef0f3] transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <img src="https://www.figma.com/api/mcp/asset/f4875b4d-1346-488a-af80-d9adcd8ea081"
@@ -1148,7 +1241,7 @@
                         <!-- Row 4a: Login page crashes on Safari — Medium, Pending -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">R</div>
@@ -1191,7 +1284,7 @@
                         <!-- Row 4b: Email notifications not sent — High, Open -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">M</div>
@@ -1234,7 +1327,7 @@
                         <!-- Row 4c: API rate limit exceeded — Urgent, Open -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">K</div>
@@ -1281,7 +1374,7 @@
                         <!-- Row 4d: Password reset not working — Low, Resolved -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">A</div>
@@ -1324,7 +1417,7 @@
                         <!-- Row 4e: Billing discrepancy — High, Open -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">S</div>
@@ -1367,7 +1460,7 @@
                         <!-- Row 4f: Dashboard slow loading — Medium, Pending -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">T</div>
@@ -1410,7 +1503,7 @@
                         <!-- Row 4g: CSV export broken — Low, Closed -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">L</div>
@@ -1453,7 +1546,7 @@
                         <!-- Row 4h: 2FA setup failing — Urgent, Open -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">N</div>
@@ -1496,7 +1589,7 @@
                         <!-- Row 4i: Webhook not triggering — High, Open -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">J</div>
@@ -1539,7 +1632,7 @@
                         <!-- Row 4j: Mobile app sync issue — Medium, Pending -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 border-b border-[#d1d5dc] hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <div class="w-12 h-12 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[#6a7282] font-semibold text-base">P</div>
@@ -1582,7 +1675,7 @@
                         <!-- Row 4: 404 error #1 — Urgent, Open -->
                         <li class="flex items-start md:items-center min-h-[98px] shrink-0 hover:bg-gray-50 transition-colors cursor-pointer list-none py-3" role="listitem">
                             <div class="flex items-center justify-center w-[23px] shrink-0 ml-6 pt-1">
-                                <input type="checkbox" aria-label="Select ticket" class="w-3.5 h-3.5 border-gray-300 rounded accent-sky-400" />
+                                <input type="checkbox" aria-label="Select ticket" class="ticket-checkbox w-3.5 h-3.5 border-gray-300 rounded accent-[#6b7280]" />
                             </div>
                             <div class="ml-[15px] relative shrink-0">
                                 <img src="https://www.figma.com/api/mcp/asset/f70ca40a-4aad-442a-8909-22973a7825a1"
@@ -1971,6 +2064,15 @@
     <div data-dismiss="#panel-renew" class="flex-1 bg-black/20"></div>
 </div>
 
+<!-- ── Close action toast ─────────────────────────────────────────── -->
+<div id="toast-close" role="alert" aria-live="polite" class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999] hidden items-center gap-3 bg-white border-t-[3px] border-[#54a900] rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] px-5 py-2.5 min-w-[340px] max-w-[520px]">
+    <i class="fa-solid fa-circle-check text-[#54a900] text-base shrink-0" aria-hidden="true"></i>
+    <p id="toast-close-msg" class="flex-1 text-[#4a5565] text-sm font-semibold">Closing 1 ticket(s). This might take a while</p>
+    <button id="btn-toast-close-dismiss" aria-label="Dismiss notification" class="flex items-center justify-center text-[#9ca3af] hover:text-[#4a5565] cursor-pointer border-none bg-transparent shrink-0">
+        <i class="fa-solid fa-xmark text-xs" aria-hidden="true"></i>
+    </button>
+</div>
+
 <!-- ── Shared ticket dropdown panels ─────────────────────────────── -->
 <!-- Priority panel -->
 <div id="panel-priority" class="fixed z-[300] hidden bg-white rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.14)] border border-[#e5e7eb] p-1 min-w-[120px]">
@@ -2003,57 +2105,460 @@
 
 <!-- Agent panel -->
 <div id="panel-agent" class="fixed z-[300] hidden bg-white rounded-[8px] shadow-[0_4px_16px_rgba(0,0,0,0.14)] border border-[#e5e7eb] min-w-[210px]">
+    <!-- Tabs -->
     <div class="px-2.5 pt-2.5 pb-0 border-b border-[#e5e7eb]">
         <div class="flex gap-4 text-[10px] font-bold uppercase tracking-wide">
-            <span class="text-[#9ca3af] pb-2 cursor-pointer">Group</span>
-            <span class="text-blue-600 border-b-2 border-blue-600 pb-2 cursor-pointer">Agent</span>
+            <button id="agent-tab-group" class="pb-2 cursor-pointer text-[#9ca3af] transition-colors">Group</button>
+            <button id="agent-tab-agent" class="pb-2 cursor-pointer text-blue-600 border-b-2 border-blue-600 transition-colors">Agent</button>
         </div>
     </div>
-    <div class="px-1.5 py-1.5 border-b border-[#e5e7eb]">
-        <div class="relative">
-            <input id="agent-search-input" type="text" placeholder="Search agent" class="w-full pl-2.5 pr-7 py-1 text-[11px] rounded-[5px] border border-[#e5e7eb] focus:outline-none focus:border-blue-400 bg-transparent">
-            <i class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 text-[9px]" aria-hidden="true"></i>
+
+    <!-- Agent section -->
+    <div id="agent-section">
+        <div class="px-1.5 py-1.5 border-b border-[#e5e7eb]">
+            <div class="relative">
+                <input id="agent-search-input" type="text" placeholder="Search agent" class="w-full pl-2.5 pr-7 py-1 text-[11px] rounded-[5px] border border-[#e5e7eb] focus:outline-none focus:border-blue-400 bg-transparent">
+                <i class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 text-[9px]" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div id="agent-list" class="p-1 max-h-[160px] overflow-y-auto">
+            <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Unassigned">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[9px] text-[#6a7282] font-semibold shrink-0">--</span>
+                    <span>Unassigned</span>
+                </div>
+            </button>
+            <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Alice Johnson">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-blue-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">AJ</span>
+                    <span>Alice Johnson</span>
+                </div>
+            </button>
+            <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Alex P.">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">AP</span>
+                    <span>Alex P.</span>
+                </div>
+            </button>
+            <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Ben Carter">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-purple-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">BC</span>
+                    <span>Ben Carter</span>
+                </div>
+            </button>
+            <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Lisa M.">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-orange-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">LM</span>
+                    <span>Lisa M.</span>
+                </div>
+            </button>
+            <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Sam Patel">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-pink-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">SP</span>
+                    <span>Sam Patel</span>
+                </div>
+            </button>
         </div>
     </div>
-    <div id="agent-list" class="p-1 max-h-[160px] overflow-y-auto">
-        <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Unassigned">
-            <div class="flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[9px] text-[#6a7282] font-semibold shrink-0">--</span>
-                <span>Unassigned</span>
+
+    <!-- Group section -->
+    <div id="group-section" class="hidden">
+        <div class="px-1.5 py-1.5 border-b border-[#e5e7eb]">
+            <div class="relative">
+                <input id="group-search-input" type="text" placeholder="Search group" class="w-full pl-2.5 pr-7 py-1 text-[11px] rounded-[5px] border border-[#e5e7eb] focus:outline-none focus:border-blue-400 bg-transparent">
+                <i class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 text-[9px]" aria-hidden="true"></i>
             </div>
-        </button>
-        <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Alice Johnson">
-            <div class="flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-blue-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">AJ</span>
-                <span>Alice Johnson</span>
-            </div>
-        </button>
-        <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Alex P.">
-            <div class="flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">AP</span>
-                <span>Alex P.</span>
-            </div>
-        </button>
-        <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Ben Carter">
-            <div class="flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-purple-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">BC</span>
-                <span>Ben Carter</span>
-            </div>
-        </button>
-        <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Lisa M.">
-            <div class="flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-orange-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">LM</span>
-                <span>Lisa M.</span>
-            </div>
-        </button>
-        <button class="agent-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="-- / Sam Patel">
-            <div class="flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-pink-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">SP</span>
-                <span>Sam Patel</span>
-            </div>
-        </button>
+        </div>
+        <div id="group-list" class="p-1 max-h-[160px] overflow-y-auto">
+            <button class="group-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Support / --">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[9px] text-[#6a7282] font-semibold shrink-0">--</span>
+                    <span>Support</span>
+                </div>
+            </button>
+            <button class="group-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Sales / --">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-blue-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">SA</span>
+                    <span>Sales</span>
+                </div>
+            </button>
+            <button class="group-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Technical / --">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">TC</span>
+                    <span>Technical</span>
+                </div>
+            </button>
+            <button class="group-opt flex items-center justify-between gap-2 w-full px-2.5 py-1.5 rounded-[6px] text-[12px] font-medium text-[#1e2939] hover:bg-[#f1f5f9] transition-colors" data-value="Billing / --">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-5 h-5 rounded-full bg-purple-400 flex items-center justify-center text-[9px] text-white font-semibold shrink-0">BI</span>
+                    <span>Billing</span>
+                </div>
+            </button>
+        </div>
     </div>
 </div>
 
+
+<script>
+(function () {
+    // ── Ticket row dropdowns (priority / status / agent) ──────────────
+    let activeBtn = null;
+    const CHECK_ICON = '<i class="opt-check fa-solid fa-check text-[#525252] text-[10px]" aria-hidden="true"></i>';
+
+    function markActive(opts, matchValue) {
+        opts.forEach(function (opt) {
+            const sel = opt.dataset.value === matchValue;
+            opt.classList.toggle('bg-[#cfcfcf]', sel);
+            opt.classList.toggle('hover:bg-[#f1f5f9]', !sel);
+            opt.querySelectorAll('.opt-check').forEach(function (el) { el.remove(); });
+            if (sel) opt.insertAdjacentHTML('beforeend', CHECK_ICON);
+        });
+    }
+
+    function place(panel, btn) {
+        panel.classList.remove('hidden');
+        const rect = btn.getBoundingClientRect();
+        const pw = panel.offsetWidth;
+        let left = rect.left;
+        if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+        panel.style.top = (rect.bottom + 4) + 'px';
+        panel.style.left = Math.max(8, left) + 'px';
+    }
+
+    function closeAll() {
+        ['panel-priority', 'panel-status', 'panel-agent'].forEach(function (id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('hidden');
+        });
+        activeBtn = null;
+    }
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('#panel-priority,#panel-status,#panel-agent,.priority-btn,.agent-btn,.status-btn')) {
+            closeAll();
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.priority-btn');
+        if (!btn) return;
+        const panel = document.getElementById('panel-priority');
+        if (activeBtn === btn && !panel.classList.contains('hidden')) { closeAll(); return; }
+        closeAll();
+        markActive([...document.querySelectorAll('#panel-priority .priority-opt')], btn.querySelector('.priority-label').textContent.trim());
+        place(panel, btn);
+        activeBtn = btn;
+    });
+
+    document.addEventListener('click', function (e) {
+        const opt = e.target.closest('#panel-priority .priority-opt');
+        if (!opt || !activeBtn) return;
+        activeBtn.querySelector('.priority-dot').className = `priority-dot w-2.5 h-2.5 rounded-full ${opt.dataset.color} inline-block shrink-0`;
+        activeBtn.querySelector('.priority-label').textContent = opt.dataset.value;
+        closeAll();
+    });
+
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.status-btn');
+        if (!btn) return;
+        const panel = document.getElementById('panel-status');
+        if (activeBtn === btn && !panel.classList.contains('hidden')) { closeAll(); return; }
+        closeAll();
+        markActive([...document.querySelectorAll('#panel-status .status-opt')], btn.querySelector('.status-label').textContent.trim());
+        place(panel, btn);
+        activeBtn = btn;
+    });
+
+    document.addEventListener('click', function (e) {
+        const opt = e.target.closest('#panel-status .status-opt');
+        if (!opt || !activeBtn) return;
+        activeBtn.querySelector('.status-icon').className = `status-icon fa-solid ${opt.dataset.icon} text-[9px]`;
+        activeBtn.querySelector('.status-label').textContent = opt.dataset.value;
+        closeAll();
+    });
+
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.agent-btn');
+        if (!btn) return;
+        const panel = document.getElementById('panel-agent');
+        if (activeBtn === btn && !panel.classList.contains('hidden')) { closeAll(); return; }
+        closeAll();
+        markActive([...document.querySelectorAll('#panel-agent .agent-opt')], btn.querySelector('.agent-label').textContent.trim());
+        place(panel, btn);
+        activeBtn = btn;
+    });
+
+    document.addEventListener('click', function (e) {
+        const opt = e.target.closest('#panel-agent .agent-opt');
+        if (!opt || !activeBtn) return;
+        activeBtn.querySelector('.agent-label').textContent = opt.dataset.value;
+        closeAll();
+    });
+
+    document.addEventListener('input', function (e) {
+        if (e.target.id === 'agent-search-input') {
+            const q = e.target.value.toLowerCase();
+            document.querySelectorAll('#agent-list .agent-opt').forEach(function (opt) {
+                const spans = opt.querySelectorAll('span');
+                const text = spans[spans.length - 1].textContent.toLowerCase();
+                opt.classList.toggle('hidden', q.length > 0 && !text.includes(q));
+            });
+        }
+        if (e.target.id === 'bulk-assign-search') {
+            const q = e.target.value.toLowerCase();
+            document.querySelectorAll('#bulk-assign-agent-list .bulk-assign-agent-opt').forEach(function (opt) {
+                opt.classList.toggle('hidden', q.length > 0 && !opt.textContent.trim().toLowerCase().includes(q));
+            });
+        }
+        if (e.target.id === 'bulk-assign-group-search') {
+            const q = e.target.value.toLowerCase();
+            document.querySelectorAll('#bulk-assign-group-list .bulk-assign-group-opt').forEach(function (opt) {
+                opt.classList.toggle('hidden', q.length > 0 && !opt.textContent.trim().toLowerCase().includes(q));
+            });
+        }
+        if (e.target.id === 'group-search-input') {
+            const q = e.target.value.toLowerCase();
+            document.querySelectorAll('#group-list .group-opt').forEach(function (opt) {
+                const spans = opt.querySelectorAll('span');
+                const text = spans[spans.length - 1].textContent.toLowerCase();
+                opt.classList.toggle('hidden', q.length > 0 && !text.includes(q));
+            });
+        }
+    });
+
+    // ── Bulk assign panel toggle ──────────────────────────────────────
+    document.addEventListener('click', function (e) {
+        const btn   = document.getElementById('btn-bulk-assign');
+        const panel = document.getElementById('panel-bulk-assign');
+        if (!btn || !panel) return;
+
+        if (e.target.closest('#btn-bulk-assign')) {
+            const isHidden = panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', !isHidden);
+            btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            return;
+        }
+        if (!e.target.closest('#panel-bulk-assign')) {
+            panel.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.bulk-assign-agent-opt, .bulk-assign-group-opt')) return;
+        const panel = document.getElementById('panel-bulk-assign');
+        const btn   = document.getElementById('btn-bulk-assign');
+        if (panel) panel.classList.add('hidden');
+        if (btn)   btn.setAttribute('aria-expanded', 'false');
+    });
+
+    // ── Tab switching (shared logic) ───────────────────────────────────
+    function switchTab(isGroup, tabGroupId, tabAgentId, agentSectionId, groupSectionId, agentSearchId, groupSearchId) {
+        document.getElementById(agentSectionId).classList.toggle('hidden', isGroup);
+        document.getElementById(groupSectionId).classList.toggle('hidden', !isGroup);
+        document.getElementById(tabGroupId).className = isGroup
+            ? 'pb-2 cursor-pointer text-blue-600 border-b-2 border-blue-600 transition-colors'
+            : 'pb-2 cursor-pointer text-[#9ca3af] transition-colors';
+        document.getElementById(tabAgentId).className = isGroup
+            ? 'pb-2 cursor-pointer text-[#9ca3af] transition-colors'
+            : 'pb-2 cursor-pointer text-blue-600 border-b-2 border-blue-600 transition-colors';
+        const search = document.getElementById(isGroup ? groupSearchId : agentSearchId);
+        if (search) { search.value = ''; search.focus(); }
+    }
+
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('#agent-tab-group'))
+            switchTab(true, 'agent-tab-group', 'agent-tab-agent', 'agent-section', 'group-section', 'agent-search-input', 'group-search-input');
+        else if (e.target.closest('#agent-tab-agent'))
+            switchTab(false, 'agent-tab-group', 'agent-tab-agent', 'agent-section', 'group-section', 'agent-search-input', 'group-search-input');
+        else if (e.target.closest('#bulk-assign-tab-group'))
+            switchTab(true, 'bulk-assign-tab-group', 'bulk-assign-tab-agent', 'bulk-assign-agent-section', 'bulk-assign-group-section', 'bulk-assign-search', 'bulk-assign-group-search');
+        else if (e.target.closest('#bulk-assign-tab-agent'))
+            switchTab(false, 'bulk-assign-tab-group', 'bulk-assign-tab-agent', 'bulk-assign-agent-section', 'bulk-assign-group-section', 'bulk-assign-search', 'bulk-assign-group-search');
+    });
+
+    document.addEventListener('click', function (e) {
+        const opt = e.target.closest('#group-list .group-opt');
+        if (!opt || !activeBtn) return;
+        activeBtn.querySelector('.agent-label').textContent = opt.dataset.value;
+        closeAll();
+    });
+
+    // ── Filters panel ─────────────────────────────────────────────────
+    const filterAside = document.getElementById('filter-aside');
+    const btnToggleFilters = document.getElementById('btn-toggle-filters');
+
+    function showFilterPanel() {
+        filterAside.classList.remove('hidden');
+        filterAside.classList.add('flex');
+        btnToggleFilters.setAttribute('aria-expanded', 'true');
+    }
+    function hideFilterPanel() {
+        filterAside.classList.remove('flex');
+        filterAside.classList.add('hidden');
+        btnToggleFilters.setAttribute('aria-expanded', 'false');
+    }
+
+    if (window.innerWidth >= 1280) showFilterPanel();
+
+    btnToggleFilters.addEventListener('click', function () {
+        filterAside.classList.contains('hidden') ? showFilterPanel() : hideFilterPanel();
+    });
+    document.getElementById('btn-close-filters').addEventListener('click', hideFilterPanel);
+
+    document.getElementById('btn-show-all-filters').addEventListener('click', function () {
+        const allView = document.getElementById('all-filters-view');
+        const appliedView = document.getElementById('applied-filters-view');
+        const allVisible = !allView.classList.contains('hidden');
+        if (allVisible) {
+            allView.classList.add('hidden');
+            allView.classList.remove('flex');
+            appliedView.classList.remove('hidden');
+            this.textContent = 'Show all filters';
+        } else {
+            appliedView.classList.add('hidden');
+            allView.classList.remove('hidden');
+            allView.classList.add('flex');
+            this.textContent = 'Show applied filters';
+        }
+    });
+
+    const filterDefs = {
+        agent:          { label: 'Agent',             options: ['Any agent', 'Me', 'Unassigned', 'My group'] },
+        group:          { label: 'Group',             options: ['Any group'] },
+        status:         { label: 'Status',            options: ['Status', 'Open', 'Pending', 'Resolved', 'Closed', 'Waiting on customer'] },
+        sentiment:      { label: 'Sentiment',         options: ['Any', 'Positive', 'Neutral', 'Negative'] },
+        priority:       { label: 'Priority',          options: ['Any', 'Low', 'Medium', 'High', 'Urgent'] },
+        created:        { label: 'Created',           options: ['Any time', 'Today', 'Yesterday', 'This week', 'Last 7 days', 'This month', 'Last 30 days'] },
+        'closed-at':    { label: 'Closed at',         options: ['Any time', 'Today', 'Yesterday', 'This week', 'Last 7 days'] },
+        'resolved-at':  { label: 'Resolved at',       options: ['Any time', 'Today', 'Yesterday', 'This week', 'Last 7 days'] },
+        'due-by':       { label: 'Resolution due by', options: ['Any time', 'Today', 'This week', 'This month'] },
+    };
+
+    document.getElementById('btn-add-filter').addEventListener('click', function (e) {
+        e.stopPropagation();
+        document.getElementById('add-filter-dropdown').classList.toggle('hidden');
+        const search = document.getElementById('filter-option-search');
+        search.value = '';
+        search.dispatchEvent(new Event('input'));
+        search.focus();
+    });
+
+    document.getElementById('filter-option-search').addEventListener('input', function () {
+        const q = this.value.toLowerCase();
+        document.querySelectorAll('#filter-options-list .filter-option').forEach(function (opt) {
+            opt.classList.toggle('hidden', !opt.textContent.toLowerCase().includes(q));
+        });
+    });
+
+    document.addEventListener('click', function (e) {
+        const opt = e.target.closest('.filter-option');
+        if (!opt) return;
+        const key = opt.dataset.filter;
+        if (document.querySelector(`#applied-filters-list .filter-row[data-filter="${key}"]`)) {
+            document.getElementById('add-filter-dropdown').classList.add('hidden');
+            return;
+        }
+        const def = filterDefs[key];
+        if (!def) return;
+        const row = document.createElement('div');
+        row.className = 'filter-row flex flex-col gap-1.5';
+        row.dataset.filter = key;
+        row.innerHTML = `<div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-[#333]">${def.label}</span>
+            <button class="btn-remove-filter text-red-400 hover:text-red-600 transition-colors" aria-label="Remove filter">
+                <i class="fa-solid fa-circle-minus text-sm" aria-hidden="true"></i>
+            </button>
+        </div>
+        <select class="filter-select focus:border-sky-400">${def.options.map(o => `<option>${o}</option>`).join('')}</select>`;
+        document.getElementById('applied-filters-list').appendChild(row);
+        document.getElementById('add-filter-dropdown').classList.add('hidden');
+    });
+
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.btn-remove-filter');
+        if (!btn) return;
+        btn.closest('.filter-row').remove();
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('#btn-add-filter, #add-filter-dropdown')) {
+            document.getElementById('add-filter-dropdown').classList.add('hidden');
+        }
+    });
+
+    // ── Select all + bulk action bar ──────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectAll = document.getElementById('select-all-tickets');
+        const ticketList = document.querySelector('[aria-label="Ticket list"]');
+        const bulkActions = document.getElementById('bulk-actions');
+        const sortControls = document.getElementById('sort-controls');
+        const layoutControl = document.getElementById('layout-control');
+
+        function updateBulkBar() {
+            const checkedCount = ticketList.querySelectorAll('.ticket-checkbox:checked').length;
+            if (checkedCount > 0) {
+                bulkActions.classList.remove('hidden');
+                bulkActions.classList.add('flex');
+                sortControls.classList.add('hidden');
+                layoutControl.classList.add('!hidden');
+            } else {
+                bulkActions.classList.add('hidden');
+                bulkActions.classList.remove('flex');
+                sortControls.classList.remove('hidden');
+                layoutControl.classList.remove('!hidden');
+            }
+        }
+
+        function setRowHighlight(cb) {
+            const row = cb.closest('li');
+            if (row) row.classList.toggle('bg-[#eef6ff]', cb.checked);
+        }
+
+        selectAll.addEventListener('change', function () {
+            ticketList.querySelectorAll('.ticket-checkbox').forEach(function (cb) {
+                cb.checked = selectAll.checked;
+                setRowHighlight(cb);
+            });
+            updateBulkBar();
+        });
+
+        ticketList.addEventListener('change', function (e) {
+            if (!e.target.classList.contains('ticket-checkbox')) return;
+            setRowHighlight(e.target);
+            const checkboxes = ticketList.querySelectorAll('.ticket-checkbox');
+            const checkedCount = ticketList.querySelectorAll('.ticket-checkbox:checked').length;
+            selectAll.checked = checkedCount === checkboxes.length;
+            selectAll.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
+            updateBulkBar();
+        });
+
+        // ── Close action toast ────────────────────────────────────────
+        const closeToast = document.getElementById('toast-close');
+        const closeToastMsg = document.getElementById('toast-close-msg');
+        let closeToastTimer = null;
+
+        function showCloseToast() {
+            const count = ticketList.querySelectorAll('.ticket-checkbox:checked').length;
+            closeToastMsg.textContent = 'Closing ' + (count || 1) + ' ticket(s). This might take a while';
+            closeToast.classList.remove('hidden');
+            closeToast.classList.add('flex');
+            clearTimeout(closeToastTimer);
+            closeToastTimer = setTimeout(function () {
+                closeToast.classList.add('hidden');
+                closeToast.classList.remove('flex');
+            }, 4000);
+        }
+
+        document.getElementById('btn-bulk-close').addEventListener('click', showCloseToast);
+
+        document.getElementById('btn-toast-close-dismiss').addEventListener('click', function () {
+            clearTimeout(closeToastTimer);
+            closeToast.classList.add('hidden');
+            closeToast.classList.remove('flex');
+        });
+    });
+})();
+</script>
 </body>
 </html>
