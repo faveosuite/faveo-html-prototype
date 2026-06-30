@@ -1,0 +1,8 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /sakthi/faveo-html-prototype/Faveo-UI-Kit/dist/
+
+# Redirect missing files/directories to the 404 page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ pages/extras/error-404.html [R=302,L]

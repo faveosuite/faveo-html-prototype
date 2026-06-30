@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register v2 — Faveo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="../../assets/main-tJqs6-OH.js"></script>
+  <link rel="stylesheet" crossorigin href="../../assets/main-oRIB5gTg.css">
+</head>
+<body class="flex flex-col h-screen overflow-hidden bg-white font-sans">
+
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- Icon rail sidebar -->
+    <nav id="sidebar" class="w-[69px] bg-[#f7f9fa] flex flex-col items-center shrink-0 overflow-x-hidden py-2">
+      <div class="w-full h-[55px] flex items-center justify-center px-[7px] shrink-0">
+        <img src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
+             alt="Faveo" class="w-full max-h-[31px] object-contain" />
+      </div>
+      <div class="flex flex-col w-full items-center pt-[10px] gap-y-[10px] flex-1 overflow-y-auto">
+        <button class="sidebar-nav" data-nav="dashboard" title="Dashboard"><i class="fa-solid fa-gauge-high"></i></button>
+        <button class="sidebar-nav" data-nav="tickets"   title="Tickets">  <i class="fa-solid fa-ticket"></i></button>
+        <button class="sidebar-nav" data-nav="contacts"  title="Contacts"> <i class="fa-solid fa-users"></i></button>
+        <button class="sidebar-nav" data-nav="kb"        title="Solutions"><i class="fa-solid fa-lightbulb"></i></button>
+        <button class="sidebar-nav" data-nav="reports"   title="Reports">  <i class="fa-solid fa-clipboard-list"></i></button>
+        <button class="sidebar-nav" data-nav="admin"     title="Admin">    <i class="fa-solid fa-gear"></i></button>
+      </div>
+      <div class="mt-auto flex flex-col items-center w-full">
+        <div class="w-[49px] border-t border-gray-200 my-2"></div>
+        <button id="btn-toggle-sidebar" class="sidebar-nav mb-1" title="Expand sidebar">
+          <i class="fa-solid fa-indent"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Expanded sidebar overlay -->
+    <div id="sidebar-expanded" class="absolute left-0 top-0 bottom-0 w-[295px] bg-[#f7f9fa] flex flex-col z-50 py-2 hidden">
+      <div class="w-full h-[55px] flex items-center px-[7px] shrink-0">
+        <div class="w-[55px] flex items-center justify-center shrink-0">
+          <img src="https://www.figma.com/api/mcp/asset/0ddd257e-9caf-45c6-ab67-16591d4578b4"
+               alt="Faveo" class="w-full max-h-[31px] object-contain" />
+        </div>
+        <span class="ml-2 text-[#3a4a5a] text-[19px] font-semibold leading-none whitespace-nowrap">Support Center</span>
+      </div>
+      <div class="flex flex-col flex-1 overflow-y-auto px-3 gap-y-[10px] pt-[10px]">
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="dashboard"><i class="fa-solid fa-gauge-high w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Dashboard</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="tickets">  <i class="fa-solid fa-ticket w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Tickets</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="contacts"> <i class="fa-solid fa-users w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Contacts</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="kb">       <i class="fa-solid fa-lightbulb w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Solutions</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="reports">  <i class="fa-solid fa-clipboard-list w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Reports</span></button>
+        <button class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[13px] font-medium" data-nav="admin">    <i class="fa-solid fa-gear w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Admin</span></button>
+      </div>
+      <div class="px-3 mt-auto">
+        <div class="border-t border-gray-200 my-2"></div>
+        <button id="btn-collapse-sidebar" class="sidebar-nav w-full justify-start px-[10px] gap-[5px] text-[14px] font-medium mb-1">
+          <i class="fa-solid fa-outdent w-[41px] text-center shrink-0 text-[16px]"></i><span class="whitespace-nowrap">Collapse</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="flex flex-col flex-1 overflow-hidden">
+
+      <!-- Toolbar -->
+      <div class="bg-[#f7f9fa] h-[55px] flex items-center gap-2 px-5 shrink-0">
+        <span class="text-[#333] text-base font-semibold whitespace-nowrap">Register v2</span>
+        <div class="flex items-center gap-2.5 flex-1 justify-end min-w-0">
+          <div class="relative shrink-0">
+            <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+            <input type="text" placeholder="Search" class="bg-white border border-[#d1d5dc] rounded-[10px] pl-8 pr-3 py-1.5 text-xs text-[#0a0a0a] w-52 outline-none focus:border-sky-400" />
+          </div>
+          <div class="relative p-1 shrink-0">
+            <i class="fa-solid fa-bell text-[#525252] text-sm"></i>
+            <span class="absolute top-1 right-1 w-1.5 h-1.5 bg-[#525252] rounded-full border border-white block"></span>
+          </div>
+          <div class="w-7 h-7 rounded-full border border-[#d4d4d4] bg-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+            <i class="fa-solid fa-user text-gray-500 text-xs"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content area -->
+      <div class="flex flex-1 overflow-hidden border-t border-l border-r border-[#d1d5dc] rounded-tl-[14px] rounded-tr-[14px]">
+        <div class="flex-1 bg-white flex flex-col items-center justify-center gap-3 text-center overflow-y-auto">
+          <i class="fa-solid fa-layer-group text-4xl text-gray-200"></i>
+          <p class="text-[#4a5565] text-sm font-medium">Register v2</p>
+          <p class="text-[#99a1af] text-xs">Content coming soon</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="bg-white border-t border-[#d1d5dc] flex items-center justify-between px-6 py-2.5 shrink-0 text-[11px] text-[#6a7282]">
+    <span>Copyright &copy; 2026 . All rights reserved. Powered by <a href="#" class="text-[#3da6d7] hover:underline">Faveo</a> .</span>
+    <span>Version Faveo Helpdesk Enterprise Pro v9.4.3.5</span>
+  </footer>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
-import { readdirSync, statSync } from 'fs'
+import { readdirSync, statSync, existsSync } from 'fs'
 
 const SKIP = new Set(['node_modules', 'dist', 'public', 'src'])
 
@@ -20,9 +20,28 @@ function collectHtml(dir, root = dir) {
   return entries
 }
 
+const redirect404Plugin = {
+  name: 'redirect-404',
+  configureServer(server) {
+    server.middlewares.use((req, res, next) => {
+      const url = (req.url || '').split('?')[0]
+      if (url.endsWith('.html')) {
+        const filePath = resolve(__dirname, url.replace(/^\//, ''))
+        if (!existsSync(filePath)) {
+          res.writeHead(302, { Location: '/pages/extras/error-404.html' })
+          res.end()
+          return
+        }
+      }
+      next()
+    })
+  },
+}
+
 export default defineConfig({
-  plugins: [tailwindcss()],
+  plugins: [tailwindcss(), redirect404Plugin],
   base: './',
+  appType: 'mpa',
   build: {
     rollupOptions: {
       input: collectHtml(resolve(__dirname)),
