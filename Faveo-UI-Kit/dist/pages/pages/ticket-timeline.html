@@ -1130,6 +1130,23 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Language dropdown — visible only in Requester Analysis view -->
+                            <div id="toolbar-language-wrapper" class="relative hidden shrink-0">
+                                <button data-toggle="dropdown" data-target="#toolbar-language-dropdown" aria-haspopup="menu" aria-expanded="false" class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                                    <i class="fa-solid fa-language text-[13px]" aria-hidden="true"></i>
+                                    <span id="toolbar-language-label">English</span>
+                                    <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
+                                </button>
+                                <div id="toolbar-language-dropdown" role="menu" class="absolute right-0 top-[calc(100%+4px)] z-50 min-w-[160px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] p-1.5 hidden">
+                                    <button role="menuitem" class="lang-option flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-[#f1f5f9] text-left transition-colors">English <i class="fa-solid fa-check text-[10px] text-[#3da6d7]" aria-hidden="true"></i></button>
+                                    <button role="menuitem" class="lang-option flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">French</button>
+                                    <button role="menuitem" class="lang-option flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Spanish</button>
+                                    <button role="menuitem" class="lang-option flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">German</button>
+                                    <button role="menuitem" class="lang-option flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Arabic</button>
+                                    <button role="menuitem" class="lang-option flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Hindi</button>
+                                    <button role="menuitem" class="lang-option flex items-center justify-between w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">Japanese</button>
+                                </div>
+                            </div>
                             <!-- Properties expand button (shown when properties panel is closed) -->
                             <button id="btn-expand-props" data-toggle="panel" data-target="#panel-properties"
                                     class="hidden shrink-0 items-center justify-center w-6 h-6 text-[#6a7282] hover:text-[#333] cursor-pointer bg-transparent border-none transition-colors mt-0.5" title="Expand properties" aria-expanded="false">
@@ -1603,17 +1620,11 @@
 
                     <!-- ── Requester Analysis view (hidden by default) ── -->
                     <div id="view-requester-analysis" class="hidden px-7 py-5">
-                        <div class="relative">
-                            <button class="absolute top-0 right-0 flex items-center gap-1 text-[#6a7282] text-xs hover:text-[#374151] cursor-pointer bg-transparent border-none" title="Translate">
-                                <i class="fa-solid fa-language text-[15px]" aria-hidden="true"></i>
-                                <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
-                            </button>
-                            <p class="text-[14px] text-[#111827] leading-relaxed mb-0 pr-16">Bob Tree exhibits a highly repetitive and transactional engagement with the helpdesk, characterized by a terse, minimalist communication style that often relies on rapid, shorthand inputs to report recurring administrative or system testing hurdles. Their overall tone is detached and somewhat impatient, reflecting a low tolerance for lengthy troubleshooting processes and a preference for immediate, straightforward resolutions. While their tickets—frequently revolving around repetitive configuration queries and rapid-fire system tests—are typically resolved with high speed, the sheer frequency of these identical requests suggests a lingering frustration with recurring issues and a lack of effective self-service pathways. Although they maintain a functional, baseline level of trust in support's ability to quickly close out tickets, their low qualitative engagement and repetitive pain points signal a stagnant satisfaction trend, presenting a potential churn risk if these administrative friction points are not permanently streamlined.</p>
-                        </div>
+                        <p class="text-[14px] text-[#111827] leading-relaxed mb-0">Bob Tree exhibits a highly repetitive and transactional engagement with the helpdesk, characterized by a terse, minimalist communication style that often relies on rapid, shorthand inputs to report recurring administrative or system testing hurdles. Their overall tone is detached and somewhat impatient, reflecting a low tolerance for lengthy troubleshooting processes and a preference for immediate, straightforward resolutions. While their tickets—frequently revolving around repetitive configuration queries and rapid-fire system tests—are typically resolved with high speed, the sheer frequency of these identical requests suggests a lingering frustration with recurring issues and a lack of effective self-service pathways. Although they maintain a functional, baseline level of trust in support's ability to quickly close out tickets, their low qualitative engagement and repetitive pain points signal a stagnant satisfaction trend, presenting a potential churn risk if these administrative friction points are not permanently streamlined.</p>
                     </div><!-- /view-requester-analysis -->
 
-                    <!-- Reply composer (shared — always visible) -->
-                    <div class="px-7 pb-5">
+                    <!-- Reply composer (hidden in requester-analysis view) -->
+                    <div id="composer-wrapper" class="px-7 pb-5">
                         <div class="flex gap-[30px] items-start">
                             <img src="https://i.pravatar.cc/36?img=7" alt="Sakthi" class="shrink-0 w-7 h-7 rounded-full object-cover" />
                         <div id="reply-composer" class="flex-1 min-w-0 bg-white border border-[#c1e2ff] rounded-[10px] transition-colors">
@@ -2540,17 +2551,21 @@
 
 // ── Activities / Requester Analysis toggle ────────────────────────────
 ;(function () {
-    var viewThreads = document.getElementById('view-threads')
-    var viewAct     = document.getElementById('view-activities')
-    var viewRA      = document.getElementById('view-requester-analysis')
-    var btnAct      = document.getElementById('btn-activities')
-    var btnRA       = document.getElementById('btn-requester-analysis')
+    var viewThreads     = document.getElementById('view-threads')
+    var viewAct         = document.getElementById('view-activities')
+    var viewRA          = document.getElementById('view-requester-analysis')
+    var btnAct          = document.getElementById('btn-activities')
+    var btnRA           = document.getElementById('btn-requester-analysis')
+    var composerWrapper  = document.getElementById('composer-wrapper')
+    var langWrapper      = document.getElementById('toolbar-language-wrapper')
     if (!viewThreads || !viewAct || !viewRA || !btnAct || !btnRA) return
 
     function showView(view) {
         viewThreads.classList.toggle('hidden', view !== 'threads')
         viewAct.classList.toggle('hidden', view !== 'activities')
         viewRA.classList.toggle('hidden', view !== 'requester-analysis')
+        if (composerWrapper) composerWrapper.classList.toggle('hidden', view === 'requester-analysis')
+        if (langWrapper) langWrapper.classList.toggle('hidden', view !== 'requester-analysis')
         btnAct.querySelector('span').textContent = view === 'activities' ? 'Hide Activities' : 'Activities'
         btnRA.querySelector('span').textContent = view === 'requester-analysis' ? 'Hide Requester Analysis' : 'Requester Analysis'
         btnAct.classList.toggle('bg-[#f1f5f9]', view === 'activities')
@@ -2633,6 +2648,38 @@ document.addEventListener('click', function (e) {
             }
         })
     }).observe(panel, { attributes: true })
+})()
+
+// ── Language dropdown selection ───────────────────────────────────────
+;(function () {
+    var dropdown = document.getElementById('toolbar-language-dropdown')
+    var label    = document.getElementById('toolbar-language-label')
+    if (!dropdown || !label) return
+
+    dropdown.addEventListener('click', function (e) {
+        var btn = e.target.closest('.lang-option')
+        if (!btn) return
+        // Update label (text node only, strip any child icon text)
+        label.textContent = btn.firstChild.textContent.trim()
+        // Reset all options
+        dropdown.querySelectorAll('.lang-option').forEach(function (opt) {
+            opt.classList.remove('bg-[#f1f5f9]')
+            opt.classList.add('hover:bg-[#f1f5f9]')
+            var chk = opt.querySelector('i')
+            if (chk) chk.remove()
+        })
+        // Mark selected
+        btn.classList.add('bg-[#f1f5f9]')
+        btn.classList.remove('hover:bg-[#f1f5f9]')
+        var icon = document.createElement('i')
+        icon.className = 'fa-solid fa-check text-[10px] text-[#3da6d7]'
+        icon.setAttribute('aria-hidden', 'true')
+        btn.appendChild(icon)
+        // Close dropdown
+        dropdown.classList.add('hidden')
+        var trigger = document.querySelector('[data-target="#toolbar-language-dropdown"]')
+        if (trigger) { trigger.classList.remove('dropdown-open'); trigger.setAttribute('aria-expanded', 'false') }
+    })
 })()
 </script>
 
