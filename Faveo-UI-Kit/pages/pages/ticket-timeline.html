@@ -887,10 +887,10 @@
             <div class="shrink-0 bg-white border-b border-[#d1d5dc] flex items-center gap-3 px-5 h-[57px]">
                 <!-- Left: action buttons + ellipsis -->
                 <div class="flex items-center gap-2 flex-1 min-w-0">
-                    <button class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                    <button data-scroll-to="#reply-composer" class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
                         <i class="fa-solid fa-reply text-[10px]" aria-hidden="true"></i> Reply
                     </button>
-                    <button class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                    <button data-scroll-to="#reply-composer" class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
                         <i class="fa-solid fa-note-sticky text-[10px]" aria-hidden="true"></i> Note
                     </button>
                     <button class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
@@ -959,116 +959,496 @@
             <div class="flex flex-1 overflow-hidden">
 
                 <!-- Conversation column -->
-                <div class="relative flex flex-col flex-1 min-w-0 overflow-hidden border-r border-[#d1d5dc]">
-                    <!-- Expand-properties button: hidden while Properties panel is open -->
-                    <button id="btn-expand-props" data-toggle="panel" data-target="#panel-properties"
-                            class="hidden absolute top-3 right-3 z-10 items-center justify-center w-6 h-6 text-[#6a7282] hover:text-[#333] cursor-pointer bg-transparent border-none transition-colors" title="Expand properties" aria-expanded="false">
-                        <i class="fa-solid fa-indent text-sm" aria-hidden="true"></i>
-                    </button>
-                    <div class="flex-1 overflow-y-auto px-7 py-5 flex flex-col gap-5">
+                <div class="flex flex-col flex-1 min-w-0 overflow-hidden border-r border-[#d1d5dc]">
 
-                        <!-- Ticket header: title + source + first message -->
-                        <div class="flex gap-[30px] items-start">
-                            <!-- Envelope avatar (email source) -->
-                            <div class="shrink-0 w-12 h-12 rounded-full bg-[#f3f3f3] border border-[#d1d5dc] flex items-center justify-center mt-0.5">
-                                <i class="fa-solid fa-envelope text-[#6a7282] text-lg" aria-hidden="true"></i>
-                            </div>
-                            <!-- Title + meta -->
+                    <!-- ── Sticky ticket title ── -->
+                    <div class="shrink-0 bg-white px-7 py-4">
+                        <div class="flex gap-5 items-start">
+                            <!-- Bare source icon -->
+                            <i class="fa-solid fa-envelope text-[#475569] text-2xl mt-1 shrink-0" aria-hidden="true"></i>
+                            <!-- Title + pills -->
                             <div class="flex-1 min-w-0">
-                                <h1 class="text-base font-semibold text-[#333] leading-6 mb-1">Issues with reports</h1>
-                                <!-- Sentiment pill -->
-                                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#d1d5dc] bg-white text-[#4a5565] text-xs font-medium mb-2 cursor-pointer hover:bg-[#f1f5f9] transition-colors">
-                                    <span>😊</span>
-                                    <span class="font-normal">Sentiment:</span>
-                                    <span class="font-semibold">Positive</span>
-                                    <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
-                                </div>
-                                <!-- Created by -->
-                                <p class="text-sm text-[#333] mb-1">Created by <strong class="font-semibold">Myself</strong></p>
-                                <!-- First message (inline, no bubble) -->
-                                <div class="text-[14px] font-medium text-[#333] leading-[26px]">
-                                    <p class="mb-0"><span class="font-semibold text-[#3da6d7]">Bob Tree</span> reported via email . <em class="font-normal text-[#4a5565]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
-                                    <p class="font-normal text-[#4a5565]">Hello there, Our Report metrics over the last week is at zero and can&apos;t be correct? Are you facing any issues?</p>
+                                <h1 class="text-xl font-bold text-[#1e293b] leading-7 mb-2">Issues with reports</h1>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <!-- SLA badge -->
+                                    <span class="inline-flex items-center bg-[#ffe2e2] text-[#cd2629] text-[11px] font-semibold px-[5px] py-[4px] rounded-[6px]">First response due</span>
+                                    <!-- Sentiment pill -->
+                                    <div class="inline-flex items-center gap-1.5 px-[5px] py-[4px] rounded-[6px] bg-[#e2e8f0] text-[#475569] text-[11px] font-semibold cursor-pointer hover:bg-[#cbd5e1] transition-colors">
+                                        <span>😐</span>
+                                        <span class="font-normal">Sentiment:</span>
+                                        <span class="font-bold">Neutral</span>
+                                        <i class="fa-solid fa-circle-info text-[10px] text-[#94a3b8]" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- Properties expand button (shown when properties panel is closed) -->
+                            <button id="btn-expand-props" data-toggle="panel" data-target="#panel-properties"
+                                    class="hidden shrink-0 items-center justify-center w-6 h-6 text-[#6a7282] hover:text-[#333] cursor-pointer bg-transparent border-none transition-colors mt-0.5" title="Expand properties" aria-expanded="false">
+                                <i class="fa-solid fa-indent text-sm" aria-hidden="true"></i>
+                            </button>
                         </div>
+                    </div><!-- /sticky title -->
 
-                        <!-- Agent reply 1 (Customer Service → gray bubble) -->
-                        <div class="flex gap-[30px] items-start">
-                            <div class="shrink-0 w-12 h-12 rounded-full bg-[#e5e7eb] border border-[#d1d5dc] flex items-center justify-center mt-0.5 text-lg font-bold text-black select-none">C</div>
-                            <div class="flex-1 min-w-0 bg-[#f3f3f3] border border-[#dbdbdb] rounded-[10px] p-2.5">
-                                <div class="text-[14px] font-medium text-[#333] leading-[26px]">
-                                    <p class="mb-0"><span class="font-semibold text-[#3da6d7]">Customer Service</span> replied . <em class="font-normal text-[#4a5565]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
-                                    <p class="font-normal text-[#4a5565] mb-0">To: bob.tree@faveohelpdesk.com</p>
-                                    <p class="font-medium mb-0">Hi Team,</p>
-                                    <p class="font-normal text-[#4a5565]">The system is supposed to show 100 conversations this week but it shows zero like the customer has mentioned. Can you please check and help him out?</p>
-                                </div>
+                    <!-- ── Threads (scrollable) ── -->
+                    <div id="threads-scroll" class="flex-1 overflow-y-auto px-7 py-5 flex flex-col gap-5">
+
+                        <!-- Original report (Bob Tree → inline, no bubble) -->
+                        <div class="flex gap-[30px] items-start group relative">
+                            <img src="https://i.pravatar.cc/36?img=12" alt="Bob Tree" class="shrink-0 w-7 h-7 rounded-full object-cover mt-0.5" />
+                            <div class="flex-1 min-w-0 text-[14px] font-medium text-[#111827] leading-[26px]">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Bob Tree</span> <span class="text-[14px] font-normal text-[#4a5565]">reported via email</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
+                                <p class="font-normal mb-0">Hello there, Our Report metrics over the last week is at zero and can&apos;t be correct? Are you facing any issues?</p>
                             </div>
-                        </div>
-
-                        <!-- Customer reply 1 (Bob tree → yellow bubble) -->
-                        <div class="flex gap-[30px] items-start">
-                            <div class="shrink-0 w-12 h-12 rounded-full overflow-hidden mt-0.5 bg-[#dbeafe] flex items-center justify-center text-lg font-bold text-[#2563eb] border border-[#d1d5dc] select-none">B</div>
-                            <div class="flex-1 min-w-0 bg-[#fff6e4] border border-[#dbdbdb] rounded-[10px] p-2.5">
-                                <div class="text-[14px] font-medium text-[#333] leading-[26px]">
-                                    <p class="mb-0"><span class="font-semibold text-[#3da6d7]">Bob tree</span> replied . <em class="font-normal text-[#4a5565]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
-                                    <p class="font-normal text-[#4a5565] mb-0">To: myself@faveohelpdesk.com</p>
-                                    <p class="font-normal text-[#4a5565]">Thanks for letting me know. Will be looking forward to your update.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Agent reply 2 (Customer Service → gray bubble) -->
-                        <div class="flex gap-[30px] items-start">
-                            <div class="shrink-0 w-12 h-12 rounded-full bg-[#e5e7eb] border border-[#d1d5dc] flex items-center justify-center mt-0.5 text-lg font-bold text-black select-none">C</div>
-                            <div class="flex-1 min-w-0 bg-[#f3f3f3] border border-[#dbdbdb] rounded-[10px] p-2.5">
-                                <div class="text-[14px] font-medium text-[#333] leading-[26px]">
-                                    <p class="mb-0"><span class="font-semibold text-[#3da6d7]">Customer Service</span> replied . <em class="font-normal text-[#4a5565]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
-                                    <p class="font-normal text-[#4a5565] mb-0">To: bob.tree@faveohelpdesk.com</p>
-                                    <p class="font-medium mb-0">Hi Bob,</p>
-                                    <p class="font-normal text-[#4a5565]">Thank you for raising this issue. We were able to reproduce this issue and it is due to a bug that the engineering team is working on. We will be able to give an update in 24 hours.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Customer reply 2 (Bob tree → yellow bubble) -->
-                        <div class="flex gap-[30px] items-start">
-                            <div class="shrink-0 w-12 h-12 rounded-full overflow-hidden mt-0.5 bg-[#dbeafe] flex items-center justify-center text-lg font-bold text-[#2563eb] border border-[#d1d5dc] select-none">B</div>
-                            <div class="flex-1 min-w-0 bg-[#fff6e4] border border-[#dbdbdb] rounded-[10px] p-2.5">
-                                <div class="text-[14px] font-medium text-[#333] leading-[26px]">
-                                    <p class="mb-0"><span class="font-semibold text-[#3da6d7]">Bob tree</span> replied . <em class="font-normal text-[#4a5565]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
-                                    <p class="font-normal text-[#4a5565] mb-0">To: myself@faveohelpdesk.com</p>
-                                    <p class="font-normal text-[#4a5565]">Thanks for letting me know. Will be looking forward to your update.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Reply composer -->
-                        <div class="flex gap-[30px] items-start">
-                            <div class="shrink-0 w-12 h-12 rounded-full bg-[#f3e8ff] border border-[#d1d5dc] flex items-center justify-center mt-0.5 text-lg font-bold text-[#7c3aed] select-none">S</div>
-                            <div class="flex-1 min-w-0 bg-white border border-[#dbdbdb] rounded-[10px] shadow-[0_0_2px_rgba(0,0,0,0.2)] relative" style="min-height:104px;">
-                                <!-- Tabs -->
-                                <div class="flex items-center gap-2 px-5 pt-2.5">
-                                    <button class="flex items-center gap-1.5 px-2 py-1 rounded-[4px] border border-[#d2d2d2] text-[#4a5565] text-xs font-medium cursor-pointer bg-white hover:bg-[#f1f5f9] transition-colors">
-                                        <i class="fa-solid fa-reply text-[10px]" aria-hidden="true"></i> Reply
-                                    </button>
-                                    <button class="flex items-center gap-1.5 px-2 py-1 rounded-[4px] border border-[#d2d2d2] text-[#4a5565] text-xs font-medium cursor-pointer bg-white hover:bg-[#f1f5f9] transition-colors">
-                                        <i class="fa-solid fa-note-sticky text-[10px]" aria-hidden="true"></i> Note
-                                    </button>
-                                    <button class="flex items-center gap-1.5 px-2 py-1 rounded-[4px] border border-[#d2d2d2] text-[#4a5565] text-xs font-medium cursor-pointer bg-white hover:bg-[#f1f5f9] transition-colors">
-                                        <i class="fa-solid fa-paperclip text-[10px]" aria-hidden="true"></i> Attach assets
-                                    </button>
-                                </div>
-                                <!-- Placeholder text -->
-                                <p class="text-[14px] font-medium text-[#90a1b9] leading-[26px] px-5 pt-3 pb-8">Type your response here...</p>
-                                <!-- Send button -->
-                                <button class="absolute bottom-4 right-5 w-[26px] h-[26px] flex items-center justify-center rounded bg-[#3da6d7] text-white cursor-pointer border-none hover:bg-[#2d96c7] transition-colors" title="Send">
-                                    <i class="fa-solid fa-paper-plane text-xs" aria-hidden="true"></i>
+                            <div class="invisible group-hover:visible absolute top-2 right-2 flex items-center rounded-[6px] shadow-md ring-1 ring-[#e2e8f0] z-10">
+                                <button class="relative group/btn-fwd w-[26px] h-[26px] flex items-center justify-center rounded-l-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-solid fa-share text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-fwd:opacity-100 transition-opacity pointer-events-none z-20">Forward</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button data-scroll-to="#reply-composer" class="relative group/btn-note w-[26px] h-[26px] flex items-center justify-center bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-message text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-note:opacity-100 transition-opacity pointer-events-none z-20">Note</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button class="relative group/btn-del w-[26px] h-[26px] flex items-center justify-center rounded-r-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-trash-can text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-del:opacity-100 transition-opacity pointer-events-none z-20">Delete</span>
                                 </button>
                             </div>
                         </div>
 
-                    </div><!-- /overflow-y-auto -->
+                        <!-- Agent reply 1 (Customer Service → gray bubble) -->
+                        <div class="flex gap-[30px] items-start group relative">
+                            <div class="shrink-0 w-7 h-7 rounded-full bg-[#e5e7eb] flex items-center justify-center mt-0.5 text-xs text-[#374151] select-none">C</div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <div class="text-[13px] font-medium text-[#111827] leading-[22px]">
+                                    <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Customer Service</span> <span class="text-[14px] font-normal text-[#4a5565]">replied</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
+                                    <p class="font-normal text-[#4a5565] text-[12px] pb-1">To: bob.tree@faveohelpdesk.com</p>
+                                    <p class="font-medium mb-0">Hi Team,</p>
+                                    <p class="font-normal">The system is supposed to show 100 conversations this week but it shows zero like the customer has mentioned. Can you please check and help him out?</p>
+                                </div>
+                            </div>
+                            <div class="invisible group-hover:visible absolute top-2 right-2 flex items-center rounded-[6px] shadow-md ring-1 ring-[#e2e8f0] z-10">
+                                <button class="relative group/btn-fwd w-[26px] h-[26px] flex items-center justify-center rounded-l-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-solid fa-share text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-fwd:opacity-100 transition-opacity pointer-events-none z-20">Forward</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button data-scroll-to="#reply-composer" class="relative group/btn-note w-[26px] h-[26px] flex items-center justify-center bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-message text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-note:opacity-100 transition-opacity pointer-events-none z-20">Note</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button class="relative group/btn-del w-[26px] h-[26px] flex items-center justify-center rounded-r-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-trash-can text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-del:opacity-100 transition-opacity pointer-events-none z-20">Delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Customer reply 1 (Bob tree → yellow bubble) -->
+                        <div class="flex gap-[30px] items-start group relative">
+                            <img src="https://i.pravatar.cc/36?img=12" alt="Bob Tree" class="shrink-0 w-7 h-7 rounded-full object-cover mt-0.5" />
+                            <div class="flex-1 min-w-0 bg-[#fff6e4] rounded-[10px] p-2.5">
+                                <div class="text-[13px] font-medium text-[#111827] leading-[22px]">
+                                    <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Bob tree</span> <span class="text-[14px] font-normal text-[#4a5565]">replied</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
+                                    <p class="font-normal text-[#4a5565] text-[12px] pb-1">To: myself@faveohelpdesk.com</p>
+                                    <p class="font-normal">Thanks for letting me know. Will be looking forward to your update.</p>
+                                </div>
+                            </div>
+                            <div class="invisible group-hover:visible absolute top-2 right-2 flex items-center rounded-[6px] shadow-md ring-1 ring-[#e2e8f0] z-10">
+                                <button class="relative group/btn-fwd w-[26px] h-[26px] flex items-center justify-center rounded-l-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-solid fa-share text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-fwd:opacity-100 transition-opacity pointer-events-none z-20">Forward</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button data-scroll-to="#reply-composer" class="relative group/btn-note w-[26px] h-[26px] flex items-center justify-center bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-message text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-note:opacity-100 transition-opacity pointer-events-none z-20">Note</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button class="relative group/btn-del w-[26px] h-[26px] flex items-center justify-center rounded-r-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-trash-can text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-del:opacity-100 transition-opacity pointer-events-none z-20">Delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Agent reply 2 (Customer Service → gray bubble) -->
+                        <div class="flex gap-[30px] items-start group relative">
+                            <div class="shrink-0 w-7 h-7 rounded-full bg-[#e5e7eb] flex items-center justify-center mt-0.5 text-xs text-[#374151] select-none">C</div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <div class="text-[13px] font-medium text-[#111827] leading-[22px]">
+                                    <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Customer Service</span> <span class="text-[14px] font-normal text-[#4a5565]">replied</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
+                                    <p class="font-normal text-[#4a5565] text-[12px] pb-1">To: bob.tree@faveohelpdesk.com</p>
+                                    <p class="font-medium mb-0">Hi Bob,</p>
+                                    <p class="font-normal">Thank you for raising this issue. We were able to reproduce this issue and it is due to a bug that the engineering team is working on. We will be able to give an update in 24 hours.</p>
+                                </div>
+                            </div>
+                            <div class="invisible group-hover:visible absolute top-2 right-2 flex items-center rounded-[6px] shadow-md ring-1 ring-[#e2e8f0] z-10">
+                                <button class="relative group/btn-fwd w-[26px] h-[26px] flex items-center justify-center rounded-l-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-solid fa-share text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-fwd:opacity-100 transition-opacity pointer-events-none z-20">Forward</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button data-scroll-to="#reply-composer" class="relative group/btn-note w-[26px] h-[26px] flex items-center justify-center bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-message text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-note:opacity-100 transition-opacity pointer-events-none z-20">Note</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button class="relative group/btn-del w-[26px] h-[26px] flex items-center justify-center rounded-r-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-trash-can text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-del:opacity-100 transition-opacity pointer-events-none z-20">Delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Customer reply 2 (Bob tree → yellow bubble) -->
+                        <div class="flex gap-[30px] items-start group relative">
+                            <img src="https://i.pravatar.cc/36?img=12" alt="Bob Tree" class="shrink-0 w-7 h-7 rounded-full object-cover mt-0.5" />
+                            <div class="flex-1 min-w-0 bg-[#fff6e4] rounded-[10px] p-2.5">
+                                <div class="text-[13px] font-medium text-[#111827] leading-[22px]">
+                                    <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Bob tree</span> <span class="text-[14px] font-normal text-[#4a5565]">replied</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">21 days ago (Tue, 26 May 2026 at 12:36 PM)</em></p>
+                                    <p class="font-normal text-[#4a5565] text-[12px] pb-1">To: myself@faveohelpdesk.com</p>
+                                    <p class="font-normal">Thanks for letting me know. Will be looking forward to your update.</p>
+                                </div>
+                            </div>
+                            <div class="invisible group-hover:visible absolute top-2 right-2 flex items-center rounded-[6px] shadow-md ring-1 ring-[#e2e8f0] z-10">
+                                <button class="relative group/btn-fwd w-[26px] h-[26px] flex items-center justify-center rounded-l-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-solid fa-share text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-fwd:opacity-100 transition-opacity pointer-events-none z-20">Forward</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button data-scroll-to="#reply-composer" class="relative group/btn-note w-[26px] h-[26px] flex items-center justify-center bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-message text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-note:opacity-100 transition-opacity pointer-events-none z-20">Note</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button class="relative group/btn-del w-[26px] h-[26px] flex items-center justify-center rounded-r-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-trash-can text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-del:opacity-100 transition-opacity pointer-events-none z-20">Delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- LWS Ben reply (table + image + attachment) -->
+                        <div class="flex gap-[30px] items-start group relative">
+                            <div class="shrink-0 w-7 h-7 rounded-full bg-[#f5d0a9] flex items-center justify-center mt-0.5 text-xs text-[#7c5c3a] select-none">L</div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <div class="text-[13px] font-medium text-[#111827] leading-[22px]">
+                                    <p class="mb-0">
+                                        <span class="font-bold text-[14px] text-[#3da6d7]">LWS Ben</span>
+                                        <span class="text-[14px] font-normal text-[#4a5565]"> replied</span>
+                                        <span class="font-bold text-[#4a5565] mx-1">·</span>
+                                        <em class="font-normal text-[#4a5565] text-[12px]">a few seconds ago (Wed, 1 Jul 2026 at 11:45 AM)</em>
+                                    </p>
+                                    <p class="font-normal text-[#4a5565] text-[12px] pb-1">To: lwsbengaluru@zohomail.in</p>
+                                    <p class="font-normal mb-3">Hi LWS Ben,</p>
+
+                                    <!-- Table -->
+                                    <table class="w-full border-collapse mb-3 text-[13px]">
+                                        <tr>
+                                            <td class="border border-[#d1d5dc] px-3 py-1.5 w-1/2 font-medium">Issue Description</td>
+                                            <td class="border border-[#d1d5dc] px-3 py-1.5 font-medium">Status</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-[#d1d5dc] px-3 py-1.5">Report metrics showing zero</td>
+                                            <td class="border border-[#d1d5dc] px-3 py-1.5">Under investigation</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-[#d1d5dc] px-3 py-1.5">Affected period</td>
+                                            <td class="border border-[#d1d5dc] px-3 py-1.5">Last 7 days</td>
+                                        </tr>
+                                    </table>
+
+                                    <!-- Inline image -->
+                                    <img src="https://picsum.photos/seed/receipt/230/320" alt="Attached image" class="rounded-[6px] max-w-[230px] mb-3 block" />
+
+                                    <!-- Show more -->
+                                    <button data-toggle-quote="lws-prev-convo" class="text-[13px] text-[#4a5565] cursor-pointer bg-transparent border-none p-0 mb-2 hover:text-[#276cf0] transition-colors leading-none">···</button>
+
+                                    <!-- Previous conversation (hidden) — nested email chain -->
+                                    <div id="lws-prev-convo" class="hidden mb-3 text-[13px] text-[#4a5565]">
+
+                                        <!-- Quote level 1 -->
+                                        <p class="mb-1">On Wed, 1 Jul at 11:44 AM , Customer Service &lt;support@faveohelpdesk.com&gt; wrote:</p>
+                                        <div class="border-l-2 border-[#d1d5dc] pl-3">
+                                            <p class="mb-2">Hi LWS Ben,</p>
+                                            <p class="mb-3">Reply to 4th message</p>
+
+                                            <!-- Quote level 2 -->
+                                            <p class="mb-1">On Wed, 1 Jul at 11:43 AM , Customer Service &lt;support@faveohelpdesk.com&gt; wrote:</p>
+                                            <div class="border-l-2 border-[#d1d5dc] pl-3">
+                                                <p class="mb-2">Hi LWS Ben,</p>
+                                                <p class="mb-3">Reply to second message</p>
+
+                                                <!-- Quote level 3 -->
+                                                <p class="mb-1">On Wed, 1 Jul at 11:42 AM , Customer Service &lt;support@faveohelpdesk.com&gt; wrote:</p>
+                                                <div class="border-l-2 border-[#d1d5dc] pl-3">
+                                                    <p class="mb-2">Hi LWS Ben,</p>
+                                                    <p class="mb-3">Reply to Message</p>
+
+                                                    <!-- Quote level 4 -->
+                                                    <p class="mb-1">On Wed, 1 Jul at 11:41 AM , Customer Service &lt;support@faveohelpdesk.com&gt; wrote:</p>
+                                                    <div class="border-l-2 border-[#d1d5dc] pl-3">
+                                                        <p class="mb-0">Message 1</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Attachments -->
+                                    <div class="flex flex-wrap gap-2">
+                                        <div class="flex items-center gap-2.5 border border-[#d1d5dc] rounded-[8px] px-3 py-2 bg-white w-[200px]">
+                                            <div class="w-8 h-8 rounded border border-[#d1d5dc] flex items-center justify-center text-[#94a3b8] shrink-0">
+                                                <i class="fa-regular fa-file text-sm" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <p class="text-[12px] font-medium text-[#333] truncate mb-0">favicon (1).ico</p>
+                                                <p class="text-[11px] text-[#94a3b8] mb-0">1.39 KB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="invisible group-hover:visible absolute top-2 right-2 flex items-center rounded-[6px] shadow-md ring-1 ring-[#e2e8f0] z-10">
+                                <button class="relative group/btn-fwd w-[26px] h-[26px] flex items-center justify-center rounded-l-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-solid fa-share text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-fwd:opacity-100 transition-opacity pointer-events-none z-20">Forward</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button data-scroll-to="#reply-composer" class="relative group/btn-note w-[26px] h-[26px] flex items-center justify-center bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-message text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-note:opacity-100 transition-opacity pointer-events-none z-20">Note</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button class="relative group/btn-del w-[26px] h-[26px] flex items-center justify-center rounded-r-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-trash-can text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-del:opacity-100 transition-opacity pointer-events-none z-20">Delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Bob Tree reply (multiple attachments) -->
+                        <div class="flex gap-[30px] items-start group relative">
+                            <img src="https://i.pravatar.cc/36?img=12" alt="Bob Tree" class="shrink-0 w-7 h-7 rounded-full object-cover mt-0.5" />
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <div class="text-[13px] font-medium text-[#111827] leading-[22px]">
+                                    <p class="mb-0">
+                                        <span class="font-bold text-[14px] text-[#3da6d7]">Bob Tree</span>
+                                        <span class="text-[14px] font-normal text-[#4a5565]"> replied</span>
+                                        <span class="font-bold text-[#4a5565] mx-1">·</span>
+                                        <em class="font-normal text-[#4a5565] text-[12px]">2 minutes ago (Wed, 1 Jul 2026 at 11:50 AM)</em>
+                                    </p>
+                                    <p class="font-normal text-[#4a5565] text-[12px] pb-1">To: lwsbengaluru@zohomail.in</p>
+                                    <p class="font-normal mb-3">Hi LWS Ben,</p>
+                                    <p class="font-normal mb-3">Please find the requested files attached below. Let me know if you need anything else regarding your account.</p>
+                                    <p class="font-normal mb-4">Thanks,<br>Bob Tree</p>
+
+                                    <!-- Attachments -->
+                                    <div class="flex flex-wrap gap-2">
+
+                                        <div class="flex items-center gap-2.5 border border-[#d1d5dc] rounded-[8px] px-3 py-2 bg-white w-[200px]">
+                                            <div class="w-8 h-8 rounded border border-[#d1d5dc] flex items-center justify-center text-[#94a3b8] shrink-0">
+                                                <i class="fa-regular fa-file-pdf text-sm text-[#e74c3c]" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <p class="text-[12px] font-medium text-[#333] truncate mb-0">invoice_july.pdf</p>
+                                                <p class="text-[11px] text-[#94a3b8] mb-0">245 KB</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center gap-2.5 border border-[#d1d5dc] rounded-[8px] px-3 py-2 bg-white w-[200px]">
+                                            <div class="w-8 h-8 rounded border border-[#d1d5dc] flex items-center justify-center text-[#94a3b8] shrink-0">
+                                                <i class="fa-regular fa-file-excel text-sm text-[#27ae60]" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <p class="text-[12px] font-medium text-[#333] truncate mb-0">usage_report_Q2.xlsx</p>
+                                                <p class="text-[11px] text-[#94a3b8] mb-0">88 KB</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center gap-2.5 border border-[#d1d5dc] rounded-[8px] px-3 py-2 bg-white w-[200px]">
+                                            <div class="w-8 h-8 rounded border border-[#d1d5dc] flex items-center justify-center text-[#94a3b8] shrink-0">
+                                                <i class="fa-regular fa-file-image text-sm text-[#9b59b6]" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <p class="text-[12px] font-medium text-[#333] truncate mb-0">screenshot_error.png</p>
+                                                <p class="text-[11px] text-[#94a3b8] mb-0">1.2 MB</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center gap-2.5 border border-[#d1d5dc] rounded-[8px] px-3 py-2 bg-white w-[200px]">
+                                            <div class="w-8 h-8 rounded border border-[#d1d5dc] flex items-center justify-center text-[#94a3b8] shrink-0">
+                                                <i class="fa-regular fa-file-zipper text-sm text-[#e67e22]" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <p class="text-[12px] font-medium text-[#333] truncate mb-0">logs_bundle.zip</p>
+                                                <p class="text-[11px] text-[#94a3b8] mb-0">3.7 MB</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center gap-2.5 border border-[#d1d5dc] rounded-[8px] px-3 py-2 bg-white w-[200px]">
+                                            <div class="w-8 h-8 rounded border border-[#d1d5dc] flex items-center justify-center text-[#94a3b8] shrink-0">
+                                                <i class="fa-regular fa-file-word text-sm text-[#2980b9]" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <p class="text-[12px] font-medium text-[#333] truncate mb-0">support_notes.docx</p>
+                                                <p class="text-[11px] text-[#94a3b8] mb-0">62 KB</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="invisible group-hover:visible absolute top-2 right-2 flex items-center rounded-[6px] shadow-md ring-1 ring-[#e2e8f0] z-10">
+                                <button class="relative group/btn-fwd w-[26px] h-[26px] flex items-center justify-center rounded-l-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-solid fa-share text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-fwd:opacity-100 transition-opacity pointer-events-none z-20">Forward</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button data-scroll-to="#reply-composer" class="relative group/btn-note w-[26px] h-[26px] flex items-center justify-center bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-message text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-note:opacity-100 transition-opacity pointer-events-none z-20">Note</span>
+                                </button>
+                                <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                                <button class="relative group/btn-del w-[26px] h-[26px] flex items-center justify-center rounded-r-[6px] bg-white text-[#4a5565] cursor-pointer hover:bg-[#f1f5f9] transition-colors border-none">
+                                    <i class="fa-regular fa-trash-can text-[11px]" aria-hidden="true"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/btn-del:opacity-100 transition-opacity pointer-events-none z-20">Delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Reply composer -->
+                        <div class="flex gap-[30px] items-start group relative">
+                            <img src="https://i.pravatar.cc/36?img=7" alt="Sakthi" class="shrink-0 w-7 h-7 rounded-full object-cover" />
+                        <div id="reply-composer" class="flex-1 min-w-0 bg-white border border-[#c1e2ff] rounded-[10px] transition-colors">
+
+                            <!-- Tab bar (always visible) -->
+                            <div class="flex items-center justify-between px-4 pt-3 pb-2.5">
+                                <div class="flex gap-2">
+                                    <button data-composer-tab="reply" class="composer-tab flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] border text-xs font-medium cursor-pointer transition-colors border-[#c1e2ff] bg-[#def0ff] text-[#276cf0]">
+                                        <i class="fa-regular fa-envelope text-[10px]" aria-hidden="true"></i> Reply
+                                    </button>
+                                    <button data-composer-tab="note" class="composer-tab flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] border text-xs font-medium cursor-pointer transition-colors border-[#d2d2d2] bg-white text-[#4a5565]">
+                                        <i class="fa-regular fa-note-sticky text-[10px]" aria-hidden="true"></i> Note
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Collapsed placeholder -->
+                            <div id="composer-collapsed" class="relative px-5 pb-5 text-[14px] text-[#90a1b9] cursor-text min-h-[56px]">
+                                Type your response here...
+                                <button disabled class="absolute bottom-3 right-3 w-[26px] h-[26px] flex items-center justify-center rounded bg-[#3da6d7] text-white cursor-not-allowed border-none opacity-50" title="Send">
+                                    <i class="fa-solid fa-paper-plane text-xs" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <!-- Expanded editor -->
+                            <div id="composer-expanded" class="hidden">
+
+                                <!-- Reply fields -->
+                                <div id="composer-reply-fields" class="border-t border-[#e5e7eb]">
+                                    <div class="flex items-center px-5 py-2 gap-3">
+                                        <span class="text-[#94a3b8] text-sm w-12 shrink-0">From :</span>
+                                        <span class="text-sm text-[#333] font-medium">Customer Service <span class="font-normal text-[#6b7280]">(support@faveohelpdesk.com)</span></span>
+                                    </div>
+                                    <div class="flex items-center px-5 py-2 border-b border-[#e5e7eb] gap-3">
+                                        <span class="text-[#94a3b8] text-sm w-12 shrink-0">To :</span>
+                                        <span class="flex-1 text-sm text-[#333]">bob.tree@faveohelpdesk.com</span>
+                                        <button class="text-[#276cf0] text-xs font-semibold cursor-pointer bg-transparent border-none hover:underline">Cc</button>
+                                        <button class="text-[#276cf0] text-xs font-semibold cursor-pointer bg-transparent border-none hover:underline">Bcc</button>
+                                    </div>
+                                </div>
+
+                                <!-- Note fields -->
+                                <div id="composer-note-fields" class="hidden border-t border-[#e5e7eb]">
+                                    <div class="flex items-center px-5 py-2.5 border-b border-[#e5e7eb] gap-3">
+                                        <span class="text-[#94a3b8] text-sm shrink-0">Notify to:</span>
+                                        <input type="text" class="flex-1 border border-[#3da6d7] rounded-[6px] px-3 py-1 text-sm outline-none focus:border-[#276cf0]" aria-label="Notify recipients" />
+                                    </div>
+                                </div>
+
+                                <!-- Contenteditable area -->
+                                <div id="composer-editor"
+                                     contenteditable="true"
+                                     role="textbox"
+                                     aria-multiline="true"
+                                     aria-label="Compose message"
+                                     data-placeholder="Type your reply here..."
+                                     class="composer-editor min-h-[180px] px-5 py-4 text-[14px] text-[#333] outline-none leading-relaxed">
+                                </div>
+
+                                <!-- Formatting toolbar -->
+                                <div class="flex items-center gap-0.5 px-4 py-2 border-t border-[#e5e7eb] flex-wrap">
+                                    <button data-cmd="bold" title="Bold" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-bold text-xs" aria-hidden="true"></i></button>
+                                    <button data-cmd="italic" title="Italic" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-italic text-xs" aria-hidden="true"></i></button>
+                                    <button data-cmd="underline" title="Underline" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-underline text-xs" aria-hidden="true"></i></button>
+                                    <span class="w-px h-4 bg-[#e5e7eb] mx-0.5 shrink-0"></span>
+                                    <button data-cmd="h1" title="Heading 1" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent text-[11px] font-bold">H₁</button>
+                                    <button data-cmd="h2" title="Heading 2" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent text-[11px] font-bold">H₂</button>
+                                    <span class="w-px h-4 bg-[#e5e7eb] mx-0.5 shrink-0"></span>
+                                    <button data-cmd="forecolor" title="Text color" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-font text-xs" aria-hidden="true"></i></button>
+                                    <button data-cmd="hilitecolor" title="Highlight" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] cursor-pointer border-none bg-transparent"><span class="w-[18px] h-[18px] rounded-[3px] bg-[#1e293b] flex items-center justify-center text-white text-[9px] font-bold select-none">A</span></button>
+                                    <span class="w-px h-4 bg-[#e5e7eb] mx-0.5 shrink-0"></span>
+                                    <button data-cmd="insertorderedlist" title="Ordered list" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-list-ol text-xs" aria-hidden="true"></i></button>
+                                    <button data-cmd="insertunorderedlist" title="Unordered list" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-list-ul text-xs" aria-hidden="true"></i></button>
+                                    <button data-cmd="formatblock-p" title="Paragraph" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-paragraph text-xs" aria-hidden="true"></i></button>
+                                    <span class="w-px h-4 bg-[#e5e7eb] mx-0.5 shrink-0"></span>
+                                    <button data-cmd="createlink" title="Link" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-link text-xs" aria-hidden="true"></i></button>
+                                    <button data-cmd="insertimage" title="Image" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-regular fa-image text-xs" aria-hidden="true"></i></button>
+                                    <button data-cmd="inserttable" title="Table" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-table text-xs" aria-hidden="true"></i></button>
+                                    <button data-cmd="code" title="Code block" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent text-xs font-mono font-bold">{}</button>
+                                    <button data-cmd="strikethrough" title="Strikethrough" class="editor-tool w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-strikethrough text-xs" aria-hidden="true"></i></button>
+                                </div>
+
+                                <!-- Bottom action bar -->
+                                <div class="flex items-center justify-between px-4 py-2.5 border-t border-[#e5e7eb]">
+                                    <!-- Left: tools -->
+                                    <div class="flex items-center gap-1">
+                                        <button title="Font" class="w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-font text-xs" aria-hidden="true"></i></button>
+                                        <button title="Attach file" class="w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-paperclip text-xs" aria-hidden="true"></i></button>
+                                        <button title="Insert image" class="w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-regular fa-image text-xs" aria-hidden="true"></i></button>
+                                        <button title="Knowledge base" class="w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-book text-xs" aria-hidden="true"></i></button>
+                                        <button title="Templates" class="w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#374151] cursor-pointer border-none bg-transparent"><i class="fa-solid fa-table-list text-xs" aria-hidden="true"></i></button>
+                                    </div>
+                                    <!-- Right: Reply actions -->
+                                    <div id="composer-reply-actions" class="flex items-center gap-2">
+                                        <span class="text-xs text-[#94a3b8]">Saving...</span>
+                                        <button title="Discard" class="w-7 h-7 flex items-center justify-center rounded hover:bg-[#f1f5f9] text-[#94a3b8] hover:text-red-500 cursor-pointer border-none bg-transparent"><i class="fa-solid fa-trash text-xs" aria-hidden="true"></i></button>
+                                        <div class="flex items-center bg-[#276cf0] rounded-[6px] overflow-hidden">
+                                            <button class="flex items-center gap-1.5 text-white text-xs font-semibold px-4 py-2 cursor-pointer border-none bg-transparent hover:bg-white/10 transition-colors">
+                                                <i class="fa-solid fa-paper-plane text-[10px]" aria-hidden="true"></i> Send
+                                            </button>
+                                            <span class="w-px self-stretch bg-white/30"></span>
+                                            <button class="flex items-center justify-center text-white px-2.5 py-2 cursor-pointer border-none bg-transparent hover:bg-white/10 transition-colors">
+                                                <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Right: Note actions -->
+                                    <div id="composer-note-actions" class="hidden flex items-center gap-2">
+                                        <button id="btn-composer-cancel" class="px-4 py-2 border border-[#d1d5dc] rounded-[6px] text-[#4a5565] text-xs font-medium cursor-pointer bg-white hover:bg-[#f1f5f9] transition-colors">Cancel</button>
+                                        <div class="flex items-center bg-[#276cf0] rounded-[6px] overflow-hidden">
+                                            <button class="flex items-center gap-1.5 text-white text-xs font-semibold px-4 py-2 cursor-pointer border-none bg-transparent hover:bg-white/10 transition-colors">
+                                                <i class="fa-regular fa-note-sticky text-[10px]" aria-hidden="true"></i> Add note
+                                            </button>
+                                            <span class="w-px self-stretch bg-white/30"></span>
+                                            <button class="flex items-center justify-center text-white px-2.5 py-2 cursor-pointer border-none bg-transparent hover:bg-white/10 transition-colors">
+                                                <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /expanded -->
+                        </div><!-- /reply-composer -->
+                        </div><!-- /composer wrapper -->
+
+                    </div><!-- /threads -->
+
                 </div><!-- /conversation column -->
 
                 <!-- ── Properties panel (205px, toggleable) ── -->
@@ -1494,6 +1874,141 @@
     <div data-dismiss="#panel-renew" class="flex-1 bg-black/20"></div>
 </div>
 
+
+<script>
+(function () {
+    var TAB_BASE     = 'composer-tab flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] border text-xs font-medium cursor-pointer transition-colors'
+    var TAB_INACTIVE = TAB_BASE + ' border-[#d2d2d2] bg-white text-[#4a5565]'
+    var TAB_REPLY    = TAB_BASE + ' border-[#c1e2ff] bg-[#def0ff] text-[#276cf0]'
+    var TAB_NOTE     = TAB_BASE + ' border-[#fddbb5] bg-[#fef1e1] text-[#d7461f]'
+
+    var currentTab = 'reply'
+
+    function activateTab(tab) {
+        var composer  = document.getElementById('reply-composer')
+        var replyBtn  = composer.querySelector('[data-composer-tab="reply"]')
+        var noteBtn   = composer.querySelector('[data-composer-tab="note"]')
+        replyBtn.className = tab === 'reply' ? TAB_REPLY : TAB_INACTIVE
+        noteBtn.className  = tab === 'note'  ? TAB_NOTE  : TAB_INACTIVE
+        composer.style.borderColor = tab === 'reply' ? '#c1e2ff' : '#fddbb5'
+        currentTab = tab
+    }
+
+    function expandComposer(tab) {
+        var collapsed     = document.getElementById('composer-collapsed')
+        var expanded      = document.getElementById('composer-expanded')
+        var replyFields   = document.getElementById('composer-reply-fields')
+        var noteFields    = document.getElementById('composer-note-fields')
+        var replyActions  = document.getElementById('composer-reply-actions')
+        var noteActions   = document.getElementById('composer-note-actions')
+        var editor        = document.getElementById('composer-editor')
+
+        collapsed.classList.add('hidden')
+        expanded.classList.remove('hidden')
+
+        if (tab === 'reply') {
+            replyFields.classList.remove('hidden')
+            noteFields.classList.add('hidden')
+            replyActions.style.display = 'flex'
+            noteActions.style.display  = 'none'
+            editor.dataset.placeholder = 'Type your reply here...'
+        } else {
+            noteFields.classList.remove('hidden')
+            replyFields.classList.add('hidden')
+            noteActions.style.display  = 'flex'
+            replyActions.style.display = 'none'
+            editor.dataset.placeholder = 'Add a note...'
+        }
+
+        editor.focus()
+    }
+
+    function collapseComposer() {
+        var collapsed = document.getElementById('composer-collapsed')
+        var expanded  = document.getElementById('composer-expanded')
+        var expandBtn = document.getElementById('btn-composer-expand')
+        collapsed.classList.remove('hidden')
+        expanded.classList.add('hidden')
+        activateTab('reply')
+    }
+
+    // Tab click → activate + expand
+    document.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-composer-tab]')
+        if (!btn || !btn.closest('#reply-composer')) return
+        var tab = btn.getAttribute('data-composer-tab')
+        activateTab(tab)
+        expandComposer(tab)
+    })
+
+    // Click on collapsed placeholder → expand current tab
+    document.addEventListener('click', function (e) {
+        var collapsed = document.getElementById('composer-collapsed')
+        if (collapsed && !collapsed.classList.contains('hidden') && collapsed.contains(e.target)) {
+            expandComposer(currentTab)
+        }
+    })
+
+    // Cancel → collapse
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('#btn-composer-cancel')) collapseComposer()
+    })
+
+    // Toolbar execCommand
+    document.addEventListener('mousedown', function (e) {
+        var btn = e.target.closest('[data-cmd]')
+        if (!btn) return
+        e.preventDefault()
+        var cmd    = btn.getAttribute('data-cmd')
+        var editor = document.getElementById('composer-editor')
+        editor.focus()
+
+        var cmdMap = { bold: ['bold'], italic: ['italic'], underline: ['underline'],
+                       strikethrough: ['strikeThrough'], insertorderedlist: ['insertOrderedList'],
+                       insertunorderedlist: ['insertUnorderedList'] }
+
+        if (cmdMap[cmd]) {
+            document.execCommand(cmdMap[cmd][0], false, null)
+        } else if (cmd === 'h1' || cmd === 'h2') {
+            document.execCommand('formatBlock', false, cmd)
+        } else if (cmd === 'formatblock-p') {
+            document.execCommand('formatBlock', false, 'p')
+        } else if (cmd === 'forecolor') {
+            var color = prompt('Text color (hex):', '#333333')
+            if (color) document.execCommand('foreColor', false, color)
+        } else if (cmd === 'hilitecolor') {
+            var hcolor = prompt('Highlight color (hex):', '#ffff00')
+            if (hcolor) document.execCommand('hiliteColor', false, hcolor)
+        } else if (cmd === 'createlink') {
+            var url = prompt('URL:', 'https://')
+            if (url) document.execCommand('createLink', false, url)
+        } else if (cmd === 'insertimage') {
+            var src = prompt('Image URL:', '')
+            if (src) document.execCommand('insertImage', false, src)
+        } else if (cmd === 'inserttable') {
+            document.execCommand('insertHTML', false,
+                '<table border="1" style="border-collapse:collapse;width:100%">' +
+                '<tr><td style="padding:4px 8px">&nbsp;</td><td style="padding:4px 8px">&nbsp;</td></tr>' +
+                '<tr><td style="padding:4px 8px">&nbsp;</td><td style="padding:4px 8px">&nbsp;</td></tr>' +
+                '</table>')
+        } else if (cmd === 'code') {
+            document.execCommand('insertHTML', false,
+                '<pre style="background:#f1f5f9;padding:8px 12px;border-radius:4px;font-family:monospace;font-size:13px">code here</pre>')
+        }
+    })
+})()
+
+// ── Quoted conversation toggle ────────────────────────────────────────
+document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-toggle-quote]')
+    if (!btn) return
+    var targetId = btn.getAttribute('data-toggle-quote')
+    var panel = document.getElementById(targetId)
+    if (!panel) return
+    var isHidden = panel.classList.contains('hidden')
+    panel.classList.toggle('hidden', !isHidden)
+})
+</script>
 
 </body>
 </html>

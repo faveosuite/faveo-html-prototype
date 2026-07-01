@@ -72,3 +72,14 @@
     box-shadow: -4px 0 24px rgba(0, 0, 0, 0.18);
   }
 }
+
+/* Contenteditable editor */
+.composer-editor:focus {
+  outline: none;
+  box-shadow: none;
+}
+.composer-editor:empty::before {
+  content: attr(data-placeholder);
+  color: #90a1b9;
+  pointer-events: none;
+}

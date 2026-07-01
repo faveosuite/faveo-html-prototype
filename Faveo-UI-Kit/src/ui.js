@@ -129,6 +129,24 @@ $(document).on('click', '[data-acc-toggle]', function () {
   $btn.attr('aria-expanded', closing ? 'false' : 'true')
 })
 
+// ── Scroll-to ─────────────────────────────────────────────────────
+// Usage: <button data-scroll-to="#target-id">
+// Scrolls the nearest scrollable ancestor of the target into view.
+
+$(document).on('click', '[data-scroll-to]', function () {
+  const $target = $($(this).data('scroll-to'))
+  if (!$target.length) return
+  const $scroller = $target.closest('.overflow-y-auto')
+  if ($scroller.length) {
+    const targetTop = $target[0].getBoundingClientRect().top
+      - $scroller[0].getBoundingClientRect().top
+      + $scroller[0].scrollTop
+    $scroller.animate({ scrollTop: targetTop }, 200)
+  } else {
+    $target[0].scrollIntoView({ behavior: 'smooth' })
+  }
+})
+
 // ── Sort dropdown selection ────────────────────────────────────────
 // Moves active highlight within each group (field / direction) independently.
 // Updates the trigger button label when a field is selected.
