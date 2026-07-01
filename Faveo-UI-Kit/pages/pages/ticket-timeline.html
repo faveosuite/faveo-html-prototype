@@ -906,47 +906,195 @@
                         <button data-toggle="dropdown" data-target="#action-more-dropdown" aria-haspopup="menu" aria-expanded="false" aria-controls="action-more-dropdown" aria-label="More actions" class="flex items-center justify-center w-[28px] h-[28px] border border-[#d1d5dc] rounded-[6px] bg-white text-[#525252] hover:bg-[#f1f5f9] transition-colors cursor-pointer">
                             <i class="fa-solid fa-ellipsis-vertical text-xs" aria-hidden="true"></i>
                         </button>
-                        <div id="action-more-dropdown" role="menu" aria-label="More actions" class="absolute left-0 top-[calc(100%+4px)] z-50 min-w-[180px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] p-1.5 hidden">
-                            <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                                <i class="fa-solid fa-check-circle text-xs shrink-0" aria-hidden="true"></i><span>Mark as solved</span>
+                        <div id="action-more-dropdown" role="menu" aria-label="More actions" class="absolute left-0 top-[calc(100%+2px)] z-50 min-w-[180px] bg-white rounded-[6px] shadow-[0_0_10px_rgba(0,0,0,0.15)] border border-[#e5e7eb] p-1.5 hidden">
+                            <button data-toggle="modal" data-target="#panel-edit-ticket" role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
+                                Edit ticket details
                             </button>
-                            <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                                <i class="fa-solid fa-tag text-xs shrink-0" aria-hidden="true"></i><span>Add label</span>
-                            </button>
-                            <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                                <i class="fa-solid fa-code-merge text-xs shrink-0" aria-hidden="true"></i><span>Merge ticket</span>
-                            </button>
-                            <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                                <i class="fa-solid fa-print text-xs shrink-0" aria-hidden="true"></i><span>Print</span>
-                            </button>
-                            <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#4a5565] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                                <i class="fa-solid fa-ban text-xs shrink-0" aria-hidden="true"></i><span>Mark as spam</span>
-                            </button>
-                            <div class="border-t border-[#e5e7eb] my-1"></div>
-                            <button role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-red-500 text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#f1f5f9] transition-colors">
-                                <i class="fa-solid fa-trash text-xs shrink-0" aria-hidden="true"></i><span>Delete</span>
+                            <button id="btn-open-delete-modal" role="menuitem" class="flex items-center gap-2.5 w-full px-2.5 py-1.5 rounded-[4px] text-[#ef4444] text-[12px] font-medium cursor-pointer border-none bg-transparent text-left hover:bg-[#fff1f1] transition-colors">
+                                Delete
                             </button>
                         </div>
                     </div>
                 </div>
                 <!-- Right: Threads / Activities / pagination -->
                 <div class="flex items-center gap-2 shrink-0">
-                    <button class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
-                        Threads <i class="fa-solid fa-chevron-down text-[9px] ml-0.5" aria-hidden="true"></i>
+                    <button id="btn-activities" class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                        <i class="fa-solid fa-clock-rotate-left text-[10px]" aria-hidden="true"></i> <span>Activities</span>
                     </button>
-                    <button class="flex items-center justify-center w-[28px] h-[28px] border border-[#d1d5dc] rounded-[6px] bg-white text-[#525252] hover:bg-[#f1f5f9] transition-colors cursor-pointer" title="New thread">
-                        <i class="fa-solid fa-plus text-[10px]" aria-hidden="true"></i>
+                    <button id="btn-requester-analysis" class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
+                        <i class="fa-solid fa-chart-bar text-[10px]" aria-hidden="true"></i> <span>Requester Analysis</span>
                     </button>
-                    <button class="flex items-center gap-1.5 border border-[#d1d5dc] rounded-[6px] px-2.5 py-1.5 text-[#525252] text-xs font-medium bg-white hover:bg-[#f1f5f9] transition-colors cursor-pointer whitespace-nowrap">
-                        <i class="fa-solid fa-clock-rotate-left text-[10px]" aria-hidden="true"></i> Activities
-                    </button>
-                    <span class="text-xs text-[#4a5565] whitespace-nowrap">1 - 3 of 3</span>
-                    <button class="flex items-center justify-center w-[28px] h-[28px] text-[#525252] cursor-pointer hover:text-[#333] transition-colors bg-transparent border-none" title="Previous">
-                        <i class="fa-solid fa-chevron-left text-xs" aria-hidden="true"></i>
-                    </button>
-                    <button class="flex items-center justify-center w-[28px] h-[28px] text-[#525252] cursor-pointer hover:text-[#333] transition-colors bg-transparent border-none" title="Next">
-                        <i class="fa-solid fa-chevron-right text-xs" aria-hidden="true"></i>
-                    </button>
+                    <div class="relative shrink-0">
+                        <div class="flex items-center border border-[#e2e8f0] rounded-[8px] bg-white">
+                            <button class="flex items-center justify-center w-[34px] h-[30px] text-[#1e293b] cursor-pointer hover:bg-[#f1f5f9] rounded-l-[7px] transition-colors bg-transparent border-none" title="Previous">
+                                <i class="fa-solid fa-chevron-left text-[11px]" aria-hidden="true"></i>
+                            </button>
+                            <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                            <button data-toggle="dropdown" data-target="#pagination-ticket-list"
+                                    class="relative group/dots flex items-center justify-center w-[34px] h-[30px] text-[#1e293b] cursor-pointer hover:bg-[#f1f5f9] transition-colors bg-transparent border-none" aria-expanded="false" aria-haspopup="true">
+                                <span class="text-[#1e293b] text-[14px] font-bold leading-none" style="letter-spacing:0.05em">···</span>
+                                <span class="pointer-events-none absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1e3a5f] text-white text-[11px] px-2 py-1 rounded-[4px] whitespace-nowrap opacity-0 group-hover/dots:opacity-100 transition-opacity z-20">Jump to ticket</span>
+                            </button>
+                            <span class="w-px self-stretch bg-[#e2e8f0]"></span>
+                            <button class="flex items-center justify-center w-[34px] h-[30px] text-[#1e293b] cursor-pointer hover:bg-[#f1f5f9] rounded-r-[7px] transition-colors bg-transparent border-none" title="Next">
+                                <i class="fa-solid fa-chevron-right text-[11px]" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <!-- Ticket list dropdown -->
+                        <div id="pagination-ticket-list" class="hidden absolute top-full right-0 mt-1.5 w-[500px] bg-white rounded-[12px] z-50" style="box-shadow:0 8px 32px rgba(0,0,0,0.14),0 1.5px 6px rgba(0,0,0,0.07); border:1px solid #e2e8f0;">
+
+                            <!-- Header -->
+                            <div class="px-4 py-3 border-b border-[#e2e8f0]">
+                                <span class="text-[13px] font-semibold text-[#1e293b]">All tickets</span>
+                            </div>
+
+                            <!-- Scrollable list -->
+                            <div class="overflow-y-auto max-h-[400px]">
+
+                                <!-- Ticket 1: Closed -->
+                                <div class="flex items-start gap-3 px-4 py-3 border-b border-[#f1f5f9] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-10 h-10 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-user text-[#94a3b8] text-sm" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[13px] text-[#64748b] mb-0.5">Issues with reports <span class="font-normal">#7</span></p>
+                                        <p class="text-[12px] text-[#94a3b8] mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]" aria-hidden="true"></i> From : --</p>
+                                        <div class="flex items-center gap-1.5 text-[12px] text-[#64748b]">
+                                            <span>Closed a day ago</span>
+                                            <span class="text-[#cbd5e1]">·</span>
+                                            <i class="fa-regular fa-clock text-[10px]" aria-hidden="true"></i>
+                                            <span>Resolved on time</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-3 h-3 rounded-[3px] bg-[#94a3b8] shrink-0 mt-1"></div>
+                                </div>
+
+                                <!-- Ticket 2: First response due -->
+                                <div class="flex items-start gap-3 px-4 py-3 border-b border-[#f1f5f9] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-10 h-10 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-user text-[#94a3b8] text-sm" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <span class="inline-block text-[11px] font-semibold text-[#ef4444] bg-[#fee2e2] px-2 py-0.5 rounded-[4px] mb-1">First response due</span>
+                                        <p class="text-[13px] font-bold text-[#1e293b] mb-0.5">Issues with reports <span class="font-normal">#6</span></p>
+                                        <p class="text-[12px] text-[#94a3b8] mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]" aria-hidden="true"></i> From : --</p>
+                                        <div class="flex items-center gap-1.5 text-[12px] text-[#64748b]">
+                                            <span>Created 5 days ago</span>
+                                            <span class="text-[#cbd5e1]">·</span>
+                                            <i class="fa-solid fa-reply text-[10px]" aria-hidden="true"></i>
+                                            <span>First response overdue by 2 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-3 h-3 rounded-[3px] bg-[#22c55e] shrink-0 mt-1"></div>
+                                </div>
+
+                                <!-- Ticket 3: First response due, named requester -->
+                                <div class="flex items-start gap-3 px-4 py-3 border-b border-[#f1f5f9] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-10 h-10 rounded-full bg-[#f5cba7] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold text-[#a0522d] select-none">B</div>
+                                    <div class="flex-1 min-w-0">
+                                        <span class="inline-block text-[11px] font-semibold text-[#ef4444] bg-[#fee2e2] px-2 py-0.5 rounded-[4px] mb-1">First response due</span>
+                                        <p class="text-[13px] font-bold text-[#1e293b] mb-0.5">Issues with reports <span class="font-normal">#5</span></p>
+                                        <p class="text-[12px] text-[#94a3b8] mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]" aria-hidden="true"></i> From : Bob Tree</p>
+                                        <div class="flex items-center gap-1.5 text-[12px] text-[#64748b]">
+                                            <span>Created 5 days ago</span>
+                                            <span class="text-[#cbd5e1]">·</span>
+                                            <i class="fa-solid fa-reply text-[10px]" aria-hidden="true"></i>
+                                            <span>First response overdue by 2 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-3 h-3 rounded-[3px] bg-[#22c55e] shrink-0 mt-1"></div>
+                                </div>
+
+                                <!-- Ticket 4: Resolution due -->
+                                <div class="flex items-start gap-3 px-4 py-3 border-b border-[#f1f5f9] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-10 h-10 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-user text-[#94a3b8] text-sm" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[13px] font-bold text-[#1e293b] mb-0.5">Issues with reports <span class="font-normal">#4</span></p>
+                                        <p class="text-[12px] text-[#94a3b8] mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]" aria-hidden="true"></i> From : --</p>
+                                        <div class="flex items-center gap-1.5 text-[12px] text-[#64748b]">
+                                            <span>Agent responded 6 days ago</span>
+                                            <span class="text-[#cbd5e1]">·</span>
+                                            <i class="fa-regular fa-clock text-[10px]" aria-hidden="true"></i>
+                                            <span>Resolution due in 21 hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-3 h-3 rounded-[3px] bg-[#22c55e] shrink-0 mt-1"></div>
+                                </div>
+
+                                <!-- Ticket 5: Pending -->
+                                <div class="flex items-start gap-3 px-4 py-3 border-b border-[#f1f5f9] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-10 h-10 rounded-full bg-[#dbeafe] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold text-[#2563eb] select-none">L</div>
+                                    <div class="flex-1 min-w-0">
+                                        <span class="inline-block text-[11px] font-semibold text-[#ca8a04] bg-[#fef9c3] px-2 py-0.5 rounded-[4px] mb-1">Resolution due</span>
+                                        <p class="text-[13px] font-bold text-[#1e293b] mb-0.5">Cannot access admin panel <span class="font-normal">#3</span></p>
+                                        <p class="text-[12px] text-[#94a3b8] mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]" aria-hidden="true"></i> From : LWS Ben</p>
+                                        <div class="flex items-center gap-1.5 text-[12px] text-[#64748b]">
+                                            <span>Updated 2 days ago</span>
+                                            <span class="text-[#cbd5e1]">·</span>
+                                            <i class="fa-regular fa-clock text-[10px]" aria-hidden="true"></i>
+                                            <span>Resolution overdue by 1 day</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-3 h-3 rounded-[3px] bg-[#f59e0b] shrink-0 mt-1"></div>
+                                </div>
+
+                                <!-- Ticket 6: Open, no SLA -->
+                                <div class="flex items-start gap-3 px-4 py-3 border-b border-[#f1f5f9] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-10 h-10 rounded-full bg-[#dcfce7] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold text-[#16a34a] select-none">A</div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[13px] font-bold text-[#1e293b] mb-0.5">Email notifications not sending <span class="font-normal">#2</span></p>
+                                        <p class="text-[12px] text-[#94a3b8] mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]" aria-hidden="true"></i> From : Alice Morgan</p>
+                                        <div class="flex items-center gap-1.5 text-[12px] text-[#64748b]">
+                                            <span>Created 3 days ago</span>
+                                            <span class="text-[#cbd5e1]">·</span>
+                                            <i class="fa-solid fa-reply text-[10px]" aria-hidden="true"></i>
+                                            <span>Awaiting first response</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-3 h-3 rounded-[3px] bg-[#22c55e] shrink-0 mt-1"></div>
+                                </div>
+
+                                <!-- Ticket 7: Closed, resolved -->
+                                <div class="flex items-start gap-3 px-4 py-3 border-b border-[#f1f5f9] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-10 h-10 rounded-full bg-[#e2e8f0] flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-user text-[#94a3b8] text-sm" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[13px] text-[#64748b] mb-0.5">Dashboard widgets not loading <span class="font-normal">#1</span></p>
+                                        <p class="text-[12px] text-[#94a3b8] mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]" aria-hidden="true"></i> From : --</p>
+                                        <div class="flex items-center gap-1.5 text-[12px] text-[#64748b]">
+                                            <span>Closed 3 days ago</span>
+                                            <span class="text-[#cbd5e1]">·</span>
+                                            <i class="fa-regular fa-clock text-[10px]" aria-hidden="true"></i>
+                                            <span>Resolved on time</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-3 h-3 rounded-[3px] bg-[#94a3b8] shrink-0 mt-1"></div>
+                                </div>
+
+                                <!-- Ticket 8: Overdue -->
+                                <div class="flex items-start gap-3 px-4 py-3 hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-10 h-10 rounded-full bg-[#ffe4e6] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold text-[#ef4444] select-none">M</div>
+                                    <div class="flex-1 min-w-0">
+                                        <span class="inline-block text-[11px] font-semibold text-[#ef4444] bg-[#fee2e2] px-2 py-0.5 rounded-[4px] mb-1">First response due</span>
+                                        <p class="text-[13px] font-bold text-[#1e293b] mb-0.5">Export to CSV failing <span class="font-normal">#8</span></p>
+                                        <p class="text-[12px] text-[#94a3b8] mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]" aria-hidden="true"></i> From : Mark Davis</p>
+                                        <div class="flex items-center gap-1.5 text-[12px] text-[#64748b]">
+                                            <span>Created today</span>
+                                            <span class="text-[#cbd5e1]">·</span>
+                                            <i class="fa-solid fa-reply text-[10px]" aria-hidden="true"></i>
+                                            <span>First response overdue by 3 hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-3 h-3 rounded-[3px] bg-[#22c55e] shrink-0 mt-1"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     <button data-toggle="dropdown" data-target="#panel-contact-info"
                             data-icon-open="fa-outdent" data-icon-closed="fa-indent"
                             class="flex items-center justify-center w-[28px] h-[28px] border border-[#d1d5dc] rounded-[6px] bg-white text-[#525252] cursor-pointer hover:bg-[#f1f5f9] transition-colors dropdown-open" title="Toggle contact info" aria-expanded="true">
@@ -959,10 +1107,10 @@
             <div class="flex flex-1 overflow-hidden">
 
                 <!-- Conversation column -->
-                <div class="flex flex-col flex-1 min-w-0 overflow-hidden border-r border-[#d1d5dc]">
+                <div class="flex flex-col flex-1 min-w-0 overflow-y-auto border-r border-[#d1d5dc]">
 
                     <!-- ── Sticky ticket title ── -->
-                    <div class="shrink-0 bg-white px-7 py-4">
+                    <div class="sticky top-0 z-10 bg-white px-7 py-4">
                         <div class="flex gap-5 items-start">
                             <!-- Bare source icon -->
                             <i class="fa-solid fa-envelope text-[#475569] text-2xl mt-1 shrink-0" aria-hidden="true"></i>
@@ -989,8 +1137,9 @@
                         </div>
                     </div><!-- /sticky title -->
 
-                    <!-- ── Threads (scrollable) ── -->
-                    <div id="threads-scroll" class="flex-1 overflow-y-auto px-7 py-5 flex flex-col gap-5">
+                    <!-- ── Threads view ── -->
+                    <div id="view-threads">
+                    <div id="threads-scroll" class="px-7 py-5 flex flex-col gap-5">
 
                         <!-- Original report (Bob Tree → inline, no bubble) -->
                         <div class="flex gap-[30px] items-start group relative">
@@ -1165,7 +1314,7 @@
                                     <img src="https://picsum.photos/seed/receipt/230/320" alt="Attached image" class="rounded-[6px] max-w-[230px] mb-3 block" />
 
                                     <!-- Show more -->
-                                    <button data-toggle-quote="lws-prev-convo" class="text-[13px] text-[#4a5565] cursor-pointer bg-transparent border-none p-0 mb-2 hover:text-[#276cf0] transition-colors leading-none">···</button>
+                                    <button data-toggle-quote="lws-prev-convo" class="text-[11px] text-[#4a5565] cursor-pointer bg-white border border-[#d1d5dc] px-1.5 py-px rounded-full mb-2 hover:bg-[#f1f5f9] transition-colors leading-none tracking-widest">···</button>
 
                                     <!-- Previous conversation (hidden) — nested email chain -->
                                     <div id="lws-prev-convo" class="hidden mb-3 text-[13px] text-[#4a5565]">
@@ -1321,8 +1470,150 @@
                             </div>
                         </div>
 
-                        <!-- Reply composer -->
-                        <div class="flex gap-[30px] items-start group relative">
+                    </div><!-- /threads-scroll -->
+                    </div><!-- /view-threads -->
+
+                    <!-- ── Activities view (hidden by default) ── -->
+                    <div id="view-activities" class="hidden px-7 py-5 flex flex-col gap-5">
+
+                        <!-- Activity: Customer Service replied -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#dbeafe] flex items-center justify-center shrink-0 text-xs font-bold text-[#2563eb] select-none">CS</div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Customer Service</span> <span class="text-[14px] font-normal text-[#4a5565]">replied</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Today at 11:44 AM</em></p>
+                                <div class="text-[13px] text-[#111827] mt-2">
+                                    <p class="mb-0">Thanks for reaching out! I've reviewed your report issue and will get back to you shortly with a resolution.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Bob Tree replied -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#f0fdf4] flex items-center justify-center shrink-0 text-xs font-bold text-[#16a34a] select-none">B</div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Bob Tree</span> <span class="text-[14px] font-normal text-[#4a5565]">replied</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Today at 11:30 AM</em></p>
+                                <div class="text-[13px] text-[#111827] mt-2">
+                                    <p class="mb-0">The system is still showing zero conversations. I've attached a screenshot for your reference. Please let me know when this will be resolved.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Status changed -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#ede9fe] flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-circle-dot text-[10px] text-[#7c3aed]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Admin</span> <span class="text-[14px] font-normal text-[#4a5565]">changed status from</span> <span class="font-bold text-[14px] text-[#4a5565]">Pending</span> <span class="text-[14px] font-normal text-[#4a5565]">to</span> <span class="font-bold text-[14px] text-[#4a5565]">Open</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Today at 11:00 AM</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Note added -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#fff7ed] flex items-center justify-center shrink-0 text-xs font-bold text-[#ea580c] select-none">CS</div>
+                            <div class="flex-1 min-w-0 bg-[#fff6e4] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Customer Service</span> <span class="text-[14px] font-normal text-[#4a5565]">added a note</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Today at 10:45 AM</em></p>
+                                <div class="text-[13px] text-[#111827] mt-2">
+                                    <p class="mb-0">Checked the reporting module — looks like a caching issue introduced in v2.3.1. Escalating to the backend team for a hotfix.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Priority changed -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#fef9c3] flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-tag text-[10px] text-[#ca8a04]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Admin</span> <span class="text-[14px] font-normal text-[#4a5565]">changed priority to</span> <span class="font-bold text-[14px] text-[#4a5565]">Low</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Today at 10:30 AM</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Assigned -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#dcfce7] flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-user-plus text-[10px] text-[#16a34a]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Admin</span> <span class="text-[14px] font-normal text-[#4a5565]">assigned ticket to</span> <span class="font-bold text-[14px] text-[#4a5565]">Customer Service</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Today at 10:15 AM</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Activity: SLA breach -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#ffe4e6] flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-clock text-[10px] text-[#f43f5e]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#f43f5e]">SLA Breach</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Today at 10:00 AM</em></p>
+                                <p class="text-[13px] text-[#4a5565] mt-1 mb-0">First response SLA exceeded by 2 hours.</p>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Label added -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#f0f9ff] flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-bookmark text-[10px] text-[#0284c7]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Admin</span> <span class="text-[14px] font-normal text-[#4a5565]">added label</span> <span class="inline-flex items-center gap-1 mx-1 px-2 py-0.5 rounded-full bg-[#dbeafe] text-[#1d4ed8] text-[11px] font-semibold">Bug</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Yesterday at 3:55 PM</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Due date updated -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#f0fdf4] flex items-center justify-center shrink-0">
+                                <i class="fa-regular fa-calendar text-[10px] text-[#16a34a]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Admin</span> <span class="text-[14px] font-normal text-[#4a5565]">updated due date to</span> <span class="font-bold text-[14px] text-[#4a5565]">Thu 02 Jul 2026, 01:01 PM</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Yesterday at 3:22 PM</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Activity: CC added -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#f5f3ff] flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-user-group text-[10px] text-[#7c3aed]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Bob Tree</span> <span class="text-[14px] font-normal text-[#4a5565]">added</span> <span class="font-bold text-[14px] text-[#4a5565]">manager@faveohelpdesk.com</span> <span class="text-[14px] font-normal text-[#4a5565]">to CC</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Yesterday at 2:50 PM</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Ticket forwarded -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#fff7ed] flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-share text-[10px] text-[#ea580c]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Customer Service</span> <span class="text-[14px] font-normal text-[#4a5565]">forwarded ticket to</span> <span class="font-bold text-[14px] text-[#4a5565]">backend@faveohelpdesk.com</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">Yesterday at 2:10 PM</em></p>
+                            </div>
+                        </div>
+
+                        <!-- Activity: Ticket created -->
+                        <div class="flex gap-[30px] items-start">
+                            <div class="w-7 h-7 rounded-full bg-[#dbeafe] flex items-center justify-center shrink-0 text-xs font-bold text-[#2563eb] select-none">B</div>
+                            <div class="flex-1 min-w-0 bg-[#f3f3f3] rounded-[10px] p-2.5">
+                                <p class="mb-0"><span class="font-bold text-[14px] text-[#3da6d7]">Bob Tree</span> <span class="text-[14px] font-normal text-[#4a5565]">created the ticket via</span> <span class="font-bold text-[14px] text-[#4a5565]">Email</span> <span class="font-bold text-[#4a5565] mx-1">·</span><em class="font-normal text-[#4a5565] text-[12px]">26 May 2026 at 12:36 PM</em></p>
+                            </div>
+                        </div>
+
+                    </div><!-- /view-activities -->
+
+                    <!-- ── Requester Analysis view (hidden by default) ── -->
+                    <div id="view-requester-analysis" class="hidden px-7 py-5">
+                        <div class="relative">
+                            <button class="absolute top-0 right-0 flex items-center gap-1 text-[#6a7282] text-xs hover:text-[#374151] cursor-pointer bg-transparent border-none" title="Translate">
+                                <i class="fa-solid fa-language text-[15px]" aria-hidden="true"></i>
+                                <i class="fa-solid fa-chevron-down text-[8px]" aria-hidden="true"></i>
+                            </button>
+                            <p class="text-[14px] text-[#111827] leading-relaxed mb-0 pr-16">Bob Tree exhibits a highly repetitive and transactional engagement with the helpdesk, characterized by a terse, minimalist communication style that often relies on rapid, shorthand inputs to report recurring administrative or system testing hurdles. Their overall tone is detached and somewhat impatient, reflecting a low tolerance for lengthy troubleshooting processes and a preference for immediate, straightforward resolutions. While their tickets—frequently revolving around repetitive configuration queries and rapid-fire system tests—are typically resolved with high speed, the sheer frequency of these identical requests suggests a lingering frustration with recurring issues and a lack of effective self-service pathways. Although they maintain a functional, baseline level of trust in support's ability to quickly close out tickets, their low qualitative engagement and repetitive pain points signal a stagnant satisfaction trend, presenting a potential churn risk if these administrative friction points are not permanently streamlined.</p>
+                        </div>
+                    </div><!-- /view-requester-analysis -->
+
+                    <!-- Reply composer (shared — always visible) -->
+                    <div class="px-7 pb-5">
+                        <div class="flex gap-[30px] items-start">
                             <img src="https://i.pravatar.cc/36?img=7" alt="Sakthi" class="shrink-0 w-7 h-7 rounded-full object-cover" />
                         <div id="reply-composer" class="flex-1 min-w-0 bg-white border border-[#c1e2ff] rounded-[10px] transition-colors">
 
@@ -1446,189 +1737,293 @@
                             </div><!-- /expanded -->
                         </div><!-- /reply-composer -->
                         </div><!-- /composer wrapper -->
-
-                    </div><!-- /threads -->
+                    </div><!-- /reply-composer outer -->
 
                 </div><!-- /conversation column -->
 
-                <!-- ── Properties panel (205px, toggleable) ── -->
-                <div id="panel-properties" data-companion="#btn-expand-props" class="flex flex-col w-[205px] shrink-0 border-l border-[#d1d5dc] overflow-y-auto relative bg-white">
-                    <!-- Status header with collapse button -->
-                    <div class="px-[10px] py-2.5 border-b border-[#dbdbdb]">
-                        <div class="flex items-center justify-between">
-                            <p class="text-[14px] font-medium text-[#4a5565]">Closed</p>
+                <!-- ── Properties panel (220px, toggleable) ── -->
+                <div id="panel-properties" data-companion="#btn-expand-props" class="flex flex-col w-[230px] shrink-0 overflow-hidden bg-white">
+                <div class="flex-1 overflow-y-auto relative">
+
+                    <!-- ── Status + SLA section ── -->
+                    <div class="px-4 pt-4 pb-3">
+                        <!-- Status row -->
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[16px] font-semibold text-[#1e293b]">Open</span>
                             <button data-toggle="panel" data-target="#panel-properties"
-                                    class="flex items-center justify-center w-5 h-5 text-[#6a7282] hover:text-[#333] cursor-pointer bg-transparent border-none transition-colors" title="Collapse properties" aria-expanded="true">
-                                <i class="fa-solid fa-outdent text-[10px]" aria-hidden="true"></i>
+                                    class="flex items-center justify-center w-6 h-6 text-[#6a7282] hover:text-[#333] cursor-pointer bg-transparent border-none transition-colors" title="Collapse properties" aria-expanded="true">
+                                <i class="fa-solid fa-outdent text-[13px]" aria-hidden="true"></i>
                             </button>
                         </div>
-                        <p class="text-[12px] text-[#4a5565] mt-0.5">on Jun 5, 2026 9:49 AM</p>
+
+                        <!-- First response overdue -->
+                        <div class="flex items-start gap-2.5 mb-3">
+                            <div class="shrink-0 w-5 h-5 rounded-full bg-[#ffe4e6] flex items-center justify-center mt-0.5">
+                                <i class="fa-solid fa-rotate-left text-[11px] text-[#f43f5e]" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <p class="text-[12px] font-normal text-[#64748b] leading-[18px] mb-0.5">First response overdue by 2 days</p>
+                                <p class="text-[12px] text-[#334155] mb-0">Mon 29 Jun 2026, 10:00 am</p>
+                            </div>
+                        </div>
+
+                        <!-- Resolution due -->
+                        <div class="flex items-start gap-2.5">
+                            <div class="shrink-0 w-5 h-5 rounded-full bg-[#dcfce7] flex items-center justify-center mt-0.5">
+                                <i class="fa-regular fa-clock text-[11px] text-[#16a34a]" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-[12px] font-normal text-[#64748b] leading-[18px] mb-0.5">Resolution due in a day</p>
+                                <div class="flex items-center gap-1.5">
+                                    <p class="text-[12px] text-[#334155] mb-0">Thu 02 Jul 2026, 01:01 pm</p>
+                                    <button class="text-[#3da6d7] bg-transparent border-none cursor-pointer p-0 hover:text-[#276cf0] transition-colors" title="Edit">
+                                        <i class="fa-regular fa-pen-to-square text-[11px]" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Properties label -->
-                    <p class="text-[14px] font-medium text-[#4a5565] px-[10px] pt-[10px] pb-1">Properties</p>
-                    <!-- Fields -->
-                    <div class="px-[10px] flex flex-col gap-4 pb-[60px]">
+
+                    <!-- Divider -->
+                    <div class="border-t border-[#e2e8f0] mx-4"></div>
+
+                    <!-- ── Properties section ── -->
+                    <div class="px-4 pt-0 flex flex-col gap-3 pb-4">
+
+                        <!-- Sentinel for sticky shadow detection -->
+                        <div id="props-sticky-sentinel" class="h-px -mt-px"></div>
+                        <!-- Section heading -->
+                        <p id="props-heading" class="sticky top-0 text-[12px] font-bold text-[#94a3b8] tracking-widest uppercase mb-0 bg-white py-2.5 -mx-4 px-4 z-10 transition-shadow duration-150">Properties</p>
+
                         <!-- Tags -->
                         <div class="flex flex-col gap-1">
                             <label class="text-[12px] text-[#4a5565]">Tags</label>
-                            <div class="h-[37px] flex items-center px-3 rounded-[10px] border border-[#d1d5dc] bg-white cursor-text">
-                                <span class="text-[12px] text-[#6a7282]">Search tags to add</span>
+                            <div class="h-[34px] flex items-center px-3 rounded-[8px] border border-[#d1d5dc] bg-white cursor-text">
+                                <span class="text-[12px] text-[#94a3b8]">Search tags to add</span>
                             </div>
                         </div>
+
                         <!-- Type -->
                         <div class="flex flex-col gap-1">
                             <label class="text-[12px] text-[#4a5565]">Type</label>
-                            <div class="h-[37px] flex items-center justify-between px-3 rounded-[10px] border border-[#d1d5dc] bg-white cursor-pointer">
-                                <span class="text-[12px] text-[#6a7282]">- -</span>
-                                <i class="fa-solid fa-chevron-down text-[8px] text-[#6a7282]" aria-hidden="true"></i>
+                            <div class="h-[34px] flex items-center justify-between px-3 rounded-[8px] border border-[#d1d5dc] bg-white cursor-pointer">
+                                <span class="text-[12px] text-[#94a3b8]">--</span>
+                                <i class="fa-solid fa-chevron-down text-[8px] text-[#94a3b8]" aria-hidden="true"></i>
                             </div>
                         </div>
+
                         <!-- Status -->
                         <div class="flex flex-col gap-1">
                             <label class="text-[12px] text-[#4a5565]">Status <span class="text-[#e43538]">*</span></label>
-                            <div class="h-[37px] flex items-center justify-between px-3 rounded-[10px] border border-[#d1d5dc] bg-white cursor-pointer">
-                                <span class="text-[12px] text-[#6a7282]">Open</span>
-                                <i class="fa-solid fa-chevron-down text-[8px] text-[#6a7282]" aria-hidden="true"></i>
+                            <div class="h-[34px] flex items-center justify-between px-3 rounded-[8px] border border-[#d1d5dc] bg-white cursor-pointer">
+                                <span class="text-[12px] text-[#1e293b]">Open</span>
+                                <i class="fa-solid fa-chevron-down text-[8px] text-[#94a3b8]" aria-hidden="true"></i>
                             </div>
                         </div>
+
                         <!-- Priority -->
                         <div class="flex flex-col gap-1">
                             <label class="text-[12px] text-[#4a5565]">Priority</label>
-                            <div class="h-[37px] flex items-center gap-2 px-3 rounded-[10px] border border-[#d1d5dc] bg-white cursor-pointer">
-                                <span class="w-2.5 h-2.5 rounded-full bg-[#22c55e] shrink-0"></span>
-                                <span class="text-[12px] text-[#525252] flex-1">Low</span>
-                                <i class="fa-solid fa-chevron-down text-[8px] text-[#6a7282]" aria-hidden="true"></i>
+                            <div class="h-[34px] flex items-center gap-2 px-3 rounded-[8px] border border-[#d1d5dc] bg-white cursor-pointer">
+                                <span class="w-2.5 h-2.5 rounded-sm bg-[#22c55e] shrink-0"></span>
+                                <span class="text-[12px] text-[#1e293b] flex-1">Low</span>
+                                <i class="fa-solid fa-chevron-down text-[8px] text-[#94a3b8]" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <!-- Groups -->
+
+                        <!-- Group -->
                         <div class="flex flex-col gap-1">
-                            <label class="text-[12px] text-[#4a5565]">Groups</label>
-                            <div class="h-[37px] flex items-center justify-between px-3 rounded-[10px] border border-[#d1d5dc] bg-white cursor-pointer">
-                                <span class="text-[12px] text-[#6a7282]">No groups found</span>
-                                <i class="fa-solid fa-chevron-down text-[8px] text-[#6a7282]" aria-hidden="true"></i>
+                            <label class="text-[12px] text-[#4a5565]">Group</label>
+                            <div class="h-[34px] flex items-center px-3 rounded-[8px] border border-[#d1d5dc] bg-[#f8fafc] cursor-not-allowed">
+                                <span class="text-[12px] text-[#94a3b8]">No groups found</span>
                             </div>
                         </div>
-                        <!-- Agent -->
+
+                        <!-- Source -->
                         <div class="flex flex-col gap-1">
-                            <label class="text-[12px] text-[#4a5565]">Agent</label>
-                            <div class="h-[37px] flex items-center justify-between px-3 rounded-[10px] border border-[#d1d5dc] bg-white cursor-pointer">
-                                <span class="text-[12px] text-[#6a7282]">My self</span>
-                                <i class="fa-solid fa-chevron-down text-[8px] text-[#6a7282]" aria-hidden="true"></i>
+                            <label class="text-[12px] text-[#4a5565]">Source</label>
+                            <div class="h-[34px] flex items-center justify-between px-3 rounded-[8px] border border-[#d1d5dc] bg-white cursor-pointer">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-regular fa-envelope text-[11px] text-[#64748b]" aria-hidden="true"></i>
+                                    <span class="text-[12px] text-[#1e293b]">Email</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down text-[8px] text-[#94a3b8]" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <!-- Product -->
+
+                        <!-- Department -->
                         <div class="flex flex-col gap-1">
-                            <label class="text-[12px] text-[#4a5565]">Product</label>
-                            <div class="h-[37px] flex items-center justify-between px-3 rounded-[10px] border border-[#d1d5dc] bg-white cursor-pointer">
-                                <span class="text-[12px] text-[#6a7282]">Example</span>
-                                <i class="fa-solid fa-chevron-down text-[8px] text-[#6a7282]" aria-hidden="true"></i>
+                            <label class="text-[12px] text-[#4a5565]">Department</label>
+                            <div class="h-[34px] flex items-center justify-between px-3 rounded-[8px] border border-[#d1d5dc] bg-white cursor-pointer">
+                                <span class="text-[12px] text-[#94a3b8]">--</span>
+                                <i class="fa-solid fa-chevron-down text-[8px] text-[#94a3b8]" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <!-- Reference number -->
+
+                        <!-- Due Date -->
                         <div class="flex flex-col gap-1">
-                            <label class="text-[12px] text-[#4a5565]">Reference number</label>
-                            <div class="h-[37px] flex items-center px-3 rounded-[10px] border border-[#d1d5dc] bg-white">
-                                <span class="text-[12px] text-[#6a7282]">&nbsp;</span>
+                            <label class="text-[12px] text-[#4a5565]">Due Date</label>
+                            <div class="h-[34px] flex items-center justify-between px-3 rounded-[8px] border border-[#d1d5dc] bg-white cursor-pointer">
+                                <span class="text-[12px] text-[#94a3b8]">Select date</span>
+                                <i class="fa-regular fa-calendar text-[11px] text-[#94a3b8]" aria-hidden="true"></i>
                             </div>
                         </div>
+
+                        <!-- CC / Followers -->
+                        <div class="flex flex-col gap-1">
+                            <label class="text-[12px] text-[#4a5565]">CC / Followers</label>
+                            <div class="min-h-[34px] flex items-center px-3 rounded-[8px] border border-[#d1d5dc] bg-white cursor-text flex-wrap gap-1 py-1">
+                                <span class="text-[12px] text-[#94a3b8]">Add email</span>
+                            </div>
+                        </div>
+
                     </div>
-                    <!-- Apply button (sticky bottom) -->
-                    <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-[#d1d5dc] px-5 py-2.5">
-                        <button class="w-full h-[37px] rounded-[10px] bg-[rgba(61,166,215,0.4)] text-white text-[14px] font-semibold cursor-pointer border-none hover:bg-[#3da6d7] transition-colors">
-                            Apply
+
+                </div><!-- /scrollable content -->
+
+                    <!-- Update button (sticky bottom) -->
+                    <div class="shrink-0 bg-white border-t border-[#e2e8f0] px-4 py-3">
+                        <button class="w-full h-[38px] rounded-[8px] bg-[#7b9ee8] text-white text-[13px] font-semibold cursor-pointer border-none hover:bg-[#4e7de0] transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-sync-alt text-[12px]" aria-hidden="true"></i>
+                            Update
                         </button>
                     </div>
+
                 </div><!-- /properties panel -->
 
                 <!-- ── Contact info panel (200px, toggled by ≡ button) ── -->
-                <div id="panel-contact-info" data-persistent class="flex flex-col w-[200px] shrink-0 border-l border-[#d1d5dc] overflow-y-auto bg-white">
+                <div id="panel-contact-info" data-persistent class="flex flex-col w-[270px] shrink-0 border-l border-[#d1d5dc] overflow-y-auto bg-white">
 
-                    <!-- Section: Contact info -->
+                    <!-- Accordion: Contact Info -->
                     <div class="border-b border-[#d1d5dc]">
                         <button data-acc-toggle data-acc-target="#csec-contact"
-                                class="w-full flex items-center justify-between px-3 py-2.5 cursor-pointer bg-transparent border-none text-left" aria-expanded="false">
+                                class="w-full flex items-center justify-between px-3 py-3 cursor-pointer bg-transparent border-none text-left" aria-expanded="false">
                             <div class="flex items-center gap-1.5 min-w-0">
                                 <i class="fa-solid fa-user text-[11px] text-[#6a7282] shrink-0" aria-hidden="true"></i>
-                                <span class="text-[13px] font-semibold text-[#4a5565] truncate">Contact info</span>
+                                <span class="text-[13px] font-bold text-[#374151] truncate">Contact Info</span>
                             </div>
-                            <div class="flex items-center gap-1.5 shrink-0">
-                                <span class="text-[12px] text-[#3da6d7] font-medium">Edit</span>
-                                <i class="fa-solid fa-chevron-down text-[9px] text-[#6a7282] acc-chevron" aria-hidden="true"></i>
-                            </div>
+                            <i class="fa-solid fa-chevron-down text-[9px] text-[#6a7282] acc-chevron shrink-0" aria-hidden="true"></i>
                         </button>
-                        <div id="csec-contact" class="hidden px-3 pb-3">
-                            <div class="flex items-center gap-2.5 mb-3">
-                                <div class="w-9 h-9 rounded-full bg-[#dbeafe] flex items-center justify-center shrink-0 text-sm font-bold text-[#2563eb] select-none">B</div>
-                                <div class="min-w-0">
-                                    <p class="text-[12px] font-semibold text-[#333] leading-5 truncate">Bob Tree</p>
-                                    <p class="text-[11px] text-[#6a7282] leading-4 truncate">Faveo Helpdesk</p>
+                        <div id="csec-contact" class="hidden px-3 pt-1 pb-3">
+                            <!-- Avatar + Name -->
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-11 h-11 rounded-full bg-[#f5cba7] flex items-center justify-center shrink-0 text-[16px] font-bold text-[#a0522d] select-none">B</div>
+                                <p class="text-[15px] font-bold text-[#3da6d7] leading-5 truncate mb-0">Bob Tree</p>
+                            </div>
+                            <!-- Email field -->
+                            <div class="mb-2.5">
+                                <p class="text-[11px] text-[#6a7282] mb-0.5">Email</p>
+                                <div class="flex items-center justify-between gap-1">
+                                    <p class="text-[13px] font-bold text-[#4a5565] truncate mb-0">myself@faveo.com</p>
+                                    <button class="shrink-0 text-[#6a7282] hover:text-[#4a5565] bg-transparent border-none cursor-pointer p-0.5" title="Copy email">
+                                        <i class="fa-regular fa-copy text-[13px]" aria-hidden="true"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fa-solid fa-briefcase text-[10px] text-[#6a7282] w-3 shrink-0" aria-hidden="true"></i>
-                                <span class="text-[11px] text-[#4a5565]">CEO</span>
+                            <!-- Phone field -->
+                            <div class="mb-3">
+                                <p class="text-[11px] text-[#6a7282] mb-0.5">Phone</p>
+                                <div class="flex items-center justify-between gap-1">
+                                    <p class="text-[13px] font-bold text-[#4a5565] truncate mb-0">+91 1234567809</p>
+                                    <button class="shrink-0 text-[#6a7282] hover:text-[#4a5565] bg-transparent border-none cursor-pointer p-0.5" title="Copy phone">
+                                        <i class="fa-regular fa-copy text-[13px]" aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fa-solid fa-envelope text-[10px] text-[#6a7282] w-3 shrink-0" aria-hidden="true"></i>
-                                <span class="text-[11px] text-[#3da6d7] truncate">myself@faveo.com</span>
-                            </div>
-                            <div class="flex items-center gap-2 mb-3">
-                                <i class="fa-solid fa-phone text-[10px] text-[#6a7282] w-3 shrink-0" aria-hidden="true"></i>
-                                <span class="text-[11px] text-[#4a5565] truncate">+91 1234567809</span>
-                            </div>
-                            <a href="#" class="text-[11px] text-[#3da6d7] font-medium no-underline hover:underline">View more info</a>
+                            <!-- View more info -->
+                            <a href="#" class="inline-flex items-center gap-1.5 text-[12px] text-[#3da6d7] font-medium no-underline hover:underline">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+                                View more info
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Section: Recent timeline -->
+                    <!-- Accordion: Recent Tickets -->
                     <div class="border-b border-[#d1d5dc]">
-                        <button data-acc-toggle data-acc-target="#csec-timeline"
-                                class="w-full flex items-center justify-between px-3 py-2.5 cursor-pointer bg-transparent border-none text-left" aria-expanded="false">
+                        <button data-acc-toggle data-acc-target="#csec-recent-tickets"
+                                class="w-full flex items-center justify-between px-3 py-3 cursor-pointer bg-transparent border-none text-left" aria-expanded="false">
                             <div class="flex items-center gap-1.5 min-w-0">
-                                <i class="fa-solid fa-clock-rotate-left text-[11px] text-[#6a7282] shrink-0" aria-hidden="true"></i>
-                                <span class="text-[13px] font-semibold text-[#4a5565] truncate">Recent timeline</span>
+                                <i class="fa-solid fa-ticket text-[11px] text-[#6a7282] shrink-0" aria-hidden="true"></i>
+                                <span class="text-[13px] font-bold text-[#374151] truncate">Recent Tickets</span>
                             </div>
                             <i class="fa-solid fa-chevron-down text-[9px] text-[#6a7282] acc-chevron shrink-0" aria-hidden="true"></i>
                         </button>
-                        <div id="csec-timeline" class="hidden px-3 pb-3">
-                            <p class="text-[12px] font-medium text-[#3da6d7] truncate mb-0.5">Issues with reports</p>
-                            <p class="text-[11px] text-[#4a5565] mb-0.5">#3 · 26 May 2026</p>
-                            <span class="inline-flex items-center px-1.5 py-px rounded text-[10px] font-medium bg-[#dcfce7] text-[#16a34a]">Closed</span>
+                        <div id="csec-recent-tickets" class="hidden px-3 pb-3">
+                            <div class="flex flex-col gap-3">
+
+                                <!-- Ticket 1 — Closed -->
+                                <div class="flex items-start gap-2 cursor-pointer group">
+                                    <i class="fa-solid fa-ticket text-[11px] text-[#4a5565] mt-0.5 shrink-0" aria-hidden="true"></i>
+                                    <div class="min-w-0">
+                                        <p class="text-[12px] font-medium text-[#4a5565] truncate mb-0 group-hover:underline">Issues with reports <span class="font-normal">#3</span></p>
+                                        <p class="text-[12px] text-[#6a7282] mb-0">Status: <span class="text-[#16a34a] font-medium">Closed</span></p>
+                                    </div>
+                                </div>
+
+                                <!-- Ticket 2 — Open -->
+                                <div class="flex items-start gap-2 cursor-pointer group">
+                                    <i class="fa-solid fa-ticket text-[11px] text-[#4a5565] mt-0.5 shrink-0" aria-hidden="true"></i>
+                                    <div class="min-w-0">
+                                        <p class="text-[12px] font-medium text-[#4a5565] truncate mb-0 group-hover:underline">Login page not loading <span class="font-normal">#7</span></p>
+                                        <p class="text-[12px] text-[#6a7282] mb-0">Status: <span class="text-[#ca8a04] font-medium">Open</span></p>
+                                    </div>
+                                </div>
+
+                                <!-- Ticket 3 — Overdue -->
+                                <div class="flex items-start gap-2 cursor-pointer group">
+                                    <i class="fa-solid fa-ticket text-[11px] text-[#4a5565] mt-0.5 shrink-0" aria-hidden="true"></i>
+                                    <div class="min-w-0">
+                                        <p class="text-[12px] font-medium text-[#4a5565] truncate mb-0 group-hover:underline">API rate limit exceeded <span class="font-normal">#12</span></p>
+                                        <p class="text-[12px] text-[#6a7282] mb-0">Status: <span class="text-[#cd2629] font-medium">Overdue</span></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-1 mt-3 text-[12px] text-[#3da6d7] font-medium no-underline hover:underline">
+                                <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                                View all tickets
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Section: Time logs -->
+                    <!-- Accordion: Apps -->
                     <div class="border-b border-[#d1d5dc]">
-                        <button data-acc-toggle data-acc-target="#csec-timelogs"
-                                class="w-full flex items-center justify-between px-3 py-2.5 cursor-pointer bg-transparent border-none text-left" aria-expanded="false">
+                        <button data-acc-toggle data-acc-target="#csec-apps"
+                                class="w-full flex items-center justify-between px-3 py-3 cursor-pointer bg-transparent border-none text-left" aria-expanded="false">
                             <div class="flex items-center gap-1.5 min-w-0">
-                                <i class="fa-regular fa-clock text-[11px] text-[#6a7282] shrink-0" aria-hidden="true"></i>
-                                <span class="text-[13px] font-semibold text-[#4a5565] truncate">Time logs</span>
+                                <i class="fa-solid fa-grip text-[11px] text-[#6a7282] shrink-0" aria-hidden="true"></i>
+                                <span class="text-[13px] font-bold text-[#374151] truncate">Apps</span>
                             </div>
                             <i class="fa-solid fa-chevron-down text-[9px] text-[#6a7282] acc-chevron shrink-0" aria-hidden="true"></i>
                         </button>
-                        <div id="csec-timelogs" class="hidden px-3 pb-3">
-                            <p class="text-[11px] text-[#6a7282] mb-2">Start tracking the time you spend on this ticket</p>
-                            <button class="px-2.5 py-1 rounded-[6px] border border-[#d1d5dc] text-[11px] font-medium text-[#4a5565] bg-white cursor-pointer hover:bg-[#f1f5f9] transition-colors">Log time</button>
-                        </div>
-                    </div>
-
-                    <!-- Section: Transaction -->
-                    <div>
-                        <button data-acc-toggle data-acc-target="#csec-transaction"
-                                class="w-full flex items-center justify-between px-3 py-2.5 cursor-pointer bg-transparent border-none text-left" aria-expanded="false">
-                            <div class="flex items-center gap-1.5 min-w-0">
-                                <i class="fa-solid fa-credit-card text-[11px] text-[#6a7282] shrink-0" aria-hidden="true"></i>
-                                <span class="text-[13px] font-semibold text-[#4a5565] truncate">Transaction</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-down text-[9px] text-[#6a7282] acc-chevron shrink-0" aria-hidden="true"></i>
-                        </button>
-                        <div id="csec-transaction" class="hidden px-3 pb-3">
-                            <div class="flex items-center gap-2">
-                                <i class="fa-brands fa-cc-visa text-lg text-[#1a1f71]" aria-hidden="true"></i>
-                                <div>
-                                    <p class="text-[11px] font-medium text-[#333]">**** **** **** 1234</p>
-                                    <p class="text-[10px] text-[#6a7282]">Expires March 2026</p>
+                        <div id="csec-apps" class="hidden px-3 pb-3">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center gap-2.5 p-2 rounded-[6px] border border-[#e2e8f0] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-7 h-7 rounded-[6px] bg-[#dbeafe] flex items-center justify-center shrink-0">
+                                        <i class="fa-brands fa-slack text-[13px] text-[#4a154b]" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="text-[13px] font-medium text-[#4a5565] mb-0">Slack</p>
+                                        <p class="text-[13px] text-[#6a7282] mb-0">Connected</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2.5 p-2 rounded-[6px] border border-[#e2e8f0] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-7 h-7 rounded-[6px] bg-[#fef9c3] flex items-center justify-center shrink-0">
+                                        <i class="fa-brands fa-jira text-[13px] text-[#0052cc]" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="text-[13px] font-medium text-[#4a5565] mb-0">Jira</p>
+                                        <p class="text-[13px] text-[#6a7282] mb-0">Not connected</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2.5 p-2 rounded-[6px] border border-[#e2e8f0] hover:bg-[#f8fafc] cursor-pointer transition-colors">
+                                    <div class="w-7 h-7 rounded-[6px] bg-[#dcfce7] flex items-center justify-center shrink-0">
+                                        <i class="fa-brands fa-github text-[13px] text-[#24292f]" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="text-[13px] font-medium text-[#4a5565] mb-0">GitHub</p>
+                                        <p class="text-[13px] text-[#6a7282] mb-0">Connected</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1637,18 +2032,18 @@
                 </div><!-- /panel-contact-info -->
 
                 <!-- ── Icon strip (40px) ── -->
-                <div class="flex flex-col w-10 shrink-0 border-l border-[#d1d5dc] overflow-y-auto bg-white py-5">
-                    <button class="w-full aspect-square flex items-center justify-center text-[#4a5565] hover:bg-[#f1f5f9] transition-colors cursor-pointer bg-transparent border-none mb-1" title="Contact info">
+                <div id="ci-icon-strip" class="flex flex-col w-10 shrink-0 border-l border-[#d1d5dc] bg-white py-3 px-1 gap-0.5">
+                    <button data-open-ci-acc="#csec-contact"
+                            class="w-full aspect-square flex items-center justify-center text-[#6a7282] hover:bg-[#f1f5f9] hover:text-[#374151] transition-colors cursor-pointer bg-transparent border-none rounded-[6px]" title="Contact Info">
                         <i class="fa-solid fa-user text-sm" aria-hidden="true"></i>
                     </button>
-                    <button class="w-full aspect-square flex items-center justify-center text-[#4a5565] hover:bg-[#f1f5f9] transition-colors cursor-pointer bg-transparent border-none mb-1" title="Recent timeline">
-                        <i class="fa-solid fa-clock-rotate-left text-sm" aria-hidden="true"></i>
+                    <button data-open-ci-acc="#csec-recent-tickets"
+                            class="w-full aspect-square flex items-center justify-center text-[#6a7282] hover:bg-[#f1f5f9] hover:text-[#374151] transition-colors cursor-pointer bg-transparent border-none rounded-[6px]" title="Recent Tickets">
+                        <i class="fa-solid fa-ticket text-sm" aria-hidden="true"></i>
                     </button>
-                    <button class="w-full aspect-square flex items-center justify-center text-[#4a5565] hover:bg-[#f1f5f9] transition-colors cursor-pointer bg-transparent border-none mb-1" title="Time logs">
-                        <i class="fa-regular fa-clock text-sm" aria-hidden="true"></i>
-                    </button>
-                    <button class="w-full aspect-square flex items-center justify-center text-[#4a5565] hover:bg-[#f1f5f9] transition-colors cursor-pointer bg-transparent border-none" title="Transaction">
-                        <i class="fa-solid fa-credit-card text-sm" aria-hidden="true"></i>
+                    <button data-open-ci-acc="#csec-apps"
+                            class="w-full aspect-square flex items-center justify-center text-[#6a7282] hover:bg-[#f1f5f9] hover:text-[#374151] transition-colors cursor-pointer bg-transparent border-none rounded-[6px]" title="Apps">
+                        <i class="fa-solid fa-grip text-sm" aria-hidden="true"></i>
                     </button>
                 </div>
 
@@ -1874,6 +2269,139 @@
     <div data-dismiss="#panel-renew" class="flex-1 bg-black/20"></div>
 </div>
 
+<!-- ── Edit Ticket panel (fixed right drawer) ── -->
+<div id="panel-edit-ticket" role="dialog" aria-modal="true" aria-label="Edit contact" class="hidden fixed inset-0 z-[150] flex justify-end">
+    <!-- Transparent backdrop — blocks clicks on the page, no color -->
+    <div class="flex-1"></div>
+    <!-- Drawer -->
+    <div class="flex flex-col w-[610px] h-full bg-white rounded-tl-[20px] shadow-[-4px_0px_16px_rgba(0,0,0,0.15)]">
+
+    <!-- Header -->
+    <div class="flex items-center gap-3 px-6 py-4 border-b border-[#e5e7eb] shrink-0">
+        <i class="fa-solid fa-user text-[#6a7282] text-[16px]" aria-hidden="true"></i>
+        <h2 class="flex-1 text-[16px] font-semibold text-[#1e293b] mb-0">Edit contact</h2>
+        <button data-dismiss="#panel-edit-ticket" aria-label="Close" class="w-7 h-7 flex items-center justify-center rounded-full text-[#6a7282] hover:bg-[#f1f5f9] cursor-pointer border-none bg-transparent transition-colors">
+            <i class="fa-solid fa-xmark text-[15px]" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- Scrollable body -->
+    <div class="flex-1 overflow-y-auto px-5 py-3 flex flex-col">
+
+        <!-- Email -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Email</label>
+            <input type="email" value="bob.tree@faveohelpdesk.com" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors" />
+        </div>
+
+        <!-- Mobile phone -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Mobile phone</label>
+            <input type="tel" placeholder="Enter mobile number" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors placeholder:text-[#cbcbcb]" />
+        </div>
+
+        <!-- Work phone -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Work phone</label>
+            <input type="tel" value="1234567809" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors" />
+        </div>
+
+        <!-- Unique external ID -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Unique external ID</label>
+            <input type="text" placeholder="Enter unique external ID" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors placeholder:text-[#cbcbcb]" />
+        </div>
+
+        <!-- Social handle -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Social handle</label>
+            <div class="flex gap-2.5">
+                <input type="text" placeholder="Enter ID" class="flex-1 min-w-0 border border-[#d1d5dc] rounded-[8px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors placeholder:text-[#cbcbcb]" />
+                <div class="relative shrink-0 w-[185px]">
+                    <select class="w-full border border-[#d1d5dc] rounded-[8px] pl-3 pr-7 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none appearance-none cursor-pointer focus:border-[#3da6d7] transition-colors">
+                        <option>Facebook</option>
+                        <option>Instagram</option>
+                        <option>Twitter</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down text-[9px] text-[#6a7282] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Name -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Full Name</label>
+            <input type="text" value="Bob tree" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors" />
+        </div>
+
+        <!-- Title -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Title</label>
+            <input type="text" value="CEO" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors" />
+        </div>
+
+        <!-- Other phone number -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Other phone number</label>
+            <input type="tel" placeholder="Enter phone number" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors placeholder:text-[#cbcbcb]" />
+        </div>
+
+        <!-- Address -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Address</label>
+            <textarea rows="3" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 py-2.5 text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors resize-none leading-relaxed">7, Stone hill, W 240St, IND</textarea>
+        </div>
+
+        <!-- Time zone -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Time zone</label>
+            <div class="relative">
+                <select class="w-full border border-[#d1d5dc] rounded-[8px] pl-3 pr-7 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none appearance-none cursor-pointer focus:border-[#3da6d7] transition-colors">
+                    <option selected>Indian Standard Time</option>
+                    <option>UTC</option>
+                    <option>Eastern Standard Time</option>
+                    <option>Pacific Standard Time</option>
+                </select>
+                <i class="fa-solid fa-chevron-down text-[9px] text-[#6a7282] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <!-- Language -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Language</label>
+            <div class="relative">
+                <select class="w-full border border-[#d1d5dc] rounded-[8px] pl-3 pr-7 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none appearance-none cursor-pointer focus:border-[#3da6d7] transition-colors">
+                    <option selected>English</option>
+                    <option>French</option>
+                    <option>Spanish</option>
+                    <option>German</option>
+                </select>
+                <i class="fa-solid fa-chevron-down text-[9px] text-[#6a7282] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">Tags</label>
+            <input type="text" placeholder="Your choice" class="w-full border border-[#d1d5dc] rounded-[10px] px-3 h-[37px] text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors placeholder:text-[#cbcbcb]" />
+        </div>
+
+        <!-- About -->
+        <div class="py-2.5">
+            <label class="block text-[12px] font-medium text-[#4a5565] px-0.5 mb-1.5">About</label>
+            <textarea rows="3" placeholder="Enter some text" class="w-full border border-[#d1d5dc] rounded-[8px] px-3 py-2.5 text-[12px] text-[#6a7282] bg-white outline-none focus:border-[#3da6d7] transition-colors resize-none leading-relaxed placeholder:text-[#cbcbcb]"></textarea>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-[#e5e7eb] shrink-0">
+        <button data-dismiss="#panel-edit-ticket" class="px-5 py-2 border border-[#d1d5dc] rounded-[8px] text-[#374151] text-[13px] font-medium cursor-pointer bg-white hover:bg-[#f1f5f9] transition-colors">Cancel</button>
+        <button class="px-6 py-2 bg-[#3da6d7] rounded-[8px] text-white text-[13px] font-medium cursor-pointer border-none hover:bg-[#2d8fb8] transition-colors">Save</button>
+    </div>
+
+    </div><!-- /drawer -->
+</div><!-- /panel-edit-ticket -->
 
 <script>
 (function () {
@@ -1998,6 +2526,82 @@
     })
 })()
 
+// ── Properties heading sticky shadow ─────────────────────────────────
+;(function () {
+    var sentinel = document.getElementById('props-sticky-sentinel')
+    var heading  = document.getElementById('props-heading')
+    if (!sentinel || !heading) return
+    new IntersectionObserver(function (entries) {
+        var stuck = !entries[0].isIntersecting
+        heading.style.boxShadow = stuck ? '0 2px 6px rgba(0,0,0,0.08)' : ''
+    }, { threshold: [1] }).observe(sentinel)
+})()
+
+// ── Activities / Requester Analysis toggle ────────────────────────────
+;(function () {
+    var viewThreads = document.getElementById('view-threads')
+    var viewAct     = document.getElementById('view-activities')
+    var viewRA      = document.getElementById('view-requester-analysis')
+    var btnAct      = document.getElementById('btn-activities')
+    var btnRA       = document.getElementById('btn-requester-analysis')
+    if (!viewThreads || !viewAct || !viewRA || !btnAct || !btnRA) return
+
+    function showView(view) {
+        viewThreads.classList.toggle('hidden', view !== 'threads')
+        viewAct.classList.toggle('hidden', view !== 'activities')
+        viewRA.classList.toggle('hidden', view !== 'requester-analysis')
+        btnAct.querySelector('span').textContent = view === 'activities' ? 'Hide Activities' : 'Activities'
+        btnRA.querySelector('span').textContent = view === 'requester-analysis' ? 'Hide Requester Analysis' : 'Requester Analysis'
+        btnAct.classList.toggle('bg-[#f1f5f9]', view === 'activities')
+        btnRA.classList.toggle('bg-[#f1f5f9]', view === 'requester-analysis')
+    }
+
+    btnAct.addEventListener('click', function () {
+        var isShowing = !viewAct.classList.contains('hidden')
+        showView(isShowing ? 'threads' : 'activities')
+    })
+
+    btnRA.addEventListener('click', function () {
+        var isShowing = !viewRA.classList.contains('hidden')
+        showView(isShowing ? 'threads' : 'requester-analysis')
+    })
+})()
+
+// ── Contact info icon strip ───────────────────────────────────────────
+;(function () {
+    var panel = document.getElementById('panel-contact-info')
+    var strip = document.getElementById('ci-icon-strip')
+    if (!panel || !strip) return
+
+    strip.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-open-ci-acc]')
+        if (!btn) return
+        var accId = btn.getAttribute('data-open-ci-acc')
+
+        // If panel is hidden, open it first via the toolbar toggle
+        if (panel.classList.contains('hidden')) {
+            var toggleBtn = document.querySelector('[data-target="#panel-contact-info"]')
+            if (toggleBtn) toggleBtn.click()
+        }
+
+        // Open accordion + scroll after panel is visible
+        setTimeout(function () {
+            var accBody = document.querySelector(accId)
+            var accBtn  = document.querySelector('[data-acc-target="' + accId + '"]')
+            if (accBody && accBody.classList.contains('hidden') && accBtn) {
+                accBtn.click()
+            }
+            // Scroll to the accordion header
+            if (accBtn) {
+                var targetTop = accBtn.getBoundingClientRect().top
+                    - panel.getBoundingClientRect().top
+                    + panel.scrollTop
+                panel.scrollTo({ top: targetTop, behavior: 'smooth' })
+            }
+        }, 50)
+    })
+})()
+
 // ── Quoted conversation toggle ────────────────────────────────────────
 document.addEventListener('click', function (e) {
     var btn = e.target.closest('[data-toggle-quote]')
@@ -2008,6 +2612,81 @@ document.addEventListener('click', function (e) {
     var isHidden = panel.classList.contains('hidden')
     panel.classList.toggle('hidden', !isHidden)
 })
+
+// ── Close dropdowns when Edit contact panel opens ─────────────────────
+;(function () {
+    var panel = document.getElementById('panel-edit-ticket')
+    if (!panel) return
+    new MutationObserver(function (mutations) {
+        mutations.forEach(function (m) {
+            if (m.attributeName === 'class' && !panel.classList.contains('hidden')) {
+                document.querySelectorAll('[data-toggle="dropdown"]').forEach(function (btn) {
+                    var menuId = btn.getAttribute('data-target')
+                    if (menuId) {
+                        var menu = document.querySelector(menuId)
+                        if (menu) menu.classList.add('hidden')
+                    }
+                    btn.classList.remove('dropdown-open')
+                    btn.setAttribute('aria-expanded', 'false')
+                })
+            }
+        })
+    }).observe(panel, { attributes: true })
+})()
+</script>
+
+<!-- ── Delete confirmation modal ──────────────────────────────────── -->
+<div id="modal-delete-ticket" class="hidden fixed inset-0 z-[200] flex justify-center items-start pt-0" role="dialog" aria-modal="true" aria-label="Delete ticket">
+    <!-- Transparent backdrop — blocks clicks, no colour -->
+    <div id="modal-delete-backdrop" class="absolute inset-0"></div>
+    <!-- Card -->
+    <div id="modal-delete-card" class="modal-slide-down relative z-10 w-[530px] bg-white rounded-[10px] shadow-[0px_4px_24px_rgba(0,0,0,0.18)] p-6">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="text-[18px] font-semibold text-[#1e293b] mb-0">Delete</h3>
+            <button id="btn-close-delete-modal" aria-label="Close" class="w-7 h-7 flex items-center justify-center rounded-full text-[#6a7282] hover:bg-[#f1f5f9] cursor-pointer border-none bg-transparent transition-colors">
+                <i class="fa-solid fa-xmark text-[15px]" aria-hidden="true"></i>
+            </button>
+        </div>
+        <!-- Body -->
+        <p class="text-[14px] text-[#4a5565] mb-6">Are you sure you want to delete this ticket?</p>
+        <!-- Footer -->
+        <div class="flex items-center justify-end gap-3">
+            <button id="btn-cancel-delete-modal" class="px-5 py-2 border border-[#d1d5dc] rounded-[6px] text-[#374151] text-[13px] font-medium cursor-pointer bg-white hover:bg-[#f1f5f9] transition-colors">Cancel</button>
+            <button class="px-5 py-2 bg-[#3da6d7] rounded-[6px] text-white text-[13px] font-medium cursor-pointer border-none hover:bg-[#2d8fb8] transition-colors">Delete</button>
+        </div>
+    </div>
+</div>
+<script>
+;(function () {
+    var modal     = document.getElementById('modal-delete-ticket')
+    var card      = document.getElementById('modal-delete-card')
+    var openBtn   = document.getElementById('btn-open-delete-modal')
+    var closeBtn  = document.getElementById('btn-close-delete-modal')
+    var cancelBtn = document.getElementById('btn-cancel-delete-modal')
+    var backdrop  = document.getElementById('modal-delete-backdrop')
+    if (!modal || !card) return
+
+    function openModal() {
+        document.querySelectorAll('[data-toggle="dropdown"]').forEach(function (btn) {
+            var menuId = btn.getAttribute('data-target')
+            if (menuId) { var m = document.querySelector(menuId); if (m) m.classList.add('hidden') }
+            btn.classList.remove('dropdown-open')
+            btn.setAttribute('aria-expanded', 'false')
+        })
+        card.classList.remove('modal-slide-down')
+        void card.offsetWidth
+        card.classList.add('modal-slide-down')
+        modal.classList.remove('hidden')
+    }
+
+    function closeModal() { modal.classList.add('hidden') }
+
+    if (openBtn)   openBtn.addEventListener('click', openModal)
+    if (closeBtn)  closeBtn.addEventListener('click', closeModal)
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal)
+    if (backdrop)  backdrop.addEventListener('click', closeModal)
+})()
 </script>
 
 </body>
